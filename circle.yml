@@ -1,0 +1,29 @@
+version: 2
+
+jobs:
+  build:
+    working_directory: ~/eslint-config-phanective
+    docker:
+      - image: phanect/ci-eslint-config-phanective
+    steps:
+      - run:
+          name: System Update
+          command: |
+            sudo apt-get update -qq
+            DEBIAN_FRONTEND=noninteractive sudo apt-get dist-upgrade --yes
+
+            # TODO Update npm when this issue is fixed: https://github.com/npm/npm/issues/15558
+            # sudo npm install --global npm
+
+      # Test
+      - checkout
+      - run: yarn install
+      - run: npm test
+
+      - deploy:
+          command: |
+            if [[ "${CIRCLE_BRANCH}" = "master" ]]; then
+              git clean -dX --force # Remove files written in .gitignore so they are not included in package
+              echo -e "phanect\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
+              npm publish . --access public
+            fi
