@@ -1,0 +1,15 @@
+{
+  "name": "@phanect/eslint-config-phanective",
+  "version": "2017.6.19",
+  "description": "ESLint configuration for Jumpei Ogawa (@phanect)'s private projects",
+  "main": "config.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:phanect/eslint-config-phanective.git"
+  },
+  "author": "Jumpei Ogawa",
+  "license": "CC0-1.0",
+  "engines": {
+    "node": ">=4.x"
+  }
+}
