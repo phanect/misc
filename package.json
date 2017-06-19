@@ -3,6 +3,9 @@
   "version": "2017.6.19",
   "description": "ESLint configuration for Jumpei Ogawa (@phanect)'s private projects",
   "main": "config.js",
+  "scripts": {
+    "test": "$(npm bin)/eslint ."
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:phanect/eslint-config-phanective.git"
@@ -11,5 +14,8 @@
   "license": "CC0-1.0",
   "engines": {
     "node": ">=4.x"
+  },
+  "devDependencies": {
+    "eslint": "^4.0.0"
   }
 }
