@@ -16,5 +16,6 @@ module.exports = {
 
   rules: {
     "comma-dangle": ["error", "always-multiline"],
+    "quotes":       ["warn", "double"],
   },
 };
