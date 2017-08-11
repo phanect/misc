@@ -3,7 +3,7 @@
 RED="\033[0;31m"
 NC="\033[0m" # No Color
 
-$(npm bin)/eslint .
+npx eslint .
 
 # version in package.json shouldn't be existing version on npmjs.com
 NEW_VERSION="$(cat package.json | jq --raw-output ".version")"
