@@ -42,9 +42,9 @@ module.exports = {
     "quotes": ["warn", "double"],
     "space-before-blocks": ["warn", "always"],
     "space-before-function-paren": ["warn", {
-        "anonymous": "never",
-        "named": "never",
-        "asyncArrow": "always",
+      "anonymous": "never",
+      "named": "never",
+      "asyncArrow": "always",
     }],
     "space-in-parens": ["warn", "never"],
     "spaced-comment": ["warn", "always"],
