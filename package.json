@@ -1,6 +1,6 @@
 {
   "name": "@phanect/eslint-config-phanective",
-  "version": "2017.8.11",
+  "version": "2017.8.20",
   "description": "ESLint configuration for Jumpei Ogawa (@phanect)'s private projects",
   "main": "config.js",
   "scripts": {
@@ -16,6 +16,6 @@
     "node": ">=4.x"
   },
   "devDependencies": {
-    "eslint": "^4.0.0"
+    "eslint": "latest"
   }
 }
