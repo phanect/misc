@@ -5,6 +5,7 @@ export = {
     "indent": [true, "spaces", 2],
     "no-trailing-whitespace": true, // Not warning to keep diff in commit log readable
     "no-var-keyword": true,
+    "semicolon": [true, "always"],
     "ter-indent": [true, 2, { "VariableDeclarator": { "var": 2, "let": 2, "const": 3 }}],
     "trailing-comma": [true, {"multiline": "always"}],
 
@@ -17,10 +18,13 @@ export = {
     // These are just a preference in coding style.
     // Following rules doesn't reduce quality or readability
     //
+    "array-bracket-spacing": [ true, "always", { arraysInArrays: false, objectsInArrays: false }],
     "brace-style": [true, "1tbs" ],
     "comment-format": [true, "check-space"],
     "newline-before-return": true,
-    "no-multi-spaces": true,
+    "no-multi-spaces": [ true, { exceptions: { PropertyAssignment: true }}],
+    "object-literal-key-quotes": [true, "as-needed"],
+    "one-variable-per-declaration": true,
     "quotemark": [true, "double", "avoid-escape"],
     "space-in-parens": [true, "never"],
     "ter-prefer-arrow-callback": true,
@@ -32,6 +36,7 @@ export = {
     //   { blankLine: "always", prev: "let", next: "*" },
     //   { blankLine: "always", prev: "var", next: "*" },
     // ],
+    // "object-curly-spacing": [ true, "always", { arraysInObjects: false, objectsInObjects: false } ], // arraysInObjects & objectsInObjects options are not available yet
     // "one-var-declaration-per-line": ["warn", "initializations"],
     // "space-before-blocks": ["warn", "always"],
     // "space-before-function-paren": ["warn", {

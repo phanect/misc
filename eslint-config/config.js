@@ -20,6 +20,7 @@ module.exports = {
     "no-trailing-spaces": "error", // Not warning to keep diff in commit log readable
     "no-whitespace-before-property": "error",
     "no-var": "error",
+    "semi": [ "error", "always" ],
     "unicode-bom": ["error", "never"],
 
     //
@@ -27,8 +28,9 @@ module.exports = {
     // These are just a preference in coding style.
     // Following rules doesn't reduce quality or readability
     //
+    "array-bracket-spacing": [ "warn", "always", { arraysInArrays: false, objectsInArrays: false }],
     "brace-style": "warn",
-    "no-multi-spaces": "warn",
+    "no-multi-spaces": [ "warn", { ignoreEOLComments: true, exceptions: { Property: true }}],
     "padding-line-between-statements": [
       "warn",
       { blankLine: "always", prev: "*", next: "return" },
@@ -36,8 +38,11 @@ module.exports = {
       { blankLine: "always", prev: "let", next: "*" },
       { blankLine: "always", prev: "var", next: "*" },
     ],
+    "object-curly-spacing": [ "warn", "always", { arraysInObjects: false, objectsInObjects: false }],
+    "one-var": ["warn", "always"],
     "one-var-declaration-per-line": ["warn", "initializations"],
     "prefer-arrow-callback": "warn",
+    "quote-props": ["warn", "as-needed"],
     "quotes": ["warn", "double"],
     "space-before-blocks": ["warn", "always"],
     "space-before-function-paren": ["warn", {
