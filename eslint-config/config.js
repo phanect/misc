@@ -36,7 +36,6 @@ module.exports = {
       { blankLine: "always", prev: "*", next: "return" },
       { blankLine: "always", prev: "const", next: "*" },
       { blankLine: "always", prev: "let", next: "*" },
-      { blankLine: "always", prev: "var", next: "*" },
     ],
     "object-curly-spacing": [ "warn", "always", { arraysInObjects: false, objectsInObjects: false }],
     "one-var": ["warn", "always"],
