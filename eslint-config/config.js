@@ -33,9 +33,15 @@ module.exports = {
     "no-multi-spaces": [ "warn", { ignoreEOLComments: true, exceptions: { Property: true }}],
     "padding-line-between-statements": [
       "warn",
+      // Blank line before return
       { blankLine: "always", prev: "*", next: "return" },
+      // Blank line after variable declarations
       { blankLine: "always", prev: "const", next: "*" },
       { blankLine: "always", prev: "let", next: "*" },
+      // No blank lines between variable declarations (e.g. between const & let)
+      { blankLine: "any",    prev: ["const", "let"], next: ["const", "let"] },
+      { blankLine: "any",    prev: ["const", "let"], next: ["const", "let"] },
+      { blankLine: "any",    prev: ["const", "let"], next: ["const", "let"] },
     ],
     "object-curly-spacing": [ "warn", "always", { arraysInObjects: false, objectsInObjects: false }],
     "one-var": ["warn", "always"],
