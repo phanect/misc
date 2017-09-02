@@ -25,5 +25,5 @@ jobs:
             if [[ "${CIRCLE_BRANCH}" = "master" ]]; then
               git clean -dX --force # Remove files written in .gitignore so they are not included in package
               echo -e "phanect\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
-              npm publish . --access public
+              npm publish ./eslint-config --access public
             fi
