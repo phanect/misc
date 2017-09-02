@@ -26,4 +26,5 @@ jobs:
               git clean -dX --force # Remove files written in .gitignore so they are not included in package
               echo -e "phanect\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
               npm publish ./eslint-config --access public
+              npm publish ./tslint-config --access public
             fi
