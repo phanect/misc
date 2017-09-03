@@ -1,6 +1,0 @@
-{
-  "extends": "./eslint-config/config.js",
-  "env": {
-    "node": true
-  }
-}

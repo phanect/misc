@@ -15,12 +15,21 @@ jobs:
             # TODO Update npm when this issue is fixed: https://github.com/npm/npm/issues/15558
             # sudo npm install --global npm
 
-      # Test
       - checkout
-      - run: yarn install
-      - run: (cd tslint-config && yarn install && yarn run build)
-      - run: npx eslint .
-      - run: npx tslint *.ts
+      # Build & Lint
+      - run: |
+          (
+            cd eslint-config && \
+            yarn install && \
+            npx eslint .
+          )
+      - run: |
+          (
+            cd tslint-config && \
+            yarn install && \
+            yarn run build && \
+            npx tslint *.ts
+          )
 
       - deploy:
           command: |
