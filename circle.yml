@@ -18,12 +18,28 @@ jobs:
       # Test
       - checkout
       - run: yarn install
-      - run: npm test
+      - run: npx eslint .
 
       - deploy:
           command: |
-            if [[ "${CIRCLE_BRANCH}" = "master" ]]; then
+            if [[ -n "${CIRCLE_TAG}" ]]; then
+              check_version () {
+                local linter="$1"
+
+                NEW_VERSION="$(cat "$SCRIPT_DIR/$linter-config/package.json" | jq --raw-output ".version")"
+                if [[ -n "$(npm view "@phanect/$linter-config-phanective@$NEW_VERSION")" ]]; then
+                  echo -e "$RED@phanect/$linter-config-phanective@$NEW_VERSION already exists. Did you update version in package.json?$NC\n" > /dev/stderr
+                  exit 1
+                fi
+              }
+
+              check_version "eslint"
+              check_version "tslint"
+
               git clean -dX --force # Remove files written in .gitignore so they are not included in package
+
               echo -e "phanect\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
-              npm publish . --access public
+
+              npm publish ./eslint-config --access public
+              npm publish ./tslint-config --access public
             fi

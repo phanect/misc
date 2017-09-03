@@ -1,0 +1,23 @@
+{
+  "name": "@phanect/tslint-config-phanective",
+  "version": "2017.9.3",
+  "description": "",
+  "main": "config.js",
+  "scripts": {
+    "test": "npx eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phanect/tslint-config-phanective.git"
+  },
+  "keywords": [
+    "tslint",
+    "tslint-config"
+  ],
+  "author": "Jumpei Ogawa",
+  "license": "CC-0",
+  "bugs": {
+    "url": "https://github.com/phanect/tslint-config-phanective/issues"
+  },
+  "homepage": "https://github.com/phanect/tslint-config-phanective#readme"
+}
