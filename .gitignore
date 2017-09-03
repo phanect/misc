@@ -27,3 +27,8 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Lock files: Always install latest ESLint/TSLint and related packages
+npm-shrinkwrap.json
+package-lock.json
+yarn.lock

@@ -15,10 +15,21 @@ jobs:
             # TODO Update npm when this issue is fixed: https://github.com/npm/npm/issues/15558
             # sudo npm install --global npm
 
-      # Test
       - checkout
-      - run: yarn install
-      - run: npx eslint .
+      # Build & Lint
+      - run: |
+          (
+            cd eslint-config && \
+            yarn install && \
+            npx eslint .
+          )
+      - run: |
+          (
+            cd tslint-config && \
+            yarn install && \
+            yarn run build && \
+            npx tslint *.ts
+          )
 
       - deploy:
           command: |
@@ -39,6 +50,8 @@ jobs:
               git clean -dX --force # Remove files written in .gitignore so they are not included in package
 
               echo -e "phanect\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
+
+              (cd tslint-config && yarn run build)
 
               npm publish ./eslint-config --access public
               npm publish ./tslint-config --access public
