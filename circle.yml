@@ -18,6 +18,7 @@ jobs:
       # Test
       - checkout
       - run: yarn install
+      - run: (cd tslint-config && yarn install && yarn run build)
       - run: npx eslint .
 
       - deploy:
@@ -39,6 +40,8 @@ jobs:
               git clean -dX --force # Remove files written in .gitignore so they are not included in package
 
               echo -e "phanect\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
+
+              (cd tslint-config && yarn run build)
 
               npm publish ./eslint-config --access public
               npm publish ./tslint-config --access public

@@ -1,4 +1,4 @@
-module.exports = {
+export = {
   "extends": "tslint-eslint-rules",
   "rules": {
     "eofline": true, // Not warning to keep diff in commit log readable
