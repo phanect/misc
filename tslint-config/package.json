@@ -21,6 +21,10 @@
     "url": "https://github.com/phanect/tslint-config-phanective/issues"
   },
   "homepage": "https://github.com/phanect/tslint-config-phanective#readme",
+  "dependencies": {
+    "tslint": "latest",
+    "tslint-eslint-rules": "latest"
+  },
   "devDependencies": {
     "typescript": "^2.5.2"
   }
