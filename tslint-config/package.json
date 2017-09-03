@@ -4,7 +4,7 @@
   "description": "",
   "main": "config.js",
   "scripts": {
-    "test": "../test.sh"
+    "test": "npx eslint ."
   },
   "repository": {
     "type": "git",
