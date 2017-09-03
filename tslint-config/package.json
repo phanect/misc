@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/phanect/tslint-config-phanective.git"
+    "url": "git+https://github.com/phanect/eslint-config-phanective.git"
   },
   "keywords": [
     "tslint",
@@ -18,9 +18,9 @@
   "author": "Jumpei Ogawa",
   "license": "CC-0",
   "bugs": {
-    "url": "https://github.com/phanect/tslint-config-phanective/issues"
+    "url": "https://github.com/phanect/eslint-config-phanective/issues"
   },
-  "homepage": "https://github.com/phanect/tslint-config-phanective#readme",
+  "homepage": "https://github.com/phanect/eslint-config-phanective#readme",
   "dependencies": {
     "tslint": "latest",
     "tslint-eslint-rules": "latest"
