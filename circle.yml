@@ -20,6 +20,7 @@ jobs:
       - run: yarn install
       - run: (cd tslint-config && yarn install && yarn run build)
       - run: npx eslint .
+      - run: npx tslint *.ts
 
       - deploy:
           command: |
