@@ -1,13 +1,13 @@
 export = {
-  "extends": "tslint-eslint-rules",
-  "rules": {
-    "eofline": true, // Not warning to keep diff in commit log readable
-    "indent": [true, "spaces", 2],
+  extends: "tslint-eslint-rules",
+  rules: {
+    eofline: true, // Not warning to keep diff in commit log readable
+    indent: [ true, "spaces", 2 ],
     "no-trailing-whitespace": true, // Not warning to keep diff in commit log readable
     "no-var-keyword": true,
-    "semicolon": [true, "always"],
-    "ter-indent": [true, 2, { "VariableDeclarator": { "var": 2, "let": 2, "const": 3 }}],
-    "trailing-comma": [true, {"multiline": "always"}],
+    semicolon: [ true, "always" ],
+    "ter-indent": [ true, 2, { VariableDeclarator: { var: 2, let: 2, const: 3 }}],
+    "trailing-comma": [ true, { multiline: "always" }],
 
     // Not supported in TSLint
     // "no-whitespace-before-property": "error",
@@ -19,14 +19,14 @@ export = {
     // Following rules doesn't reduce quality or readability
     //
     "array-bracket-spacing": [ true, "always", { arraysInArrays: false, objectsInArrays: false }],
-    "brace-style": [true, "1tbs" ],
-    "comment-format": [true, "check-space"],
+    "brace-style": [ true, "1tbs" ],
+    "comment-format": [ true, "check-space" ],
     "newline-before-return": true,
     "no-multi-spaces": [ true, { exceptions: { PropertyAssignment: true }}],
-    "object-literal-key-quotes": [true, "as-needed"],
+    "object-literal-key-quotes": [ true, "as-needed" ],
     "one-variable-per-declaration": true,
-    "quotemark": [true, "double", "avoid-escape"],
-    "space-in-parens": [true, "never"],
+    quotemark: [ true, "double", "avoid-escape" ],
+    "space-in-parens": [ true, "never" ],
     "ter-prefer-arrow-callback": true,
 
     // Not supported in TSLint
