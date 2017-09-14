@@ -8,8 +8,6 @@ RUN sudo apt-get remove --yes mercurial mercurial-common \
   && echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list \
   && sudo apt-get update -qq \
   && sudo apt-get install --yes git yarn \
+  && sudo npm install --global npm \
   && sudo apt-get autoremove --yes \
   && sudo apt-get clean
-
-# TODO Update npm when this issue is fixed: https://github.com/npm/npm/issues/15558
-# RUN sudo npm install --global npm
