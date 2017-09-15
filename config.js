@@ -17,8 +17,11 @@ module.exports = {
   rules: {
     "comma-dangle": [ "error", "always-multiline" ],
     "eol-last": [ "error", "always" ], // Not warning to keep diff in commit log readable
-    indent: [ "error", 2, { VariableDeclarator: { var: 2, let: 2, const: 3 }}],
+    indent: [ "error", 2, { SwitchCase: 1, VariableDeclarator: { var: 2, let: 2, const: 3 }}],
     "no-trailing-spaces": "error", // Not warning to keep diff in commit log readable
+    "no-unused-expressions": "error",
+    "no-unused-labels": "error",
+    "no-unused-vars": "error",
     "no-whitespace-before-property": "error",
     "no-var": "error",
     semi: [ "error", "always" ],
@@ -47,6 +50,7 @@ module.exports = {
     "object-curly-spacing": [ "warn", "always", { arraysInObjects: false, objectsInObjects: false }],
     "one-var": [ "warn", "always" ],
     "one-var-declaration-per-line": [ "warn", "initializations" ],
+    "padded-blocks": [ "warn", "never" ],
     "prefer-arrow-callback": "warn",
     "quote-props": [ "warn", "as-needed" ],
     quotes: [ "warn", "double" ],
@@ -62,5 +66,7 @@ module.exports = {
 
     "typescript/adjacent-overload-signatures": "warn",
     "typescript/class-name-casing": "warn",
+
+    "no-console": "off",
   },
 };
