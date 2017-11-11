@@ -11,6 +11,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
+    sourceType: "module",
   },
   plugins: [ "typescript" ],
 
