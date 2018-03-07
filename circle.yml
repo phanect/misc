@@ -15,21 +15,10 @@ jobs:
             # TODO Update npm when this issue is fixed: https://github.com/npm/npm/issues/15558
             # sudo npm install --global npm
 
+      # Test
       - checkout
-      # Build & Lint
-      - run: |
-          (
-            cd eslint-config && \
-            yarn install && \
-            npx eslint .
-          )
-      - run: |
-          (
-            cd tslint-config && \
-            yarn install && \
-            yarn run build && \
-            npx tslint *.ts
-          )
+      - run: yarn install
+      - run: npx eslint .
 
       - deploy:
           command: |
@@ -81,10 +70,7 @@ jobs:
 
               echo -e "phanect\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
 
-              (cd tslint-config && yarn run build)
-
-              npm publish ./eslint-config --access public
-              npm publish ./tslint-config --access public
+              npm publish . --access public
             else
               echo "Something unexpected happened" > /dev/stderr
               exit 1
