@@ -59,5 +59,8 @@ module.exports = {
     "space-in-parens": [ "warn", "never" ],
     "spaced-comment": [ "warn", "always" ],
     "switch-colon-spacing": [ "warn", { before: false, after: true }],
+
+    "typescript/adjacent-overload-signatures": "warn",
+    "typescript/class-name-casing": "warn",
   },
 };
