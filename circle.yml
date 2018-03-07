@@ -12,8 +12,7 @@ jobs:
             sudo apt-get update -qq
             DEBIAN_FRONTEND=noninteractive sudo apt-get dist-upgrade --yes
 
-            # TODO Update npm when this issue is fixed: https://github.com/npm/npm/issues/15558
-            # sudo npm install --global npm
+            sudo npm install --global npm
 
       # Test
       - checkout
