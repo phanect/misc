@@ -12,6 +12,7 @@ module.exports = {
       jsx: true,
     },
   },
+  plugins: [ "typescript" ],
 
   rules: {
     "comma-dangle": [ "error", "always-multiline" ],

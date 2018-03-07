@@ -15,6 +15,10 @@
   "engines": {
     "node": ">=4.x"
   },
+  "dependencies": {
+    "eslint-plugin-typescript": "latest",
+    "typescript-eslint-parser": "latest"
+  },
   "devDependencies": {
     "eslint": "latest"
   }
