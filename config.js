@@ -1,7 +1,10 @@
 "use strict";
 
 module.exports = {
-  extends: "eslint:recommended",
+  extends: [
+    "eslint:recommended",
+    "plugin:vue/recommended",
+  ],
 
   env: {
     es6: true,
@@ -68,6 +71,14 @@ module.exports = {
     "typescript/adjacent-overload-signatures": "warn",
     "typescript/class-name-casing": "warn",
     "typescript/interface-name-prefix": "warn",
+
+    "vue/html-self-closing": [ "warn", { html: { normal: "never" }}],
+    "vue/max-attributes-per-line": [ "warn", {
+      singleline: 7,
+      multiline: {
+        max: 2,
+      },
+    }],
 
     "no-console": "off",
   },
