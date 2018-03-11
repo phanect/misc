@@ -1,10 +1,10 @@
 {
   "name": "@phanect/eslint-config-phanective",
-  "version": "2017.9.3",
+  "version": "2018.3.11",
   "description": "ESLint configuration for Jumpei Ogawa (@phanect)'s private projects",
   "main": "config.js",
   "scripts": {
-    "test": "npx eslint .",
+    "test": "eslint .",
     "clean": "git clean -dX --force"
   },
   "repository": {
@@ -17,10 +17,9 @@
     "node": ">=4.x"
   },
   "dependencies": {
+    "eslint": "latest",
     "eslint-plugin-typescript": "latest",
+    "eslint-plugin-vue": "latest",
     "typescript-eslint-parser": "latest"
-  },
-  "devDependencies": {
-    "eslint": "latest"
   }
 }
