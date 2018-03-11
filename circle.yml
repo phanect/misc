@@ -55,8 +55,7 @@ jobs:
               #
               git clean -dX --force # Remove files written in .gitignore so they are not included in package
 
-              echo -e "phanect\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
-
+              echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > "$HOME/.npmrc"
               npm publish . --access public
             else
               echo "Something unexpected happened" > /dev/stderr
