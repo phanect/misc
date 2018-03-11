@@ -67,6 +67,7 @@ module.exports = {
 
     "typescript/adjacent-overload-signatures": "warn",
     "typescript/class-name-casing": "warn",
+    "typescript/interface-name-prefix": "warn",
 
     "no-console": "off",
   },
