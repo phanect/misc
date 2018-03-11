@@ -4,7 +4,8 @@
   "description": "ESLint configuration for Jumpei Ogawa (@phanect)'s private projects",
   "main": "config.js",
   "scripts": {
-    "test": "npx eslint ."
+    "test": "npx eslint .",
+    "clean": "git clean -dX --force"
   },
   "repository": {
     "type": "git",
@@ -14,6 +15,10 @@
   "license": "CC0-1.0",
   "engines": {
     "node": ">=4.x"
+  },
+  "dependencies": {
+    "eslint-plugin-typescript": "latest",
+    "typescript-eslint-parser": "latest"
   },
   "devDependencies": {
     "eslint": "latest"
