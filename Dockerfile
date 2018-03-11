@@ -11,4 +11,5 @@ RUN sudo apt-get remove --yes mercurial mercurial-common \
   && DEBIAN_FRONTEND=noninteractive sudo apt-get install --yes git nodejs yarn \
   && sudo npm install --global npm \
   && DEBIAN_FRONTEND=noninteractive sudo apt-get autoremove --yes \
-  && sudo apt-get clean
+  && sudo apt-get clean \
+  && sudo npm cache clean --force
