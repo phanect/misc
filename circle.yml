@@ -4,7 +4,7 @@ jobs:
   build:
     working_directory: ~/eslint-config-phanective
     docker:
-      - image: phanect/ci-eslint-config-phanective
+      - image: phanect/ci-javascript
     steps:
       - run:
           name: System Update
