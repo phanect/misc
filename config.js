@@ -52,7 +52,7 @@ module.exports = {
       { blankLine: "any", prev: [ "const", "let" ], next: [ "const", "let" ]},
     ],
     "object-curly-spacing": [ "warn", "always", { arraysInObjects: false, objectsInObjects: false }],
-    "one-var": [ "warn", "consecutive" ],
+    "one-var": [ "warn", {const: "consecutive", let: "consecutive", separateRequires: true }],
     "one-var-declaration-per-line": [ "warn", "initializations" ],
     "padded-blocks": [ "warn", "never" ],
     "prefer-arrow-callback": "warn",
