@@ -20,6 +20,7 @@
     "eslint": "latest",
     "eslint-plugin-typescript": "latest",
     "eslint-plugin-vue": "latest",
+    "typescript": "latest",
     "typescript-eslint-parser": "latest"
   }
 }
