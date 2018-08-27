@@ -26,8 +26,10 @@ module.exports = {
     "no-unused-expressions": "error",
     "no-unused-labels": "error",
     "no-unused-vars": "error",
+    "no-use-before-define": "error",
     "no-whitespace-before-property": "error",
     "no-var": "error",
+    "prefer-const": [ "error", { destructuring: "all", ignoreReadBeforeAssign: true }],
     semi: [ "error", "always" ],
     "unicode-bom": [ "error", "never" ],
 
@@ -38,21 +40,10 @@ module.exports = {
     //
     "array-bracket-spacing": [ "warn", "always", { arraysInArrays: false, objectsInArrays: false }],
     "brace-style": "warn",
+    curly: "warn",
     "no-multi-spaces": [ "warn", { ignoreEOLComments: true, exceptions: { Property: true }}],
-    "padding-line-between-statements": [
-      "warn",
-      // Blank line before return
-      { blankLine: "always", prev: "*", next: "return" },
-      // Blank line after variable declarations
-      { blankLine: "always", prev: "const", next: "*" },
-      { blankLine: "always", prev: "let", next: "*" },
-      // No blank lines between variable declarations (e.g. between const & let)
-      { blankLine: "any", prev: [ "const", "let" ], next: [ "const", "let" ]},
-      { blankLine: "any", prev: [ "const", "let" ], next: [ "const", "let" ]},
-      { blankLine: "any", prev: [ "const", "let" ], next: [ "const", "let" ]},
-    ],
     "object-curly-spacing": [ "warn", "always", { arraysInObjects: false, objectsInObjects: false }],
-    "one-var": [ "warn", {const: "consecutive", let: "consecutive", separateRequires: true }],
+    "one-var": [ "warn", { const: "consecutive", let: "consecutive", separateRequires: true }],
     "one-var-declaration-per-line": [ "warn", "initializations" ],
     "padded-blocks": [ "warn", "never" ],
     "prefer-arrow-callback": "warn",
