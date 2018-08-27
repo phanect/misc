@@ -43,7 +43,7 @@ module.exports = {
     curly: "warn",
     "no-multi-spaces": [ "warn", { ignoreEOLComments: true, exceptions: { Property: true }}],
     "object-curly-spacing": [ "warn", "always", { arraysInObjects: false, objectsInObjects: false }],
-    "one-var": [ "warn", {const: "consecutive", let: "consecutive", separateRequires: true }],
+    "one-var": [ "warn", { const: "consecutive", let: "consecutive", separateRequires: true }],
     "one-var-declaration-per-line": [ "warn", "initializations" ],
     "padded-blocks": [ "warn", "never" ],
     "prefer-arrow-callback": "warn",
