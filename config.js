@@ -65,6 +65,9 @@ const config = {
 config.overrides = [
   {
     files: [ "*.ts" ],
+    parserOptions: {
+      parser: "typescript-eslint-parser",
+    },
     rules: Object.assign(config.rules, {
       //
       // Warnings
