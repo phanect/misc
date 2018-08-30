@@ -16,7 +16,9 @@ const config = {
     },
     sourceType: "module",
   },
-  plugins: [ "typescript" ],
+  plugins: [
+    "typescript",
+  ],
   rules: {
     "comma-dangle": [ "error", "always-multiline" ],
     "eol-last": [ "error", "always" ], // Not warning to keep diff in commit log readable
@@ -79,6 +81,7 @@ config.overrides = [
   },
   {
     files: [ "*.vue" ],
+    plugins: config.plugins.concat("vue"),
     rules: Object.assign(config.rules, {
       //
       // Warnings
