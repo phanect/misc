@@ -21,6 +21,8 @@ jobs:
 
       - deploy:
           command: |
+            echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > "$HOME/.npmrc"
+
             if [[ -n "$CIRCLE_PULL_REQUEST" ]]; then
               #
               # If this build is pull request, check if `version` in package.json
@@ -49,13 +51,17 @@ jobs:
                   exit 1
                 fi
               fi
+
+              if [[ "$(npm whoami)" != "phanect" ]]; then
+                echo "Cannot login npmjs.com. Check if \$NPM_AUTH_TOKEN is up to date"
+                exit 1
+              fi
             elif [[ "${CIRCLE_BRANCH}" = "master" ]]; then
               #
               # If this build is master branch, deploy to npmjs.com
               #
               git clean -dX --force # Remove files written in .gitignore so they are not included in package
 
-              echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > "$HOME/.npmrc"
               npm publish . --access public
             else # "${CIRCLE_PULL_REQUEST}" = "" && "${CIRCLE_BRANCH}" != "master"
               echo "This job is run by neither pull request nor master branch." > /dev/stderr
