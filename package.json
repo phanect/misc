@@ -1,6 +1,6 @@
 {
   "name": "@phanect/eslint-config-phanective",
-  "version": "2018.8.31",
+  "version": "2018.9.7",
   "description": "ESLint configuration for Jumpei Ogawa (@phanect)'s private projects",
   "main": "config.js",
   "scripts": {
@@ -18,8 +18,12 @@
   },
   "dependencies": {
     "eslint": "latest",
+    "eslint-config-prettier": "latest",
+    "eslint-plugin-prettier": "latest",
+    "eslint-plugin-security": "latest",
     "eslint-plugin-typescript": "latest",
     "eslint-plugin-vue": "latest",
+    "prettier": "latest",
     "typescript": "latest",
     "typescript-eslint-parser": "latest"
   }
