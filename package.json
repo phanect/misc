@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "eslint": "latest",
+    "eslint-plugin-security": "latest",
     "eslint-plugin-typescript": "latest",
     "eslint-plugin-vue": "latest",
     "typescript": "latest",

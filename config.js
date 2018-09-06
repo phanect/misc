@@ -3,6 +3,7 @@
 const config = {
   extends: [
     "eslint:recommended",
+    "plugin:security/recommended",
     "plugin:vue/recommended",
   ],
 
@@ -17,6 +18,7 @@ const config = {
     sourceType: "module",
   },
   plugins: [
+    "security",
     "typescript",
   ],
   rules: {
