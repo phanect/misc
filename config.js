@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = {
+const config = {
   extends: [
     "eslint:recommended",
     "plugin:vue/recommended",
@@ -16,8 +16,9 @@ module.exports = {
     },
     sourceType: "module",
   },
-  plugins: [ "typescript" ],
-
+  plugins: [
+    "typescript",
+  ],
   rules: {
     "comma-dangle": [ "error", "always-multiline" ],
     "eol-last": [ "error", "always" ], // Not warning to keep diff in commit log readable
@@ -59,18 +60,49 @@ module.exports = {
     "spaced-comment": [ "warn", "always" ],
     "switch-colon-spacing": [ "warn", { before: false, after: true }],
 
-    "typescript/adjacent-overload-signatures": "warn",
-    "typescript/class-name-casing": "warn",
-    "typescript/interface-name-prefix": "warn",
-
-    "vue/html-self-closing": [ "warn", { html: { normal: "never" }}],
-    "vue/max-attributes-per-line": [ "warn", {
-      singleline: 7,
-      multiline: {
-        max: 2,
-      },
-    }],
-
     "no-console": "off",
   },
 };
+
+config.overrides = [
+  {
+    files: [ "*.ts" ],
+    parserOptions: {
+      parser: "typescript-eslint-parser",
+    },
+    rules: Object.assign(config.rules, {
+      //
+      // Warnings
+      //
+      "typescript/adjacent-overload-signatures": "warn",
+      "typescript/class-name-casing": "warn",
+      "typescript/interface-name-prefix": "warn",
+      "typescript/no-unused-vars": "error",
+
+      //
+      // Disabled
+      //
+      // Temporary disabled due to known bug for typescript-eslint-parser:
+      // https://github.com/eslint/typescript-eslint-parser/issues/416
+      "no-undef": "off",
+    }),
+  },
+  {
+    files: [ "*.vue" ],
+    plugins: config.plugins.concat("vue"),
+    rules: Object.assign(config.rules, {
+      //
+      // Warnings
+      //
+      "vue/html-self-closing": [ "warn", { html: { normal: "never" }}],
+      "vue/max-attributes-per-line": [ "warn", {
+        singleline: 7,
+        multiline: {
+          max: 2,
+        },
+      }],
+    }),
+  },
+];
+
+module.exports = config;
