@@ -1,7 +1,7 @@
 eslint-config-phanective
 ==============================================
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/phanect/eslint-config-phanective.svg)](https://greenkeeper.io/)
+[![CircleCI](https://circleci.com/gh/phanect/eslint-config-phanective/tree/master.svg?style=svg)](https://circleci.com/gh/phanect/eslint-config-phanective/tree/master) [![Greenkeeper badge](https://badges.greenkeeper.io/phanect/eslint-config-phanective.svg)](https://greenkeeper.io/)
 
 ESLint config for my own projects.
 
