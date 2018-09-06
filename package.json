@@ -18,9 +18,12 @@
   },
   "dependencies": {
     "eslint": "latest",
+    "eslint-config-prettier": "latest",
+    "eslint-plugin-prettier": "latest",
     "eslint-plugin-security": "latest",
     "eslint-plugin-typescript": "latest",
     "eslint-plugin-vue": "latest",
+    "prettier": "latest",
     "typescript": "latest",
     "typescript-eslint-parser": "latest"
   }

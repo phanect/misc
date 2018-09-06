@@ -5,6 +5,7 @@ const config = {
     "eslint:recommended",
     "plugin:security/recommended",
     "plugin:vue/recommended",
+    "prettier",
   ],
 
   env: {
@@ -18,6 +19,7 @@ const config = {
     sourceType: "module",
   },
   plugins: [
+    "prettier",
     "security",
     "typescript",
   ],
@@ -61,6 +63,9 @@ const config = {
     "space-in-parens": [ "warn", "never" ],
     "spaced-comment": [ "warn", "always" ],
     "switch-colon-spacing": [ "warn", { before: false, after: true }],
+
+    // Prettier
+    "prettier/prettier": ["warn", require("./.prettierrc.js")],
 
     "no-console": "off",
   },
