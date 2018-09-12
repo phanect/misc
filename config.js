@@ -21,18 +21,6 @@ const config = {
   plugins: ["prettier", "security", "typescript"],
   rules: {
     "eol-last": ["error", "always"], // Not warning to keep diff in commit log readable
-    indent: [
-      "error",
-      2,
-      {
-        SwitchCase: 1,
-        VariableDeclarator: {
-          var: 2,
-          let: 2,
-          const: 3,
-        },
-      },
-    ],
     "no-trailing-spaces": "error", // Not warning to keep diff in commit log readable
     "no-unused-expressions": "error",
     "no-unused-labels": "error",
