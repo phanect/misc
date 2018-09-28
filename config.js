@@ -5,7 +5,6 @@ const config = {
     "eslint:recommended",
     "plugin:security/recommended",
     "plugin:vue/recommended",
-    "prettier",
   ],
 
   env: {
@@ -18,9 +17,17 @@ const config = {
     },
     sourceType: "module",
   },
-  plugins: ["prettier", "security", "typescript"],
+  plugins: [
+    "security",
+    "typescript",
+  ],
   rules: {
-    "eol-last": ["error", "always"], // Not warning to keep diff in commit log readable
+    "comma-dangle": [ "error", "always-multiline" ],
+    "eol-last": [ "error", "always" ], // Not warning to keep diff in commit log readable
+    indent: [ "error", 2, {
+      SwitchCase: 1,
+      VariableDeclarator: { var: 2, let: 2, const: 3 },
+    }],
     "no-trailing-spaces": "error", // Not warning to keep diff in commit log readable
     "no-unused-expressions": "error",
     "no-unused-labels": "error",
@@ -28,34 +35,42 @@ const config = {
     "no-use-before-define": "error",
     "no-whitespace-before-property": "error",
     "no-var": "error",
-    "prefer-const": [
-      "error",
-      {
-        destructuring: "all",
-        ignoreReadBeforeAssign: true,
-      },
-    ],
-    semi: ["error", "always"],
-    "unicode-bom": ["error", "never"],
+    "prefer-const": [ "error", {
+      destructuring: "all",
+      ignoreReadBeforeAssign: true,
+    }],
+    semi: [ "error", "always" ],
+    "unicode-bom": [ "error", "never" ],
 
     //
     // Warnings
     // These are just a preference in coding style.
     // Following rules doesn't reduce quality or readability
     //
-    "one-var": [
-      "warn",
-      {
-        const: "consecutive",
-        let: "consecutive",
-        separateRequires: true,
-      },
-    ],
+    "array-bracket-spacing": [ "warn", "always", { arraysInArrays: false, objectsInArrays: false }],
+    "brace-style": "warn",
+    curly: "warn",
+    "no-multi-spaces": [ "warn", { ignoreEOLComments: true, exceptions: { Property: true }}],
+    "object-curly-spacing": [ "warn", "always", { arraysInObjects: false, objectsInObjects: false }],
+    "one-var": [ "warn", {
+      const: "consecutive",
+      let: "consecutive",
+      separateRequires: true,
+    }],
+    "one-var-declaration-per-line": [ "warn", "initializations" ],
+    "padded-blocks": [ "warn", "never" ],
     "prefer-arrow-callback": "warn",
-    "spaced-comment": ["warn", "always"],
-
-    // Prettier
-    "prettier/prettier": ["warn", require("./.prettierrc.js")],
+    "quote-props": [ "warn", "as-needed" ],
+    quotes: [ "warn", "double" ],
+    "space-before-blocks": [ "warn", "always" ],
+    "space-before-function-paren": [ "warn", {
+      anonymous: "never",
+      named: "never",
+      asyncArrow: "always",
+    }],
+    "space-in-parens": [ "warn", "never" ],
+    "spaced-comment": [ "warn", "always" ],
+    "switch-colon-spacing": [ "warn", { before: false, after: true }],
 
     "no-console": "off",
   },
@@ -63,7 +78,7 @@ const config = {
 
 config.overrides = [
   {
-    files: ["*.ts"],
+    files: [ "*.ts" ],
     parserOptions: {
       parser: "typescript-eslint-parser",
     },
@@ -85,22 +100,17 @@ config.overrides = [
     }),
   },
   {
-    files: ["*.vue"],
+    files: [ "*.vue" ],
     plugins: config.plugins.concat("vue"),
     rules: Object.assign(config.rules, {
       //
       // Warnings
       //
-      "vue/html-self-closing": ["warn", { html: { normal: "never" } }],
-      "vue/max-attributes-per-line": [
-        "warn",
-        {
-          singleline: 7,
-          multiline: {
-            max: 2,
-          },
-        },
-      ],
+      "vue/html-self-closing": [ "warn", { html: { normal: "never" }}],
+      "vue/max-attributes-per-line": [ "warn", {
+        singleline: 7,
+        multiline: { max: 2 },
+      }],
     }),
   },
 ];
