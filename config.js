@@ -5,7 +5,6 @@ const config = {
     "eslint:recommended",
     "plugin:security/recommended",
     "plugin:vue/recommended",
-    "prettier",
   ],
 
   env: {
@@ -18,9 +17,25 @@ const config = {
     },
     sourceType: "module",
   },
-  plugins: ["prettier", "security", "typescript"],
+  plugins: [
+    "security",
+    "typescript",
+  ],
   rules: {
+    "comma-dangle": [ "error", "always-multiline" ],
     "eol-last": ["error", "always"], // Not warning to keep diff in commit log readable
+    indent: [
+      "error",
+      2,
+      {
+        SwitchCase: 1,
+        VariableDeclarator: {
+          var: 2,
+          let: 2,
+          const: 3,
+        },
+      },
+    ],
     "no-trailing-spaces": "error", // Not warning to keep diff in commit log readable
     "no-unused-expressions": "error",
     "no-unused-labels": "error",
@@ -43,6 +58,11 @@ const config = {
     // These are just a preference in coding style.
     // Following rules doesn't reduce quality or readability
     //
+    "array-bracket-spacing": [ "warn", "always", { arraysInArrays: false, objectsInArrays: false }],
+    "brace-style": "warn",
+    curly: "warn",
+    "no-multi-spaces": [ "warn", { ignoreEOLComments: true, exceptions: { Property: true }}],
+    "object-curly-spacing": [ "warn", "always", { arraysInObjects: false, objectsInObjects: false }],
     "one-var": [
       "warn",
       {
@@ -51,11 +71,20 @@ const config = {
         separateRequires: true,
       },
     ],
+    "one-var-declaration-per-line": [ "warn", "initializations" ],
+    "padded-blocks": [ "warn", "never" ],
     "prefer-arrow-callback": "warn",
+    "quote-props": [ "warn", "as-needed" ],
+    quotes: [ "warn", "double" ],
+    "space-before-blocks": [ "warn", "always" ],
+    "space-before-function-paren": [ "warn", {
+      anonymous: "never",
+      named: "never",
+      asyncArrow: "always",
+    }],
+    "space-in-parens": [ "warn", "never" ],
     "spaced-comment": ["warn", "always"],
-
-    // Prettier
-    "prettier/prettier": ["warn", require("./.prettierrc.js")],
+    "switch-colon-spacing": [ "warn", { before: false, after: true }],
 
     "no-console": "off",
   },
