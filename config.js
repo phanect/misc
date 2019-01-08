@@ -90,13 +90,6 @@ config.overrides = [
       "typescript/class-name-casing": "warn",
       "typescript/interface-name-prefix": "warn",
       "typescript/no-unused-vars": "error",
-
-      //
-      // Disabled
-      //
-      // Temporary disabled due to known bug for typescript-eslint-parser:
-      // https://github.com/eslint/typescript-eslint-parser/issues/416
-      "no-undef": "off",
     }),
   },
   {
