@@ -5,7 +5,7 @@
   "main": "config.js",
   "scripts": {
     "test": "eslint .",
-    "clean": "git clean -dX --force"
+    "clean": "git clean -dX --force",
     "postinstall": "rm -f ./node_modules/@phanect/eslint-plugin && mkdir -p ./node_modules/@phanect && ln --symbolic ../../ ./node_modules/@phanect/eslint-plugin"
   },
   "repository": {
