@@ -1,0 +1,3 @@
+node_modules/
+# Incorrect tests should not run on `eslint .`. Run `eslint ./tests/incorrect.js`
+tests/**/incorrect.*

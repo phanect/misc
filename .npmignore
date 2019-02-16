@@ -1,4 +1,7 @@
-.eslintrc.json
-circle.yml
-Dockerfile
+.circleci/
+tests/
+.editorconfig
+.eslintrc.js
+.gitattributes
+.gitignore
 yarn.lock
