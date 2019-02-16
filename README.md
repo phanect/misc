@@ -9,23 +9,29 @@ Install
 -------
 
 ```shell
-yarn add --dev @phanect/eslint-config-phanective
+yarn add --dev @phanect/eslint-plugin
 ```
 
 Usage
 ------
 
-Create following .eslintrc.js on the project root:
+Create an .eslintrc.js like following on the project root:
 
 ```javascript
 module.exports = {
-  extends: "@phanect/phanective",
+  extends: "plugin:@phanect/js", // if your project is TypeScript-based, use "plugin:@phanect/js"
+  root: true,
 
   env: {
-    "browser": true, // or: "node": true
+    browser: true, // or: "node": true
   },
-
-  // If your project is TypeScript-based, add this line:
-  parser: "typescript-eslint-parser",
-}
+  plugins: [ "@phanect" ]
+};
 ```
+
+Supported configs:
+
+- plugin:@phanect/js
+- plugin:@phanect/ts
+- plugin:@phanect/js+vue
+- plugin:@phanect/ts+vue

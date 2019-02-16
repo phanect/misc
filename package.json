@@ -1,11 +1,12 @@
 {
-  "name": "@phanect/eslint-config-phanective",
-  "version": "2019.1.10",
+  "name": "@phanect/eslint-plugin",
+  "version": "2019.2.16",
   "description": "ESLint configuration for Jumpei Ogawa (@phanect)'s private projects",
   "main": "config.js",
   "scripts": {
     "test": "eslint .",
     "clean": "git clean -dX --force"
+    "postinstall": "rm -f ./node_modules/@phanect/eslint-plugin && mkdir -p ./node_modules/@phanect && ln --symbolic ../../ ./node_modules/@phanect/eslint-plugin"
   },
   "repository": {
     "type": "git",
