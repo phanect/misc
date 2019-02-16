@@ -17,11 +17,11 @@
     "node": ">=6.x"
   },
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
     "eslint": "latest",
     "eslint-plugin-security": "latest",
-    "eslint-plugin-typescript": "latest",
     "eslint-plugin-vue": "latest",
-    "typescript": "latest",
-    "typescript-eslint-parser": "latest"
+    "typescript": "latest"
   }
 }

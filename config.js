@@ -3,6 +3,7 @@
 const config = {
   extends: [
     "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:security/recommended",
     "plugin:vue/recommended",
   ],
@@ -19,7 +20,7 @@ const config = {
   },
   plugins: [
     "security",
-    "typescript",
+    "@typescript-eslint",
   ],
   rules: {
     "comma-dangle": [ "error", "always-multiline" ],
@@ -80,16 +81,16 @@ config.overrides = [
   {
     files: [ "*.ts" ],
     parserOptions: {
-      parser: "typescript-eslint-parser",
+      parser: "@typescript-eslint/parser",
     },
     rules: Object.assign(config.rules, {
       //
       // Warnings
       //
-      "typescript/adjacent-overload-signatures": "warn",
-      "typescript/class-name-casing": "warn",
-      "typescript/interface-name-prefix": "warn",
-      "typescript/no-unused-vars": "error",
+      "@typescript-eslint/adjacent-overload-signatures": "warn",
+      "@typescript-eslint/class-name-casing": "warn",
+      "@typescript-eslint/interface-name-prefix": "warn",
+      "@typescript-eslint/no-unused-vars": "error",
     }),
   },
   {
