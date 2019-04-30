@@ -3,10 +3,10 @@
 set -eux
 
 # Test fails if any warnings reported for correct code
-if ! eslint ./tests/js/correct.js; then
+if ! npx eslint ./tests/js/correct.js; then
   echo "Warnings reported correct.js"
   exit 1
-elif ! eslint ./tests/ts/correct.ts; then
+elif ! npx eslint ./tests/ts/correct.ts; then
   echo "Warnings reported for correct.js"
   exit 1
 else
@@ -14,10 +14,10 @@ else
 fi
 
 # Test fails if no warning reported for code with wrong format
-if eslint ./tests/js/incorrect.js; then
+if npx eslint ./tests/js/incorrect.js; then
   echo "Nothing reported for incorrect.js"
   exit 1
-elif eslint ./tests/ts/incorrect.ts; then
+elif npx eslint ./tests/ts/incorrect.ts; then
   echo "Nothing reported for incorrect.js"
   exit 1
 else
