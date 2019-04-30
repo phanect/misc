@@ -10,7 +10,7 @@ const js = {
           es6: true,
         },
         parserOptions: {
-          ecmaVersion: 2017,
+          ecmaVersion: 2019,
           ecmaFeatures: {
             jsx: true,
           },
