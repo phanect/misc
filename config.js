@@ -16,6 +16,7 @@ const js = {
           sourceType: "module",
         },
         plugins: [
+          "no-unsanitized",
         ],
         rules: {
           "comma-dangle": [ "error", "always-multiline" ],
@@ -37,6 +38,9 @@ const js = {
           }],
           semi: [ "error", "always" ],
           "unicode-bom": [ "error", "never" ],
+
+          "no-unsanitized/method": "error",
+          "no-unsanitized/property": "error",
 
           //
           // Warnings

@@ -21,6 +21,7 @@
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
     "eslint": "latest",
+    "eslint-plugin-no-unsanitized": "latest",
     "eslint-plugin-vue": "latest",
     "typescript": "latest"
   }
