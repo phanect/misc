@@ -3,6 +3,7 @@
 const js = {
         extends: [
           "eslint:recommended",
+          "plugin:editorconfig/noconflict",
         ],
 
         env: {
@@ -16,16 +17,11 @@ const js = {
           sourceType: "module",
         },
         plugins: [
+          "editorconfig",
           "no-unsanitized",
         ],
         rules: {
           "comma-dangle": [ "error", "always-multiline" ],
-          "eol-last": [ "error", "always" ], // Not warning to keep diff in commit log readable
-          indent: [ "error", 2, {
-            SwitchCase: 1,
-            VariableDeclarator: { var: 2, let: 2, const: 3 },
-          }],
-          "no-trailing-spaces": "error", // Not warning to keep diff in commit log readable
           "no-unused-expressions": "error",
           "no-unused-labels": "error",
           "no-unused-vars": "error",
@@ -37,7 +33,8 @@ const js = {
             ignoreReadBeforeAssign: true,
           }],
           semi: [ "error", "always" ],
-          "unicode-bom": [ "error", "never" ],
+
+          "editorconfig/editorconfig": "error",
 
           "no-unsanitized/method": "error",
           "no-unsanitized/property": "error",
@@ -52,11 +49,7 @@ const js = {
           curly: "warn",
           "no-multi-spaces": [ "warn", { ignoreEOLComments: true, exceptions: { Property: true }}],
           "object-curly-spacing": [ "warn", "always", { arraysInObjects: false, objectsInObjects: false }],
-          "one-var": [ "warn", {
-            const: "consecutive",
-            let: "consecutive",
-            separateRequires: true,
-          }],
+          "one-var": [ "warn", "never" ],
           "one-var-declaration-per-line": [ "warn", "initializations" ],
           "padded-blocks": [ "warn", "never" ],
           "prefer-arrow-callback": "warn",
@@ -82,7 +75,9 @@ const js = {
         },
         plugins: js.plugins.concat([ "@typescript-eslint" ]),
         rules: Object.assign({
-          "@typescript-eslint/indent": js.rules.indent,
+          "@typescript-eslint/indent": [ "error", 2, {
+            SwitchCase: 1,
+          }],
 
           //
           // Warnings
