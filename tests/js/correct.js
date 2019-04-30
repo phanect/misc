@@ -1,6 +1,6 @@
 "use strict";
 
-const foo = "bar",
-      hoge = "fuga";
+const foo = "bar";
+const hoge = "fuga";
 
 console.log(foo, hoge);
