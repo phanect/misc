@@ -3,7 +3,6 @@
 const js = {
         extends: [
           "eslint:recommended",
-          "plugin:security/recommended",
         ],
 
         env: {
@@ -17,7 +16,6 @@ const js = {
           sourceType: "module",
         },
         plugins: [
-          "security",
         ],
         rules: {
           "comma-dangle": [ "error", "always-multiline" ],
