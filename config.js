@@ -22,6 +22,9 @@ const js = {
         ],
         rules: {
           "comma-dangle": [ "error", "always-multiline" ],
+          "no-async-promise-executor": "error",
+          "no-misleading-character-class": "error",
+          "no-template-curly-in-string": "error",
           "no-unused-expressions": "error",
           "no-unused-labels": "error",
           "no-unused-vars": "error",
@@ -40,7 +43,16 @@ const js = {
           "no-unsanitized/property": "error",
 
           //
-          // Warnings
+          // Warnings - Testing
+          // Because following rules might make a problem,
+          // currently they are not treated as errors.
+          //
+          "no-prototype-builtins": "warn",
+          "class-methods-use-this": "warn",
+          complexity: "warn",
+
+          //
+          // Warnings - styles
           // These are just a preference in coding style.
           // Following rules doesn't reduce quality or readability
           //
