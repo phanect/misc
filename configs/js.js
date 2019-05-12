@@ -4,6 +4,10 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:editorconfig/noconflict",
+    "plugin:node/recommended",
+    "plugin:promise/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
   ],
 
   env: {
@@ -18,7 +22,10 @@ module.exports = {
   },
   plugins: [
     "editorconfig",
+    "import",
     "no-unsanitized",
+    "node",
+    "promise",
   ],
   rules: {
     "comma-dangle": [ "error", "always-multiline" ],

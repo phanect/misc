@@ -3,7 +3,10 @@
 const js = require("./js");
 
 module.exports = {
-  extends: js.extends.concat([ "plugin:@typescript-eslint/recommended" ]),
+  extends: js.extends.concat([
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript",
+  ]),
   parserOptions: {
     parser: "@typescript-eslint/parser",
   },
