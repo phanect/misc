@@ -1,10 +1,13 @@
-version: 2
+version: 2.1
 
-jobs:
-  build:
+executors:
+  default:
     working_directory: ~/eslint-plugin
     docker:
       - image: phanect/ci-javascript
+
+commands:
+  init:
     steps:
       - run:
           name: System Update
@@ -13,19 +16,38 @@ jobs:
             DEBIAN_FRONTEND=noninteractive sudo apt-get dist-upgrade --yes
 
             sudo npm install --global npm
-
-      # Test
       - checkout
       - run: yarn install
+
+jobs:
+  build:
+    executor:
+      name: default
+    steps:
+      - init
       - run: yarn test
 
-      - deploy:
-          command: |
-            echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > "$HOME/.npmrc"
+  release:
+    executor:
+      name: default
+    steps:
+      - init
+      - run: |
+          echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > "$HOME/.npmrc"
+          yarn release
 
-            if [[ "${CIRCLE_BRANCH}" = "master" ]]; then
-              #
-              # If this build is master branch, deploy to npmjs.com
-              #
-              yarn release
-            fi
+workflows:
+  version: 2
+  build-n-release:
+    jobs:
+      - build
+      - release:
+          filters:
+            tags:
+              only: /^v.*/
+            # By default, release runs on push to any branches.
+            # To avoid running release, it is required to ignore all branches here.
+            branches:
+              ignore: /.*/
+          requires:
+            - build
