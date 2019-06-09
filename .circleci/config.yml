@@ -60,7 +60,7 @@ jobs:
               #
               # If this build is master branch, deploy to npmjs.com
               #
-              npm publish . --access public
+              yarn release
             else # "${CIRCLE_PULL_REQUEST}" = "" && "${CIRCLE_BRANCH}" != "master"
               echo "This job is run by neither pull request nor master branch." > /dev/stderr
               echo "\${CIRCLE_PULL_REQUEST}: \"${CIRCLE_PULL_REQUEST}\""
