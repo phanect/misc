@@ -40,7 +40,10 @@ workflows:
   version: 2
   build-n-release:
     jobs:
-      - build
+      - build:
+          filters: # Run when any branches & tags pushed
+            tags:
+              only: /.*/
       - release:
           filters:
             tags:
