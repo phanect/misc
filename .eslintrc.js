@@ -1,11 +1,11 @@
 "use strict";
 
-module.exports = {
-  extends: "plugin:@phanect/js",
+const merge = require("lodash.merge");
+
+module.exports = merge(require("./configs/js"), {
   root: true,
 
   env: {
     node: true
   },
-  plugins: [ "@phanect" ]
-};
+});

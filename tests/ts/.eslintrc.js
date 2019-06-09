@@ -1,8 +1,9 @@
 "use strict";
 
-module.exports = {
-  extends: "plugin:@phanect/ts",
+const merge = require("lodash.merge");
+
+module.exports = merge(require("../../configs/ts"), {
   env: {
     node: true
   },
-};
+});
