@@ -19,7 +19,7 @@ Create an .eslintrc.js like following on the project root:
 
 ```javascript
 module.exports = {
-  extends: "plugin:@phanect/js", // if your project is TypeScript-based, use "plugin:@phanect/js"
+  extends: "plugin:@phanect/js", // if your project is TypeScript-based, use "plugin:@phanect/ts"
   root: true,
 
   env: {
