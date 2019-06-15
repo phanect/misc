@@ -29,7 +29,9 @@
     "eslint-plugin-promise": "latest",
     "eslint-plugin-react": "latest",
     "eslint-plugin-vue": "latest",
-    "lodash.merge": "^4.6.1",
     "typescript": "latest"
+  },
+  "devDependencies": {
+    "lodash.merge": "^4.6.1"
   }
 }
