@@ -4,6 +4,7 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:editorconfig/noconflict",
+    "plugin:jsdoc/recommended",
     "plugin:node/recommended",
     "plugin:promise/recommended",
     "plugin:import/errors",
@@ -20,6 +21,7 @@ module.exports = {
   plugins: [
     "editorconfig",
     "import",
+    "jsdoc",
     "no-unsanitized",
     "node",
     "promise",
@@ -59,6 +61,16 @@ module.exports = {
     "no-prototype-builtins": "warn",
     "class-methods-use-this": "warn",
     complexity: "warn",
+
+    //
+    // Warnings: JSDoc
+    // JSDoc rules should not be reported as errors but warnings
+    //
+    "jsdoc/check-examples": "warn",
+    "jsdoc/check-indentation": "warn",
+    "jsdoc/check-syntax": "warn",
+    "jsdoc/require-description-complete-sentence": "warn",
+    "jsdoc/require-hyphen-before-param-description": "warn",
 
     //
     // Warnings - styles
