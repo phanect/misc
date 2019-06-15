@@ -8,4 +8,7 @@ module.exports = merge(require("./configs/js"), {
   env: {
     node: true
   },
+  parserOptions: {
+    project: "./tests/ts/tsconfig.json",
+  }
 });

@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": [
+      "DOM",
+      "esnext"
+    ],
+    "typeRoots": [
+      "../../node_modules/@types"
+    ]
+  }
+}

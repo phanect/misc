@@ -25,6 +25,10 @@ module.exports = {
   env: {
     browser: true, // or: "node": true
   },
+  // If your project is TypeScript-based, you need to specify the tsconfig.json location
+  parserOptions: {
+    project: "./tsconfig.json",
+  },
   plugins: [ "@phanect" ]
 };
 ```
