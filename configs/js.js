@@ -4,6 +4,10 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:editorconfig/noconflict",
+    "plugin:node/recommended",
+    "plugin:promise/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
   ],
 
   env: {
@@ -11,21 +15,25 @@ module.exports = {
   },
   parserOptions: {
     ecmaVersion: 2019,
-    ecmaFeatures: {
-      jsx: true,
-    },
     sourceType: "module",
   },
   plugins: [
     "editorconfig",
+    "import",
     "no-unsanitized",
+    "node",
+    "promise",
   ],
   rules: {
+    "arrow-body-style": [ "error", "as-needed" ],
     "comma-dangle": [ "error", "always-multiline" ],
     "no-async-promise-executor": "error",
     "no-misleading-character-class": "error",
+    "no-param-reassign": "error",
+    "no-return-await": "error",
+    "no-script-url": "error",
     "no-template-curly-in-string": "error",
-    "no-unused-expressions": "error",
+    "no-unused-expressions": [ "error", { allowShortCircuit: true, allowTernary: true, allowTaggedTemplates: true }],
     "no-unused-labels": "error",
     "no-unused-vars": "error",
     "no-use-before-define": "error",
@@ -35,6 +43,7 @@ module.exports = {
       destructuring: "all",
       ignoreReadBeforeAssign: true,
     }],
+    "require-await": "error",
     semi: [ "error", "always" ],
 
     "editorconfig/editorconfig": "error",

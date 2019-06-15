@@ -19,11 +19,15 @@ Create an .eslintrc.js like following on the project root:
 
 ```javascript
 module.exports = {
-  extends: "plugin:@phanect/js", // if your project is TypeScript-based, use "plugin:@phanect/js"
+  extends: "plugin:@phanect/js", // if your project is TypeScript-based, use "plugin:@phanect/ts"
   root: true,
 
   env: {
     browser: true, // or: "node": true
+  },
+  // If your project is TypeScript-based, you need to specify the tsconfig.json location
+  parserOptions: {
+    project: "./tsconfig.json",
   },
   plugins: [ "@phanect" ]
 };
