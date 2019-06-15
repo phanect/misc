@@ -9,8 +9,6 @@ if ! npx eslint ./tests/js/correct.js; then
 elif ! npx eslint ./tests/ts/correct.ts; then
   echo "Warnings reported for correct.js"
   exit 1
-else
-  exit 0
 fi
 
 # Test fails if no warning reported for code with wrong format
