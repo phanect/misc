@@ -5,6 +5,17 @@ const merge = require("lodash.merge");
 const js = require("./configs/js");
 const ts = require("./configs/ts");
 
+const react = (lang) => merge(lang, {
+  extends: [ "plugin:react/recommended" ],
+  plugins: [ "react" ],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
+  rules: {},
+});
+
 const vue = (lang) => merge(lang, {
   extends: [ "plugin:vue/recommended" ],
   plugins: [ "vue" ],
@@ -23,6 +34,8 @@ const vue = (lang) => merge(lang, {
 module.exports = {
   configs: {
     js, ts,
+    "react+js": react(js),
+    "react+ts": react(ts),
     "vue+js": vue(js),
     "vue+ts": vue(ts),
   },
