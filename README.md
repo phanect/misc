@@ -33,5 +33,5 @@ Supported configs:
 
 - plugin:@phanect/js
 - plugin:@phanect/ts
-- plugin:@phanect/js+vue
-- plugin:@phanect/ts+vue
+- plugin:@phanect/vue+js
+- plugin:@phanect/vue+ts

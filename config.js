@@ -22,7 +22,7 @@ const vue = (lang) => {
 module.exports = {
   configs: {
     js, ts,
-    "js+vue": vue(js),
-    "ts+vue": vue(ts),
+    "vue+js": vue(js),
+    "vue+ts": vue(ts),
   },
 };
