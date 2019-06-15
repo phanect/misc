@@ -12,6 +12,7 @@ module.exports = {
   },
   plugins: js.plugins.concat([ "@typescript-eslint" ]),
   rules: Object.assign({
+    "@typescript-eslint/await-thenable": "error",
     "@typescript-eslint/indent": [ "error", 2, {
       SwitchCase: 1,
     }],
