@@ -1,7 +1,7 @@
-eslint-config-phanective
+@phanect/eslint-plugin
 ==============================================
 
-[![CircleCI](https://circleci.com/gh/phanect/eslint-config-phanective/tree/master.svg?style=svg)](https://circleci.com/gh/phanect/eslint-config-phanective/tree/master) [![Greenkeeper badge](https://badges.greenkeeper.io/phanect/eslint-config-phanective.svg)](https://greenkeeper.io/)
+[![CircleCI](https://circleci.com/gh/phanect/eslint-plugin.svg?style=svg)](https://circleci.com/gh/phanect/eslint-plugin)
 
 ESLint config for my own projects.
 
@@ -33,5 +33,5 @@ Supported configs:
 
 - plugin:@phanect/js
 - plugin:@phanect/ts
-- plugin:@phanect/js+vue
-- plugin:@phanect/ts+vue
+- plugin:@phanect/vue+js
+- plugin:@phanect/vue+ts
