@@ -1,7 +1,7 @@
-eslint-config-phanective
+@phanect/eslint-plugin
 ==============================================
 
-[![CircleCI](https://circleci.com/gh/phanect/eslint-config-phanective/tree/master.svg?style=svg)](https://circleci.com/gh/phanect/eslint-config-phanective/tree/master)
+[![CircleCI](https://circleci.com/gh/phanect/eslint-plugin.svg?style=svg)](https://circleci.com/gh/phanect/eslint-plugin)
 
 ESLint config for my own projects.
 

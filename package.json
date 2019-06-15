@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:phanect/eslint-config-phanective.git"
+    "url": "git@github.com:phanect/eslint-plugin.git"
   },
   "author": "Jumpei Ogawa",
   "license": "CC0-1.0",
