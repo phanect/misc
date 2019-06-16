@@ -11,13 +11,15 @@ const react = (lang) => ({
       jsx: true,
     },
   }),
-  rules: Object.assign(lang.rules, {}),
+  // Since first argument is modified, lang.rules must be the second argument,
+  // or js.rules includes rules for React or Vue
+  rules: Object.assign({}, lang.rules),
 });
 
 const vue = (lang) => ({
   extends: lang.extends.concat("plugin:vue/recommended"),
   plugins: lang.plugins.concat("vue"),
-  rules: Object.assign(lang.rules, {
+  rules: Object.assign({
     //
     // Warnings
     //
@@ -26,7 +28,9 @@ const vue = (lang) => ({
       singleline: 7,
       multiline: { max: 2 },
     }],
-  }),
+    // Since first argument is modified, lang.rules must be the second argument,
+    // or js.rules includes rules for React or Vue
+  }, lang.rules),
 });
 
 module.exports = {
