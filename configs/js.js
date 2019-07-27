@@ -99,5 +99,7 @@ module.exports = {
     "switch-colon-spacing": [ "warn", { before: false, after: true }],
 
     "no-console": "off",
+    "node/no-unsupported-features/es-builtins": "off",
+    "node/no-unsupported-features/es-syntax": "off",
   },
 };
