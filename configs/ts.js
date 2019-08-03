@@ -14,6 +14,7 @@ module.exports = {
   plugins: baseConfig.plugins.concat([ "@typescript-eslint" ]),
   rules: Object.assign({
     "@typescript-eslint/await-thenable": "error",
+    "@typescript-eslint/explicit-function-return-type": [ "error", { allowExpressions: true }],
     "@typescript-eslint/indent": [ "error", 2, {
       SwitchCase: 1,
     }],

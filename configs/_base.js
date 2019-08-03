@@ -89,6 +89,10 @@ module.exports = (lang) => ({
     "spaced-comment": [ "warn", "always" ],
     "switch-colon-spacing": [ "warn", { before: false, after: true }],
 
+    //
+    // Off
+    //
+    "import/no-unresolved": "off", // Not working other than Node or Webpack
     "no-console": "off",
   }, getLangSpecificRules({
     "no-unused-vars": "error",
