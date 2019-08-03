@@ -2,14 +2,16 @@
 
 const base = require("./_base");
 
+const baseConfig = base("js");
+
 module.exports = {
-  extends: base.extends.concat([
+  extends: baseConfig.extends.concat([
     "eslint:recommended",
   ]),
   parserOptions: {
     ecmaVersion: 2019,
     sourceType: "module",
   },
-  plugins: base.plugins.concat([]),
+  plugins: baseConfig.plugins.concat([]),
   rules: Object.assign({}, baseConfig.rules),
 };

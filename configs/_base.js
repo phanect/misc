@@ -1,6 +1,8 @@
 "use strict";
 
-module.exports = {
+const { getLangSpecificRules } = require("../helpers");
+
+module.exports = (lang) => ({
   extends: [
     "plugin:editorconfig/noconflict",
     "plugin:jsdoc/recommended",
@@ -21,7 +23,7 @@ module.exports = {
     "node",
     "promise",
   ],
-  rules: {
+  rules: Object.assign({
     "arrow-body-style": [ "error", "as-needed" ],
     "comma-dangle": [ "error", "always-multiline" ],
     "no-async-promise-executor": "error",
@@ -32,16 +34,12 @@ module.exports = {
     "no-template-curly-in-string": "error",
     "no-unused-expressions": [ "error", { allowShortCircuit: true, allowTernary: true, allowTaggedTemplates: true }],
     "no-unused-labels": "error",
-    "no-unused-vars": "error",
-    "no-use-before-define": "error",
     "no-whitespace-before-property": "error",
     "no-var": "error",
     "prefer-const": [ "error", {
       destructuring: "all",
       ignoreReadBeforeAssign: true,
     }],
-    "require-await": "error",
-    semi: [ "error", "always" ],
 
     "editorconfig/editorconfig": "error",
 
@@ -96,5 +94,10 @@ module.exports = {
     "no-console": "off",
     "node/no-unsupported-features/es-builtins": "off",
     "node/no-unsupported-features/es-syntax": "off",
-  },
-};
+  }, getLangSpecificRules({
+    "no-unused-vars": "error",
+    "no-use-before-define": "error",
+    "require-await": "error",
+    semi: [ "error", "always" ],
+  }, lang)),
+});

@@ -4,7 +4,7 @@
   "description": "ESLint configuration for Jumpei Ogawa (@phanect)'s private projects",
   "main": "config.js",
   "scripts": {
-    "test": "eslint --ignore-pattern tests/ . && ./tests/run.sh",
+    "test": "eslint --ignore-pattern tests/ . && ./tests/run.sh && jest",
     "clean": "git clean -dX --force",
     "release": "yarn publish . --access public"
   },
@@ -32,6 +32,8 @@
     "typescript": "latest"
   },
   "devDependencies": {
+    "eslint-plugin-jest": "latest",
+    "jest": "^24.8.0",
     "lodash.merge": "^4.6.1"
   }
 }
