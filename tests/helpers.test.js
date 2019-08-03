@@ -1,6 +1,6 @@
 "use strict";
 
-const { getLangSpecificRules } = require("../helpers");
+const { getLangSpecificRules, mergeConfigs } = require("../helpers");
 
 test("getLangSpecificRules (ts)", () => {
   const result = getLangSpecificRules({
@@ -31,5 +31,27 @@ test("getLangSpecificRules (js)", () => {
     "no-use-before-define": "error",
     "require-await": "error",
     semi: [ "error", "always" ],
+  });
+});
+
+test("mergeConfigs", () => {
+  const result = mergeConfigs({
+    foo: [ "a", "b" ],
+    bar: {
+      boo: [ "f", "g" ],
+    },
+  },
+  {
+    foo: [ "c", "d", "e" ],
+    bar: {
+      boo: [ "h", "i", "j" ],
+    },
+  });
+
+  expect(result).toEqual({
+    foo: [ "a", "b", "c", "d", "e" ],
+    bar: {
+      boo: [ "f", "g", "h", "i", "j" ],
+    },
   });
 });

@@ -1,5 +1,7 @@
 "use strict";
 
+const mergeWith = require("lodash.mergewith");
+
 module.exports = {
   getLangSpecificRules: (jsRules, lang) => {
     if (lang === "js") {
@@ -16,4 +18,9 @@ module.exports = {
       throw new Error(`Unsupported Language ${lang}: only "js" and "ts" are supported.`);
     }
   },
+  mergeConfigs: (config1, config2) => mergeWith(config1, config2, (a, b) => {
+    if (Array.isArray(a) && Array.isArray(b)) {
+      return a.concat(b);
+    }
+  }),
 };
