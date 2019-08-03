@@ -28,5 +28,9 @@ module.exports = {
     // Off
     //
     "@typescript-eslint/indent": "off", // avoid conflict against editorconfig/editorconfig
+
+    // These rules may warn new ES syntax which is supported by TypeScript (e.g. import)
+    "node/no-unsupported-features/es-builtins": "off",
+    "node/no-unsupported-features/es-syntax": "off",
   }, baseConfig.rules),
 };
