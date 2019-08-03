@@ -15,9 +15,6 @@ module.exports = {
   rules: Object.assign({
     "@typescript-eslint/await-thenable": "error",
     "@typescript-eslint/explicit-function-return-type": [ "error", { allowExpressions: true }],
-    "@typescript-eslint/indent": [ "error", 2, {
-      SwitchCase: 1,
-    }],
 
     //
     // Warnings
@@ -26,5 +23,10 @@ module.exports = {
     "@typescript-eslint/class-name-casing": "warn",
     "@typescript-eslint/interface-name-prefix": "warn",
     "@typescript-eslint/no-unused-vars": "error",
+
+    //
+    // Off
+    //
+    "@typescript-eslint/indent": "off", // avoid conflict against editorconfig/editorconfig
   }, baseConfig.rules),
 };

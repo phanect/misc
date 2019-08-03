@@ -39,7 +39,11 @@ module.exports = (lang) => ({
       ignoreReadBeforeAssign: true,
     }],
 
-    "editorconfig/editorconfig": "error",
+    "editorconfig/editorconfig": [ "error", {
+      indent:  {
+        SwitchCase: 1,
+      },
+    }],
 
     "no-unsanitized/method": "error",
     "no-unsanitized/property": "error",
