@@ -2,6 +2,7 @@
 
 const js = require("./configs/js");
 const ts = require("./configs/ts");
+const node = require("./configs/node");
 
 const react = (lang) => ({
   extends: lang.extends.concat("plugin:react/recommended"),
@@ -36,6 +37,8 @@ const vue = (lang) => ({
 module.exports = {
   configs: {
     js, ts,
+    "node+js": node(js),
+    "node+ts": node(ts),
     "react+js": react(js),
     "react+ts": react(ts),
     "vue+js": vue(js),

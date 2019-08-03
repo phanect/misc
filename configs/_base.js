@@ -6,7 +6,6 @@ module.exports = (lang) => ({
   extends: [
     "plugin:editorconfig/noconflict",
     "plugin:jsdoc/recommended",
-    "plugin:node/recommended",
     "plugin:promise/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
@@ -20,7 +19,6 @@ module.exports = (lang) => ({
     "import",
     "jsdoc",
     "no-unsanitized",
-    "node",
     "promise",
   ],
   rules: Object.assign({
@@ -92,8 +90,6 @@ module.exports = (lang) => ({
     "switch-colon-spacing": [ "warn", { before: false, after: true }],
 
     "no-console": "off",
-    "node/no-unsupported-features/es-builtins": "off",
-    "node/no-unsupported-features/es-syntax": "off",
   }, getLangSpecificRules({
     "no-unused-vars": "error",
     "no-use-before-define": "error",
