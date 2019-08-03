@@ -7,9 +7,9 @@ module.exports = (lang) => (mergeConfigs(lang, {
   plugins: [ "node" ],
   rules: {
     //
-    // Off
+    // Errors
     //
-    "node/no-unsupported-features/es-builtins": "off",
-    "node/no-unsupported-features/es-syntax": "off",
+    // While it is disabled on base config, it is enabled here since it works on Node
+    "import/no-unresolved": [ "error", { commonjs: true }],
   },
 }));
