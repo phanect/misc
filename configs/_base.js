@@ -2,7 +2,6 @@
 
 module.exports = {
   extends: [
-    "eslint:recommended",
     "plugin:editorconfig/noconflict",
     "plugin:jsdoc/recommended",
     "plugin:node/recommended",
@@ -13,10 +12,6 @@ module.exports = {
 
   env: {
     es6: true,
-  },
-  parserOptions: {
-    ecmaVersion: 2019,
-    sourceType: "module",
   },
   plugins: [
     "editorconfig",
