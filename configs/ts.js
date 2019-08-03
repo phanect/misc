@@ -1,21 +1,20 @@
 "use strict";
 
-const js = require("./js");
+const base = require("./_base");
+const baseConfig = base("ts");
 
 module.exports = {
-  extends: js.extends.concat([
+  extends: baseConfig.extends.concat([
     "plugin:@typescript-eslint/recommended",
     "plugin:import/typescript",
   ]),
   parserOptions: {
     parser: "@typescript-eslint/parser",
   },
-  plugins: js.plugins.concat([ "@typescript-eslint" ]),
+  plugins: baseConfig.plugins.concat([ "@typescript-eslint" ]),
   rules: Object.assign({
     "@typescript-eslint/await-thenable": "error",
-    "@typescript-eslint/indent": [ "error", 2, {
-      SwitchCase: 1,
-    }],
+    "@typescript-eslint/explicit-function-return-type": [ "error", { allowExpressions: true }],
 
     //
     // Warnings
@@ -24,5 +23,10 @@ module.exports = {
     "@typescript-eslint/class-name-casing": "warn",
     "@typescript-eslint/interface-name-prefix": "warn",
     "@typescript-eslint/no-unused-vars": "error",
-  }, js.rules),
+
+    //
+    // Off
+    //
+    "@typescript-eslint/indent": "off", // avoid conflict against editorconfig/editorconfig
+  }, baseConfig.rules),
 };

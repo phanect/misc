@@ -1,8 +1,8 @@
 "use strict";
 
-const merge = require("lodash.merge");
+const { mergeConfigs } = require("./helpers");
 
-module.exports = merge(require("./configs/js"), {
+module.exports = mergeConfigs(require("./configs/js"), {
   root: true,
 
   env: {

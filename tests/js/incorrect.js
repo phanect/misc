@@ -7,3 +7,12 @@ a: "a", // Wrong indent
       };
 
 console.log("Statement without semi-colon") // without semi-colon
+
+// SwitchCase
+switch(foo) {
+case "bar":
+  console.log("bar");
+  break;
+default:
+  console.log("default");
+}
