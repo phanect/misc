@@ -8,10 +8,7 @@ module.exports = {
   extends: baseConfig.extends.concat([
     "eslint:recommended",
   ]),
-  parserOptions: {
-    ecmaVersion: 2019,
-    sourceType: "module",
-  },
+  parserOptions: baseConfig.parserOptions,
   plugins: baseConfig.plugins.concat([]),
   rules: Object.assign({}, baseConfig.rules),
 };
