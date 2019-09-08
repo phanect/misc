@@ -9,6 +9,7 @@ module.exports = {
     "plugin:import/typescript",
   ]),
   parser: "@typescript-eslint/parser",
+  parserOptions: baseConfig.parserOptions,
   plugins: baseConfig.plugins.concat([ "@typescript-eslint" ]),
   rules: Object.assign({
     "@typescript-eslint/await-thenable": "error",
