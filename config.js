@@ -1,6 +1,6 @@
 "use strict";
 
-const { mergeConfigs } = require("../helpers");
+const { mergeConfigs } = require("./helpers");
 
 const js = require("./configs/js");
 const ts = require("./configs/ts");
