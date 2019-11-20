@@ -1,6 +1,7 @@
 "use strict";
 
 const mergeWith = require("lodash.mergewith");
+const cloneDeep = require("lodash.clonedeep");
 
 module.exports = {
   getLangSpecificRules: (jsRules, lang) => {
@@ -18,9 +19,13 @@ module.exports = {
       throw new Error(`Unsupported Language ${lang}: only "js" and "ts" are supported.`);
     }
   },
-  mergeConfigs: (config1, config2) => mergeWith(config1, config2, (a, b) => {
-    if (Array.isArray(a) && Array.isArray(b)) {
-      return a.concat(b);
-    }
-  }),
+  mergeConfigs: (config1, config2) => {
+    const _config1 = cloneDeep(config1);
+
+    return mergeWith(_config1, config2, (a, b) => {
+      if (Array.isArray(a) && Array.isArray(b)) {
+        return a.concat(b);
+      }
+    });
+  },
 };
