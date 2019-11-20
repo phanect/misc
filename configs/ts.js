@@ -1,17 +1,16 @@
 "use strict";
 
 const base = require("./_base");
-const baseConfig = base("ts");
+const { mergeConfigs } = require("../helpers");
 
-module.exports = {
-  extends: baseConfig.extends.concat([
+module.exports = mergeConfigs(base("ts"), {
+  extends: [
     "plugin:@typescript-eslint/recommended",
     "plugin:import/typescript",
-  ]),
+  ],
   parser: "@typescript-eslint/parser",
-  parserOptions: baseConfig.parserOptions,
-  plugins: baseConfig.plugins.concat([ "@typescript-eslint" ]),
-  rules: Object.assign({
+  plugins: [ "@typescript-eslint" ],
+  rules: {
     "@typescript-eslint/await-thenable": "error",
     "@typescript-eslint/explicit-function-return-type": [ "error", { allowExpressions: true }],
 
@@ -31,5 +30,5 @@ module.exports = {
     // These rules may warn new ES syntax which is supported by TypeScript (e.g. import)
     "node/no-unsupported-features/es-builtins": "off",
     "node/no-unsupported-features/es-syntax": "off",
-  }, baseConfig.rules),
-};
+  },
+});

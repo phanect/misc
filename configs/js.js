@@ -1,14 +1,10 @@
 "use strict";
 
 const base = require("./_base");
+const { mergeConfigs } = require("../helpers");
 
-const baseConfig = base("js");
-
-module.exports = {
-  extends: baseConfig.extends.concat([
+module.exports = mergeConfigs(base("js"), {
+  extends: [
     "eslint:recommended",
-  ]),
-  parserOptions: baseConfig.parserOptions,
-  plugins: baseConfig.plugins.concat([]),
-  rules: Object.assign({}, baseConfig.rules),
-};
+  ],
+});
