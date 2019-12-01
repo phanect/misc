@@ -27,7 +27,13 @@ module.exports = (lang) => ({
   ],
   rules: Object.assign({
     "arrow-body-style": [ "error", "as-needed" ],
-    "comma-dangle": [ "error", "always-multiline" ],
+    "comma-dangle": [ "error", {
+      arrays: "always-multiline",
+      objects: "always-multiline",
+      imports: "always-multiline",
+      exports: "always-multiline",
+      functions: "only-multiline",
+    }],
     "no-async-promise-executor": "error",
     "no-misleading-character-class": "error",
     "no-param-reassign": "error",
