@@ -26,6 +26,7 @@ jobs:
     steps:
       - init
       - run: yarn test
+      - run: yarn run lint
 
   release:
     executor:
