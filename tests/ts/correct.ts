@@ -14,5 +14,27 @@ switch(foo) {
     console.log("default");
 }
 
-// URL is not reported by node/no-unsupported-features/node-builtins when you use phanect/js rule.
+// URL is not reported by node/no-unsupported-features/node-builtins when you use phanect/ts rule.
 new URL("https://example.com");
+
+// comma-dangle for functions
+console.log(
+  "Very very very very very very very long argument which requires line break"
+);
+
+//
+// TypeScript-specific
+//
+
+// @template tag is allowed in JSDoc
+/**
+ * Sample function.
+ *
+ * @param {T[]} arr - The argument.
+ * @returns {T[]} - The return value.
+ * @template T
+ */
+function tetete<T>(arr: T[]): T[] {
+  return arr;
+}
+tetete();

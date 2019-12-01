@@ -16,3 +16,8 @@ switch(foo) {
 
 // URL is not reported by node/no-unsupported-features/node-builtins when you use phanect/js rule.
 new URL("https://example.com");
+
+// comma-dangle for functions
+console.log(
+  "Very very very very very very very long argument which requires line break"
+);
