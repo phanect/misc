@@ -14,7 +14,7 @@ switch(foo) {
     console.log("default");
 }
 
-// URL is not reported by node/no-unsupported-features/node-builtins when you use phanect/js rule.
+// URL is not reported by node/no-unsupported-features/node-builtins when you use phanect/ts rule.
 new URL("https://example.com");
 
 // comma-dangle for functions
