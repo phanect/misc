@@ -21,3 +21,20 @@ new URL("https://example.com");
 console.log(
   "Very very very very very very very long argument which requires line break"
 );
+
+//
+// TypeScript-specific
+//
+
+// @template tag is allowed in JSDoc
+/**
+ * Sample function.
+ *
+ * @param {T[]} arr - The argument.
+ * @returns {T[]} - The return value.
+ * @template T
+ */
+function tetete<T>(arr: T[]): T[] {
+  return arr;
+}
+tetete();

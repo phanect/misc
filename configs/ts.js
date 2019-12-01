@@ -31,4 +31,9 @@ module.exports = mergeConfigs(base("ts"), {
     "node/no-unsupported-features/es-builtins": "off",
     "node/no-unsupported-features/es-syntax": "off",
   },
+  settings: {
+    jsdoc: {
+      mode: "typescript",
+    },
+  },
 });
