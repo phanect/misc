@@ -4,7 +4,7 @@
   "description": "ESLint configuration for Jumpei Ogawa (@phanect)'s private projects",
   "main": "config.js",
   "scripts": {
-    "test": "eslint --ignore-pattern tests/ --ext=.js,.jsx,.ts,.tsx,.vue . && ./tests/run.sh && jest",
+    "test": "eslint --ignore-pattern tests/ --ext=.js,.jsx,.ts,.tsx,.vue . && jest",
     "clean": "git clean -dX --force",
     "release": "yarn publish . --access public"
   },
