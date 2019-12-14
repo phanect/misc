@@ -22,7 +22,6 @@ module.exports = (lang) => ({
     "editorconfig",
     "import",
     "jsdoc",
-    "no-unsanitized",
     "promise",
   ],
   rules: Object.assign({
@@ -54,9 +53,6 @@ module.exports = (lang) => ({
         SwitchCase: 1,
       },
     }],
-
-    "no-unsanitized/method": "error",
-    "no-unsanitized/property": "error",
 
     //
     // Warnings - Testing
