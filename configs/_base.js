@@ -74,7 +74,6 @@ module.exports = (lang) => ({
     "jsdoc/check-examples": "warn",
     "jsdoc/check-indentation": "warn",
     "jsdoc/check-syntax": "warn",
-    "jsdoc/require-description-complete-sentence": "warn",
     "jsdoc/require-hyphen-before-param-description": "warn",
 
     //
@@ -108,6 +107,9 @@ module.exports = (lang) => ({
     //
     "import/no-unresolved": "off", // Not working other than Node or Webpack
     "no-console": "off",
+
+    "jsdoc/require-jsdoc": "off",
+    "jsdoc/require-description-complete-sentence": "off",
   }, getLangSpecificRules({
     "no-unused-vars": "error",
     "no-use-before-define": "error",
