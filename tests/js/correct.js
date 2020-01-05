@@ -21,3 +21,12 @@ new URL("https://example.com");
 console.log(
   "Very very very very very very very long argument which requires line break"
 );
+
+// aliasing `this` is allowed (consistent-this is disabled)
+function funcRequiresCallback(callback) {
+  callback();
+}
+const self = this;
+funcRequiresCallback(() => {
+  console.log(self);
+});

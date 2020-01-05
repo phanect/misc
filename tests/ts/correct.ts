@@ -22,6 +22,15 @@ console.log(
   "Very very very very very very very long argument which requires line break"
 );
 
+// aliasing `this` is allowed (@typescript-eslint/no-this-alias is disabled)
+function funcRequiresCallback(callback): void {
+  callback();
+}
+const self = this;
+funcRequiresCallback(() => {
+  console.log(self);
+});
+
 //
 // TypeScript-specific
 //
