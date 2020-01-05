@@ -27,6 +27,7 @@ jobs:
       - init
       - run: yarn test
       - run: yarn run lint
+      - run: npm publish --dry-run --access public --non-interactive
 
   release:
     executor:
