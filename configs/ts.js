@@ -26,6 +26,7 @@ module.exports = mergeConfigs(base("ts"), {
     // Off
     //
     "@typescript-eslint/indent": "off", // avoid conflict against editorconfig/editorconfig
+    "@typescript-eslint/no-this-alias": "off",
 
     // These rules may warn new ES syntax which is supported by TypeScript (e.g. import)
     "node/no-unsupported-features/es-builtins": "off",
