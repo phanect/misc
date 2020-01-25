@@ -8,7 +8,11 @@ const { configs } = require("../config");
 
 test("js - valid", () => {
   const results = new CLIEngine({
-    baseConfig: configs.js,
+    baseConfig: mergeConfigs(configs.js, {
+      env: {
+        node: true,
+      },
+    }),
     useEslintrc: false,
   }).executeOnFiles(join(__dirname, "js/correct.js")).results;
 
@@ -20,7 +24,11 @@ test("js - valid", () => {
 
 test("js - invalid", () => {
   const results = new CLIEngine({
-    baseConfig: configs.js,
+    baseConfig: mergeConfigs(configs.js, {
+      env: {
+        node: true,
+      },
+    }),
     useEslintrc: false,
   }).executeOnFiles(join(__dirname, "js/incorrect.js")).results;
 
@@ -207,7 +215,11 @@ test("js - invalid", () => {
 
 test("js - invalid - no-undef", () => {
   const results = new CLIEngine({
-    baseConfig: configs.js,
+    baseConfig: mergeConfigs(configs.js, {
+      env: {
+        node: true,
+      },
+    }),
     useEslintrc: false,
   }).executeOnFiles(join(__dirname, "js/incorrect.no-undef.js")).results;
 
@@ -271,7 +283,14 @@ test("js - invalid - no-undef", () => {
 
 test("ts - valid", () => {
   const results = new CLIEngine({
-    baseConfig: configs.ts,
+    baseConfig: mergeConfigs(configs.ts, {
+      env: {
+        node: true,
+      },
+      parserOptions: {
+        project: join(__dirname, "ts/tsconfig.json"),
+      },
+    }),
     useEslintrc: false,
   }).executeOnFiles(join(__dirname, "ts/correct.ts")).results;
 
@@ -283,7 +302,14 @@ test("ts - valid", () => {
 
 test("ts - invalid", () => {
   const results = new CLIEngine({
-    baseConfig: configs.ts,
+    baseConfig: mergeConfigs(configs.ts, {
+      env: {
+        node: true,
+      },
+      parserOptions: {
+        project: join(__dirname, "ts/tsconfig.json"),
+      },
+    }),
     useEslintrc: false,
   }).executeOnFiles(join(__dirname, "./ts/incorrect.ts")).results;
 
