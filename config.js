@@ -14,6 +14,9 @@ const react = (lang) => mergeConfigs(lang, {
       jsx: true,
     },
   },
+  rules: {
+    "react/jsx-filename-extension": "warn",
+  },
 });
 
 const vue = (lang) => mergeConfigs(lang, {
