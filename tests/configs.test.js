@@ -24,10 +24,21 @@ test("js - invalid", () => {
   }).executeOnFiles(join(__dirname, "js/incorrect.js")).results;
 
   expect(results).toHaveLength(1);
-  expect(results[0].errorCount).toBe(12);
+  expect(results[0].errorCount).toBe(13);
   expect(results[0].warningCount).toBe(1);
 
   expect(results[0].messages).toEqual([
+    {
+      column: 1,
+      endColumn: 2,
+      endLine: 18,
+      line: 3,
+      message: "Use the global form of 'use strict'.",
+      messageId: "global",
+      nodeType: "Program",
+      ruleId: "strict",
+      severity: 2,
+    },
     {
       column: 1,
       endColumn: 9,
@@ -276,10 +287,21 @@ test("ts - invalid", () => {
   }).executeOnFiles(join(__dirname, "./ts/incorrect.ts")).results;
 
   expect(results).toHaveLength(1);
-  expect(results[0].errorCount).toBe(2);
+  expect(results[0].errorCount).toBe(3);
   expect(results[0].warningCount).toBe(0);
 
   expect(results[0].messages).toEqual([
+    {
+      column: 1,
+      endColumn: 1,
+      endLine: 14,
+      line: 3,
+      message: "Use the global form of 'use strict'.",
+      messageId: "global",
+      nodeType: "Program",
+      ruleId: "strict",
+      severity: 2,
+    },
     {
       column: 7,
       endColumn: 11,
