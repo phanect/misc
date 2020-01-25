@@ -33,6 +33,14 @@ module.exports = {
 };
 ```
 
+Also create .eslintrc.js in the test directory for test-specific configs:
+
+```javascript
+module.exports = {
+  extends: "plugin:@phanect/jest",
+};
+```
+
 Supported configs:
 
 - plugin:@phanect/js
@@ -43,3 +51,4 @@ Supported configs:
 - plugin:@phanect/react+ts
 - plugin:@phanect/vue+js
 - plugin:@phanect/vue+ts
+- plugin:@phanect/jest
