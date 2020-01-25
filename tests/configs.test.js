@@ -12,10 +12,10 @@ test("js - valid", () => {
     userEslintrc: false,
   }).executeOnFiles(join(__dirname, "js/correct.js")).results;
 
+  expect(results[0].messages).toHaveLength(0);
   expect(results).toHaveLength(1);
   expect(results[0].errorCount).toBe(0);
   expect(results[0].warningCount).toBe(0);
-  expect(results[0].messages).toHaveLength(0);
 });
 
 test("js - invalid", () => {
@@ -23,10 +23,6 @@ test("js - invalid", () => {
     baseConfig: configs.js,
     userEslintrc: false,
   }).executeOnFiles(join(__dirname, "js/incorrect.js")).results;
-
-  expect(results).toHaveLength(1);
-  expect(results[0].errorCount).toBe(13);
-  expect(results[0].warningCount).toBe(1);
 
   expect(results[0].messages).toEqual([
     {
@@ -203,6 +199,10 @@ test("js - invalid", () => {
       severity: 2,
     },
   ]);
+
+  expect(results).toHaveLength(1);
+  expect(results[0].errorCount).toBe(13);
+  expect(results[0].warningCount).toBe(1);
 });
 
 test("js - invalid - no-undef", () => {
@@ -210,10 +210,6 @@ test("js - invalid - no-undef", () => {
     baseConfig: configs.js,
     userEslintrc: false,
   }).executeOnFiles(join(__dirname, "js/incorrect.no-undef.js")).results;
-
-  expect(results).toHaveLength(1);
-  expect(results[0].errorCount).toBe(3);
-  expect(results[0].warningCount).toBe(1);
 
   expect(results[0].messages).toEqual([
     {
@@ -267,6 +263,10 @@ test("js - invalid - no-undef", () => {
       severity: 2,
     },
   ]);
+
+  expect(results).toHaveLength(1);
+  expect(results[0].errorCount).toBe(3);
+  expect(results[0].warningCount).toBe(1);
 });
 
 test("ts - valid", () => {
@@ -275,10 +275,10 @@ test("ts - valid", () => {
     userEslintrc: false,
   }).executeOnFiles(join(__dirname, "ts/correct.ts")).results;
 
+  expect(results[0].messages).toHaveLength(0);
   expect(results).toHaveLength(1);
   expect(results[0].errorCount).toBe(0);
   expect(results[0].warningCount).toBe(0);
-  expect(results[0].messages).toHaveLength(0);
 });
 
 test("ts - invalid", () => {
@@ -286,10 +286,6 @@ test("ts - invalid", () => {
     baseConfig: configs.ts,
     userEslintrc: false,
   }).executeOnFiles(join(__dirname, "./ts/incorrect.ts")).results;
-
-  expect(results).toHaveLength(1);
-  expect(results[0].errorCount).toBe(3);
-  expect(results[0].warningCount).toBe(0);
 
   expect(results[0].messages).toEqual([
     {
@@ -324,6 +320,10 @@ test("ts - invalid", () => {
       severity: 2,
     },
   ]);
+
+  expect(results).toHaveLength(1);
+  expect(results[0].errorCount).toBe(3);
+  expect(results[0].warningCount).toBe(0);
 });
 
 test("jest - valid", () => {
