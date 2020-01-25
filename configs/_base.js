@@ -16,7 +16,7 @@ module.exports = (lang) => ({
   },
   parserOptions: {
     ecmaVersion: 2019,
-    sourceType: "module",
+    sourceType: "script", // "module" is only for JavaScript modules
   },
   plugins: [
     "editorconfig",
@@ -47,6 +47,8 @@ module.exports = (lang) => ({
       destructuring: "all",
       ignoreReadBeforeAssign: true,
     }],
+    "prefer-spread": "error",
+    strict: [ "error", "safe" ],
 
     "editorconfig/editorconfig": [ "error", {
       indent:  {
