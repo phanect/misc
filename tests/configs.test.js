@@ -213,6 +213,17 @@ test("js - invalid - no-undef", () => {
 
   expect(results[0].messages).toEqual([
     {
+      column: 1,
+      endColumn: 5,
+      endLine: 3,
+      line: 3,
+      message: "'test' is not defined.",
+      messageId: "undef",
+      nodeType: "Identifier",
+      ruleId: "no-undef",
+      severity: 2,
+    },
+    {
       column: 7,
       endColumn: 1,
       endLine: 4,
@@ -254,7 +265,7 @@ test("js - invalid - no-undef", () => {
   ]);
 
   expect(results).toHaveLength(1);
-  expect(results[0].errorCount).toBe(3);
+  expect(results[0].errorCount).toBe(4);
   expect(results[0].warningCount).toBe(1);
 });
 
