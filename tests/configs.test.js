@@ -213,17 +213,6 @@ test("js - invalid - no-undef", () => {
 
   expect(results[0].messages).toEqual([
     {
-      column: 1,
-      endColumn: 7,
-      endLine: 3,
-      line: 3,
-      message: "Test is missing function argument",
-      messageId: "missingFunction",
-      nodeType: "CallExpression",
-      ruleId: "jest/no-disabled-tests",
-      severity: 1,
-    },
-    {
       column: 7,
       endColumn: 1,
       endLine: 4,
@@ -306,23 +295,13 @@ test("ts - invalid", () => {
       line: 4,
       message: "'hoge' is assigned a value but never used.",
       nodeType: "Identifier",
-      ruleId: "no-unused-vars",
-      severity: 2,
-    },
-    {
-      column: 7,
-      endColumn: 11,
-      endLine: 4,
-      line: 4,
-      message: "'hoge' is assigned a value but never used.",
-      nodeType: "Identifier",
       ruleId: "@typescript-eslint/no-unused-vars",
       severity: 2,
     },
   ]);
 
   expect(results).toHaveLength(1);
-  expect(results[0].errorCount).toBe(3);
+  expect(results[0].errorCount).toBe(2);
   expect(results[0].warningCount).toBe(0);
 });
 
