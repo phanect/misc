@@ -9,7 +9,7 @@ const { configs } = require("../config");
 test("js - valid", () => {
   const results = new CLIEngine({
     baseConfig: configs.js,
-    userEslintrc: false,
+    useEslintrc: false,
   }).executeOnFiles(join(__dirname, "js/correct.js")).results;
 
   expect(results[0].messages).toHaveLength(0);
@@ -21,7 +21,7 @@ test("js - valid", () => {
 test("js - invalid", () => {
   const results = new CLIEngine({
     baseConfig: configs.js,
-    userEslintrc: false,
+    useEslintrc: false,
   }).executeOnFiles(join(__dirname, "js/incorrect.js")).results;
 
   expect(results[0].messages).toEqual([
@@ -208,7 +208,7 @@ test("js - invalid", () => {
 test("js - invalid - no-undef", () => {
   const results = new CLIEngine({
     baseConfig: configs.js,
-    userEslintrc: false,
+    useEslintrc: false,
   }).executeOnFiles(join(__dirname, "js/incorrect.no-undef.js")).results;
 
   expect(results[0].messages).toEqual([
@@ -272,7 +272,7 @@ test("js - invalid - no-undef", () => {
 test("ts - valid", () => {
   const results = new CLIEngine({
     baseConfig: configs.ts,
-    userEslintrc: false,
+    useEslintrc: false,
   }).executeOnFiles(join(__dirname, "ts/correct.ts")).results;
 
   expect(results[0].messages).toHaveLength(0);
@@ -284,7 +284,7 @@ test("ts - valid", () => {
 test("ts - invalid", () => {
   const results = new CLIEngine({
     baseConfig: configs.ts,
-    userEslintrc: false,
+    useEslintrc: false,
   }).executeOnFiles(join(__dirname, "./ts/incorrect.ts")).results;
 
   expect(results[0].messages).toEqual([
