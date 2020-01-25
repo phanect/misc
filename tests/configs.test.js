@@ -236,20 +236,6 @@ test("js - invalid - no-undef", () => {
       severity: 2,
     },
     {
-      column: 7,
-      endColumn: 1,
-      endLine: 4,
-      fix: {
-        range: [ 21, 21 ],
-        text: ";",
-      },
-      line: 3,
-      message: "Missing semicolon.",
-      nodeType: "ExpressionStatement",
-      ruleId: "semi",
-      severity: 2,
-    },
-    {
       column: 13,
       endColumn: 18,
       endLine: 4,
@@ -260,25 +246,11 @@ test("js - invalid - no-undef", () => {
       ruleId: "no-undef",
       severity: 2,
     },
-    {
-      column: 19,
-      endColumn: 1,
-      endLine: 5,
-      fix: {
-        range: [ 40, 40 ],
-        text: ";",
-      },
-      line: 4,
-      message: "Missing semicolon.",
-      nodeType: "ExpressionStatement",
-      ruleId: "semi",
-      severity: 2,
-    },
   ]);
 
   expect(results).toHaveLength(1);
-  expect(results[0].errorCount).toBe(4);
-  expect(results[0].warningCount).toBe(1);
+  expect(results[0].errorCount).toBe(2);
+  expect(results[0].warningCount).toBe(0);
 });
 
 test("ts - valid", () => {
