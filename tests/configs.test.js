@@ -5,6 +5,7 @@ const { join } = require("path");
 
 const { mergeConfigs } = require("../helpers");
 const { configs } = require("../config");
+const { sortObjects } = require("./testutils");
 
 test("js - valid", () => {
   const results = new CLIEngine({
@@ -32,7 +33,7 @@ test("js - invalid", () => {
     useEslintrc: false,
   }).executeOnFiles(join(__dirname, "js/incorrect.js")).results;
 
-  expect(results[0].messages).toEqual([
+  expect(sortObjects(results[0].messages)).toEqual(sortObjects([
     {
       column: 1,
       endColumn: 2,
@@ -206,7 +207,7 @@ test("js - invalid", () => {
       ruleId: "editorconfig/editorconfig",
       severity: 2,
     },
-  ]);
+  ]));
 
   expect(results).toHaveLength(1);
   expect(results[0].errorCount).toBe(13);
