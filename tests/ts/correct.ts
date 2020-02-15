@@ -31,6 +31,12 @@ funcRequiresCallback(() => {
   console.log(self);
 });
 
+// require-await is disabled
+async function asyncFunctionWithoutAwait(): Promise<void> {
+  console.log();
+}
+asyncFunctionWithoutAwait();
+
 //
 // TypeScript-specific
 //

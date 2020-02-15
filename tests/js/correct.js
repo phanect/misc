@@ -30,3 +30,9 @@ const self = this;
 funcRequiresCallback(() => {
   console.log(self);
 });
+
+// require-await is disabled
+async function asyncFunctionWithoutAwait() {
+  console.log();
+}
+asyncFunctionWithoutAwait();
