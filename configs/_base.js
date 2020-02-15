@@ -110,7 +110,10 @@ module.exports = (lang) => ({
   }, getLangSpecificRules({
     "no-unused-vars": "error",
     "no-use-before-define": "error",
-    "require-await": "error",
     semi: [ "error", "always" ],
+
+    // Sometimes API requires async function as callback, and you don't use await
+    // in the function. In such case, it is difficult to follow require-await.
+    "require-await": "off",
   }, lang)),
 });
