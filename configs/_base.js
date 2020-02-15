@@ -48,7 +48,6 @@ module.exports = (lang) => ({
       ignoreReadBeforeAssign: true,
     }],
     "prefer-spread": "error",
-    strict: [ "error", "safe" ],
 
     "editorconfig/editorconfig": [ "error", {
       indent:  {

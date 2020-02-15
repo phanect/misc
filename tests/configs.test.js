@@ -5,6 +5,7 @@ const { join } = require("path");
 
 const { mergeConfigs } = require("../helpers");
 const { configs } = require("../config");
+const { sortObjects } = require("./testutils");
 
 test("js - valid", () => {
   const results = new CLIEngine({
@@ -32,7 +33,7 @@ test("js - invalid", () => {
     useEslintrc: false,
   }).executeOnFiles(join(__dirname, "js/incorrect.js")).results;
 
-  expect(results[0].messages).toEqual([
+  expect(sortObjects(results[0].messages)).toEqual(sortObjects([
     {
       column: 1,
       endColumn: 2,
@@ -206,7 +207,7 @@ test("js - invalid", () => {
       ruleId: "editorconfig/editorconfig",
       severity: 2,
     },
-  ]);
+  ]));
 
   expect(results).toHaveLength(1);
   expect(results[0].errorCount).toBe(13);
@@ -287,17 +288,6 @@ test("ts - invalid", () => {
 
   expect(results[0].messages).toEqual([
     {
-      column: 1,
-      endColumn: 1,
-      endLine: 14,
-      line: 3,
-      message: "Use the global form of 'use strict'.",
-      messageId: "global",
-      nodeType: "Program",
-      ruleId: "strict",
-      severity: 2,
-    },
-    {
       column: 7,
       endColumn: 11,
       endLine: 4,
@@ -310,8 +300,91 @@ test("ts - invalid", () => {
   ]);
 
   expect(results).toHaveLength(1);
-  expect(results[0].errorCount).toBe(2);
+  expect(results[0].errorCount).toBe(1);
   expect(results[0].warningCount).toBe(0);
+});
+
+test("modules - js - valid", () => {
+  const engine = new CLIEngine({
+    baseConfig: mergeConfigs(configs.js, {
+      env: {
+        node: true,
+      },
+      parserOptions: {
+        sourceType: "module", // You need to explicitly set sourceType: "module" in JS code
+      },
+    }),
+    useEslintrc: false,
+  });
+  const results1 = engine.executeOnFiles(join(__dirname, "js/correct.modules-1.js")).results;
+  const results2 = engine.executeOnFiles(join(__dirname, "js/correct.modules-2.js")).results;
+
+  for (const results of [ results1, results2 ]) {
+    expect(results[0].messages).toHaveLength(0);
+    expect(results).toHaveLength(1);
+    expect(results[0].errorCount).toBe(0);
+    expect(results[0].warningCount).toBe(0);
+  }
+});
+
+test("modules - js - invalid", () => {
+  const engine = new CLIEngine({
+    baseConfig: mergeConfigs(configs.js, {
+      env: {
+        node: true,
+      },
+      parserOptions: {
+        sourceType: "module", // You need to explicitly set sourceType: "module" in JS code
+      },
+    }),
+    useEslintrc: false,
+  });
+  const results1 = engine.executeOnFiles(join(__dirname, "js/incorrect.modules-1.js")).results;
+  const results2 = engine.executeOnFiles(join(__dirname, "js/incorrect.modules-2.js")).results;
+
+  for (const results of [ results1, results2 ]) {
+    expect(results[0].messages).toEqual([{
+      line: 1,
+      endLine: 1,
+      column: 1,
+      endColumn: 14,
+      fix: {
+        range: [ 0, 13 ],
+        text: "",
+      },
+      message: "'use strict' is unnecessary inside of modules.",
+      messageId: "module",
+      nodeType: "ExpressionStatement",
+      ruleId: "strict",
+      severity: 2,
+    }]);
+    expect(results).toHaveLength(1);
+    expect(results[0].errorCount).toBe(1);
+    expect(results[0].warningCount).toBe(0);
+  }
+});
+
+test("modules - ts - valid", () => {
+  const engine = new CLIEngine({
+    baseConfig: mergeConfigs(configs.ts, {
+      env: {
+        node: true,
+      },
+      parserOptions: {
+        project: join(__dirname, "ts/tsconfig.json"),
+      },
+    }),
+    useEslintrc: false,
+  });
+  const results1 = engine.executeOnFiles(join(__dirname, "ts/correct.modules-1.ts")).results;
+  const results2 = engine.executeOnFiles(join(__dirname, "ts/correct.modules-2.ts")).results;
+
+  for (const results of [ results1, results2 ]) {
+    expect(results[0].messages).toHaveLength(0);
+    expect(results).toHaveLength(1);
+    expect(results[0].errorCount).toBe(0);
+    expect(results[0].warningCount).toBe(0);
+  }
 });
 
 test("jest - valid", () => {

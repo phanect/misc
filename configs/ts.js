@@ -9,6 +9,9 @@ module.exports = mergeConfigs(base("ts"), {
     "plugin:import/typescript",
   ],
   parser: "@typescript-eslint/parser",
+  parserOptions: {
+    sourceType: "module",
+  },
   plugins: [ "@typescript-eslint" ],
   rules: {
     "@typescript-eslint/await-thenable": "error",
