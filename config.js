@@ -8,8 +8,11 @@ const node = require("./configs/node");
 const _jest = require("./configs/jest"); // do not name this variable "jest" to avoid name conflict on test
 
 const react = (lang) => mergeConfigs(lang, {
-  extends: [ "plugin:react/recommended" ],
-  plugins: [ "react" ],
+  extends: [
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+  ],
+  plugins: [ "react", "react-hooks" ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
