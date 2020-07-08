@@ -16,7 +16,7 @@
   "author": "Jumpei Ogawa",
   "license": "CC0-1.0",
   "engines": {
-    "node": ">=6.x"
+    "node": ">=10.x"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "latest",
