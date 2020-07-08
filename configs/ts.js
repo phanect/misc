@@ -21,9 +21,9 @@ module.exports = mergeConfigs(base("ts"), {
     // Warnings
     //
     "@typescript-eslint/adjacent-overload-signatures": "warn",
-    "@typescript-eslint/class-name-casing": "warn",
-    "@typescript-eslint/interface-name-prefix": "warn",
-    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/prefer-for-of": "warn",
+    "@typescript-eslint/prefer-nullish-coalescing": "warn",
+    "@typescript-eslint/prefer-optional-chain": "warn",
 
     //
     // Off
