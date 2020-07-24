@@ -9,7 +9,7 @@ const { sortObjects } = require("./testutils");
 
 test("js - valid", () => {
   const results = new CLIEngine({
-    baseConfig: mergeConfigs(configs.js, {
+    baseConfig: mergeConfigs(configs.plain, {
       env: {
         node: true,
       },
@@ -25,7 +25,7 @@ test("js - valid", () => {
 
 test("js - invalid", () => {
   const results = new CLIEngine({
-    baseConfig: mergeConfigs(configs.js, {
+    baseConfig: mergeConfigs(configs.plain, {
       env: {
         node: true,
       },
@@ -246,7 +246,7 @@ test("js - invalid", () => {
 
 test("js - invalid - no-undef", () => {
   const results = new CLIEngine({
-    baseConfig: mergeConfigs(configs.js, {
+    baseConfig: mergeConfigs(configs.plain, {
       env: {
         node: true,
       },
@@ -286,7 +286,7 @@ test("js - invalid - no-undef", () => {
 
 test("ts - valid", () => {
   const results = new CLIEngine({
-    baseConfig: mergeConfigs(configs.ts, {
+    baseConfig: mergeConfigs(configs.plain, {
       env: {
         node: true,
       },
@@ -305,7 +305,7 @@ test("ts - valid", () => {
 
 test("ts - invalid", () => {
   const results = new CLIEngine({
-    baseConfig: mergeConfigs(configs.ts, {
+    baseConfig: mergeConfigs(configs.plain, {
       env: {
         node: true,
       },
@@ -412,7 +412,7 @@ test("ts - invalid", () => {
 
 test("modules - js - valid", () => {
   const engine = new CLIEngine({
-    baseConfig: mergeConfigs(configs.js, {
+    baseConfig: mergeConfigs(configs.plain, {
       env: {
         node: true,
       },
@@ -435,7 +435,7 @@ test("modules - js - valid", () => {
 
 test("modules - js - invalid", () => {
   const engine = new CLIEngine({
-    baseConfig: mergeConfigs(configs.js, {
+    baseConfig: mergeConfigs(configs.plain, {
       env: {
         node: true,
       },
@@ -472,7 +472,7 @@ test("modules - js - invalid", () => {
 
 test("modules - ts - valid", () => {
   const engine = new CLIEngine({
-    baseConfig: mergeConfigs(configs.ts, {
+    baseConfig: mergeConfigs(configs.plain, {
       env: {
         node: true,
       },
@@ -495,7 +495,7 @@ test("modules - ts - valid", () => {
 
 for (const lang of [ "js", "ts" ]) {
   test(`jest - ${lang} - valid`, () => {
-    const config = mergeConfigs(configs[lang], configs.jest);
+    const config = mergeConfigs(configs.plain, configs.jest);
     const results = new CLIEngine({
       baseConfig: mergeConfigs(config, lang === "ts" ? {
         parserOptions: {
@@ -512,7 +512,7 @@ for (const lang of [ "js", "ts" ]) {
   });
 
   test(`jest - ${lang} - invalid`, () => {
-    const config = mergeConfigs(configs[lang], configs.jest);
+    const config = mergeConfigs(configs.plain, configs.jest);
     const results = new CLIEngine({
       baseConfig: mergeConfigs(config, lang === "ts" ? {
         parserOptions: {

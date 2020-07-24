@@ -12,7 +12,7 @@ const commonRulesJS = {
   "require-await": "off",
 };
 
-module.exports = (lang) => ({
+module.exports = {
   extends: [
     "plugin:editorconfig/noconflict",
     "plugin:jsdoc/recommended",
@@ -34,7 +34,7 @@ module.exports = (lang) => ({
     "jsdoc",
     "promise",
   ],
-  rules: Object.assign({
+  rules: {
     "arrow-body-style": [ "error", "as-needed" ],
     "comma-dangle": [ "error", {
       arrays: "always-multiline",
@@ -117,5 +117,70 @@ module.exports = (lang) => ({
 
     "jsdoc/require-jsdoc": "off",
     "jsdoc/require-description-complete-sentence": "off",
-  }, lang === "js" ? commonRulesJS : toTSRules(commonRulesJS)),
-});
+  },
+  overrides: [
+    {
+      files: [
+        "*.js", "**/*.js",
+        "*.mjs", "**/*.mjs",
+        "*.cjs", "**/*.cjs",
+      ],
+      extends: [
+        "eslint:recommended",
+      ],
+      rules: {
+        ...commonRulesJS,
+
+        // This rule also disallows "use strict"; in module-based code including TypeScript.
+        // You can still add "use strict"; in each source TypeScript code,
+        // so I enable this rule only for JavaScript
+        strict: [ "error", "safe" ],
+      },
+    },
+    {
+      files: [ "*.ts", "**/*.ts" ],
+
+      extends: [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:import/typescript",
+      ],
+      parser: "@typescript-eslint/parser",
+      parserOptions: {
+        sourceType: "module",
+      },
+      plugins: [ "@typescript-eslint" ],
+      rules: {
+        ...toTSRules(commonRulesJS),
+
+        //
+        // Errors
+        //
+        "@typescript-eslint/await-thenable": "error",
+        "@typescript-eslint/explicit-function-return-type": [ "error", { allowExpressions: true }],
+
+        //
+        // Warnings
+        //
+        "@typescript-eslint/adjacent-overload-signatures": "warn",
+        "@typescript-eslint/prefer-for-of": "warn",
+        "@typescript-eslint/prefer-nullish-coalescing": "warn",
+        "@typescript-eslint/prefer-optional-chain": "warn",
+
+        //
+        // Off
+        //
+        "@typescript-eslint/indent": "off", // avoid conflict against editorconfig/indent
+        "@typescript-eslint/no-this-alias": "off",
+
+        // These rules may warn new ES syntax which is supported by TypeScript (e.g. import)
+        "node/no-unsupported-features/es-builtins": "off",
+        "node/no-unsupported-features/es-syntax": "off",
+      },
+      settings: {
+        jsdoc: {
+          mode: "typescript",
+        },
+      },
+    },
+  ],
+};
