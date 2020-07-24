@@ -1,6 +1,16 @@
 "use strict";
 
-const { getLangSpecificRules } = require("../helpers");
+const { toTSRules } = require("../helpers");
+
+const commonRulesJS = {
+  "no-unused-vars": "error",
+  "no-use-before-define": "error",
+  semi: [ "error", "always" ],
+
+  // Sometimes API requires async function as callback, and you don't use await
+  // in the function. In such case, it is difficult to follow require-await.
+  "require-await": "off",
+};
 
 module.exports = (lang) => ({
   extends: [
@@ -107,13 +117,5 @@ module.exports = (lang) => ({
 
     "jsdoc/require-jsdoc": "off",
     "jsdoc/require-description-complete-sentence": "off",
-  }, getLangSpecificRules({
-    "no-unused-vars": "error",
-    "no-use-before-define": "error",
-    semi: [ "error", "always" ],
-
-    // Sometimes API requires async function as callback, and you don't use await
-    // in the function. In such case, it is difficult to follow require-await.
-    "require-await": "off",
-  }, lang)),
+  }, lang === "js" ? commonRulesJS : toTSRules(commonRulesJS)),
 });

@@ -4,20 +4,14 @@ const mergeWith = require("lodash.mergewith");
 const cloneDeep = require("lodash.clonedeep");
 
 module.exports = {
-  getLangSpecificRules: (jsRules, lang) => {
-    if (lang === "js") {
-      return jsRules;
-    } else if (lang === "ts") {
-      const tsRules = {};
+  toTSRules: (jsRules) => {
+    const tsRules = {};
 
-      for (const [ ruleid, options ] of Object.entries(jsRules)) {
-        tsRules[`@typescript-eslint/${ruleid}`] = options;
-      }
-
-      return tsRules;
-    } else {
-      throw new Error(`Unsupported Language ${lang}: only "js" and "ts" are supported.`);
+    for (const [ ruleid, options ] of Object.entries(jsRules)) {
+      tsRules[`@typescript-eslint/${ruleid}`] = options;
     }
+
+    return tsRules;
   },
   mergeConfigs: (config1, config2) => {
     const _config1 = cloneDeep(config1);
