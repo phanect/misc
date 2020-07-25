@@ -37,6 +37,7 @@
     "typescript": "latest"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.0",
     "jest": "^26.0.0"
   }
 }
