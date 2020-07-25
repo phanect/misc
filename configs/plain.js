@@ -138,6 +138,18 @@ module.exports = {
       },
     },
     {
+      files: [ "*.cjs", "**/*.cjs" ],
+      parserOptions: {
+        sourceType: "script",
+      },
+    },
+    {
+      files: [ "*.mjs", "**/*.mjs" ],
+      parserOptions: {
+        sourceType: "module",
+      },
+    },
+    {
       files: [ "*.ts", "**/*.ts" ],
 
       extends: [
