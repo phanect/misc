@@ -497,7 +497,7 @@ test("jest - valid", () => {
   const results = new CLIEngine({
     baseConfig: mergeConfigs(configs.js, configs.jest),
     useEslintrc: false,
-  }).executeOnFiles(join(__dirname, "./js/jest-correct.js")).results;
+  }).executeOnFiles(join(__dirname, "./js/jest-correct.test.js")).results;
 
   expect(results[0].messages).toEqual([]);
   expect(results).toHaveLength(1);
@@ -509,7 +509,7 @@ test("jest - invalid", () => {
   const results = new CLIEngine({
     baseConfig: mergeConfigs(configs.js, configs.jest),
     useEslintrc: false,
-  }).executeOnFiles(join(__dirname, "./js/jest-incorrect.js")).results;
+  }).executeOnFiles(join(__dirname, "./js/jest-incorrect.test.js")).results;
 
   expect(results[0].messages).toEqual([
     {
