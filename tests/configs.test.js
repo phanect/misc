@@ -563,9 +563,27 @@ test("jest - invalid", () => {
       ruleId: "jest/prefer-to-have-length",
       severity: 1,
     },
+    {
+      column: 44,
+      endColumn: 1,
+      endLine: 34,
+      fix: {
+        range: [
+          559,
+          559,
+        ],
+        text: ";",
+      },
+      line: 33,
+      message: "Missing semicolon.",
+      messageId: "missingSemi",
+      nodeType: "ExpressionStatement",
+      ruleId: "semi",
+      severity: 2,
+    },
   ]);
 
   expect(results).toHaveLength(1);
-  expect(results[0].errorCount).toBe(3);
+  expect(results[0].errorCount).toBe(4);
   expect(results[0].warningCount).toBe(1);
 });

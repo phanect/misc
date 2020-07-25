@@ -27,3 +27,8 @@ test("identical title", () => {
 test("prefer toHaveLength", () => {
   expect([ 1, 2, 3 ].length).toBe(3);
 });
+
+test("JS rules are properly applied", () => {
+  // Missing semicolon error should happen
+  expect("some string").toBe("some string")
+});
