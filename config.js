@@ -1,21 +1,15 @@
 "use strict";
 
-const js = require("./configs/js");
-const ts = require("./configs/ts");
-const node = require("./configs/node");
-const react = require("./configs/react");
-const vue = require("./configs/vue");
-const _jest = require("./configs/jest"); // do not name this variable "jest" to avoid name conflict on test
-
 module.exports = {
   configs: {
-    js, ts,
-    "node+js": node(js),
-    "node+ts": node(ts),
-    "react+js": react(js),
-    "react+ts": react(ts),
-    "vue+js": vue(js),
-    "vue+ts": vue(ts),
-    jest: _jest,
+    js: require("./dist/js.json"),
+    ts: require("./dist/ts.json"),
+    "node+js": require("./dist/node.js.json"),
+    "node+ts": require("./dist/node.ts.json"),
+    "react+js": require("./dist/react.js.json"),
+    "react+ts": require("./dist/react.ts.json"),
+    "vue+js": require("./dist/vue.js.json"),
+    "vue+ts": require("./dist/vue.ts.json"),
+    jest: require("./dist/jest.json"),
   },
 };

@@ -2,7 +2,7 @@
 
 const { mergeConfigs } = require("./helpers");
 
-module.exports = mergeConfigs(require("./configs/js"), {
+module.exports = mergeConfigs(require("./dist/node.js.json"), {
   root: true,
 
   env: {

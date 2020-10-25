@@ -4,6 +4,7 @@
   "description": "ESLint configuration for Jumpei Ogawa (@phanect)'s private projects",
   "main": "config.js",
   "scripts": {
+    "build": "node --trace-warnings --unhandled-rejections=strict ./builder.js",
     "test": "jest",
     "lint": "eslint --ignore-pattern tests/ --ext=.js,.jsx,.ts,.tsx,.vue .",
     "clean": "git clean -dX --force",
