@@ -8,7 +8,7 @@
     "test": "jest",
     "lint": "eslint --ignore-pattern tests/ --ext=.js,.jsx,.ts,.tsx,.vue .",
     "clean": "git clean -dX --force",
-    "release": "yarn publish . --access public"
+    "release": "npm publish . --access public"
   },
   "repository": {
     "type": "git",
