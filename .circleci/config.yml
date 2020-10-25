@@ -17,7 +17,7 @@ commands:
 
             sudo npm install --global npm
       - checkout
-      - run: yarn install
+      - run: npm install
 
 jobs:
   build:
@@ -25,8 +25,9 @@ jobs:
       name: default
     steps:
       - init
-      - run: yarn test
-      - run: yarn run lint
+      - run: npm run build
+      - run: npm test
+      - run: npm run lint
       - run: npm publish --dry-run --access public --non-interactive
 
   release:
@@ -36,7 +37,7 @@ jobs:
       - init
       - run: |
           echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > "$HOME/.npmrc"
-          yarn release
+          npm release
 
 workflows:
   version: 2
