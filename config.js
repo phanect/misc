@@ -1,42 +1,11 @@
 "use strict";
 
-const { mergeConfigs } = require("./helpers");
-
 const js = require("./configs/js");
 const ts = require("./configs/ts");
 const node = require("./configs/node");
+const react = require("./configs/react");
+const vue = require("./configs/vue");
 const _jest = require("./configs/jest"); // do not name this variable "jest" to avoid name conflict on test
-
-const react = (lang) => mergeConfigs(lang, {
-  extends: [
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-  ],
-  plugins: [ "react", "react-hooks" ],
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
-  rules: {
-    "react/jsx-filename-extension": "warn",
-  },
-});
-
-const vue = (lang) => mergeConfigs(lang, {
-  extends: [ "plugin:vue/recommended" ],
-  plugins: [ "vue" ],
-  rules: {
-    //
-    // Warnings
-    //
-    "vue/html-self-closing": [ "warn", { html: { normal: "never" }}],
-    "vue/max-attributes-per-line": [ "warn", {
-      singleline: 7,
-      multiline: { max: 2 },
-    }],
-  },
-});
 
 module.exports = {
   configs: {
