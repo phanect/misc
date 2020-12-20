@@ -328,10 +328,85 @@ test("ts - invalid", () => {
       ruleId: "@typescript-eslint/no-unused-vars",
       severity: 2,
     },
+    {
+      message: "Expected indentation of 2 spaces but found 0.",
+      messageId: "wrongIndentation",
+      nodeType: "Keyword",
+      ruleId: "editorconfig/indent",
+      severity: 2,
+      line: 8,
+      endLine: 8,
+      column: 1,
+      endColumn: 1,
+      fix: {
+        range: [ 154, 154 ],
+        text: "  ",
+      },
+    },
+    {
+      message: "Expected indentation of 4 spaces but found 2.",
+      messageId: "wrongIndentation",
+      nodeType: "Identifier",
+      ruleId: "editorconfig/indent",
+      severity: 2,
+      line: 9,
+      endLine: 9,
+      column: 1,
+      endColumn: 3,
+      fix:  {
+        range: [ 166, 168 ],
+        text: "    ",
+      },
+    },
+    {
+      message: "Expected indentation of 4 spaces but found 2.",
+      messageId: "wrongIndentation",
+      nodeType: "Keyword",
+      ruleId: "editorconfig/indent",
+      severity: 2,
+      line: 10,
+      endLine: 10,
+      column: 1,
+      endColumn: 3,
+      fix:  {
+        range: [ 188, 190 ],
+        text: "    ",
+      },
+    },
+    {
+      message: "Expected indentation of 2 spaces but found 0.",
+      messageId: "wrongIndentation",
+      nodeType: "Keyword",
+      ruleId: "editorconfig/indent",
+      severity: 2,
+      line: 11,
+      endLine: 11,
+      column: 1,
+      endColumn: 1,
+      fix:  {
+        range: [ 197, 197 ],
+        text: "  ",
+      },
+    },
+    {
+      message: "Expected indentation of 4 spaces but found 2.",
+      messageId: "wrongIndentation",
+      nodeType: "Identifier",
+      ruleId: "editorconfig/indent",
+      severity: 2,
+      line: 12,
+      endLine: 12,
+      column: 1,
+      endColumn: 3,
+      fix:  {
+        range: [ 206, 208 ],
+        text: "    ",
+      },
+    },
   ]);
 
   expect(results).toHaveLength(1);
-  expect(results[0].errorCount).toBe(1);
+  expect(results[0].errorCount).toBe(6);
   expect(results[0].warningCount).toBe(0);
 });
 
