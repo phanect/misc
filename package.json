@@ -8,7 +8,7 @@
     "test": "jest",
     "lint": "eslint --ignore-pattern tests/ --ext=.js,.jsx,.ts,.tsx,.vue .",
     "clean": "git clean -dX --force",
-    "release": "npm publish . --access public"
+    "release": "npm run build && npm publish . --access public"
   },
   "repository": {
     "type": "git",

@@ -37,7 +37,7 @@ jobs:
       - init
       - run: |
           echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > "$HOME/.npmrc"
-          npm release
+          npm run release
 
 workflows:
   version: 2
