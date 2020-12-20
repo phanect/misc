@@ -49,11 +49,11 @@ module.exports = (lang) => ({
     }],
     "prefer-spread": "error",
 
-    "editorconfig/editorconfig": [ "error", {
-      indent:  {
-        SwitchCase: 1,
-      },
-    }],
+    "editorconfig/charset": "error",
+    "editorconfig/eol-last": "error",
+    "editorconfig/indent": [ "error", { SwitchCase: 1 }],
+    "editorconfig/linebreak-style": "error",
+    "editorconfig/no-trailing-spaces": "error",
 
     //
     // Warnings - Testing
