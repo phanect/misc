@@ -18,6 +18,8 @@ Usage
 Create an .eslintrc.js like following on the project root:
 
 ```javascript
+const { join } = require("path");
+
 module.exports = {
   extends: "plugin:@phanect/plain",
   root: true,
@@ -27,7 +29,7 @@ module.exports = {
   },
   // If your project is TypeScript-based, you need to specify the tsconfig.json location
   parserOptions: {
-    project: "./tsconfig.json",
+    project: join(__dirname, "./tsconfig.json"),
   },
   plugins: [ "@phanect" ],
   // Add sourceType: "module" if you use `import`/`export` syntax in JS. (e.g. JS modules, webpack)
