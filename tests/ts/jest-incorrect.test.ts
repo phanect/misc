@@ -31,4 +31,4 @@ test("prefer toHaveLength", () => {
 test("TS rules are properly applied", () => {
   // Missing semicolon error should happen
   expect("some string").toBe("some string")
-  });
+});
