@@ -493,79 +493,109 @@ test("modules - ts - valid", () => {
   }
 });
 
-test("jest - valid", () => {
-  const results = new CLIEngine({
-    baseConfig: mergeConfigs(configs.js, configs.jest),
-    useEslintrc: false,
-  }).executeOnFiles(join(__dirname, "./js/jest-correct.js")).results;
+for (const lang of [ "js", "ts" ]) {
+  test(`jest - ${lang} - valid`, () => {
+    const config = mergeConfigs(configs[lang], configs.jest);
+    const results = new CLIEngine({
+      baseConfig: mergeConfigs(config, lang === "ts" ? {
+        parserOptions: {
+          project: join(__dirname, "ts/tsconfig.json"),
+        },
+      } : {}),
+      useEslintrc: false,
+    }).executeOnFiles(join(__dirname, `./${lang}/jest-correct.test.${lang}`)).results;
 
-  expect(results[0].messages).toEqual([]);
-  expect(results).toHaveLength(1);
-  expect(results[0].errorCount).toBe(0);
-  expect(results[0].warningCount).toBe(0);
-});
+    expect(results[0].messages).toEqual([]);
+    expect(results).toHaveLength(1);
+    expect(results[0].errorCount).toBe(0);
+    expect(results[0].warningCount).toBe(0);
+  });
 
-test("jest - invalid", () => {
-  const results = new CLIEngine({
-    baseConfig: mergeConfigs(configs.js, configs.jest),
-    useEslintrc: false,
-  }).executeOnFiles(join(__dirname, "./js/jest-incorrect.js")).results;
+  test(`jest - ${lang} - invalid`, () => {
+    const config = mergeConfigs(configs[lang], configs.jest);
+    const results = new CLIEngine({
+      baseConfig: mergeConfigs(config, lang === "ts" ? {
+        parserOptions: {
+          project: join(__dirname, "ts/tsconfig.json"),
+        },
+      } : {}),
+      useEslintrc: false,
+    }).executeOnFiles(join(__dirname, `./${lang}/jest-incorrect.test.${lang}`)).results;
 
-  expect(results[0].messages).toEqual([
-    {
-      column: 1,
-      endColumn: 3,
-      endLine: 13,
-      line: 11,
-      message: "Skipped test",
-      messageId: "skippedTest",
-      nodeType: "CallExpression",
-      ruleId: "jest/no-disabled-tests",
-      severity: 2,
-    },
-    {
-      column: 6,
-      endColumn: 10,
-      endLine: 15,
-      line: 15,
-      message: "Unexpected focused test.",
-      messageId: "focusedTest",
-      nodeType: "Identifier",
-      ruleId: "jest/no-focused-tests",
-      severity: 2,
-    },
-    {
-      column: 6,
-      endColumn: 23,
-      endLine: 23,
-      line: 23,
-      message: "Test title is used multiple times in the same describe block.",
-      messageId: "multipleTestTitle",
-      nodeType: "Literal",
-      ruleId: "jest/no-identical-title",
-      severity: 2,
-    },
-    {
-      column: 30,
-      endColumn: 34,
-      endLine: 28,
-      fix: {
-        range: [
-          404,
-          417,
-        ],
-        text: ").toHaveLength",
+    expect(results[0].messages).toEqual([
+      {
+        column: 1,
+        endColumn: 3,
+        endLine: 13,
+        line: 11,
+        message: "Skipped test",
+        messageId: "skippedTest",
+        nodeType: "CallExpression",
+        ruleId: "jest/no-disabled-tests",
+        severity: 2,
       },
-      line: 28,
-      message: "Use toHaveLength() instead",
-      messageId: "useToHaveLength",
-      nodeType: "Identifier",
-      ruleId: "jest/prefer-to-have-length",
-      severity: 1,
-    },
-  ]);
+      {
+        column: 6,
+        endColumn: 10,
+        endLine: 15,
+        line: 15,
+        message: "Unexpected focused test.",
+        messageId: "focusedTest",
+        nodeType: "Identifier",
+        ruleId: "jest/no-focused-tests",
+        severity: 2,
+      },
+      {
+        column: 6,
+        endColumn: 23,
+        endLine: 23,
+        line: 23,
+        message: "Test title is used multiple times in the same describe block.",
+        messageId: "multipleTestTitle",
+        nodeType: "Literal",
+        ruleId: "jest/no-identical-title",
+        severity: 2,
+      },
+      {
+        column: 30,
+        endColumn: 34,
+        endLine: 28,
+        fix: {
+          range: [
+            404,
+            417,
+          ],
+          text: ").toHaveLength",
+        },
+        line: 28,
+        message: "Use toHaveLength() instead",
+        messageId: "useToHaveLength",
+        nodeType: "Identifier",
+        ruleId: "jest/prefer-to-have-length",
+        severity: 1,
+      },
+      {
+        column: 44,
+        endColumn: 1,
+        endLine: 34,
+        fix: {
+          range: [
+            559,
+            559,
+          ],
+          text: ";",
+        },
+        line: 33,
+        message: "Missing semicolon.",
+        messageId: "missingSemi",
+        nodeType: "ExpressionStatement",
+        ruleId: `${lang === "ts" ? "@typescript-eslint/" : ""}semi`,
+        severity: 2,
+      },
+    ]);
 
-  expect(results).toHaveLength(1);
-  expect(results[0].errorCount).toBe(3);
-  expect(results[0].warningCount).toBe(1);
-});
+    expect(results).toHaveLength(1);
+    expect(results[0].errorCount).toBe(4);
+    expect(results[0].warningCount).toBe(1);
+  });
+}
