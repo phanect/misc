@@ -9,7 +9,7 @@ const { sortObjects } = require("./testutils");
 
 test("js - valid", () => {
   const results = new CLIEngine({
-    baseConfig: mergeConfigs(configs.js, {
+    baseConfig: mergeConfigs(configs.plain, {
       env: {
         node: true,
       },
@@ -25,7 +25,7 @@ test("js - valid", () => {
 
 test("js - invalid", () => {
   const results = new CLIEngine({
-    baseConfig: mergeConfigs(configs.js, {
+    baseConfig: mergeConfigs(configs.plain, {
       env: {
         node: true,
       },
@@ -246,7 +246,7 @@ test("js - invalid", () => {
 
 test("js - invalid - no-undef", () => {
   const results = new CLIEngine({
-    baseConfig: mergeConfigs(configs.js, {
+    baseConfig: mergeConfigs(configs.plain, {
       env: {
         node: true,
       },
@@ -286,7 +286,7 @@ test("js - invalid - no-undef", () => {
 
 test("ts - valid", () => {
   const results = new CLIEngine({
-    baseConfig: mergeConfigs(configs.ts, {
+    baseConfig: mergeConfigs(configs.plain, {
       env: {
         node: true,
       },
@@ -305,7 +305,7 @@ test("ts - valid", () => {
 
 test("ts - invalid", () => {
   const results = new CLIEngine({
-    baseConfig: mergeConfigs(configs.ts, {
+    baseConfig: mergeConfigs(configs.plain, {
       env: {
         node: true,
       },
@@ -412,7 +412,7 @@ test("ts - invalid", () => {
 
 test("modules - js - valid", () => {
   const engine = new CLIEngine({
-    baseConfig: mergeConfigs(configs.js, {
+    baseConfig: mergeConfigs(configs.plain, {
       env: {
         node: true,
       },
@@ -435,7 +435,7 @@ test("modules - js - valid", () => {
 
 test("modules - js - invalid", () => {
   const engine = new CLIEngine({
-    baseConfig: mergeConfigs(configs.js, {
+    baseConfig: mergeConfigs(configs.plain, {
       env: {
         node: true,
       },
@@ -472,7 +472,7 @@ test("modules - js - invalid", () => {
 
 test("modules - ts - valid", () => {
   const engine = new CLIEngine({
-    baseConfig: mergeConfigs(configs.ts, {
+    baseConfig: mergeConfigs(configs.plain, {
       env: {
         node: true,
       },
@@ -495,7 +495,7 @@ test("modules - ts - valid", () => {
 
 for (const lang of [ "js", "ts" ]) {
   test(`jest - ${lang} - valid`, () => {
-    const config = mergeConfigs(configs[lang], configs.jest);
+    const config = mergeConfigs(configs.plain, configs.jest);
     const results = new CLIEngine({
       baseConfig: mergeConfigs(config, lang === "ts" ? {
         parserOptions: {
@@ -512,7 +512,7 @@ for (const lang of [ "js", "ts" ]) {
   });
 
   test(`jest - ${lang} - invalid`, () => {
-    const config = mergeConfigs(configs[lang], configs.jest);
+    const config = mergeConfigs(configs.plain, configs.jest);
     const results = new CLIEngine({
       baseConfig: mergeConfigs(config, lang === "ts" ? {
         parserOptions: {
@@ -599,3 +599,82 @@ for (const lang of [ "js", "ts" ]) {
     expect(results[0].warningCount).toBe(1);
   });
 }
+
+test("CommonJS needs 'use strict'", () => {
+  const results = new CLIEngine({
+    baseConfig: configs.node,
+    useEslintrc: false,
+  }).executeOnFiles(join(__dirname, "./js/correct.use-strict.cjs")).results;
+
+  expect(results[0].messages).toEqual([]);
+  expect(results).toHaveLength(1);
+  expect(results[0].errorCount).toBe(0);
+  expect(results[0].warningCount).toBe(0);
+});
+
+test("JSM forbids 'use strict'", () => {
+  const results = new CLIEngine({
+    baseConfig: configs.node,
+    useEslintrc: false,
+  }).executeOnFiles(join(__dirname, "./js/correct.use-strict.mjs")).results;
+
+  expect(results[0].messages).toEqual([]);
+  expect(results).toHaveLength(1);
+  expect(results[0].errorCount).toBe(0);
+  expect(results[0].warningCount).toBe(0);
+});
+
+test("Error when no 'use strict' in CommonJS", () => {
+  const results = new CLIEngine({
+    baseConfig: configs.node,
+    useEslintrc: false,
+  }).executeOnFiles(join(__dirname, "./js/incorrect.use-strict.cjs")).results;
+
+  expect(results[0].messages).toEqual([
+    {
+      message: "Use the global form of 'use strict'.",
+      messageId: "global",
+      nodeType: "Program",
+      ruleId: "strict",
+      severity: 2,
+      line: 1,
+      endLine: 1,
+      column: 1,
+      endColumn: 71,
+    },
+  ]);
+  expect(results).toHaveLength(1);
+  expect(results[0].errorCount).toBe(1);
+  expect(results[0].warningCount).toBe(0);
+});
+
+test("Error when 'use strict' in JSM", () => {
+  const results = new CLIEngine({
+    baseConfig: configs.node,
+    useEslintrc: false,
+  }).executeOnFiles(join(__dirname, "./js/incorrect.use-strict.mjs")).results;
+
+  expect(results[0].messages).toEqual([
+    {
+      message: "'use strict' is unnecessary inside of modules.",
+      messageId: "module",
+      nodeType: "ExpressionStatement",
+      ruleId: "strict",
+      severity: 2,
+      line: 1,
+      endLine: 1,
+      column: 1,
+      endColumn: 14,
+      fix: {
+        range: [
+          0,
+          13,
+        ],
+        text: "",
+      },
+    },
+  ]);
+  expect(results).toHaveLength(1);
+  expect(results[0].errorCount).toBe(1);
+  expect(results[0].warningCount).toBe(0);
+});

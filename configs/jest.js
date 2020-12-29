@@ -1,25 +1,36 @@
 "use strict";
 
 module.exports = {
-  extends: [
-    "plugin:jest/recommended",
-  ],
+  overrides: [{
+    files: [
+      "*.test.js", "**/*.test.js",
+      "*.test.jsx", "**/*.test.jsx",
+      "*.test.mjs", "**/*.test.mjs",
+      "*.test.cjs", "**/*.test.cjs",
+      "*.test.ts", "**/*.test.ts",
+      "*.test.tsx", "**/*.test.tsx",
+    ],
 
-  env: {
-    node: true,
-    "jest/globals": true,
-  },
-  plugins: [ "jest" ],
+    extends: [
+      "plugin:jest/recommended",
+    ],
 
-  rules: {
-    //
-    // Errors
-    //
-    "jest/no-disabled-tests": "error",
+    env: {
+      node: true,
+      "jest/globals": true,
+    },
+    plugins: [ "jest" ],
 
-    //
-    // Warnings - styles
-    //
-    "jest/prefer-to-have-length": "warn",
-  },
+    rules: {
+      //
+      // Errors
+      //
+      "jest/no-disabled-tests": "error",
+
+      //
+      // Warnings - styles
+      //
+      "jest/prefer-to-have-length": "warn",
+    },
+  }],
 } ;

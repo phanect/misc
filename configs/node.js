@@ -1,8 +1,9 @@
 "use strict";
 
+const plain = require("./plain");
 const { mergeConfigs } = require("../helpers");
 
-module.exports = (lang) => (mergeConfigs(lang, {
+module.exports = mergeConfigs(plain, {
   extends: [ "plugin:node/recommended" ],
   plugins: [ "node" ],
   rules: {
@@ -15,4 +16,4 @@ module.exports = (lang) => (mergeConfigs(lang, {
       tryExtensions: [ ".js", ".ts", ".json" ], // Add .ts
     }],
   },
-}));
+});

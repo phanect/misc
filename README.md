@@ -19,7 +19,7 @@ Create an .eslintrc.js like following on the project root:
 
 ```javascript
 module.exports = {
-  extends: "plugin:@phanect/js", // if your project is TypeScript-based, use "plugin:@phanect/ts"
+  extends: "plugin:@phanect/plain",
   root: true,
 
   env: {
@@ -28,12 +28,17 @@ module.exports = {
   // If your project is TypeScript-based, you need to specify the tsconfig.json location
   parserOptions: {
     project: "./tsconfig.json",
-    // Add sourceType: "module" if you use `import`/`export` syntax in JS. (e.g. JS modules, webpack)
-    // You don't need this if you use a TS preset.
-    // sourceType is "script" in JS presets and "module" in TS presets by default
-    sourceType: "module",
   },
-  plugins: [ "@phanect" ]
+  plugins: [ "@phanect" ],
+  // Add sourceType: "module" if you use `import`/`export` syntax in JS. (e.g. JS modules, webpack)
+  // You don't need this if only use TS. By default, sourceType is "script" in JS and "module" in TS.
+  // To avoid treating *.cjs files as modules, ensure to use `overrides` to only apply it to *.js.
+  overrides: [{
+    files: [ "*.js", "**/*.js" ],
+    parserOptions: {
+      sourceType: "module",
+    },
+  }],
 };
 ```
 
@@ -47,12 +52,8 @@ module.exports = {
 
 Supported configs:
 
-- plugin:@phanect/js
-- plugin:@phanect/ts
-- plugin:@phanect/node+js
-- plugin:@phanect/node+ts
-- plugin:@phanect/react+js
-- plugin:@phanect/react+ts
-- plugin:@phanect/vue+js
-- plugin:@phanect/vue+ts
+- plugin:@phanect/plain
+- plugin:@phanect/node
+- plugin:@phanect/react
+- plugin:@phanect/vue
 - plugin:@phanect/jest

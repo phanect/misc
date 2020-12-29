@@ -1,8 +1,9 @@
 "use strict";
 
+const plain = require("./plain");
 const { mergeConfigs } = require("../helpers");
 
-module.exports = (lang) => mergeConfigs(lang, {
+module.exports = mergeConfigs(plain, {
   extends: [
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",

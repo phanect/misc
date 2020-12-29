@@ -3,8 +3,7 @@
 const { mkdir, writeFile } = require("fs/promises");
 const { join } = require("path");
 
-const js = require("./configs/js");
-const ts = require("./configs/ts");
+const plain = require("./configs/plain");
 const node = require("./configs/node");
 const react = require("./configs/react");
 const vue = require("./configs/vue");
@@ -15,14 +14,10 @@ const distDir = join(__dirname, "dist/");
 (async () => {
   await mkdir(distDir, { recursive: true });
   await Promise.all([
-    writeFile(join(distDir, "js.json"), JSON.stringify(js, null, 2)),
-    writeFile(join(distDir, "ts.json"), JSON.stringify(ts, null, 2)),
-    writeFile(join(distDir, "node.js.json"), JSON.stringify(node(js), null, 2)),
-    writeFile(join(distDir, "node.ts.json"), JSON.stringify(node(ts), null, 2)),
-    writeFile(join(distDir, "react.js.json"), JSON.stringify(react(js), null, 2)),
-    writeFile(join(distDir, "react.ts.json"), JSON.stringify(react(ts), null, 2)),
-    writeFile(join(distDir, "vue.js.json"), JSON.stringify(vue(js), null, 2)),
-    writeFile(join(distDir, "vue.ts.json"), JSON.stringify(vue(ts), null, 2)),
+    writeFile(join(distDir, "plain.json"), JSON.stringify(plain, null, 2)),
+    writeFile(join(distDir, "node.json"), JSON.stringify(node, null, 2)),
+    writeFile(join(distDir, "react.json"), JSON.stringify(react, null, 2)),
+    writeFile(join(distDir, "vue.json"), JSON.stringify(vue, null, 2)),
     writeFile(join(distDir, "jest.json"), JSON.stringify(_jest, null, 2)),
   ]);
 
