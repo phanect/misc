@@ -3,7 +3,7 @@
 const { mkdir, writeFile } = require("fs/promises");
 const { join } = require("path");
 
-const plain = require("./configs/_base");
+const plain = require("./configs/plain");
 const node = require("./configs/node");
 const react = require("./configs/react");
 const vue = require("./configs/vue");

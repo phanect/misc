@@ -1,6 +1,6 @@
 "use strict";
 
-const plain = require("./_base");
+const plain = require("./plain");
 const { mergeConfigs } = require("../helpers");
 
 module.exports = mergeConfigs(plain, {
