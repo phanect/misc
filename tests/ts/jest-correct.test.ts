@@ -8,6 +8,6 @@ afterEach(() => {
   console.log("after");
 });
 
-test("test", () => {
+test("tetete", () => {
   expect(1).toBe(1);
 }, 50000);
