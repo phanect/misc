@@ -29,6 +29,7 @@ module.exports = {
     sourceType: "script", // "module" is only for JavaScript modules
   },
   plugins: [
+    "document-write",
     "editorconfig",
     "import",
     "jsdoc",
@@ -59,6 +60,7 @@ module.exports = {
     }],
     "prefer-spread": "error",
 
+    "document-write/no-document-write": "error",
     "editorconfig/charset": "error",
     "editorconfig/eol-last": "error",
     "editorconfig/indent": [ "error", { SwitchCase: 1 }],
