@@ -25,7 +25,7 @@ module.exports = {
     es6: true,
   },
   parserOptions: {
-    ecmaVersion: 2019,
+    ecmaVersion: 2021,
     sourceType: "script", // "module" is only for JavaScript modules
   },
   plugins: [

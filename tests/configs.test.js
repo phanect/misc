@@ -544,6 +544,17 @@ for (const lang of [ "js", "ts" ]) {
         nodeType: "Identifier",
         ruleId: "jest/no-focused-tests",
         severity: 2,
+        suggestions: [{
+          desc: "Remove focus from test.",
+          fix:  {
+            range: [
+              176,
+              181,
+            ],
+            text: "",
+          },
+          messageId: "suggestRemoveFocus",
+        }],
       },
       {
         column: 6,
