@@ -57,6 +57,6 @@ Supported configs:
 - plugin:@phanect/plain
 - plugin:@phanect/node
 - plugin:@phanect/react
-- plugin:@phanect/vue
+- plugin:@phanect/vue (Vue 3)
 - plugin:@phanect/nuxt (Nuxt 2 + Vue 2)
 - plugin:@phanect/jest
