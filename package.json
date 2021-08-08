@@ -1,6 +1,6 @@
 {
   "name": "@phanect/eslint-plugin",
-  "version": "2021.4.25",
+  "version": "2021.8.8",
   "description": "ESLint configuration for Jumpei Ogawa (@phanect)'s private projects",
   "main": "lib/config.js",
   "scripts": {
