@@ -4,8 +4,22 @@ const plain = require("./plain");
 const { mergeConfigs } = require("../helpers");
 
 module.exports = mergeConfigs(plain, {
-  extends: [ "plugin:vue/recommended" ],
-  plugins: [ "vue" ],
+  extends: [
+    "plugin:vue/recommended",
+    "plugin:nuxt/recommended",
+  ],
+  env: {
+    browser: true,
+    node: true,
+  },
+  parserOptions: {
+    extraFileExtensions: [ ".vue" ],
+    sourceType: "module",
+  },
+  plugins: [
+    "vue",
+    "nuxt",
+  ],
   rules: {
     //
     // Warnings
