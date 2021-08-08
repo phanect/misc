@@ -3,8 +3,8 @@
 const { CLIEngine } = require("eslint");
 const { join } = require("path");
 
-const { mergeConfigs } = require("../helpers");
-const { configs } = require("../config");
+const { mergeConfigs } = require("../src/helpers");
+const { configs } = require("../lib/config");
 const { sortObjects } = require("./testutils");
 
 test("js - valid", () => {

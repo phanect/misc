@@ -1,6 +1,6 @@
 "use strict";
 
-const { toTSRules, mergeConfigs } = require("../helpers");
+const { toTSRules, mergeConfigs } = require("../src/helpers");
 
 test("toTSRules", () => {
   const result = toTSRules({
