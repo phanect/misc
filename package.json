@@ -2,9 +2,9 @@
   "name": "@phanect/eslint-plugin",
   "version": "2021.4.25",
   "description": "ESLint configuration for Jumpei Ogawa (@phanect)'s private projects",
-  "main": "config.js",
+  "main": "lib/config.js",
   "scripts": {
-    "build": "node --trace-warnings --unhandled-rejections=strict ./builder.js",
+    "build": "node --trace-warnings --unhandled-rejections=strict ./scripts/builder.js",
     "test": "jest",
     "lint": "eslint --ignore-pattern tests/ --ext=.js,.jsx,.ts,.tsx,.vue .",
     "clean": "git clean -dX --force",

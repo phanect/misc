@@ -3,13 +3,13 @@
 const { mkdir, writeFile } = require("fs/promises");
 const { join } = require("path");
 
-const plain = require("./configs/plain");
-const node = require("./configs/node");
-const react = require("./configs/react");
-const vue = require("./configs/vue");
-const _jest = require("./configs/jest"); // do not name this variable "jest" to avoid name conflict on test
+const plain = require("../src/configs/plain");
+const node = require("../src/configs/node");
+const react = require("../src/configs/react");
+const vue = require("../src/configs/vue");
+const _jest = require("../src/configs/jest"); // do not name this variable "jest" to avoid name conflict on test
 
-const distDir = join(__dirname, "dist/");
+const distDir = join(__dirname, "../dist/");
 
 (async () => {
   await mkdir(distDir, { recursive: true });
