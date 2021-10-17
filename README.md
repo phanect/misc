@@ -59,5 +59,6 @@ Supported configs:
 - plugin:@phanect/react
 - plugin:@phanect/vue+js (Vue 3)
 - plugin:@phanect/vue+ts (Vue 3)
-- plugin:@phanect/nuxt (Nuxt 2 + Vue 2)
+- plugin:@phanect/nuxt+js (Nuxt 2 + Vue 2)
+- plugin:@phanect/nuxt+ts (Nuxt 2 + Vue 2)
 - plugin:@phanect/jest
