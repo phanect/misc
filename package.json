@@ -22,7 +22,6 @@
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
-    "eslint": "latest",
     "eslint-plugin-document-write": "latest",
     "eslint-plugin-editorconfig": "latest",
     "eslint-plugin-import": "latest",
@@ -41,5 +40,8 @@
   "devDependencies": {
     "@types/jest": "^26.0.0",
     "jest": "^26.0.0"
+  },
+  "peerDependencies": {
+    "eslint": "^7.0.0"
   }
 }
