@@ -1,7 +1,7 @@
 "use strict";
 
-const plain = require("./plain");
-const { mergeConfigs } = require("../helpers");
+const plain = require("../plain");
+const { mergeConfigs } = require("../../helpers");
 
 module.exports = mergeConfigs(plain, {
   extends: [
