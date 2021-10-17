@@ -38,8 +38,8 @@
     "typescript": "latest"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.0",
-    "jest": "^26.0.0"
+    "@types/jest": "^27.0.2",
+    "jest": "^27.2.5"
   },
   "peerDependencies": {
     "eslint": "^7.0.0"
