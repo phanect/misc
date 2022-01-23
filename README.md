@@ -62,3 +62,27 @@ Supported configs:
 - plugin:@phanect/nuxt+js (Nuxt 2 + Vue 2)
 - plugin:@phanect/nuxt+ts (Nuxt 2 + Vue 2)
 - plugin:@phanect/jest
+
+Test with realworld projects
+----------------------------
+
+1. Generate npm package
+
+```shell
+$ cd /path/to/eslint-plugin
+$ npm pack
+```
+
+2. Install new package on a realworld project
+
+```shell
+$ cd /path/to/target/project
+$ npm install ../eslint-plugin/phanect-eslint-plugin-2022.1.1.tgz
+```
+
+3. Test
+
+```shell
+# $ cd /path/to/target/project
+$ npm run lint
+```
