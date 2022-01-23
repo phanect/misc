@@ -81,7 +81,6 @@ module.exports = {
     // Following rules doesn't reduce quality or readability
     //
     "array-bracket-spacing": [ "warn", "always", { arraysInArrays: false, objectsInArrays: false }],
-    "brace-style": "warn",
     curly: "warn",
     "no-multi-spaces": [ "warn", { ignoreEOLComments: true, exceptions: { Property: true }}],
     "object-curly-spacing": [ "warn", "always", { arraysInObjects: false, objectsInObjects: false }],
