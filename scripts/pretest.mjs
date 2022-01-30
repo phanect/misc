@@ -1,3 +1,5 @@
+/* eslint node/no-unpublished-import: "off" */ // This script only runs before test
+
 import { dirname } from "dirname-filename-esm";
 import { writeFile } from "fs/promises";
 import fetch from "node-fetch";
