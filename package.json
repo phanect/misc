@@ -1,15 +1,15 @@
 {
   "name": "@phanect/eslint-plugin",
-  "version": "2022.1.30",
+  "version": "2022.1.30-1",
   "description": "ESLint configuration for Jumpei Ogawa (@phanect)'s private projects",
   "main": "lib/config.js",
   "scripts": {
     "build": "node --trace-warnings --unhandled-rejections=strict ./scripts/builder.js",
+    "pretest": "node ./scripts/pretest.mjs",
     "test": "jest",
-    "lint": "eslint --ignore-pattern tests/ --ext=.js,.jsx,.ts,.tsx,.vue .",
+    "lint": "eslint --ignore-pattern tests/ --ext=.js,.cjs,.mjs,.jsx,.ts,.tsx,.vue .",
     "clean": "git clean -dX --force",
-    "release": "npm run build && npm publish . --access public",
-    "postinstall": "node ./scripts/postinstall.mjs"
+    "release": "npm run build && npm publish . --access public"
   },
   "repository": {
     "type": "git",
