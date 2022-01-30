@@ -1,6 +1,6 @@
 {
   "name": "@phanect/eslint-plugin",
-  "version": "2021.10.17",
+  "version": "2022.1.30",
   "description": "ESLint configuration for Jumpei Ogawa (@phanect)'s private projects",
   "main": "lib/config.js",
   "scripts": {
@@ -8,7 +8,8 @@
     "test": "jest",
     "lint": "eslint --ignore-pattern tests/ --ext=.js,.jsx,.ts,.tsx,.vue .",
     "clean": "git clean -dX --force",
-    "release": "npm run build && npm publish . --access public"
+    "release": "npm run build && npm publish . --access public",
+    "postinstall": "node ./scripts/postinstall.mjs"
   },
   "repository": {
     "type": "git",
@@ -39,9 +40,12 @@
   },
   "devDependencies": {
     "@types/jest": "^27.0.2",
-    "jest": "^27.2.5"
+    "dirname-filename-esm": "^1.1.1",
+    "enhanced-resolve": "^5.8.3",
+    "jest": "^27.2.5",
+    "node-fetch": "^3.2.0"
   },
   "peerDependencies": {
-    "eslint": "^7.0.0"
+    "eslint": "^8.0.0"
   }
 }

@@ -2,6 +2,7 @@
 # Project-specific
 #
 dist/
+jest-resolver.js
 
 #
 # System

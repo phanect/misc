@@ -70,7 +70,7 @@ module.exports = {
     // Warnings: JSDoc
     // JSDoc rules should not be reported as errors but warnings
     //
-    "jsdoc/check-examples": "warn",
+    "jsdoc/check-examples": "off", // temporary disabled because it is incompatible with ESLint 8
     "jsdoc/check-indentation": "warn",
     "jsdoc/check-syntax": "warn",
     "jsdoc/require-hyphen-before-param-description": "warn",
@@ -81,7 +81,6 @@ module.exports = {
     // Following rules doesn't reduce quality or readability
     //
     "array-bracket-spacing": [ "warn", "always", { arraysInArrays: false, objectsInArrays: false }],
-    "brace-style": "warn",
     curly: "warn",
     "no-multi-spaces": [ "warn", { ignoreEOLComments: true, exceptions: { Property: true }}],
     "object-curly-spacing": [ "warn", "always", { arraysInObjects: false, objectsInObjects: false }],
