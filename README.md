@@ -2,6 +2,7 @@
 ==============================================
 
 [![CircleCI](https://circleci.com/gh/phanect/eslint-plugin.svg?style=svg)](https://circleci.com/gh/phanect/eslint-plugin)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fphanect%2Feslint-plugin.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fphanect%2Feslint-plugin?ref=badge_shield)
 
 ESLint config for my own projects.
 
@@ -62,3 +63,7 @@ Supported configs:
 - plugin:@phanect/nuxt+js (Nuxt 2 + Vue 2)
 - plugin:@phanect/nuxt+ts (Nuxt 2 + Vue 2)
 - plugin:@phanect/jest
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fphanect%2Feslint-plugin.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fphanect%2Feslint-plugin?ref=badge_large)
