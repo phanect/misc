@@ -1,7 +1,7 @@
-@phanect/eslint-plugin
+eslint-config-phanective
 ==============================================
 
-[![CircleCI](https://circleci.com/gh/phanect/eslint-plugin.svg?style=svg)](https://circleci.com/gh/phanect/eslint-plugin)
+[![CircleCI](https://circleci.com/gh/phanect/eslint-config-phanective.svg?style=svg)](https://circleci.com/gh/phanect/eslint-config-phanective)
 
 ESLint config for my own projects.
 
@@ -9,7 +9,7 @@ Install
 -------
 
 ```shell
-yarn add --dev @phanect/eslint-plugin
+yarn add --dev eslint-config-phanective
 ```
 
 Usage
@@ -21,7 +21,7 @@ Create an .eslintrc.js like following on the project root:
 const { join } = require("path");
 
 module.exports = {
-  extends: "plugin:@phanect/plain",
+  extends: "phanective",
   root: true,
 
   env: {
@@ -31,7 +31,6 @@ module.exports = {
   parserOptions: {
     project: join(__dirname, "./tsconfig.eslint.json"),
   },
-  plugins: [ "@phanect" ],
   // Add sourceType: "module" if you use `import`/`export` syntax in JS. (e.g. JS modules, webpack)
   // You don't need this if only use TS. By default, sourceType is "script" in JS and "module" in TS.
   // To avoid treating *.cjs files as modules, ensure to use `overrides` to only apply it to *.js.
@@ -48,20 +47,20 @@ Also create .eslintrc.js in the test directory for test-specific configs:
 
 ```javascript
 module.exports = {
-  extends: "plugin:@phanect/jest",
+  extends: "phanective/jest",
 };
 ```
 
 Supported configs:
 
-- plugin:@phanect/plain
-- plugin:@phanect/node
-- plugin:@phanect/react
-- plugin:@phanect/vue+js (Vue 3)
-- plugin:@phanect/vue+ts (Vue 3)
-- plugin:@phanect/nuxt+js (Nuxt 2 + Vue 2)
-- plugin:@phanect/nuxt+ts (Nuxt 2 + Vue 2)
-- plugin:@phanect/jest
+- phanective
+- phanective/node
+- phanective/react
+- phanective/vue+js (Vue 3)
+- phanective/vue+ts (Vue 3)
+- phanective/nuxt+js (Nuxt 2 + Vue 2)
+- phanective/nuxt+ts (Nuxt 2 + Vue 2)
+- phanective/jest
 
 Test with realworld projects
 ----------------------------
@@ -69,7 +68,7 @@ Test with realworld projects
 1. Generate npm package
 
 ```shell
-$ cd /path/to/eslint-plugin
+$ cd /path/to/eslint-config-phanective
 $ npm pack
 ```
 
@@ -77,7 +76,7 @@ $ npm pack
 
 ```shell
 $ cd /path/to/target/project
-$ npm install ../eslint-plugin/phanect-eslint-plugin-2022.1.1.tgz
+$ npm install ../eslint-config-phanective/eslint-config-phanective-2022.1.1.tgz
 ```
 
 3. Test
