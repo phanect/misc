@@ -2,20 +2,12 @@ version: 2.1
 
 executors:
   default:
-    working_directory: ~/eslint-plugin
     docker:
       - image: phanect/ci-javascript
 
 commands:
   init:
     steps:
-      - run:
-          name: System Update
-          command: |
-            sudo apt-get update -qq
-            DEBIAN_FRONTEND=noninteractive sudo apt-get dist-upgrade --yes
-
-            sudo npm install --global npm
       - checkout
       - run: npm install
 
