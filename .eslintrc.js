@@ -1,9 +1,9 @@
 "use strict";
 
-const { configs } = require("./lib/config");
+const config = require("./node.json");
 const { mergeConfigs } = require("./src/helpers");
 
-module.exports = mergeConfigs(configs.node, {
+module.exports = mergeConfigs(config, {
   root: true,
 
   env: {
