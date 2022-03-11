@@ -4,11 +4,13 @@ const { ESLint } = require("eslint");
 const { join } = require("path");
 
 const { mergeConfigs } = require("../src/helpers");
-const { configs } = require("../lib/config");
+const plainConfig = require("../plain.json");
+const nodeConfig = require("../node.json");
+const jestConfig = require("../jest.json");
 const { sortObjects } = require("./testutils");
 
 const jsOpts = {
-  baseConfig: mergeConfigs(configs.plain, {
+  baseConfig: mergeConfigs(plainConfig, {
     env: {
       node: true,
     },
@@ -16,7 +18,7 @@ const jsOpts = {
   useEslintrc: false,
 };
 const tsOpts = {
-  baseConfig: mergeConfigs(configs.plain, {
+  baseConfig: mergeConfigs(plainConfig, {
     env: {
       node: true,
     },
@@ -27,7 +29,7 @@ const tsOpts = {
   useEslintrc: false,
 };
 const jsmOpts = {
-  baseConfig: mergeConfigs(configs.plain, {
+  baseConfig: mergeConfigs(plainConfig, {
     env: {
       node: true,
     },
@@ -459,7 +461,7 @@ test("modules - ts - valid", async () => {
 });
 
 for (const lang of [ "js", "ts" ]) {
-  const config = mergeConfigs(configs.plain, configs.jest);
+  const config = mergeConfigs(plainConfig, jestConfig);
   const jestOpts = {
     baseConfig: mergeConfigs(config, lang === "ts" ? {
       parserOptions: {
@@ -574,7 +576,7 @@ for (const lang of [ "js", "ts" ]) {
 
 test("CommonJS needs 'use strict'", async () => {
   const eslint = new ESLint({
-    baseConfig: configs.node,
+    baseConfig: nodeConfig,
     useEslintrc: false,
   });
   const results = await eslint.lintFiles(join(__dirname, "./js/correct.use-strict.cjs"));
@@ -587,7 +589,7 @@ test("CommonJS needs 'use strict'", async () => {
 
 test("JSM forbids 'use strict'", async () => {
   const eslint = new ESLint({
-    baseConfig: configs.node,
+    baseConfig: nodeConfig,
     useEslintrc: false,
   });
   const results = await eslint.lintFiles(join(__dirname, "./js/correct.use-strict.mjs"));
@@ -600,7 +602,7 @@ test("JSM forbids 'use strict'", async () => {
 
 test("Error when no 'use strict' in CommonJS", async () => {
   const eslint = new ESLint({
-    baseConfig: configs.node,
+    baseConfig: nodeConfig,
     useEslintrc: false,
   });
   const results = await eslint.lintFiles(join(__dirname, "./js/incorrect.use-strict.cjs"));
@@ -625,7 +627,7 @@ test("Error when no 'use strict' in CommonJS", async () => {
 
 test("Error when 'use strict' in JSM", async () => {
   const eslint = new ESLint({
-    baseConfig: configs.node,
+    baseConfig: nodeConfig,
     useEslintrc: false,
   });
   const results = await eslint.lintFiles(join(__dirname, "./js/incorrect.use-strict.mjs"));

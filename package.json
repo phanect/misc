@@ -1,8 +1,8 @@
 {
-  "name": "@phanect/eslint-plugin",
-  "version": "2022.2.11",
-  "description": "ESLint configuration for Jumpei Ogawa (@phanect)'s private projects",
-  "main": "lib/config.js",
+  "name": "eslint-config-phanective",
+  "version": "2022.3.12",
+  "description": "Personal ESLint configuration for Jumpei Ogawa (@phanect)",
+  "main": "./plain.json",
   "scripts": {
     "build": "node --trace-warnings --unhandled-rejections=strict ./scripts/builder.js",
     "pretest": "node ./scripts/pretest.mjs",

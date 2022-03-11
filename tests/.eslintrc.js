@@ -1,3 +1,3 @@
 "use strict";
 
-module.exports = require("../configs/jest");
+module.exports = require("../jest.json");
