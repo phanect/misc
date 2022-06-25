@@ -58,13 +58,6 @@ module.exports = {
     "editorconfig/no-trailing-spaces": "error",
 
     //
-    // Warnings - Testing
-    // Because following rules might make a problem,
-    // currently they are not treated as errors.
-    //
-    "no-prototype-builtins": "warn",
-
-    //
     // Warnings: JSDoc
     // JSDoc rules should not be reported as errors but warnings
     //
