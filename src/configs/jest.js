@@ -26,11 +26,19 @@ module.exports = {
       // Errors
       //
       "jest/no-disabled-tests": "error",
+      "jest/expect-expect": [ "error", {
+        assertFunctionNames: [ "expect", "ok" ],
+      }],
 
       //
       // Warnings - styles
       //
       "jest/prefer-to-have-length": "warn",
+
+      //
+      // Off
+      //
+      "jest/no-conditional-expect": "off",
     },
   }],
 } ;

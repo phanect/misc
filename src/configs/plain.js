@@ -58,15 +58,6 @@ module.exports = {
     "editorconfig/no-trailing-spaces": "error",
 
     //
-    // Warnings - Testing
-    // Because following rules might make a problem,
-    // currently they are not treated as errors.
-    //
-    "no-prototype-builtins": "warn",
-    "class-methods-use-this": "warn",
-    complexity: "warn",
-
-    //
     // Warnings: JSDoc
     // JSDoc rules should not be reported as errors but warnings
     //
@@ -133,6 +124,43 @@ module.exports = {
     {
       files: [ "*.ts", "**/*.ts" ],
       ...tsRules,
+    },
+    {
+      files: [ "*.json", "*.json5" ],
+      extends: "plugin:jsonc/base",
+      parser: "jsonc-eslint-parser",
+      rules: {
+        "jsonc/array-bracket-spacing": [ "error", "always", {
+          objectsInArrays: false,
+          arraysInArrays: false,
+        }],
+        "jsonc/comma-style": [ "error", "last" ],
+        "jsonc/indent": [ "error", 2 ],
+        "jsonc/key-spacing": [ "error", {
+          beforeColon: false,
+          afterColon: true,
+          mode: "minimum",
+        }],
+        "jsonc/object-curly-spacing": [ "error", "always", {
+          arraysInObjects: false,
+          objectsInObjects: false,
+        }],
+      },
+    },
+    {
+      files: [ "*.json" ],
+      extends: "plugin:jsonc/recommended-with-json",
+    },
+    {
+      files: [ "*.json5" ],
+      extends: "plugin:jsonc/recommended-with-json5",
+      rules: {
+        "jsonc/comma-dangle": [ "error", {
+          arrays: "always-multiline",
+          objects: "always-multiline",
+        }],
+        "jsonc/quote-props": [ "error", "as-needed" ],
+      },
     },
   ],
 };

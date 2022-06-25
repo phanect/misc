@@ -1,13 +1,13 @@
 {
   "name": "eslint-config-phanective",
-  "version": "2022.3.12",
+  "version": "2022.6.25",
   "description": "Personal ESLint configuration for Jumpei Ogawa (@phanect)",
   "main": "./plain.json",
   "scripts": {
     "build": "node --trace-warnings --unhandled-rejections=strict ./scripts/builder.js",
     "pretest": "node ./scripts/pretest.mjs",
     "test": "jest",
-    "lint": "eslint --ignore-pattern tests/ --ext=.js,.cjs,.mjs,.jsx,.ts,.tsx,.vue .",
+    "lint": "eslint --ignore-path=.gitignore --ext=.js,.cjs,.mjs,.jsx,.ts,.tsx,.vue,.json,.json5 .",
     "clean": "git clean -dX --force",
     "release": "npm run build && npm publish . --access public"
   },
@@ -28,6 +28,7 @@
     "eslint-plugin-import": "latest",
     "eslint-plugin-jest": "latest",
     "eslint-plugin-jsdoc": "latest",
+    "eslint-plugin-jsonc": "latest",
     "eslint-plugin-node": "latest",
     "eslint-plugin-nuxt": "latest",
     "eslint-plugin-promise": "latest",
