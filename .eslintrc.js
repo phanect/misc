@@ -14,6 +14,7 @@ module.exports = mergeConfigs(config, {
   },
   ignorePatterns: [
     "jest-resolver.js",
-    "tests/**",
+    "tests/js/**",
+    "tests/ts/**",
   ],
 });
