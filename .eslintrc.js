@@ -12,5 +12,8 @@ module.exports = mergeConfigs(config, {
   parserOptions: {
     project: "./tests/ts/tsconfig.json",
   },
-  ignorePatterns: [ "jest-resolver.js" ],
+  ignorePatterns: [
+    "jest-resolver.js",
+    "tests/**",
+  ],
 });
