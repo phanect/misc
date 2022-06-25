@@ -15,5 +15,11 @@ module.exports = mergeConfigs(plain, {
     "node/no-missing-import": [ "error", {
       tryExtensions: [ ".js", ".ts", ".json" ], // Add .ts
     }],
+
+    //
+    // Off
+    //
+    "no-process-exit": "off",
+    "node/no-process-exit": "off",
   },
 });

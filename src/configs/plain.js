@@ -63,8 +63,6 @@ module.exports = {
     // currently they are not treated as errors.
     //
     "no-prototype-builtins": "warn",
-    "class-methods-use-this": "warn",
-    complexity: "warn",
 
     //
     // Warnings: JSDoc
