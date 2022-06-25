@@ -7,7 +7,7 @@
     "build": "node --trace-warnings --unhandled-rejections=strict ./scripts/builder.js",
     "pretest": "node ./scripts/pretest.mjs",
     "test": "jest",
-    "lint": "eslint --ext=.js,.cjs,.mjs,.jsx,.ts,.tsx,.vue,.json,.json5 .",
+    "lint": "eslint --ignore-path=.gitignore --ext=.js,.cjs,.mjs,.jsx,.ts,.tsx,.vue,.json,.json5 .",
     "clean": "git clean -dX --force",
     "release": "npm run build && npm publish . --access public"
   },
