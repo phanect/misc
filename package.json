@@ -4,7 +4,7 @@
   "description": "Personal ESLint configuration for Jumpei Ogawa (@phanect)",
   "main": "./plain.json",
   "scripts": {
-    "build": "node --trace-warnings --unhandled-rejections=strict ./scripts/builder.js",
+    "build": "node --trace-warnings --unhandled-rejections=strict ./scripts/build.js",
     "pretest": "node ./scripts/pretest.mjs",
     "test": "jest",
     "lint": "eslint --ignore-path=.gitignore --ext=.js,.cjs,.mjs,.jsx,.ts,.tsx,.vue,.json,.json5 .",
