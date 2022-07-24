@@ -102,7 +102,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: [ "*.js", "*.mjs", "*.cjs" ],
+      files: [ "*.js", "*.mjs", "*.cjs", "*.jsx" ],
       ...jsRules,
     },
     {
@@ -112,13 +112,13 @@ module.exports = {
       },
     },
     {
-      files: [ "*.mjs" ],
+      files: [ "*.mjs", "*.jsx" ],
       parserOptions: {
         sourceType: "module",
       },
     },
     {
-      files: [ "*.ts" ],
+      files: [ "*.ts", "*.tsx" ],
       ...tsRules,
     },
     {
