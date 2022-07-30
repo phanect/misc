@@ -15,6 +15,7 @@ module.exports = mergeConfigs(plain, {
     },
   },
   rules: {
-    "react/jsx-filename-extension": "warn",
+    "react/jsx-filename-extension": [ "error", { extensions: [ ".jsx", ".tsx" ]}],
+    "react/react-in-jsx-scope": "off",
   },
 });
