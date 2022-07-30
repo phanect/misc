@@ -22,6 +22,9 @@ logs
 *.pid.lock
 pids
 
+# Archives
+*.tgz
+
 # File manager configs
 .directory
 Thumbs.db
