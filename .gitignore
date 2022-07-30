@@ -7,7 +7,6 @@ nuxt+*.json
 plain.json
 react.json
 vue+*.json
-jest-resolver.js
 
 #
 # System

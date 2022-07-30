@@ -13,7 +13,6 @@ module.exports = mergeConfigs(config, {
     project: "./tests/ts/tsconfig.json",
   },
   ignorePatterns: [
-    "jest-resolver.js",
     "tests/js/**",
     "tests/ts/**",
   ],
