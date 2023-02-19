@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-phanective",
-  "version": "2022.7.30",
+  "version": "2023.2.19",
   "description": "Personal ESLint configuration for Jumpei Ogawa (@phanect)",
   "main": "./plain.json",
   "scripts": {
@@ -22,6 +22,7 @@
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
+    "eslint-config-next": "latest",
     "eslint-plugin-document-write": "latest",
     "eslint-plugin-editorconfig": "latest",
     "eslint-plugin-import": "latest",
@@ -40,10 +41,7 @@
   },
   "devDependencies": {
     "@types/jest": "^28.1.6",
-    "dirname-filename-esm": "^1.1.1",
-    "enhanced-resolve": "^5.8.3",
-    "jest": "^28.1.3",
-    "node-fetch": "^3.2.0"
+    "jest": "^28.1.3"
   },
   "peerDependencies": {
     "eslint": "^8.0.0"
