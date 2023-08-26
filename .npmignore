@@ -1,7 +1,10 @@
 .circleci/
+scripts/
+src/
 tests/
 .editorconfig
 .eslintrc.js
 .gitattributes
 .gitignore
+jest.config.js
 yarn.lock
