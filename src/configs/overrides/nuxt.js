@@ -4,10 +4,7 @@ const plain = require("../plain");
 const { mergeConfigs } = require("../../helpers");
 
 module.exports = mergeConfigs(plain, {
-  extends: [
-    "plugin:vue/recommended",
-    "plugin:nuxt/recommended",
-  ],
+  extends: [ "@nuxt/eslint-config" ],
   env: {
     browser: true,
     node: true,
@@ -16,10 +13,7 @@ module.exports = mergeConfigs(plain, {
     extraFileExtensions: [ ".vue" ],
     sourceType: "module",
   },
-  plugins: [
-    "vue",
-    "nuxt",
-  ],
+  plugins: [ "vue" ],
   rules: {
     //
     // Warnings
