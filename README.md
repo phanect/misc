@@ -9,7 +9,7 @@ Install
 -------
 
 ```shell
-yarn add --dev eslint-config-phanective
+npm install -D eslint eslint-config-phanective
 ```
 
 Usage
