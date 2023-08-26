@@ -8,6 +8,16 @@ ESLint config for my own projects.
 Install
 -------
 
+Set `overrides` in package.json first:
+
+```json
+  "overrides": {
+    "@typescript-eslint/eslint-plugin": "latest"
+  }
+```
+
+Then install eslint and this package:
+
 ```shell
 npm install -D eslint eslint-config-phanective
 ```
@@ -59,8 +69,8 @@ Supported configs:
 - phanective/next
 - phanective/vue+js (Vue 3)
 - phanective/vue+ts (Vue 3)
-- phanective/nuxt+js (Nuxt 2 + Vue 2)
-- phanective/nuxt+ts (Nuxt 2 + Vue 2)
+- phanective/nuxt+js (Nuxt 3)
+- phanective/nuxt+ts (Nuxt 3)
 - phanective/jest
 
 Test with realworld projects
