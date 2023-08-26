@@ -2,7 +2,6 @@
 
 /**
  * Sort array of the objects by the same order.
- *
  * @param {object[]} objects - Aarray of objects.
  * @returns {object[]} - Sorted array of the objects.
  */

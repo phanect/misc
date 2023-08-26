@@ -9,7 +9,7 @@ Install
 -------
 
 ```shell
-yarn add --dev eslint-config-phanective
+npm install -D eslint eslint-config-phanective
 ```
 
 Usage
@@ -56,6 +56,7 @@ Supported configs:
 - phanective
 - phanective/node
 - phanective/react
+- phanective/next
 - phanective/vue+js (Vue 3)
 - phanective/vue+ts (Vue 3)
 - phanective/nuxt+js (Nuxt 2 + Vue 2)
