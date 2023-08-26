@@ -1,27 +1,8 @@
 "use strict";
 
-const plain = require("../plain");
+const vueRules = require("./vue.js");
 const { mergeConfigs } = require("../../helpers");
 
-module.exports = mergeConfigs(plain, {
+module.exports = mergeConfigs(vueRules, {
   extends: [ "@nuxt/eslint-config" ],
-  env: {
-    browser: true,
-    node: true,
-  },
-  parserOptions: {
-    extraFileExtensions: [ ".vue" ],
-    sourceType: "module",
-  },
-  plugins: [ "vue" ],
-  rules: {
-    //
-    // Warnings
-    //
-    "vue/html-self-closing": [ "warn", { html: { normal: "never" }}],
-    "vue/max-attributes-per-line": [ "warn", {
-      singleline: 7,
-      multiline: { max: 2 },
-    }],
-  },
 });
