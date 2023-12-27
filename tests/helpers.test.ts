@@ -1,6 +1,5 @@
-"use strict";
-
-const { toTSRules, mergeConfigs } = require("../src/helpers");
+import { expect, test } from "vitest";
+import { toTSRules, mergeConfigs } from "../src/helpers.js";
 
 test("toTSRules", () => {
   const result = toTSRules({

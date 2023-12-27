@@ -1,9 +1,7 @@
-"use strict";
+import plain from "./plain.js";
+import { mergeConfigs } from "../helpers.js";
 
-const plain = require("./plain");
-const { mergeConfigs } = require("../helpers");
-
-module.exports = mergeConfigs(plain, {
+export default mergeConfigs(plain, {
   extends: [
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",

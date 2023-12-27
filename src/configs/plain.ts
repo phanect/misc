@@ -1,11 +1,8 @@
-"use strict";
+import { jsRules, tsRules } from "./overrides/lang-specific.js";
 
-const { jsRules, tsRules } = require("./overrides/lang-specific");
-
-module.exports = {
+export default {
   extends: [
     "plugin:editorconfig/noconflict",
-    "plugin:jsdoc/recommended",
     "plugin:promise/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
@@ -16,7 +13,7 @@ module.exports = {
   },
   parserOptions: {
     ecmaVersion: 2022,
-    sourceType: "script", // "module" is only for JavaScript modules
+    sourceType: "module",
   },
   plugins: [
     "document-write",
@@ -94,7 +91,6 @@ module.exports = {
     //
     // Off
     //
-    "import/no-unresolved": "off", // Not working other than Node or Webpack
     "no-console": "off",
 
     "jsdoc/require-jsdoc": "off",
@@ -112,14 +108,68 @@ module.exports = {
       },
     },
     {
-      files: [ "*.mjs", "*.jsx" ],
-      parserOptions: {
-        sourceType: "module",
+      files: [ "*.ts", "*.tsx" ],
+      ...tsRules,
+    },
+    {
+      files: [
+        "*.test.js",
+        "*.test.jsx",
+        "*.test.mjs",
+        "*.test.cjs",
+        "*.test.ts",
+        "*.test.tsx",
+      ],
+
+      extends: [
+        "plugin:jest/recommended",
+      ],
+
+      env: {
+        node: true,
+        "jest/globals": true,
+      },
+      plugins: [ "jest" ],
+
+      rules: {
+        //
+        // Errors
+        //
+        "jest/no-disabled-tests": "error",
+        "jest/expect-expect": [ "error", {
+          assertFunctionNames: [ "expect", "ok" ],
+        }],
+
+        //
+        // Warnings - styles
+        //
+        "jest/prefer-to-have-length": "warn",
+
+        //
+        // Off
+        //
+        "jest/no-conditional-expect": "off",
       },
     },
     {
-      files: [ "*.ts", "*.tsx" ],
-      ...tsRules,
+      files: [
+        // config files
+        "*.config.*",
+        ".eslintrc",
+        ".eslintrc.*",
+        // build scripts
+        "script/*",
+        "scripts/*",
+        // testcases
+        "test/*",
+        "tests/*",
+        "*.test.*",
+        "*.spec.*",
+      ],
+      rules: {
+        "node/no-unpublished-import": "off",
+        "node/no-unpublished-require": "off",
+      },
     },
     {
       files: [ "*.json", "*.json5" ],
