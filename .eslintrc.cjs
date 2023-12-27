@@ -13,6 +13,7 @@ module.exports = mergeConfigs(config, {
     project: "./tests/fixtures/tsconfig.json",
   },
   ignorePatterns: [
-    "tests/fixtures/invalid/**",
+    "tests/fixtures/invalid/*",
+    "tests/fixtures/valid/*.js", // TODO ignore until default sourceType is changed to "module"
   ],
 });
