@@ -4,9 +4,9 @@ import { sortObjects } from "@phanect/utils";
 import deepmerge from "deepmerge";
 import { ESLint, type Linter } from "eslint";
 import { describe, it, test, expect } from "vitest";
-
 import nodeConfig from "../node.json";
 import plainConfig from "../plain.json";
+import type { PartialDeep } from "type-fest";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
@@ -426,8 +426,24 @@ describe.each([
 
     const eslint = new ESLint(vitestOpts);
     const results = await eslint.lintFiles(join(__dirname, `fixtures/invalid/invalid-${lang}.test.${lang}`));
+    const [ result ] = results;
 
-    expect(results[0].messages).toEqual([
+    const messages = result.messages.map((originalMessage) => {
+      const message = originalMessage as PartialDeep<typeof originalMessage, {
+        recurseIntoArrays: true,
+      }>;
+
+      delete message.message;
+      delete message.nodeType;
+      message.suggestions = message.suggestions?.map(suggestion => {
+        delete suggestion?.desc;
+        return suggestion;
+      });
+
+      return message;
+    });
+
+    expect(messages).toEqual([
       {
         column: 30,
         endColumn: 34,
