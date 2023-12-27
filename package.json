@@ -17,7 +17,8 @@
   "author": "Jumpei Ogawa (https://phanective.org)",
   "license": "CC0-1.0",
   "engines": {
-    "node": ">=10.x"
+    "node": ">=18.x",
+    "npm": ">=10.x"
   },
   "dependencies": {
     "@nuxt/eslint-config": "^0.1.1",
