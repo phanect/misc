@@ -7,8 +7,8 @@
   "scripts": {
     "build": "esno ./scripts/build.ts",
     "test": "npm run build && vitest run",
-    "lint": "npm run build && tsc --noEmit && eslint .",
-    "fix": "npm run build && eslint --fix .",
+    "lint": "npm run build && tsc --noEmit && eslint",
+    "fix": "npm run build && eslint --fix",
     "rwt": "esno ./scripts/rwt.ts",
     "clean": "git clean -dX --force",
     "release": "npm run build && npm publish . --access public"
@@ -24,9 +24,8 @@
     "npm": ">=10.x"
   },
   "dependencies": {
+    "@eslint/js": "^9.7.0",
     "@nuxt/eslint-config": "^0.3.13",
-    "@typescript-eslint/eslint-plugin": "^7.10.0",
-    "@typescript-eslint/parser": "^7.10.0",
     "eslint-config-next": "^14.2.3",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-document-write": "^1.0.1",
@@ -40,20 +39,23 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-svelte": "^2.39.0",
     "eslint-plugin-vitest": "^0.5.4",
-    "eslint-plugin-vue": "^9.26.0"
+    "eslint-plugin-vue": "^9.26.0",
+    "typescript-eslint": "^8.0.0-alpha.51"
   },
   "devDependencies": {
     "@phanect/configs": "latest",
     "@phanect/utils": "^1.0.0",
+    "@types/eslint__js": "^8.42.3",
     "@types/node": "^20.10.6",
     "deepmerge": "^4.3.1",
-    "eslint": "^8.0.0",
+    "eslint": "^9.7.0",
+    "eslint-flat-config-utils": "^0.2.5",
     "esno": "^4.7.0",
     "typescript": "^5.3.3",
     "vitest": "^2.0.2"
   },
   "peerDependencies": {
-    "eslint": "^8.0.0",
+    "eslint": "^9.7.0",
     "next": "*",
     "svelte": "*",
     "typescript": "*"

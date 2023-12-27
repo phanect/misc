@@ -1,5 +1,10 @@
 {
   "extends": "@phanect/configs/tsconfig/nodejs",
+  "compilerOptions": {
+    "typeRoots": [
+      "./src/types/"
+    ]
+  },
   "include": [ "**/*.js", "**/*.mjs", "**/*.ts", "**/*.mts" ],
   "exclude": [
     "tests/fixtures/invalid/**",

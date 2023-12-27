@@ -1,7 +1,7 @@
-import deepmerge from "deepmerge";
-import { vueBase } from "./vue.ts";
-import type { Linter } from "eslint";
+import { createConfigForNuxt } from "@nuxt/eslint-config/flat";
 
-export const nuxtBase: Linter.Config = deepmerge(vueBase, {
-  extends: [ "@nuxt/eslint-config" ],
+export const nuxtBase = createConfigForNuxt({
+  features: {
+    stylistic: true,
+  }
 });
