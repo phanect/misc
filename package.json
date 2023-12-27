@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git@github.com:phanect/eslint-plugin.git"
   },
-  "author": "Jumpei Ogawa",
+  "author": "Jumpei Ogawa (https://phanective.org)",
   "license": "CC0-1.0",
   "engines": {
     "node": ">=18.x",
