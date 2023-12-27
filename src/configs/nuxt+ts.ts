@@ -1,17 +1,17 @@
-import deepmerge from "deepmerge";
-import { tsRules } from "./overrides/lang-specific.ts";
 import { nuxtBase } from "./overrides/nuxt.ts";
+import plain from "./plain.ts";
+import type { Linter } from "eslint";
 
-delete tsRules.parser; // Do not override parser: "vue-eslint-parser"
-
-export default deepmerge(nuxtBase, {
-  overrides: [
-    deepmerge(tsRules, {
-      files: [ "*.vue" ],
-      parser: "vue-eslint-parser",
+export const nuxtTS: Linter.Config[] =  [
+  ...plain,
+  ...nuxtBase,
+  {
+    // To overwrite tsRule's `files` property, place these properties after `...tsRule`.
+    files: [ "*.vue" ],
+    languageOptions: {
       parserOptions: {
         parser: "@typescript-eslint/parser",
-      },
-    }),
-  ],
-});
+      }
+    },
+  },
+];

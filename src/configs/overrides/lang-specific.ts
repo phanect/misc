@@ -1,4 +1,7 @@
-import { toTSRules } from "../../utils.ts";
+import js from "@eslint/js";
+import jsdoc from "eslint-plugin-jsdoc";
+import ts, { type ConfigWithExtends } from "typescript-eslint";
+import { toTSRules, type JsExtensions, type TsExtensions } from "../../utils.ts";
 import type { Linter } from "eslint";
 
 const prefixRequiredRules: Linter.RulesRecord = {
@@ -58,11 +61,12 @@ const commonRules: Linter.RulesRecord = {
   "jsdoc/require-description-complete-sentence": "off",
 };
 
-export const jsRules: Linter.Config = {
-  extends: [
-    "eslint:recommended",
-    "plugin:jsdoc/recommended",
-  ],
+export const jsRules: Linter.Config[] = [{
+  files: [ "*.js", "*.mjs", "*.cjs", "*.jsx", "*.vue" ] as (JsExtensions & [ "*.vue" ]),
+
+  ...js.configs.recommended,
+  ...jsdoc.configs["flat/recommended"],
+
   rules: {
     ...prefixRequiredRules,
     ...commonRules,
@@ -72,61 +76,62 @@ export const jsRules: Linter.Config = {
     // so I enable this rule only for JavaScript
     strict: [ "error", "safe" ],
   },
-};
+}];
 
-export const tsRules: Linter.Config = {
-  extends: [
-    "plugin:@typescript-eslint/recommended",
-    "plugin:import-x/typescript",
-    "plugin:jsdoc/recommended-typescript",
-  ],
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    sourceType: "module",
-  },
-  plugins: [ "@typescript-eslint" ],
-  rules: {
-    ...toTSRules(prefixRequiredRules),
-    ...commonRules,
+export const tsRules: Linter.Config[] = ts.config(
+  js.configs.recommended,
+  ...ts.configs.recommended,
+  jsdoc.configs["flat/recommended-typescript"] as ConfigWithExtends,
+  {
+    // TODO add import-x, editorconfig, and document-write plugins when it is ready to flat configs
+    //...importConfigs["typescript"],
 
-    //
-    // Errors
-    //
-    "@typescript-eslint/await-thenable": "error",
-    "@typescript-eslint/explicit-function-return-type": [ "error", { allowExpressions: true }],
+    rules: {
+      ...toTSRules(prefixRequiredRules),
+      ...commonRules,
 
-    //
-    // Warnings
-    //
-    "@typescript-eslint/adjacent-overload-signatures": "warn",
-    "@typescript-eslint/prefer-for-of": "warn",
-    "@typescript-eslint/prefer-nullish-coalescing": "warn",
-    "@typescript-eslint/prefer-optional-chain": "warn",
+      //
+      // Errors
+      //
+      "@typescript-eslint/await-thenable": "error",
+      "@typescript-eslint/explicit-function-return-type": [ "error", { allowExpressions: true }],
 
-    //
-    // Off
-    //
-    "@typescript-eslint/indent": "off", // avoid conflict against editorconfig/indent
-    "@typescript-eslint/no-this-alias": "off",
+      //
+      // Warnings
+      //
+      "@typescript-eslint/adjacent-overload-signatures": "warn",
+      "@typescript-eslint/prefer-for-of": "warn",
+      "@typescript-eslint/prefer-nullish-coalescing": "warn",
+      "@typescript-eslint/prefer-optional-chain": "warn",
 
-    // These rules may warn new ES syntax which is supported by TypeScript (e.g. import)
-    "node/no-unsupported-features/es-builtins": "off",
-    "node/no-unsupported-features/es-syntax": "off",
-  },
-  settings: {
-    jsdoc: {
-      mode: "typescript",
+      //
+      // Off
+      //
+      "@typescript-eslint/indent": "off", // avoid conflict against editorconfig/indent
+      "@typescript-eslint/no-this-alias": "off",
+
+      // These rules may warn new ES syntax which is supported by TypeScript (e.g. import)
+      "node/no-unsupported-features/es-builtins": "off",
+      "node/no-unsupported-features/es-syntax": "off",
     },
-    "import-x/resolver": {
-      typescript: {
-        extensions: [
-          ".js", ".mjs", ".cjs",
-          ".ts", ".mts", ".cts",
-          ".d.ts", ".json",
-          ".jsx", ".tsx", ".vue", ".svelte",
-        ],
-        alwaysTryTypes: true,
+    settings: {
+      jsdoc: {
+        mode: "typescript", // TODO Check if this setting is required.
+      },
+      "import-x/resolver": {
+        typescript: {
+          extensions: [
+            ".js", ".mjs", ".cjs",
+            ".ts", ".mts", ".cts",
+            ".d.ts", ".json",
+            ".jsx", ".tsx", ".vue", ".svelte",
+          ],
+          alwaysTryTypes: true,
+        },
       },
     },
   },
-};
+).map(config => ({
+  ...config,
+  files: [ "*.ts", "*.mts", "*.cts", "*.tsx", "*.vue" ] as (TsExtensions & [ "*.vue" ]),
+})) as Linter.Config[];
