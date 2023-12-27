@@ -5,7 +5,6 @@ import deepmerge from "deepmerge";
 
 import plainConfig from "../plain.json";
 import nodeConfig from "../node.json";
-import jestConfig from "../jest.json";
 import { sortObjects } from "./testutils";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
@@ -462,9 +461,8 @@ test("modules - ts - valid", async () => {
 });
 
 for (const lang of [ "js", "ts" ]) {
-  const config = deepmerge(plainConfig, jestConfig);
-  const jestOpts = {
-    baseConfig: deepmerge(config, lang === "ts" ? {
+  const opts = {
+    baseConfig: deepmerge(plainConfig, lang === "ts" ? {
       parserOptions: {
         project: join(__dirname, "ts/tsconfig.json"),
       },
@@ -473,7 +471,7 @@ for (const lang of [ "js", "ts" ]) {
   };
 
   test(`jest - ${lang} - valid`, async () => {
-    const eslint = new ESLint(jestOpts);
+    const eslint = new ESLint(opts);
     const results = await eslint.lintFiles(join(__dirname, `./${lang}/jest-correct.test.${lang}`));
 
     expect(results[0].messages).toEqual([]);
@@ -483,7 +481,7 @@ for (const lang of [ "js", "ts" ]) {
   });
 
   test(`jest - ${lang} - invalid`, async () => {
-    const eslint = new ESLint(jestOpts);
+    const eslint = new ESLint(opts);
     const results = await eslint.lintFiles(join(__dirname, `./${lang}/jest-incorrect.test.${lang}`));
 
     expect(results[0].messages).toEqual([
