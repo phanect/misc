@@ -1,17 +1,20 @@
-import deepmerge from "deepmerge";
-import { tsRules } from "./overrides/lang-specific.ts";
+import { tsRule } from "./overrides/lang-specific.ts";
+import plain from "./plain.ts";
 import { vueBase } from "./overrides/vue.ts";
+import type { Linter } from "eslint";
 
-delete tsRules.parser; // Do not override parser: "vue-eslint-parser"
+export const vueTS: Linter.FlatConfig[] = [
+  ...plain,
+  ...vueBase,
 
-export default deepmerge(vueBase, {
-  overrides: [
-    deepmerge(tsRules, {
-      files: [ "*.vue" ],
-      parser: "vue-eslint-parser",
+  // overwrite tsRule's `files` property, so place after `...tsRule`.
+  {
+    files: [ "*.vue" ],
+    languageOptions: {
       parserOptions: {
         parser: "@typescript-eslint/parser",
-      },
-    }),
-  ],
-});
+      }
+    },
+    ...tsRule,
+  },
+];

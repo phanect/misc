@@ -1,3 +1,6 @@
+import js from "@eslint/js";
+import jsdoc from "eslint-plugin-jsdoc";
+import ts from "typescript-eslint";
 import { toTSRules } from "../../utils.ts";
 import type { Linter } from "eslint";
 
@@ -59,11 +62,12 @@ const commonRules: Linter.RulesRecord = {
   "jsdoc/require-description-complete-sentence": "off",
 };
 
-export const jsRules: Linter.Config = {
-  extends: [
-    "eslint:recommended",
-    "plugin:jsdoc/recommended",
-  ],
+export const jsRules: Linter.FlatConfig  = {
+  files: [ "*.js", "*.mjs", "*.cjs", "*.jsx" ],
+
+  ...js.configs.recommended,
+  ...jsdoc.configs["flat/recommended"],
+
   rules: {
     ...prefixRequiredRules,
     ...commonRules,
@@ -75,59 +79,59 @@ export const jsRules: Linter.Config = {
   },
 };
 
-export const tsRules: Linter.Config = {
-  extends: [
-    "plugin:@typescript-eslint/recommended",
-    "plugin:import-x/typescript",
-    "plugin:jsdoc/recommended-typescript",
-  ],
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    sourceType: "module",
-  },
-  plugins: [ "@typescript-eslint" ],
-  rules: {
-    ...toTSRules(prefixRequiredRules),
-    ...commonRules,
+export const tsRule: Linter.FlatConfig = ts.config(
+  js.configs.recommended,
+  ...ts.configs.recommended,
+  jsdoc.configs["flat/recommended-typescript"],
+  {
+    files: [ "*.ts", "*.mts", "*.cts", "*.tsx" ],
 
-    //
-    // Errors
-    //
-    "@typescript-eslint/await-thenable": "error",
-    "@typescript-eslint/explicit-function-return-type": [ "error", { allowExpressions: true }],
+    // TODO add import-x, editorconfig, and document-write plugins when it is ready to flat configs
+    //...importConfigs["typescript"],
 
-    //
-    // Warnings
-    //
-    "@typescript-eslint/adjacent-overload-signatures": "warn",
-    "@typescript-eslint/prefer-for-of": "warn",
-    "@typescript-eslint/prefer-nullish-coalescing": "warn",
-    "@typescript-eslint/prefer-optional-chain": "warn",
+    rules: {
+      ...toTSRules(prefixRequiredRules),
+      ...commonRules,
 
-    //
-    // Off
-    //
-    "@typescript-eslint/indent": "off", // avoid conflict against editorconfig/indent
-    "@typescript-eslint/no-this-alias": "off",
+      //
+      // Errors
+      //
+      "@typescript-eslint/await-thenable": "error",
+      "@typescript-eslint/explicit-function-return-type": [ "error", { allowExpressions: true }],
 
-    // These rules may warn new ES syntax which is supported by TypeScript (e.g. import)
-    "node/no-unsupported-features/es-builtins": "off",
-    "node/no-unsupported-features/es-syntax": "off",
-  },
-  settings: {
-    jsdoc: {
-      mode: "typescript",
+      //
+      // Warnings
+      //
+      "@typescript-eslint/adjacent-overload-signatures": "warn",
+      "@typescript-eslint/prefer-for-of": "warn",
+      "@typescript-eslint/prefer-nullish-coalescing": "warn",
+      "@typescript-eslint/prefer-optional-chain": "warn",
+
+      //
+      // Off
+      //
+      "@typescript-eslint/indent": "off", // avoid conflict against editorconfig/indent
+      "@typescript-eslint/no-this-alias": "off",
+
+      // These rules may warn new ES syntax which is supported by TypeScript (e.g. import)
+      "node/no-unsupported-features/es-builtins": "off",
+      "node/no-unsupported-features/es-syntax": "off",
     },
-    "import-x/resolver": {
-      typescript: {
-        extensions: [
-          ".js", ".mjs", ".cjs",
-          ".ts", ".mts", ".cts",
-          ".d.ts", ".json",
-          ".jsx", ".tsx", ".vue", ".svelte",
-        ],
-        alwaysTryTypes: true,
+    settings: {
+      jsdoc: {
+        mode: "typescript", // TODO Check if this setting is required.
+      },
+      "import-x/resolver": {
+        typescript: {
+          extensions: [
+            ".js", ".mjs", ".cjs",
+            ".ts", ".mts", ".cts",
+            ".d.ts", ".json",
+            ".jsx", ".tsx", ".vue", ".svelte",
+          ],
+          alwaysTryTypes: true,
+        },
       },
     },
   },
-};
+);
