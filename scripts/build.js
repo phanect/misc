@@ -1,18 +1,18 @@
-"use strict";
+import { mkdir, writeFile } from "fs/promises";
+import { join } from "path";
+import { fileURLToPath } from "node:url";
 
-const { mkdir, writeFile } = require("fs/promises");
-const { join } = require("path");
+import plain from "../src/configs/plain";
+import node from "../src/configs/node";
+import react from "../src/configs/react";
+import next from "../src/configs/next";
+import vueJS from "../src/configs/vue+js";
+import vueTS from "../src/configs/vue+ts";
+import nuxtJS from "../src/configs/nuxt+js";
+import nuxtTS from "../src/configs/nuxt+ts";
+import _jest from "../src/configs/jest"; // do not name this variable "jest" to avoid name conflict on test
 
-const plain = require("../src/configs/plain");
-const node = require("../src/configs/node");
-const react = require("../src/configs/react");
-const next = require("../src/configs/next");
-const vueJS = require("../src/configs/vue+js");
-const vueTS = require("../src/configs/vue+ts");
-const nuxtJS = require("../src/configs/nuxt+js");
-const nuxtTS = require("../src/configs/nuxt+ts");
-const _jest = require("../src/configs/jest"); // do not name this variable "jest" to avoid name conflict on test
-
+const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const rootDir = join(__dirname, "../");
 
 (async () => {
