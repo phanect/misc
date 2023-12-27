@@ -1,6 +1,7 @@
-import { toTSRules } from "../../helpers";
+import { toTSRules } from "../../helpers.ts";
+import type { Linter } from "eslint";
 
-const commonRulesJS = {
+const commonRulesJS: Linter.RulesRecord = {
   "no-unused-vars": "error",
   "no-use-before-define": "error",
   semi: [ "error", "always" ],
@@ -17,7 +18,7 @@ const commonRulesJS = {
   "require-await": "off",
 };
 
-export const jsRules = {
+export const jsRules: Linter.Config = {
   extends: [
     "eslint:recommended",
   ],
@@ -31,7 +32,7 @@ export const jsRules = {
   },
 };
 
-export const tsRules = {
+export const tsRules: Linter.Config = {
   extends: [
     "plugin:@typescript-eslint/recommended",
     "plugin:import/typescript",

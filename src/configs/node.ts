@@ -1,5 +1,5 @@
-import plain from "./plain";
-import { mergeConfigs } from "../helpers";
+import plain from "./plain.ts";
+import { mergeConfigs } from "../helpers.ts";
 
 export default mergeConfigs(plain, {
   extends: [ "plugin:node/recommended" ],

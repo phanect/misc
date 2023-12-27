@@ -1,6 +1,7 @@
-import { jsRules, tsRules } from "./overrides/lang-specific";
+import { jsRules, tsRules } from "./overrides/lang-specific.ts";
+import type { Linter } from "eslint";
 
-export default {
+const plain: Linter.Config = {
   extends: [
     "plugin:editorconfig/noconflict",
     "plugin:jsdoc/recommended",
@@ -157,4 +158,6 @@ export default {
       },
     },
   ],
-};
+} as const;
+
+export default plain;

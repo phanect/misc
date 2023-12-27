@@ -1,5 +1,5 @@
 import { test, expect } from "vitest";
-import { toTSRules, mergeConfigs } from "../src/helpers";
+import { toTSRules, mergeConfigs } from "../src/helpers.ts";
 
 test("toTSRules", () => {
   const result = toTSRules({

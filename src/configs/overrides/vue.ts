@@ -1,7 +1,8 @@
-import plain from "../plain";
-import { mergeConfigs } from "../../helpers";
+import plain from "../plain.ts";
+import { mergeConfigs } from "../../helpers.ts";
+import type { Linter } from "eslint";
 
-export const vueBase = mergeConfigs(plain, {
+export const vueBase: Linter.Config = mergeConfigs(plain, {
   extends: [ "plugin:vue/vue3-recommended" ],
   env: {
     browser: true,

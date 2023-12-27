@@ -2,15 +2,15 @@ import { mkdir, writeFile } from "fs/promises";
 import { join } from "path";
 import { fileURLToPath } from "node:url";
 
-import plain from "../src/configs/plain";
-import node from "../src/configs/node";
-import react from "../src/configs/react";
-import next from "../src/configs/next";
-import vueJS from "../src/configs/vue+js";
-import vueTS from "../src/configs/vue+ts";
-import nuxtJS from "../src/configs/nuxt+js";
-import nuxtTS from "../src/configs/nuxt+ts";
-import _jest from "../src/configs/jest"; // do not name this variable "jest" to avoid name conflict on test
+import plain from "../src/configs/plain.ts";
+import node from "../src/configs/node.ts";
+import react from "../src/configs/react.ts";
+import next from "../src/configs/next.ts";
+import vueJS from "../src/configs/vue+js.ts";
+import vueTS from "../src/configs/vue+ts.ts";
+import nuxtJS from "../src/configs/nuxt+js.ts";
+import nuxtTS from "../src/configs/nuxt+ts.ts";
+import _jest from "../src/configs/jest.ts"; // do not name this variable "jest" to avoid name conflict on test
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const rootDir = join(__dirname, "../");
