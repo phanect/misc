@@ -125,7 +125,7 @@ const plain: Linter.Config = {
       },
     },
     {
-      files: [ "*.ts", "*.tsx" ],
+      files: [ "*.ts", "*.mts", "*.cts", "*.tsx" ],
       ...tsRules,
     },
     {
