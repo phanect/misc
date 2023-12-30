@@ -47,7 +47,7 @@ const commonRules: Linter.RulesRecord = {
   // Warnings: JSDoc
   // JSDoc rules should not be reported as errors but warnings
   //
-  "jsdoc/check-examples": "off", // temporary disabled because it is incompatible with ESLint 8
+  "jsdoc/check-examples": "warn",
   "jsdoc/check-indentation": "warn",
   "jsdoc/check-syntax": "warn",
   "jsdoc/require-hyphen-before-param-description": "warn",
