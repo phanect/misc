@@ -108,7 +108,7 @@ export default {
       },
     },
     {
-      files: [ "*.ts", "*.tsx" ],
+      files: [ "*.ts", "*.mts", "*.cts", "*.tsx" ],
       ...tsRules,
     },
     {
