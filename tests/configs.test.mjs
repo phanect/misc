@@ -25,7 +25,7 @@ const tsOpts = {
       node: true,
     },
     parserOptions: {
-      project: join(__dirname, "ts/tsconfig.json"),
+      project: join(__dirname, "fixtures/tsconfig.json"),
     },
   }),
   useEslintrc: false,
@@ -33,7 +33,7 @@ const tsOpts = {
 
 test("js - valid", async () => {
   const eslint = new ESLint(jsOpts);
-  const results = await eslint.lintFiles(join(__dirname, "js/correct.js"));
+  const results = await eslint.lintFiles(join(__dirname, "fixtures/valid/valid-js.js"));
 
   expect(results[0].messages).toHaveLength(0);
   expect(results).toHaveLength(1);
@@ -43,7 +43,7 @@ test("js - valid", async () => {
 
 test("js - invalid", async () => {
   const eslint = new ESLint(jsOpts);
-  const results = await eslint.lintFiles(join(__dirname, "js/incorrect.js"));
+  const results = await eslint.lintFiles(join(__dirname, "fixtures/invalid/invalid-js.js"));
 
   expect(sortObjects(results[0].messages)).toEqual(sortObjects([
     {
@@ -258,7 +258,7 @@ test("js - invalid", async () => {
 
 test("js - invalid - no-undef", async () => {
   const eslint = new ESLint(jsOpts);
-  const results = await eslint.lintFiles(join(__dirname, "js/incorrect.no-undef.js"));
+  const results = await eslint.lintFiles(join(__dirname, "fixtures/invalid/invalid-js.no-undef.js"));
 
   expect(results[0].messages).toEqual([
     {
@@ -292,7 +292,7 @@ test("js - invalid - no-undef", async () => {
 
 test("ts - valid", async () => {
   const eslint = new ESLint(tsOpts);
-  const results = await eslint.lintFiles(join(__dirname, "ts/correct.ts"));
+  const results = await eslint.lintFiles(join(__dirname, "fixtures/valid/valid-ts.ts"));
 
   expect(results[0].messages).toHaveLength(0);
   expect(results).toHaveLength(1);
@@ -302,7 +302,7 @@ test("ts - valid", async () => {
 
 test("ts - invalid", async () => {
   const eslint = new ESLint(tsOpts);
-  const results = await eslint.lintFiles(join(__dirname, "ts/incorrect.ts"));
+  const results = await eslint.lintFiles(join(__dirname, "fixtures/invalid/invalid-ts.ts"));
 
   expect(results[0].messages).toEqual([
     {
@@ -411,7 +411,7 @@ for (const lang of [ "js", "ts" ]) {
 
   test.skip(`jest - ${lang} - valid`, async () => {
     const eslint = new ESLint(jestOpts);
-    const results = await eslint.lintFiles(join(__dirname, `./${lang}/jest-correct.test.${lang}`));
+    const results = await eslint.lintFiles(join(__dirname, `fixtures/valid/jest-valid-${lang}.test.${lang}`));
 
     expect(results[0].messages).toEqual([]);
     expect(results).toHaveLength(1);
@@ -421,7 +421,7 @@ for (const lang of [ "js", "ts" ]) {
 
   test.skip(`jest - ${lang} - invalid`, async () => {
     const eslint = new ESLint(jestOpts);
-    const results = await eslint.lintFiles(join(__dirname, `./${lang}/jest-incorrect.test.${lang}`));
+    const results = await eslint.lintFiles(join(__dirname, `fixtures/invalid/jest-invalid-${lang}.test.${lang}`));
 
     expect(results[0].messages).toEqual([
       {
@@ -517,7 +517,7 @@ test("CommonJS needs 'use strict'", async () => {
     baseConfig: nodeConfig,
     useEslintrc: false,
   });
-  const results = await eslint.lintFiles(join(__dirname, "./js/correct.use-strict.cjs"));
+  const results = await eslint.lintFiles(join(__dirname, "fixtures/valid/valid-js.use-strict.cjs"));
 
   expect(results[0].messages).toEqual([]);
   expect(results).toHaveLength(1);
@@ -530,7 +530,7 @@ test("JSM forbids 'use strict'", async () => {
     baseConfig: nodeConfig,
     useEslintrc: false,
   });
-  const results = await eslint.lintFiles(join(__dirname, "./js/correct.use-strict.mjs"));
+  const results = await eslint.lintFiles(join(__dirname, "fixtures/valid/valid-js.use-strict.mjs"));
 
   expect(results[0].messages).toEqual([]);
   expect(results).toHaveLength(1);
@@ -543,7 +543,7 @@ test("Error when no 'use strict' in CommonJS", async () => {
     baseConfig: nodeConfig,
     useEslintrc: false,
   });
-  const results = await eslint.lintFiles(join(__dirname, "./js/incorrect.use-strict.cjs"));
+  const results = await eslint.lintFiles(join(__dirname, "fixtures/invalid/invalid-js.use-strict.cjs"));
 
   expect(results[0].messages).toEqual([
     {
@@ -568,7 +568,7 @@ test("Error when 'use strict' in JSM", async () => {
     baseConfig: nodeConfig,
     useEslintrc: false,
   });
-  const results = await eslint.lintFiles(join(__dirname, "./js/incorrect.use-strict.mjs"));
+  const results = await eslint.lintFiles(join(__dirname, "fixtures/invalid/invalid-js.use-strict.mjs"));
 
   expect(results[0].messages).toEqual([
     {

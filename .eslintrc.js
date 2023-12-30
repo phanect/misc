@@ -10,10 +10,10 @@ module.exports = mergeConfigs(config, {
     node: true,
   },
   parserOptions: {
-    project: "./tests/ts/tsconfig.json",
+    project: "./tests/fixtures/tsconfig.json",
   },
   ignorePatterns: [
-    "tests/js/**",
-    "tests/ts/**",
+    "tests/fixtures/invalid/**",
+    "tests/fixtures/valid/**",
   ],
 });
