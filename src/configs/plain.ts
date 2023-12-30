@@ -111,7 +111,7 @@ const plain: Linter.FlatConfig[] = [
   {
     files: [ "*.cjs" ],
     languageOptions: {
-      sourceType: "script",
+      sourceType: "commonjs",
     },
   },
   {
