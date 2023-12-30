@@ -17,6 +17,10 @@ const plain: Linter.Config[] = [
   },
   {
     files: [ "*" ],
+    linterOptions: {
+      noInlineConfig: true,
+      reportUnusedDisableDirectives: "error",
+    },
     plugins: {
       jsonc,
       promise,
