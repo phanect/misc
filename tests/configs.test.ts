@@ -2,8 +2,8 @@ import { test, expect } from "vitest";
 import { ESLint, type Linter } from "eslint";
 import { join } from "path";
 import { fileURLToPath } from "node:url";
+import deepmerge from "deepmerge";
 
-import { mergeConfigs } from "../src/helpers.ts";
 import plainConfig from "../plain.json";
 import nodeConfig from "../node.json";
 import jestConfig from "../jest.json";
@@ -12,7 +12,7 @@ import { sortObjects } from "@phanect/utils";
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
 const jsOpts: ESLint.Options = {
-  baseConfig: mergeConfigs(plainConfig as unknown as Linter.Config, {
+  baseConfig: deepmerge(plainConfig as unknown as Linter.Config, {
     env: {
       node: true,
     },
@@ -20,7 +20,7 @@ const jsOpts: ESLint.Options = {
   useEslintrc: false,
 };
 const tsOpts: ESLint.Options = {
-  baseConfig: mergeConfigs(plainConfig as unknown as Linter.Config, {
+  baseConfig: deepmerge(plainConfig as unknown as Linter.Config, {
     env: {
       node: true,
     },
@@ -399,9 +399,9 @@ test("ts - invalid", async () => {
 });
 
 for (const lang of [ "js", "ts" ]) {
-  const config = mergeConfigs(plainConfig, jestConfig);
+  const config = deepmerge(plainConfig, jestConfig);
   const jestOpts: ESLint.Options = {
-    baseConfig: mergeConfigs(config as unknown as Linter.Config, lang === "ts" ? {
+    baseConfig: deepmerge(config as unknown as Linter.Config, lang === "ts" ? {
       parserOptions: {
         project: join(__dirname, "ts/tsconfig.json"),
       },

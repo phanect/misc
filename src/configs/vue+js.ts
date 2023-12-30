@@ -1,10 +1,10 @@
+import deepmerge from "deepmerge";
 import { jsRules } from "./overrides/lang-specific.ts";
 import { vueBase } from "./overrides/vue.ts";
-import { mergeConfigs } from "../helpers.ts";
 
-export default mergeConfigs(vueBase, {
+export default deepmerge(vueBase, {
   overrides: [
-    mergeConfigs(jsRules, {
+    deepmerge(jsRules, {
       files: [ "*.vue" ],
       parser: "vue-eslint-parser",
     }),

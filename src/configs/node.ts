@@ -1,7 +1,7 @@
+import deepmerge from "deepmerge";
 import plain from "./plain.ts";
-import { mergeConfigs } from "../helpers.ts";
 
-export default mergeConfigs(plain, {
+export default deepmerge(plain, {
   extends: [ "plugin:node/recommended" ],
   plugins: [ "node" ],
   rules: {

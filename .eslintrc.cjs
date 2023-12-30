@@ -1,10 +1,10 @@
 "use strict";
 
 const { join } = require("node:path");
+const deepmerge = require("deepmerge");
 const config = require("./node.json");
-const { mergeConfigs } = require("./src/helpers");
 
-module.exports = mergeConfigs(config, {
+module.exports = deepmerge(config, {
   root: true,
 
   env: {
