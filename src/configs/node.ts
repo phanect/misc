@@ -20,4 +20,26 @@ export default deepmerge(plain, {
     "no-process-exit": "off",
     "node/no-process-exit": "off",
   },
+  overrides: [
+    {
+      files: [
+        // config files
+        "*.config.*",
+        ".eslintrc",
+        ".eslintrc.*",
+        // build scripts
+        "script/**",
+        "scripts/**",
+        // testcases
+        "test/**",
+        "tests/**",
+        "*.test.*",
+        "*.spec.*",
+      ],
+      rules: {
+        "node/no-unpublished-import": "off",
+        "node/no-unpublished-require": "off",
+      },
+    },
+  ],
 });
