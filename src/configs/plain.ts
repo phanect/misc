@@ -29,6 +29,10 @@ const plain: Linter.FlatConfig[] = [
       ecmaVersion: 2022,
       sourceType: "module",
     },
+    linterOptions: {
+      noInlineConfig: true,
+      reportUnusedDisableDirectives: "error",
+    },
     rules: {
       "arrow-body-style": [ "error", "as-needed" ],
       "comma-dangle": [ "error", {
