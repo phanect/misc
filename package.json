@@ -3,9 +3,18 @@
   "version": "2024.5.27",
   "description": "Personal ESLint configuration for Jumpei Ogawa (@phanect)",
   "type": "module",
-  "main": "./plain.json",
+  "module": "./dist/eslint.mjs",
+  "types": "./dist/eslint.d.ts",
+  "exports": {
+    "./eslint": {
+      "import": {
+        "default": "./dist/eslint.mjs",
+        "types": "./dist/eslint.d.ts"
+      }
+    }
+  },
   "scripts": {
-    "build": "esno ./scripts/build.ts",
+    "build": "unbuild",
     "test": "npm run build && vitest run",
     "lint": "npm run build && tsc --noEmit && eslint",
     "fix": "npm run build && eslint --fix",
@@ -52,6 +61,7 @@
     "eslint-flat-config-utils": "^0.2.5",
     "esno": "^4.7.0",
     "typescript": "^5.3.3",
+    "unbuild": "^2.0.0",
     "vitest": "^2.0.2"
   },
   "peerDependencies": {
