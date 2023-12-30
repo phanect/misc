@@ -1,8 +1,8 @@
 import { ESLint } from "eslint";
 import { join } from "path";
 import { fileURLToPath } from "node:url";
+import deepmerge from "deepmerge";
 
-import { mergeConfigs } from "../src/helpers";
 import plainConfig from "../plain.json";
 import nodeConfig from "../node.json";
 import jestConfig from "../jest.json";
@@ -11,7 +11,7 @@ import { sortObjects } from "./testutils";
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
 const jsOpts = {
-  baseConfig: mergeConfigs(plainConfig, {
+  baseConfig: deepmerge(plainConfig, {
     env: {
       node: true,
     },
@@ -19,7 +19,7 @@ const jsOpts = {
   useEslintrc: false,
 };
 const tsOpts = {
-  baseConfig: mergeConfigs(plainConfig, {
+  baseConfig: deepmerge(plainConfig, {
     env: {
       node: true,
     },
@@ -30,7 +30,7 @@ const tsOpts = {
   useEslintrc: false,
 };
 const jsmOpts = {
-  baseConfig: mergeConfigs(plainConfig, {
+  baseConfig: deepmerge(plainConfig, {
     env: {
       node: true,
     },
@@ -462,9 +462,9 @@ test("modules - ts - valid", async () => {
 });
 
 for (const lang of [ "js", "ts" ]) {
-  const config = mergeConfigs(plainConfig, jestConfig);
+  const config = deepmerge(plainConfig, jestConfig);
   const jestOpts = {
-    baseConfig: mergeConfigs(config, lang === "ts" ? {
+    baseConfig: deepmerge(config, lang === "ts" ? {
       parserOptions: {
         project: join(__dirname, "ts/tsconfig.json"),
       },
