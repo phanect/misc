@@ -89,9 +89,6 @@ export const tsRule: Linter.FlatConfig = ts.config(
     // TODO add import-x, editorconfig, and document-write plugins when it is ready to flat configs
     //...importConfigs["typescript"],
 
-    languageOptions: {
-      sourceType: "module",
-    },
     rules: {
       ...toTSRules(prefixRequiredRules),
       ...commonRules,
