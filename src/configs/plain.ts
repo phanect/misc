@@ -112,6 +112,26 @@ export default {
       ...tsRules,
     },
     {
+      files: [
+        // config files
+        "*.config.*",
+        ".eslintrc",
+        ".eslintrc.*",
+        // build scripts
+        "script/*",
+        "scripts/*",
+        // testcases
+        "test/*",
+        "tests/*",
+        "*.test.*",
+        "*.spec.*",
+      ],
+      rules: {
+        "node/no-unpublished-import": "off",
+        "node/no-unpublished-require": "off",
+      },
+    },
+    {
       files: [ "*.json", "*.json5" ],
       extends: "plugin:jsonc/base",
       parser: "jsonc-eslint-parser",
