@@ -119,7 +119,7 @@ const plain: Linter.Config[] = [
   {
     files: [ "*.cjs" ],
     languageOptions: {
-      sourceType: "script",
+      sourceType: "commonjs",
     },
   },
   {
