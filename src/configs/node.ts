@@ -1,6 +1,7 @@
 import { FlatCompat } from "@eslint/eslintrc";
 import { plain } from "./plain.js";
-import { defaultConfigOptions, projectRoot } from "../helpers.js";
+import { vitestWorkaroundConfig } from "./vitest-workaround.js";
+import { defaultConfigOptions, projectRoot } from "../utils.ts";
 import type { Linter } from "eslint";
 import type { ConfigOptions } from "../types.js";
 
@@ -49,4 +50,5 @@ export const node = (options: ConfigOptions = defaultConfigOptions): Linter.Flat
       "node/no-unpublished-require": "off",
     },
   },
+  vitestWorkaroundConfig,
 ];
