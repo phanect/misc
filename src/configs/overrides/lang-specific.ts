@@ -1,4 +1,4 @@
-import { toTSRules } from "../../helpers.ts";
+import { toTSRules } from "../../utils.ts";
 import type { Linter } from "eslint";
 
 const commonRulesJS: Linter.RulesRecord = {
