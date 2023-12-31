@@ -555,7 +555,7 @@ test("Error when no 'use strict' in CommonJS", async () => {
       line: 1,
       endLine: 1,
       column: 1,
-      endColumn: 71,
+      endColumn: 44,
     },
   ]);
   expect(results).toHaveLength(1);
