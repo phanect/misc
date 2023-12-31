@@ -7,7 +7,7 @@
   },
   "include": [ "**/*.js", "**/*.mjs", "**/*.ts", "**/*.mts" ],
   "exclude": [
-    "tests/fixtures/invalid/**",
+    "tests/fixtures/invalid/*.js", // Invalid JS fixtures raises some ESLint errors, and it may cause type errors too.
     "dist",
     "node_modules"
   ]
