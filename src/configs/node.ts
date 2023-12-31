@@ -18,8 +18,6 @@ export const node = (options: ConfigOptions = defaultConfigOptions): Linter.Flat
       //
       // Errors
       //
-      // While it is disabled on base config, it is enabled here since it works on Node
-      "import/no-unresolved": [ "error", { commonjs: true }],
       "node/no-missing-import": [ "error", {
         tryExtensions: [ ".js", ".ts", ".json" ], // Add .ts
       }],
@@ -31,4 +29,24 @@ export const node = (options: ConfigOptions = defaultConfigOptions): Linter.Flat
       "node/no-process-exit": "off",
     },
   }),
+  {
+    files: [
+      // config files
+      "*.config.*",
+      ".eslintrc",
+      ".eslintrc.*",
+      // build scripts
+      "script/*",
+      "scripts/*",
+      // testcases
+      "test/*",
+      "tests/*",
+      "*.test.*",
+      "*.spec.*",
+    ],
+    rules: {
+      "node/no-unpublished-import": "off",
+      "node/no-unpublished-require": "off",
+    },
+  },
 ];

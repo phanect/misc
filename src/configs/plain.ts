@@ -121,25 +121,8 @@ export const plain = ({ testLib }: ConfigOptions = defaultConfigOptions): Linter
       languageOptions: {
         sourceType: "commonjs",
       },
-    },
-    {
-      files: [
-        // config files
-        "*.config.*",
-        ".eslintrc",
-        ".eslintrc.*",
-        // build scripts
-        "script/*",
-        "scripts/*",
-        // testcases
-        "test/*",
-        "tests/*",
-        "*.test.*",
-        "*.spec.*",
-      ],
       rules: {
-        "node/no-unpublished-import": "off",
-        "node/no-unpublished-require": "off",
+        "import/no-unresolved": [ "error", { commonjs: true }],
       },
     },
     ...compat.config({
