@@ -1,5 +1,7 @@
 "use strict";
 
+const { expect, test, beforeEach, afterEach } = require("vitest");
+
 beforeEach(() => {
   console.log("before");
 });

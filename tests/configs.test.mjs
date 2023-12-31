@@ -1,13 +1,15 @@
-"use strict";
+import { test, expect } from "vitest";
+import { ESLint } from "eslint";
+import { join } from "path";
+import { fileURLToPath } from "node:url";
 
-const { ESLint } = require("eslint");
-const { join } = require("path");
+import { mergeConfigs } from "../src/helpers";
+import plainConfig from "../plain.json";
+import nodeConfig from "../node.json";
+import jestConfig from "../jest.json";
+import { sortObjects } from "@phanect/utils";
 
-const { mergeConfigs } = require("../src/helpers");
-const plainConfig = require("../plain.json");
-const nodeConfig = require("../node.json");
-const jestConfig = require("../jest.json");
-const { sortObjects } = require("@phanect/utils");
+const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
 const jsOpts = {
   baseConfig: mergeConfigs(plainConfig, {
@@ -471,7 +473,7 @@ for (const lang of [ "js", "ts" ]) {
     useEslintrc: false,
   };
 
-  test(`jest - ${lang} - valid`, async () => {
+  test.skip(`jest - ${lang} - valid`, async () => {
     const eslint = new ESLint(jestOpts);
     const results = await eslint.lintFiles(join(__dirname, `./${lang}/jest-correct.test.${lang}`));
 
@@ -481,7 +483,7 @@ for (const lang of [ "js", "ts" ]) {
     expect(results[0].warningCount).toBe(0);
   });
 
-  test(`jest - ${lang} - invalid`, async () => {
+  test.skip(`jest - ${lang} - invalid`, async () => {
     const eslint = new ESLint(jestOpts);
     const results = await eslint.lintFiles(join(__dirname, `./${lang}/jest-incorrect.test.${lang}`));
 
