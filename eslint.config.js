@@ -31,4 +31,9 @@ export default [
       "tests/fixtures/**/vitest-*.test.*",
     ],
   },
-];
+].map(config => ({
+  ...config,
+  ignores: [
+    "tests/fixtures/invalid/**",
+  ],
+}));
