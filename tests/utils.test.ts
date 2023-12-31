@@ -1,3 +1,4 @@
+import { expect, test } from "vitest";
 import { toTSRules } from "../src/utils.js";
 
 test("toTSRules", () => {
