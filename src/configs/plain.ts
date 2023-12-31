@@ -113,6 +113,9 @@ const plain: Linter.FlatConfig[] = [
     languageOptions: {
       sourceType: "commonjs",
     },
+    rules: {
+      "import-x/no-unresolved": [ "error", { commonjs: true }],
+    },
   },
   {
     files: [
