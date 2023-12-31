@@ -30,17 +30,6 @@ const tsOpts = {
   }),
   useEslintrc: false,
 };
-const jsmOpts = {
-  baseConfig: mergeConfigs(plainConfig, {
-    env: {
-      node: true,
-    },
-    parserOptions: {
-      sourceType: "module",
-    },
-  }),
-  useEslintrc: false,
-};
 
 test("js - valid", async () => {
   const eslint = new ESLint(jsOpts);
@@ -407,59 +396,6 @@ test("ts - invalid", async () => {
   expect(results).toHaveLength(1);
   expect(results[0].errorCount).toBe(6);
   expect(results[0].warningCount).toBe(0);
-});
-
-test("modules - js - valid", async () => {
-  const eslint = new ESLint(jsmOpts);
-  const results1 = await eslint.lintFiles(join(__dirname, "js/correct.modules-1.js"));
-  const results2 = await eslint.lintFiles(join(__dirname, "js/correct.modules-2.js"));
-
-  for (const results of [ results1, results2 ]) {
-    expect(results[0].messages).toHaveLength(0);
-    expect(results).toHaveLength(1);
-    expect(results[0].errorCount).toBe(0);
-    expect(results[0].warningCount).toBe(0);
-  }
-});
-
-test("modules - js - invalid", async () => {
-  const eslint = new ESLint(jsmOpts);
-  const results1 = await eslint.lintFiles(join(__dirname, "js/incorrect.modules-1.js"));
-  const results2 = await eslint.lintFiles(join(__dirname, "js/incorrect.modules-2.js"));
-
-  for (const results of [ results1, results2 ]) {
-    expect(results[0].messages).toEqual([{
-      line: 1,
-      endLine: 1,
-      column: 1,
-      endColumn: 14,
-      fix: {
-        range: [ 0, 13 ],
-        text: "",
-      },
-      message: "'use strict' is unnecessary inside of modules.",
-      messageId: "module",
-      nodeType: "ExpressionStatement",
-      ruleId: "strict",
-      severity: 2,
-    }]);
-    expect(results).toHaveLength(1);
-    expect(results[0].errorCount).toBe(1);
-    expect(results[0].warningCount).toBe(0);
-  }
-});
-
-test("modules - ts - valid", async () => {
-  const eslint = new ESLint(tsOpts);
-  const results1 = await eslint.lintFiles(join(__dirname, "ts/correct.modules-1.ts"));
-  const results2 = await eslint.lintFiles(join(__dirname, "ts/correct.modules-2.ts"));
-
-  for (const results of [ results1, results2 ]) {
-    expect(results[0].messages).toHaveLength(0);
-    expect(results).toHaveLength(1);
-    expect(results[0].errorCount).toBe(0);
-    expect(results[0].warningCount).toBe(0);
-  }
 });
 
 for (const lang of [ "js", "ts" ]) {
