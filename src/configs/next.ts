@@ -1,6 +1,6 @@
+import deepmerge from "deepmerge";
 import react from "./react.js";
-import { mergeConfigs } from "../helpers.js";
 
-export default mergeConfigs(react, {
+export default deepmerge(react, {
   extends: [ "next/core-web-vitals" ],
 });

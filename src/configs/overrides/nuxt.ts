@@ -1,6 +1,6 @@
+import deepmerge from "deepmerge";
 import { vueBase } from "./vue.js";
-import { mergeConfigs } from "../../helpers.js";
 
-export const nuxtBase = mergeConfigs(vueBase, {
+export const nuxtBase = deepmerge(vueBase, {
   extends: [ "@nuxt/eslint-config" ],
 });
