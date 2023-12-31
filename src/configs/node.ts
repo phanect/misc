@@ -1,5 +1,6 @@
 import { configs as nodeConfigs } from "eslint-plugin-n";
 import { plain } from "./plain.ts";
+import { vitestWorkaroundConfig } from "./vitest-workaround.js";
 import type { Linter } from "eslint";
 
 export const node: Linter.FlatConfig[] = [
@@ -71,4 +72,5 @@ export const node: Linter.FlatConfig[] = [
       "n/no-unpublished-require": "off",
     },
   },
+  vitestWorkaroundConfig,
 ];

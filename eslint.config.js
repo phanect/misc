@@ -1,4 +1,4 @@
-import { node } from "./dist/eslint.mjs";
+import { node, vitestWorkaroundConfig } from "./dist/eslint.mjs";
 
 /** @type { import("eslint").Linter.FlatConfig[] } */
 export default [
@@ -15,5 +15,11 @@ export default [
         tsconfigRootDir: import.meta.dirname,
       },
     },
+  },
+  {
+    ...vitestWorkaroundConfig,
+    files: [
+      "tests/fixtures/**/*.test.*",
+    ],
   },
 ];
