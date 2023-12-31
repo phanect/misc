@@ -4,6 +4,7 @@ import vitest from "eslint-plugin-vitest";
 import type { Linter } from "eslint";
 import { jsRules, tsRule } from "./overrides/lang-specific.ts";
 import { extensions } from "../utils.ts";
+import { vitestWorkaroundConfig } from "./vitest-workaround.js";
 
 const plain: Linter.FlatConfig[] = [
   {
@@ -195,6 +196,7 @@ const plain: Linter.FlatConfig[] = [
       "jsonc/quote-props": [ "error", "as-needed" ],
     },
   },
+  vitestWorkaroundConfig,
 ] as const;
 
 export default plain;
