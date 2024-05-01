@@ -40,6 +40,7 @@
     "eslint-plugin-vue": "latest"
   },
   "devDependencies": {
+    "@phanect/utils": "^1.0.0",
     "@types/lodash.clonedeep": "^4.5.9",
     "@types/lodash.mergewith": "^4.6.9",
     "@types/node": "^20.10.6",

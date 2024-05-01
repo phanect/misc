@@ -5,7 +5,7 @@ import deepmerge from "deepmerge";
 
 import plainConfig from "../plain.json";
 import nodeConfig from "../node.json";
-import { sortObjects } from "./testutils";
+import { sortObjects } from "@phanect/utils";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
