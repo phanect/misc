@@ -7,7 +7,7 @@ const { mergeConfigs } = require("../src/helpers");
 const plainConfig = require("../plain.json");
 const nodeConfig = require("../node.json");
 const jestConfig = require("../jest.json");
-const { sortObjects } = require("./testutils");
+const { sortObjects } = require("@phanect/utils");
 
 const jsOpts = {
   baseConfig: mergeConfigs(plainConfig, {
