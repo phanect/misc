@@ -93,6 +93,10 @@ export default {
     //
     "no-console": "off",
 
+    // Duplicate of import/no-unresolved.
+    // In addition, it does not allow aliases such as Next.js's "@/components/..." and SvelteKit's "$lib/..."
+    "n/no-missing-import": "off",
+
     "jsdoc/require-jsdoc": "off",
     "jsdoc/require-description-complete-sentence": "off",
   },
