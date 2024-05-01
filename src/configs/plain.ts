@@ -117,6 +117,45 @@ export default {
     },
     {
       files: [
+        "*.test.js",
+        "*.test.jsx",
+        "*.test.mjs",
+        "*.test.cjs",
+        "*.test.ts",
+        "*.test.tsx",
+      ],
+
+      extends: [
+        "plugin:vitest/legacy-all",
+      ],
+
+      env: {
+        node: true,
+      },
+      plugins: [ "vitest" ],
+
+      rules: {
+        //
+        // Errors
+        //
+        "vitest/no-disabled-tests": "error",
+        "vitest/expect-expect": [ "error", {
+          assertFunctionNames: [ "expect", "ok" ],
+        }],
+
+        //
+        // Warnings - styles
+        //
+        "vitest/prefer-to-have-length": "warn",
+
+        //
+        // Off
+        //
+        "vitest/no-conditional-expect": "off",
+      },
+    },
+    {
+      files: [
         // config files
         "*.config.*",
         ".eslintrc",
