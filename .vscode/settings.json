@@ -1,0 +1,16 @@
+{
+  // Do not warn trailiing coommas in *.jsonc
+  // See: https://github.com/microsoft/vscode/issues/102061
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "**/*.jsonc",
+        ".vscode/*.json",
+        "tsconfig.json",
+      ],
+      "schema": {
+        "allowTrailingCommas": true,
+      }
+    }
+  ]
+}
