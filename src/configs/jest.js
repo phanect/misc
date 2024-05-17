@@ -41,4 +41,4 @@ module.exports = {
       "jest/no-conditional-expect": "off",
     },
   }],
-} ;
+};
