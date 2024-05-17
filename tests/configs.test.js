@@ -321,7 +321,7 @@ test("ts - invalid", async () => {
       line: 4,
       message: "'hoge' is assigned a value but never used.",
       messageId: "unusedVar",
-      nodeType: "Identifier",
+      nodeType: null,
       ruleId: "@typescript-eslint/no-unused-vars",
       severity: 2,
     },
@@ -502,13 +502,13 @@ for (const lang of [ "js", "ts" ]) {
         endColumn: 10,
         endLine: 15,
         line: 15,
-        message: "Unexpected focused test.",
+        message: "Unexpected focused test",
         messageId: "focusedTest",
         nodeType: "Identifier",
         ruleId: "jest/no-focused-tests",
         severity: 2,
         suggestions: [{
-          desc: "Remove focus from test.",
+          desc: "Remove focus from test",
           fix:  {
             range: [
               176,
@@ -524,7 +524,7 @@ for (const lang of [ "js", "ts" ]) {
         endColumn: 23,
         endLine: 23,
         line: 23,
-        message: "Test title is used multiple times in the same describe block.",
+        message: "Test title is used multiple times in the same describe block",
         messageId: "multipleTestTitle",
         nodeType: "Literal",
         ruleId: "jest/no-identical-title",
