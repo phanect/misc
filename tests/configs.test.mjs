@@ -327,7 +327,7 @@ test("ts - invalid", async () => {
       column: 1,
       endColumn: 1,
       fix: {
-        range: [ 154, 154 ],
+        range: [ 173, 173 ],
         text: "  ",
       },
     },
@@ -342,7 +342,7 @@ test("ts - invalid", async () => {
       column: 1,
       endColumn: 3,
       fix:  {
-        range: [ 166, 168 ],
+        range: [ 185, 187 ],
         text: "    ",
       },
     },
@@ -357,7 +357,7 @@ test("ts - invalid", async () => {
       column: 1,
       endColumn: 3,
       fix:  {
-        range: [ 188, 190 ],
+        range: [ 207, 209 ],
         text: "    ",
       },
     },
@@ -372,7 +372,7 @@ test("ts - invalid", async () => {
       column: 1,
       endColumn: 1,
       fix:  {
-        range: [ 197, 197 ],
+        range: [ 216, 216 ],
         text: "  ",
       },
     },
@@ -387,7 +387,7 @@ test("ts - invalid", async () => {
       column: 1,
       endColumn: 3,
       fix:  {
-        range: [ 206, 208 ],
+        range: [ 225, 227 ],
         text: "    ",
       },
     },
