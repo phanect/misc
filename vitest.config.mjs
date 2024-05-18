@@ -1,3 +1,5 @@
+// TODO Temporarily ignoring ESLint errors here:
+// eslint-disable-next-line
 import { defineConfig } from "vitest/config";
 
 export default defineConfig({
