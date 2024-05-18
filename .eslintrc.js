@@ -14,6 +14,5 @@ module.exports = mergeConfigs(config, {
   },
   ignorePatterns: [
     "tests/fixtures/invalid/**",
-    "tests/fixtures/valid/**",
   ],
 });
