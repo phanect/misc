@@ -1,8 +1,7 @@
-"use strict";
+import { jsRules, tsRules } from "./overrides/lang-specific.ts";
+import type { Linter } from "eslint";
 
-const { jsRules, tsRules } = require("./overrides/lang-specific");
-
-module.exports = {
+const plain: Linter.Config = {
   extends: [
     "plugin:editorconfig/noconflict",
     "plugin:jsdoc/recommended",
@@ -159,4 +158,6 @@ module.exports = {
       },
     },
   ],
-};
+} as const;
+
+export default plain;

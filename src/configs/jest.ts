@@ -1,6 +1,4 @@
-"use strict";
-
-module.exports = {
+export default {
   overrides: [{
     files: [
       "*.test.js", "**/*.test.js",

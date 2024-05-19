@@ -51,4 +51,4 @@ asyncFunctionWithoutAwait();
 function tetete<T>(arr: T[]): T[] {
   return arr;
 }
-tetete([]);
+tetete([ "a", "b", "c" ]);

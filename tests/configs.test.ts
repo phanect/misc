@@ -1,9 +1,9 @@
 import { test, expect } from "vitest";
-import { ESLint } from "eslint";
+import { ESLint, type Linter } from "eslint";
 import { join } from "path";
 import { fileURLToPath } from "node:url";
+import deepmerge from "deepmerge";
 
-import { mergeConfigs } from "../src/helpers";
 import plainConfig from "../plain.json";
 import nodeConfig from "../node.json";
 import jestConfig from "../jest.json";
@@ -11,21 +11,21 @@ import { sortObjects } from "@phanect/utils";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
-const jsOpts = {
-  baseConfig: mergeConfigs(plainConfig, {
+const jsOpts: ESLint.Options = {
+  baseConfig: deepmerge(plainConfig as unknown as Linter.Config, {
     env: {
       node: true,
     },
   }),
   useEslintrc: false,
 };
-const tsOpts = {
-  baseConfig: mergeConfigs(plainConfig, {
+const tsOpts: ESLint.Options = {
+  baseConfig: deepmerge(plainConfig as unknown as Linter.Config, {
     env: {
       node: true,
     },
     parserOptions: {
-      project: join(__dirname, "fixtures/tsconfig.json"),
+      project: join(__dirname, "fixtures/tsconfig.tests.json"),
     },
   }),
   useEslintrc: false,
@@ -399,11 +399,11 @@ test("ts - invalid", async () => {
 });
 
 for (const lang of [ "js", "ts" ]) {
-  const config = mergeConfigs(plainConfig, jestConfig);
-  const jestOpts = {
-    baseConfig: mergeConfigs(config, lang === "ts" ? {
+  const config = deepmerge(plainConfig, jestConfig);
+  const jestOpts: ESLint.Options = {
+    baseConfig: deepmerge(config as unknown as Linter.Config, lang === "ts" ? {
       parserOptions: {
-        project: join(__dirname, "ts/tsconfig.json"),
+        project: join(__dirname, "fixtures/tsconfig.json"),
       },
     } : {}),
     useEslintrc: false,
@@ -514,7 +514,7 @@ for (const lang of [ "js", "ts" ]) {
 
 test("CommonJS needs 'use strict'", async () => {
   const eslint = new ESLint({
-    baseConfig: nodeConfig,
+    baseConfig: nodeConfig as unknown as Linter.Config,
     useEslintrc: false,
   });
   const results = await eslint.lintFiles(join(__dirname, "fixtures/valid/valid-js.use-strict.cjs"));
@@ -527,7 +527,7 @@ test("CommonJS needs 'use strict'", async () => {
 
 test("JSM forbids 'use strict'", async () => {
   const eslint = new ESLint({
-    baseConfig: nodeConfig,
+    baseConfig: nodeConfig as unknown as Linter.Config,
     useEslintrc: false,
   });
   const results = await eslint.lintFiles(join(__dirname, "fixtures/valid/valid-js.use-strict.mjs"));
@@ -540,7 +540,7 @@ test("JSM forbids 'use strict'", async () => {
 
 test("Error when no 'use strict' in CommonJS", async () => {
   const eslint = new ESLint({
-    baseConfig: nodeConfig,
+    baseConfig: nodeConfig as unknown as Linter.Config,
     useEslintrc: false,
   });
   const results = await eslint.lintFiles(join(__dirname, "fixtures/invalid/invalid-js.use-strict.cjs"));
@@ -565,7 +565,7 @@ test("Error when no 'use strict' in CommonJS", async () => {
 
 test("Error when 'use strict' in JSM", async () => {
   const eslint = new ESLint({
-    baseConfig: nodeConfig,
+    baseConfig: nodeConfig as unknown as Linter.Config,
     useEslintrc: false,
   });
   const results = await eslint.lintFiles(join(__dirname, "fixtures/invalid/invalid-js.use-strict.mjs"));

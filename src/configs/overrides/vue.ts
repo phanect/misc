@@ -1,9 +1,8 @@
-"use strict";
+import deepmerge from "deepmerge";
+import plain from "../plain.ts";
+import type { Linter } from "eslint";
 
-const plain = require("../plain");
-const { mergeConfigs } = require("../../helpers");
-
-module.exports = mergeConfigs(plain, {
+export const vueBase: Linter.Config = deepmerge(plain, {
   extends: [ "plugin:vue/vue3-recommended" ],
   env: {
     browser: true,

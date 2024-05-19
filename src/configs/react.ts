@@ -1,9 +1,7 @@
-"use strict";
+import deepmerge from "deepmerge";
+import plain from "./plain.ts";
 
-const plain = require("./plain");
-const { mergeConfigs } = require("../helpers");
-
-module.exports = mergeConfigs(plain, {
+export default deepmerge(plain, {
   extends: [
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
