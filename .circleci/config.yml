@@ -17,7 +17,6 @@ jobs:
       name: default
     steps:
       - init
-      - run: npm run build
       - run: npm test
       - run: npm run lint
       - run: npm publish --dry-run --access public --non-interactive
