@@ -25,7 +25,7 @@ const tsOpts: ESLint.Options = {
       node: true,
     },
     parserOptions: {
-      project: join(__dirname, "fixtures/tsconfig.json"),
+      project: join(__dirname, "fixtures/tsconfig.tests.json"),
     },
   }),
   useEslintrc: false,
@@ -403,7 +403,7 @@ for (const lang of [ "js", "ts" ]) {
   const jestOpts: ESLint.Options = {
     baseConfig: deepmerge(config as unknown as Linter.Config, lang === "ts" ? {
       parserOptions: {
-        project: join(__dirname, "ts/tsconfig.json"),
+        project: join(__dirname, "fixtures/tsconfig.json"),
       },
     } : {}),
     useEslintrc: false,
