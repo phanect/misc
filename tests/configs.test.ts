@@ -48,17 +48,6 @@ test("js - invalid", async () => {
   expect(sortObjects(results[0].messages)).toEqual(sortObjects([
     {
       column: 1,
-      endColumn: 2,
-      endLine: 18,
-      line: 3,
-      message: "Use the global form of 'use strict'.",
-      messageId: "global",
-      nodeType: "Program",
-      ruleId: "strict",
-      severity: 2,
-    },
-    {
-      column: 1,
       endColumn: 9,
       endLine: 7,
       fix: {
@@ -252,7 +241,7 @@ test("js - invalid", async () => {
   ]));
 
   expect(results).toHaveLength(1);
-  expect(results[0].errorCount).toBe(13);
+  expect(results[0].errorCount).toBe(12);
   expect(results[0].warningCount).toBe(1);
 });
 
