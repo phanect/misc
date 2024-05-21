@@ -18,7 +18,9 @@ jobs:
     steps:
       - init
       - run: npm test
-      - run: npm run lint
+      - run:
+          name: npm run lint
+          command: cp ./rwt.example.json ./rwt.json && npm run lint
       - run: npm publish --dry-run --access public --non-interactive
 
   release:
