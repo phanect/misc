@@ -3,7 +3,7 @@ import { fileURLToPath } from "node:url";
 import { sortObjects } from "@phanect/utils";
 import deepmerge from "deepmerge";
 import { ESLint, type Linter } from "eslint";
-import { test, expect } from "vitest";
+import { describe, it, test, expect } from "vitest";
 
 import nodeConfig from "../node.json";
 import plainConfig from "../plain.json";
@@ -388,7 +388,10 @@ test("ts - invalid", async () => {
   expect(results[0].warningCount).toBe(0);
 });
 
-for (const lang of [ "js", "ts" ]) {
+describe.each([
+  { lang: "js" },
+  { lang: "ts" },
+])("vitest test code (language: $lang)", ({ lang }) => {
   const vitestOpts: ESLint.Options = {
     baseConfig: deepmerge(plainConfig as unknown as Linter.Config, lang === "ts" ? {
       parserOptions: {
@@ -398,7 +401,7 @@ for (const lang of [ "js", "ts" ]) {
     useEslintrc: false,
   };
 
-  test(`vitest - ${lang} - valid`, async () => {
+  it("should not raise any warnings if it is valid", async () => {
     const eslint = new ESLint(vitestOpts);
     const results = await eslint.lintFiles(join(__dirname, `fixtures/valid/valid-${lang}.test.${lang}`));
 
@@ -408,7 +411,7 @@ for (const lang of [ "js", "ts" ]) {
     expect(results[0].warningCount).toBe(0);
   });
 
-  test(`vitest - ${lang} - invalid`, async () => {
+  it("should raise warnings if it is invalid", async () => {
     const eslint = new ESLint(vitestOpts);
     const results = await eslint.lintFiles(join(__dirname, `fixtures/invalid/invalid-${lang}.test.${lang}`));
 
@@ -499,7 +502,7 @@ for (const lang of [ "js", "ts" ]) {
     expect(results[0].errorCount).toBe(4);
     expect(results[0].warningCount).toBe(1);
   });
-}
+});
 
 test("CommonJS needs 'use strict'", async () => {
   const eslint = new ESLint({
