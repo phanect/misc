@@ -43,6 +43,8 @@ test("js - valid", async () => {
 });
 
 test("js - invalid", async () => {
+  expect.hasAssertions();
+
   const eslint = new ESLint(jsOpts);
   const results = await eslint.lintFiles(join(__dirname, "fixtures/invalid/invalid-js.js"));
 
@@ -247,6 +249,8 @@ test("js - invalid", async () => {
 });
 
 test("js - invalid - no-undef", async () => {
+  expect.hasAssertions();
+
   const eslint = new ESLint(jsOpts);
   const results = await eslint.lintFiles(join(__dirname, "fixtures/invalid/invalid-js.no-undef.js"));
 
@@ -281,6 +285,8 @@ test("js - invalid - no-undef", async () => {
 });
 
 test("ts - valid", async () => {
+  expect.hasAssertions();
+
   const eslint = new ESLint(tsOpts);
   const results = await eslint.lintFiles(join(__dirname, "fixtures/valid/valid-ts.ts"));
 
@@ -291,6 +297,8 @@ test("ts - valid", async () => {
 });
 
 test("ts - invalid", async () => {
+  expect.hasAssertions();
+
   const eslint = new ESLint(tsOpts);
   const results = await eslint.lintFiles(join(__dirname, "fixtures/invalid/invalid-ts.ts"));
 
@@ -402,6 +410,8 @@ describe.each([
   };
 
   it("should not raise any warnings if it is valid", async () => {
+    expect.hasAssertions();
+
     const eslint = new ESLint(vitestOpts);
     const results = await eslint.lintFiles(join(__dirname, `fixtures/valid/valid-${lang}.test.${lang}`));
 
@@ -412,6 +422,8 @@ describe.each([
   });
 
   it("should raise warnings if it is invalid", async () => {
+    expect.hasAssertions();
+
     const eslint = new ESLint(vitestOpts);
     const results = await eslint.lintFiles(join(__dirname, `fixtures/invalid/invalid-${lang}.test.${lang}`));
 
@@ -505,6 +517,8 @@ describe.each([
 });
 
 test("CommonJS needs 'use strict'", async () => {
+  expect.hasAssertions();
+
   const eslint = new ESLint({
     baseConfig: nodeConfig as unknown as Linter.Config,
     useEslintrc: false,
@@ -518,6 +532,8 @@ test("CommonJS needs 'use strict'", async () => {
 });
 
 test("JSM forbids 'use strict'", async () => {
+  expect.hasAssertions();
+
   const eslint = new ESLint({
     baseConfig: nodeConfig as unknown as Linter.Config,
     useEslintrc: false,
@@ -531,6 +547,8 @@ test("JSM forbids 'use strict'", async () => {
 });
 
 test("Error when no 'use strict' in CommonJS", async () => {
+  expect.hasAssertions();
+
   const eslint = new ESLint({
     baseConfig: nodeConfig as unknown as Linter.Config,
     useEslintrc: false,
@@ -556,6 +574,8 @@ test("Error when no 'use strict' in CommonJS", async () => {
 });
 
 test("Error when 'use strict' in JSM", async () => {
+  expect.hasAssertions();
+
   const eslint = new ESLint({
     baseConfig: nodeConfig as unknown as Linter.Config,
     useEslintrc: false,
