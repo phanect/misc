@@ -1,13 +1,12 @@
-import { test, expect } from "vitest";
-import { ESLint, type Linter } from "eslint";
-import { join } from "path";
+import { join } from "node:path";
 import { fileURLToPath } from "node:url";
-import deepmerge from "deepmerge";
-
-import plainConfig from "../plain.json";
-import nodeConfig from "../node.json";
-import jestConfig from "../jest.json";
 import { sortObjects } from "@phanect/utils";
+import deepmerge from "deepmerge";
+import { ESLint, type Linter } from "eslint";
+import { describe, it, test, expect } from "vitest";
+
+import nodeConfig from "../node.json";
+import plainConfig from "../plain.json";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
@@ -32,6 +31,8 @@ const tsOpts: ESLint.Options = {
 };
 
 test("js - valid", async () => {
+  expect.hasAssertions();
+
   const eslint = new ESLint(jsOpts);
   const results = await eslint.lintFiles(join(__dirname, "fixtures/valid/valid-js.js"));
 
@@ -42,21 +43,12 @@ test("js - valid", async () => {
 });
 
 test("js - invalid", async () => {
+  expect.hasAssertions();
+
   const eslint = new ESLint(jsOpts);
   const results = await eslint.lintFiles(join(__dirname, "fixtures/invalid/invalid-js.js"));
 
   expect(sortObjects(results[0].messages)).toEqual(sortObjects([
-    {
-      column: 1,
-      endColumn: 2,
-      endLine: 18,
-      line: 3,
-      message: "Use the global form of 'use strict'.",
-      messageId: "global",
-      nodeType: "Program",
-      ruleId: "strict",
-      severity: 2,
-    },
     {
       column: 1,
       endColumn: 9,
@@ -252,11 +244,13 @@ test("js - invalid", async () => {
   ]));
 
   expect(results).toHaveLength(1);
-  expect(results[0].errorCount).toBe(13);
+  expect(results[0].errorCount).toBe(12);
   expect(results[0].warningCount).toBe(1);
 });
 
 test("js - invalid - no-undef", async () => {
+  expect.hasAssertions();
+
   const eslint = new ESLint(jsOpts);
   const results = await eslint.lintFiles(join(__dirname, "fixtures/invalid/invalid-js.no-undef.js"));
 
@@ -264,8 +258,8 @@ test("js - invalid - no-undef", async () => {
     {
       column: 1,
       endColumn: 5,
-      endLine: 3,
-      line: 3,
+      endLine: 1,
+      line: 1,
       message: "'test' is not defined.",
       messageId: "undef",
       nodeType: "Identifier",
@@ -275,8 +269,8 @@ test("js - invalid - no-undef", async () => {
     {
       column: 13,
       endColumn: 18,
-      endLine: 4,
-      line: 4,
+      endLine: 2,
+      line: 2,
       message: "'test2' is not defined.",
       messageId: "undef",
       nodeType: "Identifier",
@@ -291,6 +285,8 @@ test("js - invalid - no-undef", async () => {
 });
 
 test("ts - valid", async () => {
+  expect.hasAssertions();
+
   const eslint = new ESLint(tsOpts);
   const results = await eslint.lintFiles(join(__dirname, "fixtures/valid/valid-ts.ts"));
 
@@ -301,6 +297,8 @@ test("ts - valid", async () => {
 });
 
 test("ts - invalid", async () => {
+  expect.hasAssertions();
+
   const eslint = new ESLint(tsOpts);
   const results = await eslint.lintFiles(join(__dirname, "fixtures/invalid/invalid-ts.ts"));
 
@@ -398,20 +396,24 @@ test("ts - invalid", async () => {
   expect(results[0].warningCount).toBe(0);
 });
 
-for (const lang of [ "js", "ts" ]) {
-  const config = deepmerge(plainConfig, jestConfig);
-  const jestOpts: ESLint.Options = {
-    baseConfig: deepmerge(config as unknown as Linter.Config, lang === "ts" ? {
+describe.each([
+  { lang: "js" },
+  { lang: "ts" },
+])("vitest test code (language: $lang)", ({ lang }) => {
+  const vitestOpts: ESLint.Options = {
+    baseConfig: deepmerge(plainConfig as unknown as Linter.Config, lang === "ts" ? {
       parserOptions: {
-        project: join(__dirname, "fixtures/tsconfig.json"),
+        project: join(__dirname, "fixtures/tsconfig.tests.json"),
       },
     } : {}),
     useEslintrc: false,
   };
 
-  test.skip(`jest - ${lang} - valid`, async () => {
-    const eslint = new ESLint(jestOpts);
-    const results = await eslint.lintFiles(join(__dirname, `fixtures/valid/jest-valid-${lang}.test.${lang}`));
+  it("should not raise any warnings if it is valid", async () => {
+    expect.hasAssertions();
+
+    const eslint = new ESLint(vitestOpts);
+    const results = await eslint.lintFiles(join(__dirname, `fixtures/valid/valid-${lang}.test.${lang}`));
 
     expect(results[0].messages).toEqual([]);
     expect(results).toHaveLength(1);
@@ -419,100 +421,42 @@ for (const lang of [ "js", "ts" ]) {
     expect(results[0].warningCount).toBe(0);
   });
 
-  test.skip(`jest - ${lang} - invalid`, async () => {
-    const eslint = new ESLint(jestOpts);
-    const results = await eslint.lintFiles(join(__dirname, `fixtures/invalid/jest-invalid-${lang}.test.${lang}`));
+  it("should raise warnings if it is invalid", async () => {
+    expect.hasAssertions();
+
+    const eslint = new ESLint(vitestOpts);
+    const results = await eslint.lintFiles(join(__dirname, `fixtures/invalid/invalid-${lang}.test.${lang}`));
 
     expect(results[0].messages).toEqual([
       {
-        column: 1,
-        endColumn: 3,
-        endLine: 13,
-        line: 11,
-        message: "Disabled test",
-        messageId: "disabledTest",
-        nodeType: "CallExpression",
-        ruleId: "jest/no-disabled-tests",
-        severity: 2,
-      },
-      {
-        column: 6,
-        endColumn: 10,
-        endLine: 15,
-        line: 15,
-        message: "Unexpected focused test",
-        messageId: "focusedTest",
-        nodeType: "Identifier",
-        ruleId: "jest/no-focused-tests",
-        severity: 2,
-        suggestions: [{
-          desc: "Remove focus from test",
-          fix:  {
-            range: [
-              176,
-              181,
-            ],
-            text: "",
-          },
-          messageId: "suggestRemoveFocus",
-        }],
-      },
-      {
-        column: 6,
-        endColumn: 23,
-        endLine: 23,
-        line: 23,
-        message: "Test title is used multiple times in the same describe block",
-        messageId: "multipleTestTitle",
-        nodeType: "Literal",
-        ruleId: "jest/no-identical-title",
-        severity: 2,
-      },
-      {
         column: 30,
         endColumn: 34,
-        endLine: 28,
+        endLine: 12,
         fix: {
           range: [
-            404,
-            417,
+            215,
+            228,
           ],
           text: ").toHaveLength",
         },
-        line: 28,
-        message: "Use toHaveLength() instead",
-        messageId: "useToHaveLength",
+        line: 12,
+        message: "Prefer toHaveLength()",
+        messageId: "preferToHaveLength",
         nodeType: "Identifier",
-        ruleId: "jest/prefer-to-have-length",
+        ruleId: "vitest/prefer-to-have-length",
         severity: 1,
-      },
-      {
-        column: 44,
-        endColumn: 1,
-        endLine: 34,
-        fix: {
-          range: [
-            559,
-            559,
-          ],
-          text: ";",
-        },
-        line: 33,
-        message: "Missing semicolon.",
-        messageId: "missingSemi",
-        nodeType: "ExpressionStatement",
-        ruleId: `${lang === "ts" ? "@typescript-eslint/" : ""}semi`,
-        severity: 2,
       },
     ]);
 
     expect(results).toHaveLength(1);
-    expect(results[0].errorCount).toBe(4);
+    expect(results[0].errorCount).toBe(0);
     expect(results[0].warningCount).toBe(1);
   });
-}
+});
 
 test("CommonJS needs 'use strict'", async () => {
+  expect.hasAssertions();
+
   const eslint = new ESLint({
     baseConfig: nodeConfig as unknown as Linter.Config,
     useEslintrc: false,
@@ -526,6 +470,8 @@ test("CommonJS needs 'use strict'", async () => {
 });
 
 test("JSM forbids 'use strict'", async () => {
+  expect.hasAssertions();
+
   const eslint = new ESLint({
     baseConfig: nodeConfig as unknown as Linter.Config,
     useEslintrc: false,
@@ -539,6 +485,8 @@ test("JSM forbids 'use strict'", async () => {
 });
 
 test("Error when no 'use strict' in CommonJS", async () => {
+  expect.hasAssertions();
+
   const eslint = new ESLint({
     baseConfig: nodeConfig as unknown as Linter.Config,
     useEslintrc: false,
@@ -564,6 +512,8 @@ test("Error when no 'use strict' in CommonJS", async () => {
 });
 
 test("Error when 'use strict' in JSM", async () => {
+  expect.hasAssertions();
+
   const eslint = new ESLint({
     baseConfig: nodeConfig as unknown as Linter.Config,
     useEslintrc: false,

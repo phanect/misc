@@ -15,6 +15,17 @@ module.exports = deepmerge(config, {
   },
   ignorePatterns: [
     "tests/fixtures/invalid/*",
-    "tests/fixtures/valid/*.js", // TODO ignore until default sourceType is changed to "module"
+    "rwt.json",
+
+    "next.json",
+    "node.json",
+    "nuxt+js.json",
+    "nuxt+ts.json",
+    "plain.json",
+    "react.json",
+    "svelte.json",
+    "vue+js.json",
+    "vue+ts.json",
+    "with-deps.json",
   ],
 });

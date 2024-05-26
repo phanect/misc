@@ -4,10 +4,8 @@ import type { Linter } from "eslint";
 const plain: Linter.Config = {
   extends: [
     "plugin:editorconfig/noconflict",
-    "plugin:jsdoc/recommended",
     "plugin:promise/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
+    "plugin:import-x/recommended",
   ],
 
   env: {
@@ -15,7 +13,22 @@ const plain: Linter.Config = {
   },
   parserOptions: {
     ecmaVersion: 2022,
-    sourceType: "script", // "module" is only for JavaScript modules
+    sourceType: "module",
+    extraFileExtensions: [
+      ".js",
+      ".mjs",
+      ".cjs",
+      ".jsx",
+      ".ts",
+      ".mts",
+      ".cts",
+      ".tsx",
+      ".vue",
+      ".svelte",
+      ".json",
+      ".jsonc",
+      ".json5",
+    ],
   },
   plugins: [
     "document-write",
@@ -23,6 +36,14 @@ const plain: Linter.Config = {
     "import",
     "jsdoc",
     "promise",
+  ],
+  ignorePatterns: [
+    "node_modules/",
+    "package-lock.json",
+    "npm-shrinkwrap.json",
+
+    "dist/",
+    "tmp/",
   ],
   rules: {
     "arrow-body-style": [ "error", "as-needed" ],
@@ -55,15 +76,9 @@ const plain: Linter.Config = {
     "editorconfig/indent": [ "error", { SwitchCase: 1 }],
     "editorconfig/linebreak-style": "error",
     "editorconfig/no-trailing-spaces": "error",
-
-    //
-    // Warnings: JSDoc
-    // JSDoc rules should not be reported as errors but warnings
-    //
-    "jsdoc/check-examples": "off", // temporary disabled because it is incompatible with ESLint 8
-    "jsdoc/check-indentation": "warn",
-    "jsdoc/check-syntax": "warn",
-    "jsdoc/require-hyphen-before-param-description": "warn",
+    "import-x/no-unresolved": [ "error", { ignore: [ "vitest/config" ]}],
+    "promise/prefer-await-to-callbacks": "error",
+    "promise/prefer-await-to-then": "error",
 
     //
     // Warnings - styles
@@ -90,14 +105,13 @@ const plain: Linter.Config = {
     "spaced-comment": [ "warn", "always" ],
     "switch-colon-spacing": [ "warn", { before: false, after: true }],
 
+    // Require file extensions in `import`s
+    "import-x/extensions": [ "warn", "always", { ignorePackages: true }],
+
     //
     // Off
     //
-    "import/no-unresolved": "off", // Not working other than Node or Webpack
     "no-console": "off",
-
-    "jsdoc/require-jsdoc": "off",
-    "jsdoc/require-description-complete-sentence": "off",
   },
   overrides: [
     {
@@ -111,17 +125,53 @@ const plain: Linter.Config = {
       },
     },
     {
-      files: [ "*.mjs", "*.jsx" ],
-      parserOptions: {
-        sourceType: "module",
-      },
-    },
-    {
       files: [ "*.ts", "*.tsx" ],
       ...tsRules,
     },
     {
-      files: [ "*.json", "*.json5" ],
+      files: [
+        "*.test.js",
+        "*.test.jsx",
+        "*.test.mjs",
+        "*.test.cjs",
+        "*.test.ts",
+        "*.test.tsx",
+      ],
+
+      extends: [
+        "plugin:vitest/legacy-recommended",
+      ],
+
+      env: {
+        node: true,
+      },
+      plugins: [ "vitest" ],
+
+      rules: {
+        //
+        // Errors
+        //
+        "vitest/no-disabled-tests": "error",
+        "vitest/no-focused-tests": "error",
+        "vitest/expect-expect": [ "error", {
+          assertFunctionNames: [ "expect", "ok" ],
+        }],
+
+        //
+        // Warnings - styles
+        //
+        "vitest/prefer-lowercase-title": [ "warn", { ignore: [ "describe", "test" ]}],
+        "vitest/prefer-to-have-length": "warn",
+
+        //
+        // Off
+        //
+        "vitest/no-conditional-expect": "off",
+        "vitest/require-top-level-describe": "off",
+      },
+    },
+    {
+      files: [ "*.json", "*.jsonc", "*.json5" ],
       extends: "plugin:jsonc/base",
       parser: "jsonc-eslint-parser",
       rules: {
@@ -144,7 +194,12 @@ const plain: Linter.Config = {
     },
     {
       files: [ "*.json" ],
+      excludedFiles: [ "**/tsconfig.json", ".vscode/**/*.json" ],
       extends: "plugin:jsonc/recommended-with-json",
+    },
+    {
+      files: [ "*.jsonc", "**/tsconfig.json", ".vscode/**/*.json" ],
+      extends: "plugin:jsonc/recommended-with-jsonc",
     },
     {
       files: [ "*.json5" ],
@@ -158,6 +213,12 @@ const plain: Linter.Config = {
       },
     },
   ],
+  settings: {
+    "import-x/ignore": [
+      "node_modules",
+      "vitest", // not working with import-x/named
+    ],
+  },
 } as const;
 
 export default plain;

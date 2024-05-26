@@ -1,7 +1,7 @@
 import { toTSRules } from "../../utils.ts";
 import type { Linter } from "eslint";
 
-const commonRulesJS: Linter.RulesRecord = {
+const prefixRequiredRules: Linter.RulesRecord = {
   "no-unused-vars": "error",
   "no-use-before-define": "error",
   semi: [ "error", "always" ],
@@ -17,13 +17,56 @@ const commonRulesJS: Linter.RulesRecord = {
   // in the function. In such case, it is difficult to follow require-await.
   "require-await": "off",
 };
+/**
+ * Rules applied to both JS and TS,
+ * but they have to be declared after the extended rulesets to avoid to be overwritten.
+ */
+const commonRules: Linter.RulesRecord = {
+  //
+  // Errors
+  //
+
+  // Declare again to avoid to be overwritten by `plugin:import-x/typescript`
+  "import-x/order": [ "warn", {
+    alphabetize: {
+      order: "asc",
+      orderImportKind: "asc",
+    },
+    warnOnUnassignedImports: true,
+    groups: [
+      "builtin",
+      "external",
+      "internal",
+      [ "parent", "sibling", "index" ],
+      "object",
+      "type",
+    ],
+  }],
+
+  //
+  // Warnings: JSDoc
+  // JSDoc rules should not be reported as errors but warnings
+  //
+  "jsdoc/check-examples": "off", // temporary disabled because it is incompatible with ESLint 8
+  "jsdoc/check-indentation": "warn",
+  "jsdoc/check-syntax": "warn",
+  "jsdoc/require-hyphen-before-param-description": "warn",
+
+  //
+  // Off
+  //
+  "jsdoc/require-jsdoc": "off",
+  "jsdoc/require-description-complete-sentence": "off",
+};
 
 export const jsRules: Linter.Config = {
   extends: [
     "eslint:recommended",
+    "plugin:jsdoc/recommended",
   ],
   rules: {
-    ...commonRulesJS,
+    ...prefixRequiredRules,
+    ...commonRules,
 
     // This rule also disallows "use strict"; in module-based code including TypeScript.
     // You can still add "use strict"; in each source TypeScript code,
@@ -35,7 +78,8 @@ export const jsRules: Linter.Config = {
 export const tsRules: Linter.Config = {
   extends: [
     "plugin:@typescript-eslint/recommended",
-    "plugin:import/typescript",
+    "plugin:import-x/typescript",
+    "plugin:jsdoc/recommended-typescript",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -43,7 +87,8 @@ export const tsRules: Linter.Config = {
   },
   plugins: [ "@typescript-eslint" ],
   rules: {
-    ...toTSRules(commonRulesJS),
+    ...toTSRules(prefixRequiredRules),
+    ...commonRules,
 
     //
     // Errors
@@ -72,6 +117,17 @@ export const tsRules: Linter.Config = {
   settings: {
     jsdoc: {
       mode: "typescript",
+    },
+    "import-x/resolver": {
+      typescript: {
+        extensions: [
+          ".js", ".mjs", ".cjs",
+          ".ts", ".mts", ".cts",
+          ".d.ts", ".json",
+          ".jsx", ".tsx", ".vue", ".svelte",
+        ],
+        alwaysTryTypes: true,
+      },
     },
   },
 };

@@ -1,5 +1,3 @@
-"use strict";
-
 const foo = "bar";
 const hoge = "fuga";
 
@@ -22,6 +20,7 @@ console.log(
   "Very very very very very very very long argument which requires line break"
 );
 
+/* eslint-disable promise/prefer-await-to-callbacks */
 // aliasing `this` is allowed (consistent-this is disabled)
 /** @type { (callback: Function) => void } */
 function funcRequiresCallback(callback) {
@@ -31,6 +30,7 @@ const self = this;
 funcRequiresCallback(() => {
   console.log(self);
 });
+/* eslint-enable promise/prefer-await-to-callbacks */
 
 // require-await is disabled
 async function asyncFunctionWithoutAwait() {

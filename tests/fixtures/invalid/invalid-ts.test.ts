@@ -1,5 +1,3 @@
-"use strict";
-
 import { test, expect, afterEach, beforeEach } from "vitest";
 
 beforeEach(() => {
@@ -10,6 +8,6 @@ afterEach(() => {
   console.log("after");
 });
 
-test("tetete", () => {
-  expect(1).toBe(1);
-}, 50000);
+test("prefer toHaveLength", () => {
+  expect([ 1, 2, 3 ].length).toBe(3);
+});

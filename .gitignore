@@ -1,13 +1,17 @@
 #
 # Project-specific
 #
-jest.json
 next.json
 node.json
 nuxt+*.json
 plain.json
 react.json
+svelte.json
 vue+*.json
+with-deps.json
+
+/tmp/
+/rwt.json
 
 #
 # System
