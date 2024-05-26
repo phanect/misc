@@ -258,8 +258,8 @@ test("js - invalid - no-undef", async () => {
     {
       column: 1,
       endColumn: 5,
-      endLine: 3,
-      line: 3,
+      endLine: 1,
+      line: 1,
       message: "'test' is not defined.",
       messageId: "undef",
       nodeType: "Identifier",
@@ -269,8 +269,8 @@ test("js - invalid - no-undef", async () => {
     {
       column: 13,
       endColumn: 18,
-      endLine: 4,
-      line: 4,
+      endLine: 2,
+      line: 2,
       message: "'test2' is not defined.",
       messageId: "undef",
       nodeType: "Identifier",
