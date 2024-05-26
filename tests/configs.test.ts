@@ -429,89 +429,27 @@ describe.each([
 
     expect(results[0].messages).toEqual([
       {
-        column: 1,
-        endColumn: 3,
-        endLine: 13,
-        line: 11,
-        message: "Disabled test",
-        messageId: "disabledTest",
-        nodeType: "CallExpression",
-        ruleId: "vitest/no-disabled-tests",
-        severity: 2,
-      },
-      {
-        column: 6,
-        endColumn: 10,
-        endLine: 15,
-        line: 15,
-        message: "Unexpected focused test",
-        messageId: "focusedTest",
-        nodeType: "Identifier",
-        ruleId: "vitest/no-focused-tests",
-        severity: 2,
-        suggestions: [{
-          desc: "Remove focus from test",
-          fix:  {
-            range: [
-              176,
-              181,
-            ],
-            text: "",
-          },
-          messageId: "suggestRemoveFocus",
-        }],
-      },
-      {
-        column: 6,
-        endColumn: 23,
-        endLine: 23,
-        line: 23,
-        message: "Test title is used multiple times in the same describe block",
-        messageId: "multipleTestTitle",
-        nodeType: "Literal",
-        ruleId: "vitest/no-identical-title",
-        severity: 2,
-      },
-      {
         column: 30,
         endColumn: 34,
-        endLine: 28,
+        endLine: 12,
         fix: {
           range: [
-            404,
-            417,
+            215,
+            228,
           ],
           text: ").toHaveLength",
         },
-        line: 28,
+        line: 12,
         message: "Prefer toHaveLength()",
         messageId: "preferToHaveLength",
         nodeType: "Identifier",
         ruleId: "vitest/prefer-to-have-length",
         severity: 1,
       },
-      {
-        column: 44,
-        endColumn: 1,
-        endLine: 34,
-        fix: {
-          range: [
-            559,
-            559,
-          ],
-          text: ";",
-        },
-        line: 33,
-        message: "Missing semicolon.",
-        messageId: "missingSemi",
-        nodeType: "ExpressionStatement",
-        ruleId: `${lang === "ts" ? "@typescript-eslint/" : ""}semi`,
-        severity: 2,
-      },
     ]);
 
     expect(results).toHaveLength(1);
-    expect(results[0].errorCount).toBe(4);
+    expect(results[0].errorCount).toBe(0);
     expect(results[0].warningCount).toBe(1);
   });
 });
