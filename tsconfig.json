@@ -10,6 +10,9 @@
   "exclude": [
     "tests/fixtures/invalid/*.js", // Invalid JS fixtures raises some ESLint errors, and it may cause type errors too.
     "dist",
-    "node_modules"
+    "node_modules",
+    // By type-checking this file, errors in dist/eslint.mjs
+    // which you cannot add types by JSDoc are reported.
+    "eslint.config.js",
   ]
 }
