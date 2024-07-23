@@ -1,7 +1,7 @@
-import { createConfigForNuxt } from "@nuxt/eslint-config/flat";
+import type { Linter } from "eslint";
 
-export const nuxtBase = createConfigForNuxt({
-  features: {
-    stylistic: true,
+export const nuxtBase: Linter.FlatConfig = {
+  rules: {
+    "nuxt/prefer-import-meta": "error",
   }
-});
+}
