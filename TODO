@@ -1,0 +1,12 @@
+1. パッケージ別に分ける
+
+- core
+- npm パッケージ
+- Node.js バックエンド
+- React (+ Next.js)
+- Vue.js (+ Nuxt)
+- Svelte
+- Astro... は後で?
+
+2. ファイル構造再構成
+共通のは共通のでまとめる。そこから更に JSDoc とか Vitest とか細分化?
