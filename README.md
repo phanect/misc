@@ -8,16 +8,6 @@ ESLint config for my own projects.
 Install
 -------
 
-Set `overrides` in package.json first:
-
-```json
-  "overrides": {
-    "@typescript-eslint/eslint-plugin": "latest"
-  }
-```
-
-Then install eslint and this package:
-
 ```shell
 npm install -D eslint eslint-config-phanective
 ```
