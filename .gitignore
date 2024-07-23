@@ -1,15 +1,7 @@
 #
 # Project-specific
 #
-next.json
-node.json
-nuxt+*.json
-plain.json
-react.json
-svelte.json
-vue+*.json
-with-deps.json
-
+/dist/
 /tmp/
 /rwt.json
 
