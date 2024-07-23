@@ -43,6 +43,7 @@
     "eslint-plugin-vue": "^9.26.0"
   },
   "devDependencies": {
+    "@phanect/configs": "latest",
     "@phanect/utils": "^1.0.0",
     "@types/node": "^20.10.6",
     "deepmerge": "^4.3.1",

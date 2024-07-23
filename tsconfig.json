@@ -1,22 +1,5 @@
 {
-  "compilerOptions": {
-    "strict": true,
-    "esModuleInterop": true,
-    "allowImportingTsExtensions": true,
-    "lib": [ "esnext" ],
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
-    "target": "esnext",
-    "declaration": true,
-    "alwaysStrict": true,
-    "newLine": "lf",
-    "removeComments": true,
-    "resolveJsonModule": true,
-    "allowJs": true,
-    "checkJs": true,
-    "skipLibCheck": true,
-    "noEmit": true
-  },
+  "extends": "@phanect/configs/tsconfig/nodejs",
   "include": [ "**/*.js", "**/*.mjs", "**/*.ts", "**/*.mts" ],
   "exclude": [
     "tests/fixtures/invalid/**",
