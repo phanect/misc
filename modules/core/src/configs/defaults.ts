@@ -1,7 +1,7 @@
 import js from "@eslint/js";
 import jsdoc from "eslint-plugin-jsdoc";
 import ts from "typescript-eslint";
-import { toTSRules } from "../../utils.ts";
+import { toTSRules } from "../../../../src/utils.ts";
 import type { Linter } from "eslint";
 
 const prefixRequiredRules: Linter.RulesRecord = {
