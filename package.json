@@ -13,6 +13,9 @@
       }
     }
   },
+  "workspaces": [
+    "modules/*"
+  ],
   "scripts": {
     "build": "unbuild",
     "test": "npm run build && vitest run",
@@ -36,6 +39,8 @@
     "@eslint/js": "^9.7.0",
     "eslint-config-next": "^14.2.3",
     "eslint-import-resolver-typescript": "^3.6.1",
+    "@lerna-lite/cli": "^3.7.1",
+    "@lerna-lite/run": "^3.7.1",
     "@nuxt/eslint-plugin": "^0.3.13",
     "eslint-plugin-document-write": "^1.0.1",
     "eslint-plugin-editorconfig": "^4.0.3",

@@ -1,0 +1,46 @@
+{
+  "name": "@phanect/eslint-config-core",
+  "version": "2024.5.27",
+  "description": "Personal ESLint configuration for Jumpei Ogawa (@phanect)",
+  "author": "Jumpei Ogawa (https://phanective.org)",
+  "license": "CC0-1.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:phanect/eslint-config-phanective.git"
+  },
+  "type": "module",
+  "module": "./dist/eslint.mjs",
+  "types": "./dist/eslint.d.ts",
+  "exports": {
+    "./eslint": {
+      "import": {
+        "default": "./dist/eslint.mjs",
+        "types": "./dist/eslint.d.ts"
+      }
+    }
+  },
+  "scripts": {
+  },
+  "dependencies": {
+    "@phanect/eslint-config-core": "2024.5.27",
+    "@nuxt/eslint-plugin": "^0.3.13",
+    "eslint-plugin-vue": "^9.26.0"
+  },
+  "devDependencies": {
+    "@types/eslint__js": "^8.42.3",
+    "@types/node": "^20.10.6"
+  },
+  "peerDependencies": {
+    "eslint": "^9.7.0",
+    "typescript": "*"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=18.x",
+    "npm": ">=10.x"
+  }
+}
