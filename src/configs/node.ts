@@ -1,6 +1,7 @@
 import { configs as nodeConfigs } from "eslint-plugin-n";
 import { plain } from "./plain.ts";
 import { vitestWorkaroundConfig } from "./vitest-workaround.js";
+import type { EsmExtensions } from "../../../../src/utils.ts";
 import type { Linter } from "eslint";
 
 const nodejsRules = {
@@ -54,8 +55,17 @@ export const nodejsConfigs = [
 ...plain,
   cjsConfig,
   {
-    files: [ "*.js", "*.mjs", "*.jsx", "*.ts", "*.tsx", "*.vue" ],
-    ...nodeConfigs["flat/recommended-module"],
+    files: [
+      "*.js",
+      "*.mjs",
+      "*.jsx",
+      "*.ts",
+      "*.mts",
+      "*.tsx",
+      "*.vue",
+      "*.svelte",
+    ] as EsmExtensions,
+    ...nodejs["flat/recommended-module"],
   },
 ];
 
