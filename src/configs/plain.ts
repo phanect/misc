@@ -14,15 +14,6 @@ const plain: Linter.FlatConfig[] = [
   //importConfigs["flat/recommended"],
   //editorConfigConfigs["recommended"],
   //docWriteConfigs["recommended"],
-  {
-    files: [ "*.cjs" ],
-    languageOptions: {
-      sourceType: "commonjs",
-    },
-    rules: {
-      "import-x/no-unresolved": [ "error", { commonjs: true }],
-    },
-  },
   ...vitestConfigs,
   ...jsonConfigs,
 ] as const;

@@ -2,15 +2,24 @@ import n from "eslint-plugin-n";
 import { plain } from "./plain.ts";
 import type { Linter } from "eslint";
 
+export const cjsConfig: Linter.FlatConfig = {
+  ...nodejs["flat/recommended-script"],
+  files: [ "*.cjs" ],
+
+  languageOptions: {
+    sourceType: "commonjs",
+  },
+  rules: {
+    "import-x/no-unresolved": [ "error", { commonjs: true }],
+  },
+} as Linter.FlatConfig;
+
 export const nodejsConfigs = [
   ...plain,
+  cjsConfig,
   {
     files: [ "*.js", "*.mjs", "*.jsx", "*.ts", "*.tsx", "*.vue" ],
     ...n.configs["flat/recommended-module"],
-  },
-  {
-    files: [ "*.cjs" ],
-    ...n.configs["flat/recommended-script"],
   },
   {
     // Import from devDependencies should be allowed for scripts used in local development.
