@@ -1,8 +1,8 @@
 import { configs as jsoncConfigs } from "eslint-plugin-jsonc";
 import promise from "eslint-plugin-promise";
 import vitest from "eslint-plugin-vitest";
+import { jsConfigs, tsConfigs } from "./configs/defaults.ts";
 import type { Linter } from "eslint";
-import { jsRules, tsRule } from "./overrides/lang-specific.ts";
 import { extensions } from "../utils.ts";
 import { vitestWorkaroundConfig } from "./vitest-workaround.js";
 
@@ -16,8 +16,8 @@ const plain: Linter.FlatConfig[] = [
       "tmp/",
     ]
   },
-  jsRules,
-  tsRule,
+  ...jsConfigs,
+  ...tsConfigs,
   promise.configs["flat/recommended"],
   // TODO add import-x, editorconfig, and document-write plugins when it is ready to flat configs
   //importConfigs["flat/recommended"],
