@@ -38,15 +38,24 @@ const nodejsRules = {
   "n/no-unpublished-require": "off",
 };
 
+export const cjsConfig: Linter.FlatConfig = {
+  ...nodejs["flat/recommended-script"],
+  files: [ "*.cjs" ],
+
+  languageOptions: {
+    sourceType: "commonjs",
+  },
+  rules: {
+    "import-x/no-unresolved": [ "error", { commonjs: true }],
+  },
+} as Linter.FlatConfig;
+
 export const nodejsConfigs = [
-  ...plain,
+...plain,
+  cjsConfig,
   {
     files: [ "*.js", "*.mjs", "*.jsx", "*.ts", "*.tsx", "*.vue" ],
     ...nodeConfigs["flat/recommended-module"],
-  },
-  {
-    files: [ "*.cjs" ],
-    ...nodeConfigs["flat/recommended-script"],
   },
   {
     // Import from devDependencies should be allowed for scripts used in local development.
