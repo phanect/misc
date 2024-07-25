@@ -1,6 +1,6 @@
 import { configs as nodeConfigs } from "eslint-plugin-n";
 import { vitestWorkaroundConfig } from "./vitest-workaround.js";
-import type { EsmExtensions } from "../../../../src/utils.ts";
+import type { CodeExtensions, EsmExtensions } from "../../../../src/utils.ts";
 import type { Linter } from "eslint";
 
 const nodejsRules = {
@@ -65,7 +65,26 @@ export const nodejsConfigs = [
     ] as EsmExtensions,
     ...nodejs["flat/recommended-module"],
   },
-];
+  {
+    files: [
+      "*.js",
+      "*.mjs",
+      "*.cjs",
+      "*.jsx",
+      "*.ts",
+      "*.mts",
+      "*.cts",
+      "*.tsx",
+      "*.vue",
+      "*.svelte"
+    ] as CodeExtensions,
+    rules: {
+      ...nodejsRules,
+      "n/no-unpublished-import": "error",
+      "n/no-unpublished-require": "error",
+    },
+  },
+] as Linter.FlatConfig[];
 
 const devConfigsEsm = [
   nodejs["flat/recommended-module"],
