@@ -7,7 +7,7 @@ import { vitestConfigs } from "./configs/vitest.ts";
 import type { Linter } from "eslint";
 import { vitestWorkaroundConfig } from "./vitest-workaround.js";
 
-const plain: Linter.FlatConfig[] = [
+export const configs: Linter.FlatConfig[] = [
   ...ignoreConfigs,
   ...jsConfigs,
   ...tsConfigs,
@@ -21,5 +21,3 @@ const plain: Linter.FlatConfig[] = [
   ...jsonConfigs,
   vitestWorkaroundConfig,
 ] as const;
-
-export default plain;
