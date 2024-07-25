@@ -6,7 +6,7 @@ import { devConfigs } from "./overrides/nodejs.ts";
 import { vitestConfigs } from "./overrides/vitest.ts";
 import type { Linter } from "eslint";
 
-const plain: Linter.FlatConfig[] = [
+export const configs: Linter.FlatConfig[] = [
   ...ignoreConfigs,
   ...jsConfigs,
   ...tsConfigs,
@@ -19,5 +19,3 @@ const plain: Linter.FlatConfig[] = [
   ...vitestConfigs,
   ...jsonConfigs,
 ] as const;
-
-export default plain;
