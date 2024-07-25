@@ -3,7 +3,42 @@ import { plain } from "./plain.ts";
 import { vitestWorkaroundConfig } from "./vitest-workaround.js";
 import type { Linter } from "eslint";
 
-export const node: Linter.FlatConfig[] = [
+const nodejsRules = {
+  //
+  // Errors
+  //
+  // Use `throw new Error()` instead of `process.exit(1)` as the official doc recommends
+  // https://nodejs.org/docs/latest-v22.x/api/process.html#process_process_exit_code
+  "n/no-process-exit": "error",
+
+  // Use global one for standard JavaScript APIs.
+  "n/prefer-global/console": "error",
+  "n/prefer-global/text-decoder": "error",
+  "n/prefer-global/text-encoder": "error",
+  "n/prefer-global/url": "error",
+  "n/prefer-global/url-search-params": "error",
+
+  // Import or require Node.js-specific APIs.
+  "n/prefer-global/buffer": [ "error", "never" ],
+  "n/prefer-global/process": [ "error", "never" ],
+
+  "n/prefer-node-protocol": "error", // Prefer `import { ... } from "node:fs"` to `"fs"`
+  "n/prefer-promises/dns": "error",
+  "n/prefer-promises/fs": "error",
+
+  //
+  // Off
+  //
+
+  // Duplicate of import-x/no-unresolved
+  "n/no-missing-import": "off",
+
+  // Only enable these rules on `phanective/with-deps` ruleset
+  "n/no-unpublished-import": "off",
+  "n/no-unpublished-require": "off",
+};
+
+export const nodejsConfigs = [
   ...plain,
   {
     files: [ "*.js", "*.mjs", "*.jsx", "*.ts", "*.tsx", "*.vue" ],
@@ -35,42 +70,5 @@ export const node: Linter.FlatConfig[] = [
       "n/no-unpublished-require": "off",
     },
   },
-  {
-    files: [ "**/*" ],
-    rules: {
-      //
-      // Errors
-      //
-      // Use `throw new Error()` instead of `process.exit(1)` as the official doc recommends
-      // https://nodejs.org/docs/latest-v22.x/api/process.html#process_process_exit_code
-      "n/no-process-exit": "error",
-
-      // Use global one for standard JavaScript APIs.
-      "n/prefer-global/console": "error",
-      "n/prefer-global/text-decoder": "error",
-      "n/prefer-global/text-encoder": "error",
-      "n/prefer-global/url": "error",
-      "n/prefer-global/url-search-params": "error",
-
-      // Import or require Node.js-specific APIs.
-      "n/prefer-global/buffer": [ "error", "never" ],
-      "n/prefer-global/process": [ "error", "never" ],
-
-      "n/prefer-node-protocol": "error", // Prefer `import { ... } from "node:fs"` to `"fs"`
-      "n/prefer-promises/dns": "error",
-      "n/prefer-promises/fs": "error",
-
-      //
-      // Off
-      //
-
-      // Duplicate of import-x/no-unresolved
-      "n/no-missing-import": "off",
-
-      // Only enable these rules on `phanective/with-deps` ruleset
-      "n/no-unpublished-import": "off",
-      "n/no-unpublished-require": "off",
-    },
-  },
   vitestWorkaroundConfig,
-];
+] as Linter.FlatConfig[];
