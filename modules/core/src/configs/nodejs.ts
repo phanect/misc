@@ -1,5 +1,4 @@
 import { configs as nodeConfigs } from "eslint-plugin-n";
-import { plain } from "./plain.ts";
 import { vitestWorkaroundConfig } from "./vitest-workaround.js";
 import type { EsmExtensions } from "../../../../src/utils.ts";
 import type { Linter } from "eslint";
@@ -52,7 +51,6 @@ export const cjsConfig: Linter.FlatConfig = {
 } as Linter.FlatConfig;
 
 export const nodejsConfigs = [
-...plain,
   cjsConfig,
   {
     files: [
