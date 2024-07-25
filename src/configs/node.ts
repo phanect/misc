@@ -1,5 +1,4 @@
 import n from "eslint-plugin-n";
-import { plain } from "./plain.ts";
 import type { CodeExtensions, EsmExtensions } from "../../../../src/utils.ts";
 import type { Linter } from "eslint";
 
@@ -16,7 +15,6 @@ export const cjsConfig: Linter.Config = {
 } as Linter.Config;
 
 export const nodejsConfigs = [
-  ...plain,
   cjsConfig,
   {
     files: [
