@@ -2,6 +2,7 @@ import promise from "eslint-plugin-promise";
 import { jsConfigs, tsConfigs } from "./configs/defaults.ts";
 import { ignoreConfigs } from "./configs/ignores.ts";
 import { jsonConfigs } from "./configs/json.ts";
+import { devConfigs } from "./configs/nodejs.ts";
 import { vitestConfigs } from "./configs/vitest.ts";
 import type { Linter } from "eslint";
 import { vitestWorkaroundConfig } from "./vitest-workaround.js";
@@ -15,6 +16,7 @@ const plain: Linter.FlatConfig[] = [
   //importConfigs["flat/recommended"],
   //editorConfigConfigs["recommended"],
   //docWriteConfigs["recommended"],
+  ...devConfigs,
   ...vitestConfigs,
   ...jsonConfigs,
   vitestWorkaroundConfig,
