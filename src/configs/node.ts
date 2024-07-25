@@ -1,6 +1,6 @@
 import n from "eslint-plugin-n";
 import { plain } from "./plain.ts";
-import type { EsmExtensions } from "../../../../src/utils.ts";
+import type { CodeExtensions, EsmExtensions } from "../../../../src/utils.ts";
 import type { Linter } from "eslint";
 
 export const cjsConfig: Linter.Config = {
@@ -31,7 +31,26 @@ export const nodejsConfigs = [
     ] as EsmExtensions,
     ...n.configs["flat/recommended-module"],
   },
-];
+  {
+    files: [
+      "*.js",
+      "*.mjs",
+      "*.cjs",
+      "*.jsx",
+      "*.ts",
+      "*.mts",
+      "*.cts",
+      "*.tsx",
+      "*.vue",
+      "*.svelte"
+    ] as CodeExtensions,
+    rules: {
+      ...nodejsRules,
+      "n/no-unpublished-import": "error",
+      "n/no-unpublished-require": "error",
+    },
+  },
+] as Linter.FlatConfig[];
 
 const nodejsRules = {
   //
