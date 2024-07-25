@@ -3,7 +3,7 @@ import { plain } from "./plain.ts";
 import type { Linter } from "eslint";
 
 export const cjsConfig: Linter.FlatConfig = {
-  ...nodejs["flat/recommended-script"],
+  ...n.configs["flat/recommended-script"],
   files: [ "*.cjs" ],
 
   languageOptions: {
@@ -16,34 +16,12 @@ export const cjsConfig: Linter.FlatConfig = {
 
 export const nodejsConfigs = [
   ...plain,
-  cjsConfig,
-  {
-    files: [ "*.js", "*.mjs", "*.jsx", "*.ts", "*.tsx", "*.vue" ],
-    ...n.configs["flat/recommended-module"],
-  },
-  {
-    // Import from devDependencies should be allowed for scripts used in local development.
-    files: [
-      // config files
-      ".config/", // ./config/ directory proposal by @pi0 https://github.com/pi0/config-dir
-      "*.config.*",
-      ".eslintrc",
-      ".eslintrc.*",
-      // build scripts
-      "script/**",
-      "scripts/**",
-      // testcases
-      "test/**",
-      "tests/**",
-      "*.test.*",
-      "*.spec.*",
-    ],
-    rules: {
-      "n/no-unpublished-import": "off",
-      "n/no-unpublished-require": "off",
+    cjsConfig,
+    {
+      files: [ "*.js", "*.mjs", "*.jsx", "*.ts", "*.tsx", "*.vue" ],
+      ...n.configs["flat/recommended-module"],
     },
-  },
-] as Linter.FlatConfig[];
+  ];
 
 const nodejsRules = {
   //
@@ -79,3 +57,33 @@ const nodejsRules = {
   "n/no-unpublished-import": "off",
   "n/no-unpublished-require": "off",
 };
+
+const devConfigsEsm = [
+  n.configs["flat/recommended-module"],
+  {
+    rules: nodejsRules,
+  },
+].map(config => ({
+  ...config,
+  files: [
+    // config files
+    ".config/", // ./config/ directory proposal by @pi0 https://github.com/pi0/config-dir
+    "*.config.*",
+    ".eslintrc",
+    ".eslintrc.*",
+    // build scripts
+    "script/**",
+    "scripts/**",
+    // testcases
+    "test/**",
+    "tests/**",
+    "*.test.*",
+    "*.spec.*",
+  ],
+  ignores: [ "*.cjs" ],
+})) as Linter.Config[];
+
+export const devConfigs = [
+  ...devConfigsEsm,
+  cjsConfig,
+] as Linter.Config[];
