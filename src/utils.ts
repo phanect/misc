@@ -19,15 +19,62 @@ export const toTSRules = (jsRules: Linter.RulesRecord): Linter.RulesRecord => {
 // Reporting at https://github.com/unjs/unbuild/issues/354
 export const projectRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
 
-export const extensions = [
-  ".js",
-  ".mjs",
-  ".cjs",
-  ".jsx",
-  ".ts",
-  ".mts",
-  ".cts",
-  ".tsx",
-  ".vue",
-  ".svelte",
+export type AllExtensions = [
+  "*.js",
+  "*.mjs",
+  "*.cjs",
+  "*.jsx",
+  "*.ts",
+  "*.mts",
+  "*.cts",
+  "*.tsx",
+  "*.vue",
+  "*.svelte",
+  "*.json",
+  "*.jsonc",
+  "*.json5",
+];
+
+export type CodeExtensions = [
+  "*.js",
+  "*.mjs",
+  "*.cjs",
+  "*.jsx",
+  "*.ts",
+  "*.mts",
+  "*.cts",
+  "*.tsx",
+  "*.vue",
+  "*.svelte",
+];
+
+export type EsmExtensions = [
+  "*.js",
+  "*.mjs",
+  "*.jsx",
+  "*.ts",
+  "*.mts",
+  "*.tsx",
+  "*.vue",
+  "*.svelte",
+];
+
+export type JsExtensions = [
+  "*.js",
+  "*.mjs",
+  "*.cjs",
+  "*.jsx",
+];
+
+export type TsExtensions = [
+  "*.ts",
+  "*.mts",
+  "*.cts",
+  "*.tsx",
+];
+
+export type JsonExtensions = [
+  "*.json",
+  "*.jsonc",
+  "*.json5",
 ];
