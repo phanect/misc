@@ -1,7 +1,7 @@
 import js from "@eslint/js";
 import jsdoc from "eslint-plugin-jsdoc";
 import ts from "typescript-eslint";
-import { toTSRules } from "../../../../src/utils.ts";
+import { toTSRules, type JsExtensions, type TsExtensions } from "../../../../src/utils.ts";
 import type { Linter } from "eslint";
 
 const prefixRequiredRules: Linter.RulesRecord = {
@@ -62,30 +62,30 @@ const commonRules: Linter.RulesRecord = {
   "jsdoc/require-description-complete-sentence": "off",
 };
 
-export const jsRules: Linter.FlatConfig  = {
-  files: [ "*.js", "*.mjs", "*.cjs", "*.jsx" ],
+export const jsConfigs = [
+  js.configs.recommended,
+  jsdoc.configs["flat/recommended"],
+  {
+    rules: {
+      ...prefixRequiredRules,
+      ...commonRules,
 
-  ...js.configs.recommended,
-  ...jsdoc.configs["flat/recommended"],
-
-  rules: {
-    ...prefixRequiredRules,
-    ...commonRules,
-
-    // This rule also disallows "use strict"; in module-based code including TypeScript.
-    // You can still add "use strict"; in each source TypeScript code,
-    // so I enable this rule only for JavaScript
-    strict: [ "error", "safe" ],
+      // This rule also disallows "use strict"; in module-based code including TypeScript.
+      // You can still add "use strict"; in each source TypeScript code,
+      // so I enable this rule only for JavaScript
+      strict: [ "error", "safe" ],
+    },
   },
-};
+].map(config => ({
+  files: [ "*.js", "*.mjs", "*.cjs", "*.jsx" ] as JsExtensions,
+  ...config,
+})) as Linter.FlatConfig[];
 
-export const tsRule: Linter.FlatConfig = ts.config(
+export const tsConfigs = ts.config(
   js.configs.recommended,
   ...ts.configs.recommended,
   jsdoc.configs["flat/recommended-typescript"],
   {
-    files: [ "*.ts", "*.mts", "*.cts", "*.tsx" ],
-
     // TODO add import-x, editorconfig, and document-write plugins when it is ready to flat configs
     //...importConfigs["typescript"],
 
@@ -134,4 +134,7 @@ export const tsRule: Linter.FlatConfig = ts.config(
       },
     },
   },
-);
+).map(config => ({
+  files: [ "*.ts", "*.mts", "*.cts", "*.tsx" ] as TsExtensions,
+  ...config,
+})) as Linter.FlatConfig[];
