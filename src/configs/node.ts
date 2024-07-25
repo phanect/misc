@@ -57,27 +57,34 @@ export const nodejsConfigs = [
     files: [ "*.js", "*.mjs", "*.jsx", "*.ts", "*.tsx", "*.vue" ],
     ...nodeConfigs["flat/recommended-module"],
   },
+];
+
+const devConfigsEsm = [
+  nodejs["flat/recommended-module"],
   {
-    // Import from devDependencies should be allowed for scripts used in local development.
-    files: [
-      // config files
-      ".config/", // ./config/ directory proposal by @pi0 https://github.com/pi0/config-dir
-      "*.config.*",
-      ".eslintrc",
-      ".eslintrc.*",
-      // build scripts
-      "script/**",
-      "scripts/**",
-      // testcases
-      "test/**",
-      "tests/**",
-      "*.test.*",
-      "*.spec.*",
-    ],
-    rules: {
-      "n/no-unpublished-import": "off",
-      "n/no-unpublished-require": "off",
-    },
+    rules: nodejsRules,
   },
-  vitestWorkaroundConfig,
+].map(config => ({
+  ...config,
+  files: [
+    // config files
+    ".config/", // ./config/ directory proposal by @pi0 https://github.com/pi0/config-dir
+    "*.config.*",
+    ".eslintrc",
+    ".eslintrc.*",
+    // build scripts
+    "script/**",
+    "scripts/**",
+    // testcases
+    "test/**",
+    "tests/**",
+    "*.test.*",
+    "*.spec.*",
+  ],
+  ignores: [ "*.cjs" ],
+})) as Linter.FlatConfig[];
+
+export const devConfigs = [
+  ...devConfigsEsm,
+  cjsConfig,
 ] as Linter.FlatConfig[];
