@@ -4,6 +4,7 @@ import ts from "typescript-eslint";
 import { toTSRules, type JsExtensions, type TsExtensions } from "../../../../src/utils.ts";
 import type { Linter } from "eslint";
 
+/** Rules to be prefixed with "@typescript-eslint/" when they are applied to TS */
 const prefixRequiredRules: Linter.RulesRecord = {
   "no-unused-vars": "error",
   "no-use-before-define": "error",
