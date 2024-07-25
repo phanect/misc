@@ -31,3 +31,17 @@ export const extensions = [
   ".vue",
   ".svelte",
 ];
+
+export type JsExtensions = [
+  "*.js",
+  "*.mjs",
+  "*.cjs",
+  "*.jsx",
+];
+
+export type TsExtensions = [
+  "*.ts",
+  "*.mts",
+  "*.cts",
+  "*.tsx",
+];
