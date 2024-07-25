@@ -1,4 +1,4 @@
-import { configs as nodeConfigs } from "eslint-plugin-n";
+import { configs as nodejs } from "eslint-plugin-n";
 import { vitestWorkaroundConfig } from "./vitest-workaround.js";
 import type { CodeExtensions, EsmExtensions } from "../../../../src/utils.ts";
 import type { Linter } from "eslint";
