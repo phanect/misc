@@ -5,7 +5,6 @@ import { jsonConfigs } from "./configs/json.ts";
 import { devConfigs } from "./configs/nodejs.ts";
 import { vitestConfigs } from "./configs/vitest.ts";
 import type { Linter } from "eslint";
-import { vitestWorkaroundConfig } from "./vitest-workaround.js";
 
 export const configs: Linter.FlatConfig[] = [
   ...ignoreConfigs,
@@ -19,5 +18,4 @@ export const configs: Linter.FlatConfig[] = [
   ...devConfigs,
   ...vitestConfigs,
   ...jsonConfigs,
-  vitestWorkaroundConfig,
 ] as const;
