@@ -72,13 +72,21 @@ const plain: Linter.Config[] = [
       }],
       "prefer-spread": "error",
 
-      "document-write/no-document-write": "error",
-      "editorconfig/charset": "error",
-      "editorconfig/eol-last": "error",
-      "editorconfig/indent": [ "error", { SwitchCase: 1 }],
-      "editorconfig/linebreak-style": "error",
-      "editorconfig/no-trailing-spaces": "error",
-      "import-x/no-unresolved": [ "error", { ignore: [ "vitest/config" ]}],
+      // "document-write/no-document-write": "error",
+      // "editorconfig/charset": "error",
+      // "editorconfig/eol-last": "error",
+      // "editorconfig/indent": [ "error", { SwitchCase: 1 }],
+      // "editorconfig/linebreak-style": "error",
+      // "editorconfig/no-trailing-spaces": "error",
+
+      // Temporal equivalent rules for editorconfig plugin
+      "unicode-bom": [ "error", "never" ],
+      "@stylistic/eol-last": [ "error", "always" ],
+      "@stylistic/indent": [ "error", 2, { SwitchCase: 1 }],
+      "@stylistic/linebreak-style": [ "error", "unix" ],
+      "@stylistic/no-trailing-spaces": "error",
+
+      // "import-x/no-unresolved": [ "error", { ignore: [ "vitest/config" ]}],
       "promise/prefer-await-to-callbacks": "error",
       "promise/prefer-await-to-then": "error",
 
@@ -107,7 +115,7 @@ const plain: Linter.Config[] = [
       "@stylistic/switch-colon-spacing": [ "warn", { before: false, after: true }],
 
       // Require file extensions in `import`s
-      "import-x/extensions": [ "warn", "always", { ignorePackages: true }],
+      // "import-x/extensions": [ "warn", "always", { ignorePackages: true }],
 
       //
       // Off
@@ -115,10 +123,10 @@ const plain: Linter.Config[] = [
       "no-console": "off",
     },
     settings: {
-      "import-x/ignore": [
-        "node_modules",
-        "vitest", // not working with import-x/named
-      ],
+      // "import-x/ignore": [
+      //   "node_modules",
+      //   "vitest", // not working with import-x/named
+      // ],
     },
   },
   {

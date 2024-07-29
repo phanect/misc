@@ -22,21 +22,21 @@ const commonRules: Linter.RulesRecord = {
   //
 
   // Declare again to avoid to be overwritten by `plugin:import-x/typescript`
-  "import-x/order": [ "warn", {
-    alphabetize: {
-      order: "asc",
-      orderImportKind: "asc",
-    },
-    warnOnUnassignedImports: true,
-    groups: [
-      "builtin",
-      "external",
-      "internal",
-      [ "parent", "sibling", "index" ],
-      "object",
-      "type",
-    ],
-  }],
+  // "import-x/order": [ "warn", {
+  //   alphabetize: {
+  //     order: "asc",
+  //     orderImportKind: "asc",
+  //   },
+  //   warnOnUnassignedImports: true,
+  //   groups: [
+  //     "builtin",
+  //     "external",
+  //     "internal",
+  //     [ "parent", "sibling", "index" ],
+  //     "object",
+  //     "type",
+  //   ],
+  // }],
 
   //
   // Warnings: JSDoc
@@ -99,7 +99,6 @@ export const tsRules: Linter.Config[] = ts.config(
       //
       // Off
       //
-      "@typescript-eslint/indent": "off", // avoid conflict against editorconfig/indent
       "@typescript-eslint/no-this-alias": "off",
 
       // These rules may warn new ES syntax which is supported by TypeScript (e.g. import)
@@ -110,17 +109,17 @@ export const tsRules: Linter.Config[] = ts.config(
       jsdoc: {
         mode: "typescript", // TODO Check if this setting is required.
       },
-      "import-x/resolver": {
-        typescript: {
-          extensions: [
-            ".js", ".mjs", ".cjs",
-            ".ts", ".mts", ".cts",
-            ".d.ts", ".json",
-            ".jsx", ".tsx", ".vue", ".svelte",
-          ],
-          alwaysTryTypes: true,
-        },
-      },
+      // "import-x/resolver": {
+      //   typescript: {
+      //     extensions: [
+      //       ".js", ".mjs", ".cjs",
+      //       ".ts", ".mts", ".cts",
+      //       ".d.ts", ".json",
+      //       ".jsx", ".tsx", ".vue", ".svelte",
+      //     ],
+      //     alwaysTryTypes: true,
+      //   },
+      // },
     },
   },
 ).map(config => ({
