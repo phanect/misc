@@ -16,7 +16,7 @@
   "scripts": {
     "build": "unbuild",
     "test": "npm run build && vitest run",
-    "lint": "npm run build && tsc --noEmit && eslint",
+    "lint": "tsc --noEmit && npm run build && eslint",
     "fix": "npm run build && eslint --fix",
     "rwt": "esno ./scripts/rwt.ts",
     "clean": "git clean -dX --force",
