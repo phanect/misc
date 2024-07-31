@@ -4,7 +4,7 @@ import promise from "eslint-plugin-promise";
 import vitest from "eslint-plugin-vitest";
 import type { Linter } from "eslint";
 import { jsRules, tsRules } from "./overrides/lang-specific.ts";
-import type { CodeExtensions } from "../utils.ts";
+import type { CodeExtensions, JsonExtensions } from "../utils.ts";
 
 const plain: Linter.Config[] = [
   {
@@ -170,7 +170,7 @@ const plain: Linter.Config[] = [
     },
   },
   {
-    files: [ "*.json", "*.jsonc", "*.json5" ],
+    files: [ "*.json", "*.jsonc", "*.json5" ] as JsonExtensions,
     rules: {
       "jsonc/array-bracket-spacing": [ "error", "always", {
         objectsInArrays: false,

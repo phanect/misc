@@ -45,3 +45,9 @@ export type TsExtensions = [
   "*.cts",
   "*.tsx",
 ];
+
+export type JsonExtensions = [
+  "*.json",
+  "*.jsonc",
+  "*.json5",
+];
