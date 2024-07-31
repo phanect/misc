@@ -102,8 +102,8 @@ export const tsRules: Linter.Config[] = ts.config(
       "@typescript-eslint/no-this-alias": "off",
 
       // These rules may warn new ES syntax which is supported by TypeScript (e.g. import)
-      "node/no-unsupported-features/es-builtins": "off",
-      "node/no-unsupported-features/es-syntax": "off",
+      "n/no-unsupported-features/es-builtins": "off",
+      "n/no-unsupported-features/es-syntax": "off",
     },
     settings: {
       jsdoc: {
