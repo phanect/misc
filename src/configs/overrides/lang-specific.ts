@@ -7,7 +7,6 @@ import type { Linter } from "eslint";
 const prefixRequiredRules: Linter.RulesRecord = {
   "no-unused-vars": "error",
   "no-use-before-define": "error",
-  semi: [ "error", "always" ],
 
   // Sometimes API requires async function as callback, and you don't use await
   // in the function. In such case, it is difficult to follow require-await.

@@ -1,3 +1,4 @@
+import stylistic from "@stylistic/eslint-plugin";
 import jsonc from "eslint-plugin-jsonc";
 import promise from "eslint-plugin-promise";
 import vitest from "eslint-plugin-vitest";
@@ -22,10 +23,15 @@ const plain: Linter.Config[] = [
       reportUnusedDisableDirectives: "error",
     },
     plugins: {
+      "@stylistic": stylistic,
       jsonc,
       promise,
       vitest,
     },
+  },
+  {
+    files: [ "*.js", "*.mjs", "*.cjs", "*.jsx", "*.ts", "*.mts", "*.cts", "*.tsx", "*.vue", "*.svelte" ] as CodeExtensions,
+    ...stylistic.configs["recommended-flat"],
   },
   ...jsRules,
   ...tsRules,
@@ -43,7 +49,7 @@ const plain: Linter.Config[] = [
     },
     rules: {
       "arrow-body-style": [ "error", "as-needed" ],
-      "comma-dangle": [ "error", {
+      "@stylistic/comma-dangle": [ "error", {
         arrays: "always-multiline",
         objects: "always-multiline",
         imports: "always-multiline",
@@ -81,23 +87,24 @@ const plain: Linter.Config[] = [
       // These are just a preference in coding style.
       // Following rules doesn't reduce quality or readability
       //
-      "array-bracket-spacing": [ "warn", "always", { arraysInArrays: false, objectsInArrays: false }],
+      "@stylistic/array-bracket-spacing": [ "warn", "always", { arraysInArrays: false, objectsInArrays: false }],
       curly: "warn",
-      "no-multi-spaces": [ "warn", { ignoreEOLComments: true, exceptions: { Property: true }}],
-      "object-curly-spacing": [ "warn", "always", { arraysInObjects: false, objectsInObjects: false }],
+      "@stylistic/no-multi-spaces": [ "warn", { ignoreEOLComments: true, exceptions: { Property: true }}],
+      "@stylistic/object-curly-spacing": [ "warn", "always", { arraysInObjects: false, objectsInObjects: false }],
       "one-var": [ "warn", "never" ],
-      "one-var-declaration-per-line": [ "warn", "initializations" ],
-      "padded-blocks": [ "warn", "never" ],
+      "@stylistic/one-var-declaration-per-line": [ "warn", "initializations" ],
+      "@stylistic/padded-blocks": [ "warn", "never" ],
       "prefer-arrow-callback": "warn",
-      "quote-props": [ "warn", "as-needed" ],
-      quotes: [ "warn", "double" ],
-      "space-before-function-paren": [ "warn", {
+      "@stylistic/quote-props": [ "warn", "as-needed" ],
+      "@stylistic/quotes": [ "warn", "double" ],
+      "@stylistic/semi": [ "error", "always" ],
+      "@stylistic/space-before-function-paren": [ "warn", {
         anonymous: "never",
         named: "never",
         asyncArrow: "always",
       }],
-      "spaced-comment": [ "warn", "always" ],
-      "switch-colon-spacing": [ "warn", { before: false, after: true }],
+      "@stylistic/spaced-comment": [ "warn", "always" ],
+      "@stylistic/switch-colon-spacing": [ "warn", { before: false, after: true }],
 
       // Require file extensions in `import`s
       "import-x/extensions": [ "warn", "always", { ignorePackages: true }],
