@@ -183,7 +183,9 @@ export const commonConfigs: Linter.Config[] = [
         asyncArrow: "always",
       }],
       "@stylistic/space-in-parens": [ "warn", "never" ],
-      "@stylistic/spaced-comment": [ "warn", "always" ],
+      "@stylistic/spaced-comment": [ "warn", "always", {
+        markers: [ "/" ], // docblock-style comments (Comments starting with triple slashes`///`)
+      }],
       "@stylistic/switch-colon-spacing": [ "warn", { before: false, after: true }],
       "@stylistic/template-curly-spacing": [ "warn", "always" ],
 
