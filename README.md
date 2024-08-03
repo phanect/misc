@@ -1,17 +1,14 @@
-eslint-config-phanective
-==============================================
+# eslint-config-phanective
 
 ESLint config for my own projects.
 
-Install
--------
+## Install
 
 ```shell
 npm install -D eslint eslint-config-phanective
 ```
 
-Usage
-------
+## Usage
 
 Create an eslint.config.js like following on the project root.
 NOTE: This package only supports ES modules. If you use this config in the CommonJS project, make sure to rename the config file to eslint.config.**mjs**.
@@ -51,8 +48,7 @@ Supported configs:
 - `nuxtJS`
 - `nuxtTS`
 
-Test with realworld projects
-----------------------------
+## Test with realworld projects
 
 ### 1. Generate npm package
 
