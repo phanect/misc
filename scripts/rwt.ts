@@ -5,6 +5,7 @@ import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { cmd } from "@phanect/utils/nodejs";
 import { name as pkgName, version as pkgVersion } from "../package.json";
+// @ts-ignore: do not raise type error when rwt.json does not exist
 import repos from "../rwt.json";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
