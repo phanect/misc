@@ -42,3 +42,7 @@ yarn-error.log*
 npm-shrinkwrap.json
 package-lock.json
 yarn.lock
+
+# Frameworks
+.nuxt/
+.output/

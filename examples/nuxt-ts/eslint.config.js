@@ -1,14 +1,14 @@
-import { node } from "./dist/eslint.mjs";
+import { nuxtTS } from "eslint-config-phanective";
 
 /** @type { import("eslint").Linter.Config[] } */
-export default [
+const config = [
   {
     ignores: [
-      "examples/**", // Run ESLint command in each module directories
-      "tests/fixtures/invalid/**",
+      ".nuxt/**",
+      ".output/**",
     ],
   },
-  ...node,
+  ...nuxtTS,
   {
     files: [ "*" ],
 
@@ -20,3 +20,5 @@ export default [
     },
   },
 ];
+
+export default config;
