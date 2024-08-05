@@ -1,0 +1,16 @@
+{
+  "name": "@phanect/eslint-fixture-nodejs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "eslint"
+  },
+  "devDependencies": {
+    "eslint": "^9.8.0",
+    "eslint-config-phanective": "2024.8.7"
+  },
+  "engines": {
+    "node": "20.x || >=22.x",
+    "npm": ">=10.x"
+  }
+}
