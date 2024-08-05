@@ -1,7 +1,7 @@
 #
 # Project-specific
 #
-/dist/
+dist/
 /tmp/
 /rwt.json
 

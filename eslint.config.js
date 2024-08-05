@@ -1,4 +1,4 @@
-import { node } from "./dist/eslint.mjs";
+import { node } from "./modules/eslint/dist/eslint.mjs";
 
 /** @type { import("eslint").Linter.Config[] } */
 export default [
