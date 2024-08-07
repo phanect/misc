@@ -11,3 +11,5 @@ rwt.example.json
 rwt.json
 *.config.*
 yarn.lock
+
+*.d.mts

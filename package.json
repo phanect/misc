@@ -1,71 +1,39 @@
 {
-  "name": "eslint-config-phanective",
-  "version": "2024.5.27",
-  "description": "Personal ESLint configuration for Jumpei Ogawa (@phanect)",
-  "type": "module",
-  "main": "./plain.json",
-  "scripts": {
-    "build": "esno ./scripts/build.ts",
-    "test": "npm run build && vitest run",
-    "lint": "npm run build && tsc --noEmit && eslint .",
-    "fix": "npm run build && eslint --fix .",
-    "rwt": "esno ./scripts/rwt.ts",
-    "clean": "git clean -dX --force",
-    "release": "npm run build && npm publish . --access public"
-  },
+  "name": "@phanect/misc",
+  "description": "Monorepo for @phanect's personal configs, templates, and other miscellaneous modules for development",
+  "author": "Jumpei Ogawa (https://phanective.org)",
+  "license": "CC0-1.0",
   "repository": {
     "type": "git",
     "url": "git@github.com:phanect/eslint-config-phanective.git"
   },
-  "author": "Jumpei Ogawa (https://phanective.org)",
-  "license": "CC0-1.0",
-  "engines": {
-    "node": ">=18.x",
-    "npm": ">=10.x"
-  },
-  "dependencies": {
-    "@nuxt/eslint-config": "^0.3.13",
-    "@typescript-eslint/eslint-plugin": "^7.10.0",
-    "@typescript-eslint/parser": "^7.10.0",
-    "eslint-config-next": "^14.2.3",
-    "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-document-write": "^1.0.1",
-    "eslint-plugin-editorconfig": "^4.0.3",
-    "eslint-plugin-import-x": "^3.0.1",
-    "eslint-plugin-jsdoc": "^48.2.5",
-    "eslint-plugin-jsonc": "^2.15.1",
-    "eslint-plugin-n": "^17.7.0",
-    "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-react": "^7.34.1",
-    "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-svelte": "^2.39.0",
-    "eslint-plugin-vitest": "^0.5.4",
-    "eslint-plugin-vue": "^9.26.0"
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "modules/*",
+    "examples/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "tsc --noEmit && npm run build && eslint && npm run lint --workspaces --if-present",
+    "fix": "npm run build && eslint --fix && npm run fix --workspaces --if-present",
+    "rwt": "esno ./scripts/rwt.ts",
+    "clean": "git clean -dX --force",
+    "release": "npm run build && npm run release --workspaces"
   },
   "devDependencies": {
+    "@phanect/configs": "latest",
     "@phanect/utils": "^1.0.0",
-    "@types/node": "^20.10.6",
+    "@types/eslint__js": "^8.42.3",
+    "@types/node": "^22.0.0",
     "deepmerge": "^4.3.1",
-    "eslint": "^8.0.0",
+    "eslint": "^9.7.0",
     "esno": "^4.7.0",
-    "typescript": "^5.3.3",
-    "vitest": "^2.0.2"
+    "typescript": "^5.3.3"
   },
-  "peerDependencies": {
-    "eslint": "^8.0.0",
-    "next": "*",
-    "svelte": "*",
-    "typescript": "*"
-  },
-  "peerDependenciesMeta": {
-    "next": {
-      "optional": true
-    },
-    "svelte": {
-      "optional": true
-    },
-    "typescript": {
-      "optional": true
-    }
+  "engines": {
+    "node": "20.x || >=22.x",
+    "npm": ">=10.x"
   }
 }

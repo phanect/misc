@@ -1,26 +1,16 @@
 {
+  "extends": "@phanect/configs/tsconfig/nodejs",
   "compilerOptions": {
-    "strict": true,
-    "esModuleInterop": true,
-    "allowImportingTsExtensions": true,
-    "lib": [ "esnext" ],
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
-    "target": "esnext",
-    "declaration": true,
-    "alwaysStrict": true,
-    "newLine": "lf",
-    "removeComments": true,
-    "resolveJsonModule": true,
-    "allowJs": true,
-    "checkJs": true,
-    "skipLibCheck": true,
-    "noEmit": true
+    "typeRoots": [
+      "./node_modules/@types/"
+    ]
   },
   "include": [ "**/*.js", "**/*.mjs", "**/*.ts", "**/*.mts" ],
   "exclude": [
-    "tests/fixtures/invalid/**",
-    "dist",
-    "node_modules"
+    "tests/fixtures/invalid/*.js", // Invalid JS fixtures raises some ESLint errors, and it may cause type errors too.
+    "node_modules",
+    // By type-checking this file, errors in dist/eslint.mjs
+    // which you cannot add types by JSDoc are reported.
+    "eslint.config.js",
   ]
 }

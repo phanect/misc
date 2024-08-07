@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "./.nuxt/tsconfig.json",
+    "@phanect/configs/tsconfig/frontend",
+  ],
+  "include": [ "**/*.js", "**/*.mjs", "**/*.ts", "**/*.mts", "**/*.vue" ],
+  "exclude": [
+    "eslint.config.js",
+  ],
+}

@@ -1,87 +1,70 @@
-eslint-config-phanective
-==============================================
-
-[![CircleCI](https://circleci.com/gh/phanect/eslint-config-phanective.svg?style=svg)](https://circleci.com/gh/phanect/eslint-config-phanective)
+# eslint-config-phanective
 
 ESLint config for my own projects.
 
-Install
--------
-
-Set `overrides` in package.json first:
-
-```json
-  "overrides": {
-    "@typescript-eslint/eslint-plugin": "latest"
-  }
-```
-
-Then install eslint and this package:
+## Install
 
 ```shell
 npm install -D eslint eslint-config-phanective
 ```
 
-Usage
-------
+## Usage
 
-Create an .eslintrc.js like following on the project root:
+Create an eslint.config.js like following on the project root.
+NOTE: This package only supports ES modules. If you use this config in the CommonJS project, make sure to rename the config file to eslint.config.**mjs**.
 
 ```javascript
-const { join } = require("path");
+import { node } from "eslint-config-phanective";
 
-module.exports = {
-  extends: "phanective",
-  root: true,
+/** @type { import("eslint").Linter.Config[] } */
+export default [
+  {
+    ignores: [
+      "path/to/ignore/**",
+    ],
+  },
+  {
+    files: [ "*" ],
 
-  env: {
-    browser: true, // or: "node": true
-  },
-  // If your project is TypeScript-based, you need to specify the tsconfig.json location
-  parserOptions: {
-    project: join(__dirname, "./tsconfig.eslint.json"),
-  },
-  // Add `sourceType: "script"` if \*.js files should be treated as CommonJS.
-  overrides: [{
-    files: [ "*.js", "**/*.js" ],
-    parserOptions: {
-      sourceType: "script",
+    languageOptions: {
+      parserOptions: {
+        project: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
     },
-  }],
-};
+  },
+  ...node,
+];
 ```
 
 Supported configs:
 
-- phanective
-- phanective/node
-- phanective/react
-- phanective/next
-- phanective/vue+js (Vue 3)
-- phanective/vue+ts (Vue 3)
-- phanective/nuxt+js (Nuxt 3)
-- phanective/nuxt+ts (Nuxt 3)
-- phanective/with-deps
-  - Use this rules in addition to the above rules if the project depends on package.json's `dependencies` on production i.e. npm packages and backend Node.js app without bundling.
+- (default)
+- `node`
+- ~~react~~ (temporalily inactive)
+- ~~next~~ (temporalily inactive)
+- `vueJS`
+- `vueTS`
+- `nuxtJS`
+- `nuxtTS`
 
-Test with realworld projects
-----------------------------
+## Test with realworld projects
 
-1. Generate npm package
+### 1. Generate npm package
 
 ```shell
 $ cd /path/to/eslint-config-phanective
 $ npm pack
 ```
 
-2. Install new package on a realworld project
+### 2. Install new package on a realworld project
 
 ```shell
 $ cd /path/to/target/project
-$ npm install ../eslint-config-phanective/eslint-config-phanective-2022.1.1.tgz
+$ npm install ../eslint-config-phanective/eslint-config-phanective-2024.1.1.tgz
 ```
 
-3. Test
+### 3. Test
 
 ```shell
 # $ cd /path/to/target/project
