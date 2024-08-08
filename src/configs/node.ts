@@ -48,7 +48,7 @@ export const nodejsConfigs = [
       "n/no-unpublished-require": "error",
     },
   },
-] as Linter.FlatConfig[];
+] as Linter.Config[];
 
 const nodejsRules = {
   //
