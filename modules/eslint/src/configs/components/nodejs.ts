@@ -1,6 +1,6 @@
 import n from "eslint-plugin-n";
 import type { Linter } from "eslint";
-import type { CodeExtensions } from "../../utils.ts";
+import type { CodeExtensions, EsmExtensions } from "../../utils.ts";
 
 const nodejsGlobalConfig: Linter.Config = {
   // Since Node.js library might be used for server side rendering,
@@ -71,9 +71,11 @@ const esmConfigs: Linter.Config[] = [
     "**/*.mjs",
     "**/*.jsx",
     "**/*.ts",
+    "**/*.mts",
     "**/*.tsx",
     "**/*.vue",
-  ],
+    "**/*.svelte",
+  ] as EsmExtensions,
 }));
 
 const cjsConfigs: Linter.Config[] = [
