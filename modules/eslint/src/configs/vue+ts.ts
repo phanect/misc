@@ -1,4 +1,4 @@
-import { tsRules } from "./components/languages.ts";
+import { tsConfigs } from "./components/languages.ts";
 import { vueBase } from "./components/vue.ts";
 import plain from "./plain.ts";
 import type { Linter } from "eslint";
@@ -7,10 +7,10 @@ export const vueTS: Linter.Config[] = [
   ...plain,
   ...vueBase,
 
-  ...tsRules.map(tsRule => ({
-    ...tsRule,
+  ...tsConfigs.map(tsConfig => ({
+    ...tsConfig,
 
-    // To overwrite tsRule's `files` property, place these properties after `...tsRule`.
+    // To overwrite `tsConfig`'s `files` property, place these properties after `...tsConfig`.
     files: [ "*.vue" ],
     languageOptions: {
       parserOptions: {

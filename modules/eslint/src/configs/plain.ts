@@ -1,7 +1,7 @@
 import { jsonConfigs } from "./components/json.ts";
 import { vitestConfigs } from "./components/vitest.ts";
 import type { Linter } from "eslint";
-import { commonRules, jsRules, tsRules } from "./components/languages.ts";
+import { commonConfigs, jsConfigs, tsConfigs } from "./components/languages.ts";
 
 const plain: Linter.Config[] = [
   {
@@ -20,9 +20,9 @@ const plain: Linter.Config[] = [
       reportUnusedDisableDirectives: "error",
     },
   },
-  ...jsRules,
-  ...tsRules,
-  ...commonRules,
+  ...jsConfigs,
+  ...tsConfigs,
+  ...commonConfigs,
   ...vitestConfigs,
   ...jsonConfigs,
 ] as const;
