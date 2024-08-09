@@ -21,19 +21,19 @@ export const jsonConfigs: Linter.Config[] = [
         arraysInObjects: false,
         objectsInObjects: false,
       }],
-    }
+    },
   } satisfies Linter.Config,
   ...(
-    jsonc.configs["flat/recommended-with-json"].map(config => ({
+    jsonc.configs["flat/recommended-with-json"].map((config) => ({
       files: [ "**/*.json" ],
       ignores: [ "**/tsconfig.json", ".vscode/**/*.json" ],
-      ...config
+      ...config,
     }))
   ),
   ...(
-    jsonc.configs["flat/recommended-with-jsonc"].map(config => ({
+    jsonc.configs["flat/recommended-with-jsonc"].map((config) => ({
       files: [ "**/*.jsonc", "**/tsconfig.json", ".vscode/**/*.json" ],
-      ...config
+      ...config,
     }))
   ),
   ...jsonc.configs["flat/recommended-with-json5"],

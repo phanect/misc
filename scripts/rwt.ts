@@ -16,8 +16,8 @@ type Repo = {
 
 function getRulesetName(type: ConfigType): string;
 function getRulesetName(type: ConfigType[]): string[];
-function getRulesetName(type: ConfigType|ConfigType[]): string | string[] {
-  return Array.isArray(type) ? (type as string[]).map((name) => `phanective/${name}`) : (`phanective/${type}` as string);
+function getRulesetName(type: ConfigType | ConfigType[]): string | string[] {
+  return Array.isArray(type) ? (type as string[]).map((name) => `phanective/${name}`) : `phanective/${type}`;
 }
 
 const projectRoot = join(import.meta.dirname, "..");
@@ -66,7 +66,6 @@ await Promise.all(
         "typescript",
       ];
 
-
       if (
         (Array.isArray(type) && type.includes("svelte"))
         || type === "svelte"
@@ -84,12 +83,11 @@ await Promise.all(
       lintPrepCommands.push(
         `cd "${join(reposDir, repo)}"`
         + " && npm install"
-        + ` && npm install ${pkgsToInstall.map(pkg => `"${pkg}"`).join(" ")}`
+        + ` && npm install ${pkgsToInstall.map((pkg) => `"${pkg}"`).join(" ")}`
       );
     })(),
   ]).flat()
 );
-
 
 const lintCommands = (repos as Repo[]).map(({ repo }) =>
   `npx eslint "${join(reposDir, repo)}"`
