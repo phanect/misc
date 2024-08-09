@@ -1,4 +1,5 @@
 import { jsonConfigs } from "./components/json.ts";
+import { devConfigs } from "./components/nodejs.ts";
 import { vitestConfigs } from "./components/vitest.ts";
 import type { Linter } from "eslint";
 import { commonConfigs, jsConfigs, tsConfigs } from "./components/languages.ts";
@@ -23,6 +24,7 @@ const plain: Linter.Config[] = [
   ...jsConfigs,
   ...tsConfigs,
   ...commonConfigs,
+  ...devConfigs,
   ...vitestConfigs,
   ...jsonConfigs,
 ] as const;
