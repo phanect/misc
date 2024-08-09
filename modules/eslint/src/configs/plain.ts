@@ -23,12 +23,6 @@ const plain: Linter.Config[] = [
   ...jsRules,
   ...tsRules,
   ...commonRules,
-  {
-    files: [ "*.cjs" ],
-    languageOptions: {
-      sourceType: "commonjs",
-    },
-  },
   ...vitestConfigs,
   ...jsonConfigs,
 ] as const;
