@@ -95,3 +95,53 @@ export const nodejsConfigs: Linter.Config[] = [
   ...cjsConfigs,
   nodejsGlobalConfig,
 ];
+
+const esmConfigFilePatterns: string[] = [
+  ".config/*.@(js|mjs|ts|mts|jsx|tsx)", // ./config/ directory proposal by @pi0 https://github.com/pi0/config-dir
+  "**/*.config.@(js|mjs|ts|mts|jsx|tsx)",
+  // build scripts
+  "**/script/**/*.@(js|mjs|ts|mts|jsx|tsx)",
+  "**/scripts/**/*.@(js|mjs|ts|mts|jsx|tsx)",
+  // testcases
+  "**/test/**/*.@(js|mjs|ts|mts|jsx|tsx)",
+  "**/tests/**/*.@(js|mjs|ts|mts|jsx|tsx)",
+  "**/spec/**/*.@(js|mjs|ts|mts|jsx|tsx)",
+  "**/specs/**/*.@(js|mjs|ts|mts|jsx|tsx)",
+  "**/*.test.@(js|mjs|ts|mts|jsx|tsx)",
+  "**/*.spec.@(js|mjs|ts|mts|jsx|tsx)",
+];
+
+const cjsConfigFilePatterns: string[] = [
+  ".config/*.cjs", // ./config/ directory proposal by @pi0 https://github.com/pi0/config-dir
+  "**/*.config.cjs)",
+  // build scripts
+  "**/script/**/*.cjs",
+  "**/scripts/**/*.cjs",
+  // testcases
+  "**/test/**/*.cjs",
+  "**/tests/**/*.cjs",
+  "**/spec/**/*.cjs",
+  "**/specs/**/*.cjs",
+  "**/*.test.cjs",
+  "**/*.spec.cjs",
+];
+
+const configFilePatterns: string[] = [
+  ...esmConfigFilePatterns,
+  ...cjsConfigFilePatterns,
+];
+
+export const devConfigs: Linter.Config[] = [
+  ...esmConfigs.map((esmConfig) => ({
+    ...esmConfig,
+    files: esmConfigFilePatterns,
+  })),
+  ...cjsConfigs.map((cjsConfig) => ({
+    ...cjsConfig,
+    files: cjsConfigFilePatterns,
+  })),
+  {
+    ...nodejsGlobalConfig,
+    files: configFilePatterns,
+  },
+];
