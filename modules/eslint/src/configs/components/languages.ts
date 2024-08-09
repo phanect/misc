@@ -179,7 +179,7 @@ export const commonConfigs: Linter.Config[] = [
     "**/*.cts",
     "**/*.tsx",
     "**/*.vue",
-    "**/*.svelte"
+    "**/*.svelte",
   ] as CodeExtensions,
 }));
 
@@ -196,7 +196,7 @@ export const jsConfigs: Linter.Config[] = [
       strict: [ "error", "safe" ],
     },
   } satisfies Linter.Config,
-].map(config => ({
+].map((config) => ({
   files: [ "**/*.js", "**/*.mjs", "**/*.cjs", "**/*.jsx" ] as JsExtensions,
   ...config,
 }));
@@ -208,7 +208,7 @@ export const tsConfigs: Linter.Config[] = ts.config(
   jsdoc.configs["flat/recommended-typescript"],
   {
     // TODO add import-x, editorconfig, and document-write plugins when it is ready to flat configs
-    //...importConfigs["typescript"],
+    // ...importConfigs["typescript"],
 
     rules: {
       ...toTSRules(prefixRequiredRules),
@@ -262,7 +262,7 @@ export const tsConfigs: Linter.Config[] = ts.config(
       // },
     },
   } satisfies Linter.Config,
-).map(config => ({
+).map((config) => ({
   ...config,
   files: [ "**/*.ts", "**/*.mts", "**/*.cts", "**/*.tsx", "**/*.vue", "**/*.svelte" ] as TsExtensions,
 })) as Linter.Config[];

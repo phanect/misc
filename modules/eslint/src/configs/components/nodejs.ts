@@ -15,20 +15,20 @@ const nodejsGlobalConfig: Linter.Config = {
     "**/*.cts",
     "**/*.tsx",
     "**/*.vue",
-    "**/*.svelte"
+    "**/*.svelte",
   ] as CodeExtensions,
   plugins: {
     n,
   },
 
   rules: {
-  //
-  // Errors
-  //
+    //
+    // Errors
+    //
 
-  // Use `throw new Error()` instead of `process.exit(1)` as the official doc recommends
-  // https://nodejs.org/docs/latest-v22.x/api/process.html#process_process_exit_code
-  "n/no-process-exit": "error",
+    // Use `throw new Error()` instead of `process.exit(1)` as the official doc recommends
+    // https://nodejs.org/docs/latest-v22.x/api/process.html#process_process_exit_code
+    "n/no-process-exit": "error",
 
     //
     // Use promisified methods (e.g. fs.promises.readFile() instead of fs.readFileSync())
@@ -65,31 +65,31 @@ const nodejsGlobalConfig: Linter.Config = {
     //
     "n/no-sync": "error",
 
-  // Use global one for standard JavaScript APIs.
-  "n/prefer-global/console": "error",
-  "n/prefer-global/text-decoder": "error",
-  "n/prefer-global/text-encoder": "error",
-  "n/prefer-global/url": "error",
-  "n/prefer-global/url-search-params": "error",
+    // Use global one for standard JavaScript APIs.
+    "n/prefer-global/console": "error",
+    "n/prefer-global/text-decoder": "error",
+    "n/prefer-global/text-encoder": "error",
+    "n/prefer-global/url": "error",
+    "n/prefer-global/url-search-params": "error",
 
-  // Import or require Node.js-specific APIs.
-  "n/prefer-global/buffer": [ "error", "never" ],
-  "n/prefer-global/process": [ "error", "never" ],
+    // Import or require Node.js-specific APIs.
+    "n/prefer-global/buffer": [ "error", "never" ],
+    "n/prefer-global/process": [ "error", "never" ],
 
-  "n/prefer-node-protocol": "error", // Prefer `import { ... } from "node:fs"` to `"fs"`
-  "n/prefer-promises/dns": "error",
-  "n/prefer-promises/fs": "error",
+    "n/prefer-node-protocol": "error", // Prefer `import { ... } from "node:fs"` to `"fs"`
+    "n/prefer-promises/dns": "error",
+    "n/prefer-promises/fs": "error",
 
-  //
-  // Off
-  //
+    //
+    // Off
+    //
 
-  // Duplicate of import-x/no-unresolved
-  "n/no-missing-import": "off",
+    // Duplicate of import-x/no-unresolved
+    "n/no-missing-import": "off",
 
-  // Only enable these rules on `phanective/with-deps` ruleset
-  "n/no-unpublished-import": "off",
-  "n/no-unpublished-require": "off",
+    // Only enable these rules on `phanective/with-deps` ruleset
+    "n/no-unpublished-import": "off",
+    "n/no-unpublished-require": "off",
   },
 };
 
@@ -200,7 +200,7 @@ export const unbundledConfigs: Linter.Config[] = [{
     "**/*.cts",
     "**/*.tsx",
     "**/*.vue",
-    "**/*.svelte"
+    "**/*.svelte",
   ] as CodeExtensions,
   ignores: configFilePatterns,
 

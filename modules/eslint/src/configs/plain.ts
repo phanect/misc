@@ -12,7 +12,7 @@ const plain: Linter.Config[] = [
       ".svelte-kit/",
       "dist/",
       "tmp/",
-    ]
+    ],
   } satisfies Linter.Config,
   {
     files: [ "*" ],
