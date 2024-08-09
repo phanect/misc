@@ -29,10 +29,7 @@ const plain: Linter.Config[] = [
       vitest,
     },
   },
-  {
-    files: [ "*.js", "*.mjs", "*.cjs", "*.jsx", "*.ts", "*.mts", "*.cts", "*.tsx", "*.vue", "*.svelte" ] as CodeExtensions,
-    ...stylistic.configs["recommended-flat"],
-  },
+  stylistic.configs["recommended-flat"],
   ...jsRules,
   ...tsRules,
   promise.configs["flat/recommended"],
