@@ -23,6 +23,7 @@ export const vueBase: Linter.Config[] = [
       //
       "vue/multi-word-component-names": "off",
       "vue/no-v-html": "off",
+      "vue/singleline-html-element-content-newline": "off",
     },
   } satisfies Linter.Config,
 ];
