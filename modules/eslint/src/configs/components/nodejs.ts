@@ -145,3 +145,28 @@ export const devConfigs: Linter.Config[] = [
     files: configFilePatterns,
   },
 ];
+
+export const unbundledConfigs: Linter.Config[] = [{
+  files: [
+    "**/*.js",
+    "**/*.mjs",
+    "**/*.cjs",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.mts",
+    "**/*.cts",
+    "**/*.tsx",
+    "**/*.vue",
+    "**/*.svelte"
+  ] as CodeExtensions,
+  ignores: configFilePatterns,
+
+  plugins: {
+    n,
+  },
+
+  rules: {
+    "n/no-unpublished-import": "error",
+    "n/no-unpublished-require": "error",
+  },
+}];
