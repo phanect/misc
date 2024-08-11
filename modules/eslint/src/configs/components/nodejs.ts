@@ -121,9 +121,12 @@ const cjsConfigs: Linter.Config[] = [
     languageOptions: {
       sourceType: "commonjs",
     },
-    // rules: {
-    //   "import-x/no-unresolved": [ "error", { commonjs: true }],
-    // },
+    rules: {
+      // "import-x/no-unresolved": [ "error", { commonjs: true }],
+
+      "n/no-unpublished-import": "off",
+      "n/no-unpublished-require": "off",
+    },
   } satisfies Linter.Config,
 ].map((config) => ({
   ...config,
