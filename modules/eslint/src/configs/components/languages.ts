@@ -115,7 +115,19 @@ export const commonConfigs: Linter.Config[] = [
       // Following rules doesn't reduce quality or readability
       //
       "@stylistic/array-bracket-spacing": [ "warn", "always", { arraysInArrays: false, objectsInArrays: false }],
+      "@stylistic/arrow-parens": [ "warn", "always" ],
+      "@stylistic/brace-style": "warn",
       curly: "warn",
+      "@stylistic/member-delimiter-style": [ "warn", {
+        multiline: {
+          delimiter: "semi",
+          requireLast: true,
+        },
+        singleline: {
+          delimiter: "semi",
+          requireLast: true,
+        },
+      }],
       "@stylistic/no-multi-spaces": [ "warn", { ignoreEOLComments: true, exceptions: { Property: true }}],
       "@stylistic/object-curly-spacing": [ "warn", "always", { arraysInObjects: false, objectsInObjects: false }],
       "one-var": [ "warn", "never" ],
@@ -125,11 +137,13 @@ export const commonConfigs: Linter.Config[] = [
       "@stylistic/quote-props": [ "warn", "as-needed" ],
       "@stylistic/quotes": [ "warn", "double" ],
       "@stylistic/semi": [ "error", "always" ],
+      "@stylistic/space-before-blocks": [ "warn", "always" ],
       "@stylistic/space-before-function-paren": [ "warn", {
         anonymous: "never",
         named: "never",
         asyncArrow: "always",
       }],
+      "@stylistic/space-in-parens": [ "warn", "never" ],
       "@stylistic/spaced-comment": [ "warn", "always" ],
       "@stylistic/switch-colon-spacing": [ "warn", { before: false, after: true }],
 

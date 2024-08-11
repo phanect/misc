@@ -25,9 +25,45 @@ const nodejsGlobalConfig: Linter.Config = {
   //
   // Errors
   //
+
   // Use `throw new Error()` instead of `process.exit(1)` as the official doc recommends
   // https://nodejs.org/docs/latest-v22.x/api/process.html#process_process_exit_code
   "n/no-process-exit": "error",
+
+    //
+    // Use promisified methods (e.g. fs.promises.readFile() instead of fs.readFileSync())
+    //
+    // In event handlers such as `addEventListener()` and `.on()`, wrap with IIFE:
+    //
+    // ```ts
+    // import { readFile } from "node:fs/promises"
+    // import { exec } from "node:child_process";
+    //
+    // const ls = exec("ls -la");
+    // ls.on(() => {
+    //   (async () => {
+    //     const content = await readFile("./file.txt");
+    //     const modified = content.split("\n").map(line => `${line};\n`);
+    //     console.info(modified);
+    //   })());
+    // });
+    // ```
+    //
+    // Or if the async function is executed at the end of event trigger, just run without `await`:
+    //
+    // ```ts
+    // import { writeFile } from "node:fs/promises"
+    // import { exec } from "node:child_process";
+    //
+    // const ls = exec("ls -la");
+    // ls.on(() => {
+    //   writeFile("~/.isdone", "done");
+    // });
+    // ```
+    //
+    // Disable this rule if sync methods are necessary.
+    //
+    "n/no-sync": "error",
 
   // Use global one for standard JavaScript APIs.
   "n/prefer-global/console": "error",
