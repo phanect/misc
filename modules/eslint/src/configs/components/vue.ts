@@ -4,7 +4,7 @@ import type { Linter } from "eslint";
 export const vueBase: Linter.Config[] = [
   ...vue.configs["flat/recommended"],
   {
-    files: [ ".vue" ],
+    files: [ "*.vue" ],
     languageOptions: {
       sourceType: "module",
     },
