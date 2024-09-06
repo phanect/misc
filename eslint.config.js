@@ -1,4 +1,4 @@
-import { node } from "./modules/eslint/dist/eslint.js";
+import plain, { node } from "./modules/eslint/dist/eslint.js";
 
 /** @type { import("eslint").Linter.Config[] } */
 export default [
@@ -9,6 +9,7 @@ export default [
       "tests/fixtures/invalid/**",
     ],
   },
+  ...plain,
   ...node,
   {
     languageOptions: {

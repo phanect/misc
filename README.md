@@ -14,7 +14,7 @@ Create an eslint.config.js like following on the project root.
 NOTE: This package only supports ES modules. If you use this config in the CommonJS project, make sure to rename the config file to eslint.config.**mjs**.
 
 ```javascript
-import { node } from "eslint-config-phanective";
+import plain, { node, unbundled } from "eslint-config-phanective";
 
 /** @type { import("eslint").Linter.Config[] } */
 export default [
@@ -23,6 +23,11 @@ export default [
       "path/to/ignore/**",
     ],
   },
+
+  ...plain,
+  ...node,
+  ...unbundled,
+
   {
     // Do not add `files: [ "*" ],` here.
 
@@ -33,7 +38,6 @@ export default [
       },
     },
   },
-  ...node,
 ];
 ```
 

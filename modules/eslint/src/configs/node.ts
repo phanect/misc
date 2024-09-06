@@ -1,9 +1,7 @@
-import plain from "./plain.ts";
 import { nodejsConfigs } from "./components/nodejs.ts";
 import type { Linter } from "eslint";
 
 export const node: Linter.Config[] = [
-  ...plain,
   {
     // Import from devDependencies should be allowed for scripts used in local development.
     files: [
