@@ -1,7 +1,8 @@
-import { node } from "eslint-config-phanective";
+import plain, { node } from "eslint-config-phanective";
 
 /** @type { import("eslint").Linter.Config[] } */
 export default [
+  ...plain,
   ...node,
   {
     languageOptions: {
