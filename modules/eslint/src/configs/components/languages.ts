@@ -237,5 +237,5 @@ export const tsConfigs: Linter.Config[] = ts.config(
   } satisfies Linter.Config,
 ).map(config => ({
   ...config,
-  files: [ "**/*.ts", "**/*.mts", "**/*.cts", "**/*.tsx", "**/*.vue" ] as (TsExtensions & [ "**/*.vue" ]),
+  files: [ "**/*.ts", "**/*.mts", "**/*.cts", "**/*.tsx", "**/*.vue", "**/*.svelte" ] as TsExtensions,
 })) as Linter.Config[];

@@ -43,9 +43,7 @@ Supported configs:
 - `node`
 - ~~react~~ (temporalily inactive)
 - ~~next~~ (temporalily inactive)
-- `vueJS`
 - `vueTS`
-- `nuxtJS`
 - `nuxtTS`
 
 ## Test with realworld projects
