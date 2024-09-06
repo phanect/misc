@@ -19,6 +19,7 @@ export const toTSRules = (jsRules: Linter.RulesRecord): Linter.RulesRecord => {
 // Reporting at https://github.com/unjs/unbuild/issues/354
 export const projectRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
 
+/** File extensions considered as a code, not dataset or config i.e. all extensions except for JSONs */
 export type CodeExtensions = [
   "**/*.js",
   "**/*.mjs",
@@ -32,6 +33,7 @@ export type CodeExtensions = [
   "**/*.svelte",
 ];
 
+/** File extensions to apply ESM rules */
 export type EsmExtensions = [
   "**/*.js",
   "**/*.mjs",
@@ -43,6 +45,7 @@ export type EsmExtensions = [
   "**/*.svelte",
 ];
 
+/** File extensions to apply JavaScript rules */
 export type JsExtensions = [
   "**/*.js",
   "**/*.mjs",
@@ -50,6 +53,7 @@ export type JsExtensions = [
   "**/*.jsx",
 ];
 
+/** File extensions to apply TypeScript rules */
 export type TsExtensions = [
   "**/*.ts",
   "**/*.mts",
@@ -57,6 +61,7 @@ export type TsExtensions = [
   "**/*.tsx",
 ];
 
+/** File extensions to apply JSON-related rules */
 export type JsonExtensions = [
   "**/*.json",
   "**/*.jsonc",
