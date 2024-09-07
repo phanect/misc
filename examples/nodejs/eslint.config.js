@@ -1,9 +1,9 @@
-import plain, { node } from "eslint-config-phanective";
+import { core, nodejs } from "eslint-config-phanective";
 
 /** @type { import("eslint").Linter.Config[] } */
 export default [
-  ...plain,
-  ...node,
+  ...core,
+  ...nodejs,
   {
     languageOptions: {
       parserOptions: {
