@@ -10,8 +10,6 @@ export default [
   },
   ...node,
   {
-    files: [ "*" ],
-
     languageOptions: {
       parserOptions: {
         project: true,

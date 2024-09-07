@@ -10,8 +10,6 @@ const config = [
   },
   ...nuxtTS,
   {
-    files: [ "*" ],
-
     languageOptions: {
       parserOptions: {
         project: true,
