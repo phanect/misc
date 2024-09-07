@@ -8,8 +8,8 @@
   "exports": {
     ".": {
       "import": {
-        "default": "./dist/eslint.mjs",
-        "types": "./dist/eslint.d.ts"
+        "types": "./dist/eslint.d.ts",
+        "default": "./dist/eslint.mjs"
       }
     }
   },
