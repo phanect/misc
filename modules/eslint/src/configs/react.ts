@@ -1,7 +1,7 @@
 import deepmerge from "deepmerge";
-import plain from "./plain.ts";
+import { core } from "./core.ts";
 
-export default deepmerge(plain, {
+export default deepmerge(core, {
   extends: [
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",

@@ -1,8 +1,8 @@
-import vue from "eslint-plugin-vue";
+import vuePlugin from "eslint-plugin-vue";
 import type { Linter } from "eslint";
 
-export const vueBase: Linter.Config[] = [
-  ...vue.configs["flat/recommended"],
+export const vue: Linter.Config[] = [
+  ...vuePlugin.configs["flat/recommended"],
   {
     files: [ "**/*.vue" ],
     languageOptions: {
