@@ -4,7 +4,7 @@ import jsdoc from "eslint-plugin-jsdoc";
 import promise from "eslint-plugin-promise";
 import ts, { type ConfigWithExtends } from "typescript-eslint";
 import { toTSRules, type CodeExtensions, type JsExtensions, type TsExtensions } from "../../utils.ts";
-import type { Linter } from "eslint";
+import type { ESLint, Linter } from "eslint";
 
 /** Rules to be prefixed with "@typescript-eslint/" when they are applied to TS */
 const prefixRequiredRules: Linter.RulesRecord = {
@@ -33,7 +33,7 @@ export const commonConfigs: Linter.Config[] = [
       sourceType: "module",
     },
     plugins: {
-      "@stylistic": stylistic,
+      "@stylistic": stylistic as ESLint.Plugin,
       jsdoc,
       promise,
     },
