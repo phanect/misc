@@ -203,7 +203,8 @@ export const jsConfigs: Linter.Config[] = [
 
 export const tsConfigs: Linter.Config[] = ts.config(
   js.configs.recommended,
-  ...ts.configs.recommended,
+  ...ts.configs.recommendedTypeChecked,
+  ...ts.configs.stylisticTypeChecked,
   jsdoc.configs["flat/recommended-typescript"],
   {
     // TODO add import-x, editorconfig, and document-write plugins when it is ready to flat configs
@@ -227,8 +228,17 @@ export const tsConfigs: Linter.Config[] = ts.config(
       "@typescript-eslint/prefer-optional-chain": "warn",
 
       //
+      // Warnings - style
+      //
+      "@typescript-eslint/consistent-type-definitions": [ "warn", "type" ],
+
+      //
       // Off
       //
+
+      // Sometimes I want to declare variables with types to emphasize the type.
+      "@typescript-eslint/no-inferrable-types": "off",
+
       "@typescript-eslint/no-this-alias": "off",
 
       // These rules may warn new ES syntax which is supported by TypeScript (e.g. import)
