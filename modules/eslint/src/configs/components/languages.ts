@@ -34,6 +34,7 @@ export const commonRules: Linter.Config[] = [
     },
     plugins: {
       "@stylistic": stylistic,
+      jsdoc,
       promise,
     },
 
