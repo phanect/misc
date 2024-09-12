@@ -6,7 +6,7 @@ const config: Linter.Config[] = [
   ...plain,
   ...svelte.configs["flat/recommended"],
   {
-    files: [ "*.svelte" ],
+    files: [ "**/*.svelte" ],
     rules: {
       "svelte/no-target-blank": [ "error", { allowReferrer: true }],
     },

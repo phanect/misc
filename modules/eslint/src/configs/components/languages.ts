@@ -152,16 +152,16 @@ export const commonRules: Linter.Config[] = [
 ].map((config) => ({
   ...config,
   files: [
-    "*.js",
-    "*.mjs",
-    "*.cjs",
-    "*.jsx",
-    "*.ts",
-    "*.mts",
-    "*.cts",
-    "*.tsx",
-    "*.vue",
-    "*.svelte"
+    "**/*.js",
+    "**/*.mjs",
+    "**/*.cjs",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.mts",
+    "**/*.cts",
+    "**/*.tsx",
+    "**/*.vue",
+    "**/*.svelte"
   ] as CodeExtensions,
 }));
 
@@ -179,7 +179,7 @@ export const jsRules: Linter.Config[] = [
     },
   },
 ].map(config => ({
-  files: [ "*.js", "*.mjs", "*.cjs", "*.jsx" ] as JsExtensions,
+  files: [ "**/*.js", "**/*.mjs", "**/*.cjs", "**/*.jsx" ] as JsExtensions,
   ...config,
 })) as Linter.Config[];
 
@@ -236,5 +236,5 @@ export const tsRules: Linter.Config[] = ts.config(
   },
 ).map(config => ({
   ...config,
-  files: [ "*.ts", "*.mts", "*.cts", "*.tsx", "*.vue" ] as (TsExtensions & [ "*.vue" ]),
+  files: [ "**/*.ts", "**/*.mts", "**/*.cts", "**/*.tsx", "**/*.vue" ] as (TsExtensions & [ "**/*.vue" ]),
 })) as Linter.Config[];

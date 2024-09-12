@@ -4,7 +4,7 @@ import type { JsonExtensions } from "../../utils.ts";
 
 export const jsonConfigs: Linter.Config[] = [
   {
-    files: [ "*.json", "*.jsonc", "*.json5" ] as JsonExtensions,
+    files: [ "**/*.json", "**/*.jsonc", "**/*.json5" ] as JsonExtensions,
     plugins: {
       jsonc,
     },
@@ -28,20 +28,20 @@ export const jsonConfigs: Linter.Config[] = [
   },
   ...(
     jsonc.configs["flat/recommended-with-json"].map(config => ({
-      files: [ "*.json" ],
+      files: [ "**/*.json" ],
       ignores: [ "**/tsconfig.json", ".vscode/**/*.json" ],
       ...config
     }))
   ),
   ...(
     jsonc.configs["flat/recommended-with-jsonc"].map(config => ({
-      files: [ "*.jsonc", "**/tsconfig.json", ".vscode/**/*.json" ],
+      files: [ "**/*.jsonc", "**/tsconfig.json", ".vscode/**/*.json" ],
       ...config
     }))
   ),
   ...jsonc.configs["flat/recommended-with-json5"],
   {
-    files: [ "*.json5" ],
+    files: [ "**/*.json5" ],
     rules: {
       "jsonc/comma-dangle": [ "error", {
         arrays: "always-multiline",

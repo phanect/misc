@@ -20,34 +20,34 @@ export const toTSRules = (jsRules: Linter.RulesRecord): Linter.RulesRecord => {
 export const projectRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
 
 export type CodeExtensions = [
-  "*.js",
-  "*.mjs",
-  "*.cjs",
-  "*.jsx",
-  "*.ts",
-  "*.mts",
-  "*.cts",
-  "*.tsx",
-  "*.vue",
-  "*.svelte",
+  "**/*.js",
+  "**/*.mjs",
+  "**/*.cjs",
+  "**/*.jsx",
+  "**/*.ts",
+  "**/*.mts",
+  "**/*.cts",
+  "**/*.tsx",
+  "**/*.vue",
+  "**/*.svelte",
 ];
 
 export type JsExtensions = [
-  "*.js",
-  "*.mjs",
-  "*.cjs",
-  "*.jsx",
+  "**/*.js",
+  "**/*.mjs",
+  "**/*.cjs",
+  "**/*.jsx",
 ];
 
 export type TsExtensions = [
-  "*.ts",
-  "*.mts",
-  "*.cts",
-  "*.tsx",
+  "**/*.ts",
+  "**/*.mts",
+  "**/*.cts",
+  "**/*.tsx",
 ];
 
 export type JsonExtensions = [
-  "*.json",
-  "*.jsonc",
-  "*.json5",
+  "**/*.json",
+  "**/*.jsonc",
+  "**/*.json5",
 ];

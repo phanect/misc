@@ -3,12 +3,12 @@ import type { Linter } from "eslint";
 
 export const vitestConfigs: Linter.Config[] = [{
   files: [
-    "*.test.js",
-    "*.test.jsx",
-    "*.test.mjs",
-    "*.test.cjs",
-    "*.test.ts",
-    "*.test.tsx",
+    "**/*.test.js",
+    "**/*.test.jsx",
+    "**/*.test.mjs",
+    "**/*.test.cjs",
+    "**/*.test.ts",
+    "**/*.test.tsx",
   ],
   plugins: {
     vitest,

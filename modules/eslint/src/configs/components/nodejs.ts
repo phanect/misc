@@ -6,16 +6,16 @@ const nodejsGlobalConfig: Linter.Config = {
   // Since Node.js library might be used for server side rendering,
   // the extensions for frontend frameworks (e.g. *.svelte) is listed here.
   files: [
-    "*.js",
-    "*.mjs",
-    "*.cjs",
-    "*.jsx",
-    "*.ts",
-    "*.mts",
-    "*.cts",
-    "*.tsx",
-    "*.vue",
-    "*.svelte"
+    "**/*.js",
+    "**/*.mjs",
+    "**/*.cjs",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.mts",
+    "**/*.cts",
+    "**/*.tsx",
+    "**/*.vue",
+    "**/*.svelte"
   ] as CodeExtensions,
   plugins: {
     n,
@@ -67,12 +67,12 @@ const esmConfigs: Linter.Config[] = [
 ].map((config) => ({
   ...config,
   files: [
-    "*.js",
-    "*.mjs",
-    "*.jsx",
-    "*.ts",
-    "*.tsx",
-    "*.vue",
+    "**/*.js",
+    "**/*.mjs",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.vue",
   ],
 }));
 
@@ -85,7 +85,7 @@ const cjsConfigs: Linter.Config[] = [
   } satisfies Linter.Config,
 ].map((config) => ({
   ...config,
-  files: [ "*.cjs" ],
+  files: [ "**/*.cjs" ],
 }));
 
 export const nodejsConfigs: Linter.Config[] = [
