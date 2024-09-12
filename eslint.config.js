@@ -4,6 +4,7 @@ import { node } from "./modules/eslint/dist/eslint.js";
 export default [
   {
     ignores: [
+      "**/dist/**",
       "examples/**", // Run ESLint command in each module directories
       "tests/fixtures/invalid/**",
     ],
