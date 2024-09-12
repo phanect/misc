@@ -1,9 +1,9 @@
 declare module "eslint-plugin-promise" {
-  import type { ESLint } from "eslint"
+  import type { Linter } from "eslint"
 
   const mod: {
     configs: {
-      "flat/recommended": ESLint.Config,
+      "flat/recommended": Linter.Config,
     },
   }
 
@@ -11,11 +11,11 @@ declare module "eslint-plugin-promise" {
 }
 
 declare module "eslint-plugin-vue" {
-  import type { ESLint } from "eslint"
+  import type { Linter } from "eslint"
 
   const mod: {
     configs: {
-      "flat/recommended": ESLint.Config[],
+      "flat/recommended": Linter.Config[],
     },
   }
 
