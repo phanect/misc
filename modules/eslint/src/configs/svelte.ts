@@ -1,8 +1,8 @@
-import svelte from "eslint-plugin-svelte";
+import sveltePlugin from "eslint-plugin-svelte";
 import type { Linter } from "eslint";
 
-const config: Linter.Config[] = [
-  ...svelte.configs["flat/recommended"],
+export const svelte: Linter.Config[] = [
+  ...sveltePlugin.configs["flat/recommended"],
   {
     files: [ "**/*.svelte" ],
     rules: {
@@ -10,5 +10,3 @@ const config: Linter.Config[] = [
     },
   } satisfies Linter.Config,
 ];
-
-export default config;

@@ -49,6 +49,7 @@ Supported configs:
 - ~~next~~ (temporalily inactive)
 - `vueTS`
 - `nuxtTS`
+- `svelte`
 - `unbundled`
   - Use this rules in addition to the above rules if the project depends on package.json's `dependencies` on production i.e. npm packages and backend Node.js app without bundling.
 
