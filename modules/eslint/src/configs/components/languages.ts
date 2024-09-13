@@ -2,7 +2,7 @@ import js from "@eslint/js";
 import stylistic from "@stylistic/eslint-plugin";
 import jsdoc from "eslint-plugin-jsdoc";
 import promise from "eslint-plugin-promise";
-import ts, { type ConfigWithExtends } from "typescript-eslint";
+import ts from "typescript-eslint";
 import { toTSRules, type CodeExtensions, type JsExtensions, type TsExtensions } from "../../utils.ts";
 import type { ESLint, Linter } from "eslint";
 
@@ -187,7 +187,7 @@ export const jsConfigs: Linter.Config[] = [
 export const tsConfigs: Linter.Config[] = ts.config(
   js.configs.recommended,
   ...ts.configs.recommended,
-  jsdoc.configs["flat/recommended-typescript"] as ConfigWithExtends,
+  jsdoc.configs["flat/recommended-typescript"],
   {
     // TODO add import-x, editorconfig, and document-write plugins when it is ready to flat configs
     //...importConfigs["typescript"],
