@@ -14,7 +14,8 @@ Create an eslint.config.js like following on the project root.
 NOTE: This package only supports ES modules. If you use this config in the CommonJS project, make sure to rename the config file to eslint.config.**mjs**.
 
 ```javascript
-import { core, nodejs, unbundled } from "eslint-config-phanective";
+import { core } from "eslint-config-phanective";
+import { vue, nuxt } from "eslint-config-phanective/vue";
 
 /** @type { import("eslint").Linter.Config[] } */
 export default [
@@ -25,8 +26,8 @@ export default [
   },
 
   ...core,
-  ...nodejs,
-  ...unbundled,
+  ...vue,
+  ...nuxt,
 
   // If the project includes TypeScript files...
   {
@@ -44,15 +45,19 @@ export default [
 
 Supported configs:
 
-- `core`
-- `nodejs`
-- ~~react~~ (temporalily inactive)
-- ~~next~~ (temporalily inactive)
-- `vue`
-- `nuxt`
-- `svelte`
-- `unbundled`
-  - Use this rules in addition to the above rules if the project depends on package.json's `dependencies` on production i.e. npm packages and backend Node.js app without bundling.
+- `eslint-config-phanective`
+  - `core`
+  - `nodejs`
+  - `unbundled`
+    - Use this rules in addition to the above rules if the project depends on package.json's `dependencies` on production i.e. npm packages and backend Node.js app without bundling.
+- ~~`eslint-config-phanective/react`~~ (temporalily inactive)
+  - ~~react~~
+  - ~~next~~
+- `eslint-config-phanective/vue`
+  - `vue`
+  - `nuxt`
+- `eslint-config-phanective/svelte`
+  - `svelte`
 
 ## Test with realworld projects
 

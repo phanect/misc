@@ -28,3 +28,8 @@ export const core: Linter.Config[] = [
   ...vitestConfigs,
   ...jsonConfigs,
 ] as const;
+
+export {
+  nodejsConfigs as nodejs,
+  unbundledConfigs as unbundled,
+} from "./components/nodejs.ts";

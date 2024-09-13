@@ -1,3 +1,4 @@
+import { createConfigForNuxt } from "@nuxt/eslint-config/flat";
 import vuePlugin from "eslint-plugin-vue";
 import type { Linter } from "eslint";
 
@@ -27,3 +28,9 @@ export const vue: Linter.Config[] = [
     },
   } satisfies Linter.Config,
 ];
+
+export const nuxt: Linter.Config[] = await createConfigForNuxt({
+  features: {
+    standalone: true,
+  },
+});
