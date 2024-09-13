@@ -5,9 +5,6 @@ import type { JsonExtensions } from "../../utils.ts";
 export const jsonConfigs: Linter.Config[] = [
   {
     files: [ "**/*.json", "**/*.jsonc", "**/*.json5" ] as JsonExtensions,
-    plugins: {
-      jsonc,
-    },
     rules: {
       "jsonc/array-bracket-spacing": [ "error", "always", {
         objectsInArrays: false,
