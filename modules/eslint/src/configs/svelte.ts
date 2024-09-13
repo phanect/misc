@@ -10,7 +10,7 @@ const config: Linter.Config[] = [
     rules: {
       "svelte/no-target-blank": [ "error", { allowReferrer: true }],
     },
-  },
+  } satisfies Linter.Config,
 ];
 
 export default config;

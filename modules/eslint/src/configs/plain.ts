@@ -12,14 +12,14 @@ const plain: Linter.Config[] = [
       "dist/",
       "tmp/",
     ]
-  },
+  } satisfies Linter.Config,
   {
     files: [ "*" ],
     linterOptions: {
       noInlineConfig: true,
       reportUnusedDisableDirectives: "error",
     },
-  },
+  } satisfies Linter.Config,
   ...jsConfigs,
   ...tsConfigs,
   ...commonConfigs,

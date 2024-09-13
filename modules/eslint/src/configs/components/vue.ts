@@ -24,5 +24,5 @@ export const vueBase: Linter.Config[] = [
       "vue/multi-word-component-names": "off",
       "vue/no-v-html": "off",
     },
-  }
+  } satisfies Linter.Config,
 ];

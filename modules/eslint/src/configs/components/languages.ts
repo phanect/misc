@@ -149,7 +149,7 @@ export const commonConfigs: Linter.Config[] = [
     //     "vitest", // not working with import-x/named
     //   ],
     // },
-  },
+  } satisfies Linter.Config,
 ].map((config) => ({
   ...config,
   files: [
@@ -178,11 +178,11 @@ export const jsConfigs: Linter.Config[] = [
       // so I enable this rule only for JavaScript
       strict: [ "error", "safe" ],
     },
-  },
+  } satisfies Linter.Config,
 ].map(config => ({
   files: [ "**/*.js", "**/*.mjs", "**/*.cjs", "**/*.jsx" ] as JsExtensions,
   ...config,
-})) as Linter.Config[];
+}));
 
 export const tsConfigs: Linter.Config[] = ts.config(
   js.configs.recommended,
@@ -234,7 +234,7 @@ export const tsConfigs: Linter.Config[] = ts.config(
       //   },
       // },
     },
-  },
+  } satisfies Linter.Config,
 ).map(config => ({
   ...config,
   files: [ "**/*.ts", "**/*.mts", "**/*.cts", "**/*.tsx", "**/*.vue" ] as (TsExtensions & [ "**/*.vue" ]),
