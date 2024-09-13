@@ -1,5 +1,5 @@
 import { createConfigForNuxt } from "@nuxt/eslint-config/flat";
-import { vueBase } from "./vue.ts";
+import { vueBase } from "../components/vue.ts";
 import type { Linter } from "eslint";
 
 export const nuxtBase: Linter.Config[] = [

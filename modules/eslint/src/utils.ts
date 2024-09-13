@@ -12,7 +12,7 @@ export const toTSRules = (jsRules: Linter.RulesRecord): Linter.RulesRecord => {
   return tsRules;
 };
 
-// If you want to get project root on e.g. src/configs/overrides/lang-spacific.ts,
+// If you want to get project root on e.g. src/configs/components/languages.ts,
 // you may want to run join(dirname(fileURLToPath(import.meta.url)), "../../..").
 // However, since built file is dist/eslint.mjs, you cannot get project by "../../..".
 // I wanted unbuild to handle this so that dist/eslint.mjs refers "..", but it didn't.

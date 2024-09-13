@@ -3,7 +3,7 @@ import jsonc from "eslint-plugin-jsonc";
 import promise from "eslint-plugin-promise";
 import vitest from "eslint-plugin-vitest";
 import type { Linter } from "eslint";
-import { jsRules, tsRules } from "./overrides/lang-specific.ts";
+import { jsRules, tsRules } from "./components/languages.ts";
 import type { CodeExtensions, JsonExtensions } from "../utils.ts";
 
 const plain: Linter.Config[] = [

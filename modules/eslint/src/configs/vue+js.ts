@@ -1,6 +1,6 @@
 import plain from "./plain.ts";
-import { jsRules } from "./overrides/lang-specific.ts";
-import { vueBase } from "./overrides/vue.ts";
+import { jsRules } from "./components/languages.ts";
+import { vueBase } from "./components/vue.ts";
 import type { Linter } from "eslint";
 
 export const vueJS: Linter.Config[] = [

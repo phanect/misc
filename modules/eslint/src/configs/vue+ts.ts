@@ -1,5 +1,5 @@
-import { tsRules } from "./overrides/lang-specific.ts";
-import { vueBase } from "./overrides/vue.ts";
+import { tsRules } from "./components/languages.ts";
+import { vueBase } from "./components/vue.ts";
 import plain from "./plain.ts";
 import type { Linter } from "eslint";
 

@@ -1,4 +1,4 @@
-import { nuxtBase } from "./overrides/nuxt.ts";
+import { nuxtBase } from "./components/nuxt.ts";
 import plain from "./plain.ts";
 import type { Linter } from "eslint";
 
