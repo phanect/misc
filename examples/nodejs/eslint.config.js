@@ -4,8 +4,6 @@ import { node } from "eslint-config-phanective";
 export default [
   ...node,
   {
-    files: [ "*" ],
-
     languageOptions: {
       parserOptions: {
         project: true,

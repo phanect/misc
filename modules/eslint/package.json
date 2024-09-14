@@ -3,21 +3,19 @@
   "version": "2024.8.7",
   "description": "Personal ESLint configuration for Jumpei Ogawa (@phanect)",
   "type": "module",
-  "module": "./dist/eslint.mjs",
+  "module": "./dist/eslint.js",
   "types": "./dist/eslint.d.ts",
   "exports": {
     ".": {
       "import": {
-        "default": "./dist/eslint.mjs",
-        "types": "./dist/eslint.d.ts"
+        "types": "./dist/eslint.d.ts",
+        "default": "./dist/eslint.js"
       }
     }
   },
   "scripts": {
-    "build": "unbuild",
+    "build": "tsup",
     "test": "npm run build && vitest run",
-    "lint": "tsc --noEmit && npm run build && eslint",
-    "fix": "npm run build && eslint --fix",
     "rwt": "esno ./scripts/rwt.ts",
     "clean": "git clean -dX --force",
     "release": "npm run build && npm publish . --access public"
@@ -50,8 +48,8 @@
     "@types/node": "^22.0.0",
     "deepmerge": "^4.3.1",
     "eslint": "^9.7.0",
+    "tsup": "^8.2.4",
     "typescript": "^5.3.3",
-    "unbuild": "v3.0.0-rc.7",
     "vitest": "^2.0.2"
   },
   "peerDependencies": {
@@ -70,8 +68,5 @@
     "typescript": {
       "optional": true
     }
-  },
-  "overrides": {
-    "@typescript-eslint/utils": "8.0.0"
   }
 }

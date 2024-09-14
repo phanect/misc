@@ -20,8 +20,9 @@ console.log(
   "Very very very very very very very long argument which requires line break"
 );
 
-/* eslint-disable promise/prefer-await-to-callbacks */
-// aliasing `this` is allowed (consistent-this is disabled)
+/* eslint-disable promise/prefer-await-to-callbacks --
+ *   aliasing `this` is allowed (consistent-this is disabled)
+ */
 /** @type { (callback: Function) => void } */
 function funcRequiresCallback(callback) {
   callback();

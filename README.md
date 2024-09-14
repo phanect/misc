@@ -24,7 +24,7 @@ export default [
     ],
   },
   {
-    files: [ "*" ],
+    // Do not add `files: [ "*" ],` here.
 
     languageOptions: {
       parserOptions: {

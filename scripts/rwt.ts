@@ -2,13 +2,10 @@
 
 import { mkdir, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import { fileURLToPath } from "node:url";
 import { cmd } from "@phanect/utils/nodejs";
 import { name as pkgName, version as pkgVersion } from "../modules/eslint/package.json";
 // @ts-ignore: do not raise type error when rwt.json does not exist
 import repos from "../rwt.json";
-
-const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
 type ConfigType = "plain" | "node" | "react" | "next" | "vue+js" | "vue+ts" | "nuxt+js" | "nuxt+ts" | "svelte" | "with-deps";
 type Repo = {
@@ -23,7 +20,7 @@ function getRulesetName(type: ConfigType|ConfigType[]): string | string[] {
   return Array.isArray(type) ? (type as string[]).map((name) => `phanective/${name}`) : (`phanective/${type}` as string);
 }
 
-const projectRoot = join(__dirname, "..");
+const projectRoot = join(import.meta.dirname, "..");
 const reposDir = join(projectRoot, "tmp/repos");
 
 await rm(reposDir, { recursive: true, force: true });

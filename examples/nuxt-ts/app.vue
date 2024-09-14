@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-const msg = "Hello, ESLint!";
+const msg: string = "Hello, ESLint!";
 </script>
 
 <style scoped>
