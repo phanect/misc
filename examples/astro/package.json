@@ -1,0 +1,21 @@
+{
+  "name": "@phanect/eslint-fixture-astro",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "tsc --noEmit && astro check && eslint && : example-astro"
+  },
+  "dependencies": {
+    "astro": "^4.15.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.3",
+    "@phanect/configs": "latest",
+    "eslint-config-phanective": "2024.8.7",
+    "typescript": "^5.5.4"
+  },
+  "engines": {
+    "node": "20.x || >=22.x",
+    "npm": ">=10.x"
+  }
+}
