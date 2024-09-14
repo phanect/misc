@@ -59,6 +59,9 @@ export type TsExtensions = [
   "**/*.mts",
   "**/*.cts",
   "**/*.tsx",
+
+  "**/*.vue",
+  "**/*.svelte",
 ];
 
 /** File extensions to apply JSON-related rules */
