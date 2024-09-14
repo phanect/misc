@@ -180,6 +180,7 @@ export const commonConfigs: Linter.Config[] = [
     "**/*.tsx",
     "**/*.vue",
     "**/*.svelte",
+    "**/*.astro",
   ] as CodeExtensions,
 }));
 
@@ -264,5 +265,13 @@ export const tsConfigs: Linter.Config[] = ts.config(
   } satisfies Linter.Config,
 ).map((config) => ({
   ...config,
-  files: [ "**/*.ts", "**/*.mts", "**/*.cts", "**/*.tsx", "**/*.vue", "**/*.svelte" ] as TsExtensions,
+  files: [
+    "**/*.ts",
+    "**/*.mts",
+    "**/*.cts",
+    "**/*.tsx",
+    "**/*.vue",
+    "**/*.svelte",
+    "**/*.astro",
+  ] as TsExtensions,
 })) as Linter.Config[];

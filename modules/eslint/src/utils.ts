@@ -31,6 +31,7 @@ export type CodeExtensions = [
   "**/*.tsx",
   "**/*.vue",
   "**/*.svelte",
+  "**/*.astro",
 ];
 
 /** File extensions to apply ESM rules */
@@ -43,6 +44,7 @@ export type EsmExtensions = [
   "**/*.tsx",
   "**/*.vue",
   "**/*.svelte",
+  "**/*.astro",
 ];
 
 /** File extensions to apply JavaScript rules */
@@ -62,6 +64,7 @@ export type TsExtensions = [
 
   "**/*.vue",
   "**/*.svelte",
+  "**/*.astro",
 ];
 
 /** File extensions to apply JSON-related rules */
