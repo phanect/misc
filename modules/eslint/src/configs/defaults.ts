@@ -4,7 +4,7 @@ import { vitestConfigs } from "./components/vitest.ts";
 import type { Linter } from "eslint";
 import { commonConfigs, jsConfigs, tsConfigs } from "./components/languages.ts";
 
-const plain: Linter.Config[] = [
+export const core: Linter.Config[] = [
   {
     ignores: [
       "package-lock.json",
@@ -29,4 +29,7 @@ const plain: Linter.Config[] = [
   ...jsonConfigs,
 ] as const;
 
-export default plain;
+export {
+  nodejsConfigs as nodejs,
+  unbundledConfigs as unbundled,
+} from "./components/nodejs.ts";

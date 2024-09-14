@@ -1,7 +1,7 @@
 import deepmerge from "deepmerge";
-import plain from "./plain.ts";
+import { core } from "./defaults.ts";
 
-export default deepmerge(plain, {
+export const react = deepmerge(core, {
   extends: [
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
@@ -16,4 +16,8 @@ export default deepmerge(plain, {
     "react/jsx-filename-extension": [ "error", { extensions: [ ".jsx", ".tsx" ]}],
     "react/react-in-jsx-scope": "off",
   },
+});
+
+export const next = deepmerge(react, {
+  extends: [ "next/core-web-vitals" ],
 });

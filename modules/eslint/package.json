@@ -8,8 +8,20 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/eslint.d.ts",
-        "default": "./dist/eslint.js"
+        "types": "./dist/defaults.d.ts",
+        "default": "./dist/defaults.js"
+      }
+    },
+    "./vue": {
+      "import": {
+        "types": "./dist/vue.d.ts",
+        "default": "./dist/vue.js"
+      }
+    },
+    "./svelte": {
+      "import": {
+        "types": "./dist/svelte.d.ts",
+        "default": "./dist/svelte.js"
       }
     }
   },

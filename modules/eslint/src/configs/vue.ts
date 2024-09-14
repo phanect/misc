@@ -1,8 +1,9 @@
-import vue from "eslint-plugin-vue";
+import { createConfigForNuxt } from "@nuxt/eslint-config/flat";
+import vuePlugin from "eslint-plugin-vue";
 import type { Linter } from "eslint";
 
-export const vueBase: Linter.Config[] = [
-  ...vue.configs["flat/recommended"],
+export const vue: Linter.Config[] = [
+  ...vuePlugin.configs["flat/recommended"],
   {
     files: [ "**/*.vue" ],
     languageOptions: {
@@ -27,3 +28,9 @@ export const vueBase: Linter.Config[] = [
     },
   } satisfies Linter.Config,
 ];
+
+export const nuxt: Linter.Config[] = await createConfigForNuxt({
+  features: {
+    standalone: true,
+  },
+});
