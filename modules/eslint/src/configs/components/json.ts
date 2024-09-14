@@ -22,7 +22,7 @@ export const jsonConfigs: Linter.Config[] = [
         objectsInObjects: false,
       }],
     }
-  },
+  } satisfies Linter.Config,
   ...(
     jsonc.configs["flat/recommended-with-json"].map(config => ({
       files: [ "**/*.json" ],
@@ -46,5 +46,5 @@ export const jsonConfigs: Linter.Config[] = [
       }],
       "jsonc/quote-props": [ "error", "as-needed" ],
     },
-  },
-] as Linter.Config[];
+  } satisfies Linter.Config,
+];

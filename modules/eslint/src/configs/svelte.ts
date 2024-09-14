@@ -4,13 +4,13 @@ import type { Linter } from "eslint";
 
 const config: Linter.Config[] = [
   ...plain,
-  ...svelte.configs["flat/recommended"],
+  ...(svelte.configs["flat/recommended"] as Linter.Config[]),
   {
     files: [ "**/*.svelte" ],
     rules: {
       "svelte/no-target-blank": [ "error", { allowReferrer: true }],
     },
-  },
+  } satisfies Linter.Config,
 ];
 
 export default config;

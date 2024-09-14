@@ -2,9 +2,9 @@ import js from "@eslint/js";
 import stylistic from "@stylistic/eslint-plugin";
 import jsdoc from "eslint-plugin-jsdoc";
 import promise from "eslint-plugin-promise";
-import ts, { type ConfigWithExtends } from "typescript-eslint";
+import ts from "typescript-eslint";
 import { toTSRules, type CodeExtensions, type JsExtensions, type TsExtensions } from "../../utils.ts";
-import type { Linter } from "eslint";
+import type { ESLint, Linter } from "eslint";
 
 /** Rules to be prefixed with "@typescript-eslint/" when they are applied to TS */
 const prefixRequiredRules: Linter.RulesRecord = {
@@ -33,7 +33,7 @@ export const commonConfigs: Linter.Config[] = [
       sourceType: "module",
     },
     plugins: {
-      "@stylistic": stylistic,
+      "@stylistic": stylistic as ESLint.Plugin,
       jsdoc,
       promise,
     },
@@ -149,7 +149,7 @@ export const commonConfigs: Linter.Config[] = [
     //     "vitest", // not working with import-x/named
     //   ],
     // },
-  },
+  } satisfies Linter.Config,
 ].map((config) => ({
   ...config,
   files: [
@@ -178,16 +178,16 @@ export const jsConfigs: Linter.Config[] = [
       // so I enable this rule only for JavaScript
       strict: [ "error", "safe" ],
     },
-  },
+  } satisfies Linter.Config,
 ].map(config => ({
   files: [ "**/*.js", "**/*.mjs", "**/*.cjs", "**/*.jsx" ] as JsExtensions,
   ...config,
-})) as Linter.Config[];
+}));
 
 export const tsConfigs: Linter.Config[] = ts.config(
   js.configs.recommended,
   ...ts.configs.recommended,
-  jsdoc.configs["flat/recommended-typescript"] as ConfigWithExtends,
+  jsdoc.configs["flat/recommended-typescript"],
   {
     // TODO add import-x, editorconfig, and document-write plugins when it is ready to flat configs
     //...importConfigs["typescript"],
@@ -234,7 +234,7 @@ export const tsConfigs: Linter.Config[] = ts.config(
       //   },
       // },
     },
-  },
+  } satisfies Linter.Config,
 ).map(config => ({
   ...config,
   files: [ "**/*.ts", "**/*.mts", "**/*.cts", "**/*.tsx", "**/*.vue" ] as (TsExtensions & [ "**/*.vue" ]),
