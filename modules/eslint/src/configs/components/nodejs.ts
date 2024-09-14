@@ -16,6 +16,7 @@ const nodejsGlobalConfig: Linter.Config = {
     "**/*.tsx",
     "**/*.vue",
     "**/*.svelte",
+    "**/*.astro",
   ] as CodeExtensions,
   plugins: {
     n,
@@ -112,6 +113,7 @@ const esmConfigs: Linter.Config[] = [
     "**/*.tsx",
     "**/*.vue",
     "**/*.svelte",
+    "**/*.astro",
   ] as EsmExtensions,
 }));
 
@@ -201,6 +203,7 @@ export const unbundledConfigs: Linter.Config[] = [{
     "**/*.tsx",
     "**/*.vue",
     "**/*.svelte",
+    "**/*.astro",
   ] as CodeExtensions,
   ignores: configFilePatterns,
 

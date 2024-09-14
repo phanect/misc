@@ -6,6 +6,7 @@ export default defineConfig({
     // react: "src/configs/react.ts",
     vue: "src/configs/vue.ts",
     svelte: "src/configs/svelte.ts",
+    astro: "src/configs/astro.ts",
   },
   target: "node18",
   format: "esm",

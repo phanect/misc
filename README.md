@@ -35,7 +35,7 @@ export default [
 
     languageOptions: {
       parserOptions: {
-        projectService: true,
+        projectService: true, // Use `project: true` instead if you use `astro` ruleset.
         tsconfigRootDir: import.meta.dirname,
       },
     },
@@ -58,6 +58,8 @@ Supported configs:
   - `nuxt`
 - `eslint-config-phanective/svelte`
   - `svelte`
+- `eslint-config-phanective/astro`
+  - `astro`
 
 ## Test with realworld projects
 
