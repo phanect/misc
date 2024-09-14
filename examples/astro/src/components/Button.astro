@@ -1,0 +1,15 @@
+---
+type Props = {
+  text: string;
+  icon?: string;
+};
+
+const {
+  text = Astro.slots.render("default"),
+  icon,
+} = Astro.props;
+---
+
+<button type="button">
+  { icon && <img src={ icon } alt="" /> } { text }
+</button>
