@@ -48,6 +48,9 @@ export const commonConfigs: Linter.Config[] = [
         objects: "always-multiline",
         imports: "always-multiline",
         exports: "always-multiline",
+        enums: "always-multiline",
+        generics: "always-multiline",
+        tuples: "always-multiline",
         functions: "only-multiline",
       }],
       "no-async-promise-executor": "error",
@@ -115,7 +118,19 @@ export const commonConfigs: Linter.Config[] = [
       // Following rules doesn't reduce quality or readability
       //
       "@stylistic/array-bracket-spacing": [ "warn", "always", { arraysInArrays: false, objectsInArrays: false }],
+      "@stylistic/arrow-parens": [ "warn", "always" ],
+      "@stylistic/brace-style": "warn",
       curly: "warn",
+      "@stylistic/member-delimiter-style": [ "warn", {
+        multiline: {
+          delimiter: "semi",
+          requireLast: true,
+        },
+        singleline: {
+          delimiter: "semi",
+          requireLast: true,
+        },
+      }],
       "@stylistic/no-multi-spaces": [ "warn", { ignoreEOLComments: true, exceptions: { Property: true }}],
       "@stylistic/object-curly-spacing": [ "warn", "always", { arraysInObjects: false, objectsInObjects: false }],
       "one-var": [ "warn", "never" ],
@@ -125,11 +140,13 @@ export const commonConfigs: Linter.Config[] = [
       "@stylistic/quote-props": [ "warn", "as-needed" ],
       "@stylistic/quotes": [ "warn", "double" ],
       "@stylistic/semi": [ "error", "always" ],
+      "@stylistic/space-before-blocks": [ "warn", "always" ],
       "@stylistic/space-before-function-paren": [ "warn", {
         anonymous: "never",
         named: "never",
         asyncArrow: "always",
       }],
+      "@stylistic/space-in-parens": [ "warn", "never" ],
       "@stylistic/spaced-comment": [ "warn", "always" ],
       "@stylistic/switch-colon-spacing": [ "warn", { before: false, after: true }],
 
@@ -162,7 +179,7 @@ export const commonConfigs: Linter.Config[] = [
     "**/*.cts",
     "**/*.tsx",
     "**/*.vue",
-    "**/*.svelte"
+    "**/*.svelte",
   ] as CodeExtensions,
 }));
 
@@ -179,18 +196,19 @@ export const jsConfigs: Linter.Config[] = [
       strict: [ "error", "safe" ],
     },
   } satisfies Linter.Config,
-].map(config => ({
+].map((config) => ({
   files: [ "**/*.js", "**/*.mjs", "**/*.cjs", "**/*.jsx" ] as JsExtensions,
   ...config,
 }));
 
 export const tsConfigs: Linter.Config[] = ts.config(
   js.configs.recommended,
-  ...ts.configs.recommended,
+  ...ts.configs.recommendedTypeChecked,
+  ...ts.configs.stylisticTypeChecked,
   jsdoc.configs["flat/recommended-typescript"],
   {
     // TODO add import-x, editorconfig, and document-write plugins when it is ready to flat configs
-    //...importConfigs["typescript"],
+    // ...importConfigs["typescript"],
 
     rules: {
       ...toTSRules(prefixRequiredRules),
@@ -210,8 +228,17 @@ export const tsConfigs: Linter.Config[] = ts.config(
       "@typescript-eslint/prefer-optional-chain": "warn",
 
       //
+      // Warnings - style
+      //
+      "@typescript-eslint/consistent-type-definitions": [ "warn", "type" ],
+
+      //
       // Off
       //
+
+      // Sometimes I want to declare variables with types to emphasize the type.
+      "@typescript-eslint/no-inferrable-types": "off",
+
       "@typescript-eslint/no-this-alias": "off",
 
       // These rules may warn new ES syntax which is supported by TypeScript (e.g. import)
@@ -235,7 +262,7 @@ export const tsConfigs: Linter.Config[] = ts.config(
       // },
     },
   } satisfies Linter.Config,
-).map(config => ({
+).map((config) => ({
   ...config,
-  files: [ "**/*.ts", "**/*.mts", "**/*.cts", "**/*.tsx", "**/*.vue" ] as (TsExtensions & [ "**/*.vue" ]),
+  files: [ "**/*.ts", "**/*.mts", "**/*.cts", "**/*.tsx", "**/*.vue", "**/*.svelte" ] as TsExtensions,
 })) as Linter.Config[];

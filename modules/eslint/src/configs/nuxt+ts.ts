@@ -1,17 +1,6 @@
 import { nuxtBase } from "./components/nuxt.ts";
-import plain from "./plain.ts";
 import type { Linter } from "eslint";
 
-export const nuxtTS: Linter.Config[] =  [
-  ...plain,
+export const nuxtTS: Linter.Config[] = [
   ...nuxtBase,
-  {
-    // To overwrite tsRule's `files` property, place these properties after `...tsRule`.
-    files: [ "*.vue" ],
-    languageOptions: {
-      parserOptions: {
-        parser: "@typescript-eslint/parser",
-      }
-    },
-  },
 ];

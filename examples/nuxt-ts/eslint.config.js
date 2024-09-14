@@ -1,4 +1,4 @@
-import { nuxtTS } from "eslint-config-phanective";
+import plain, { nuxtTS } from "eslint-config-phanective";
 
 /** @type { import("eslint").Linter.Config[] } */
 const config = [
@@ -8,11 +8,12 @@ const config = [
       ".output/**",
     ],
   },
+  ...plain,
   ...nuxtTS,
   {
     languageOptions: {
       parserOptions: {
-        project: true,
+        projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
     },

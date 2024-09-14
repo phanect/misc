@@ -14,7 +14,7 @@ Create an eslint.config.js like following on the project root.
 NOTE: This package only supports ES modules. If you use this config in the CommonJS project, make sure to rename the config file to eslint.config.**mjs**.
 
 ```javascript
-import { node } from "eslint-config-phanective";
+import plain, { node, unbundled } from "eslint-config-phanective";
 
 /** @type { import("eslint").Linter.Config[] } */
 export default [
@@ -23,17 +23,21 @@ export default [
       "path/to/ignore/**",
     ],
   },
+
+  ...plain,
+  ...node,
+  ...unbundled,
+
   {
     // Do not add `files: [ "*" ],` here.
 
     languageOptions: {
       parserOptions: {
-        project: true,
+        projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
     },
   },
-  ...node,
 ];
 ```
 
@@ -43,10 +47,10 @@ Supported configs:
 - `node`
 - ~~react~~ (temporalily inactive)
 - ~~next~~ (temporalily inactive)
-- `vueJS`
 - `vueTS`
-- `nuxtJS`
 - `nuxtTS`
+- `unbundled`
+  - Use this rules in addition to the above rules if the project depends on package.json's `dependencies` on production i.e. npm packages and backend Node.js app without bundling.
 
 ## Test with realworld projects
 

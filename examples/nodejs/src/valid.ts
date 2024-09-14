@@ -6,7 +6,7 @@ const hoge = "fuga";
 console.log(foo, hoge);
 
 // SwitchCase
-switch(foo) {
+switch (foo) {
   case "bar":
     console.log("bar");
     break;
@@ -34,10 +34,11 @@ funcRequiresCallback(() => {
 /* eslint-enable promise/prefer-await-to-callbacks */
 
 // require-await is disabled
+// and allow floating async function with `void` prefix
 async function asyncFunctionWithoutAwait(): Promise<void> {
   console.log();
 }
-asyncFunctionWithoutAwait();
+void asyncFunctionWithoutAwait();
 
 //
 // TypeScript-specific

@@ -4,7 +4,7 @@ const hoge = "fuga";
 console.log(foo, hoge);
 
 // SwitchCase
-switch(foo) {
+switch (foo) {
   case "bar":
     console.log("bar");
     break;
