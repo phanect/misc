@@ -1,5 +1,6 @@
 {
   "extends": "@phanect/configs/tsconfig/nodejs",
+  "files": [ "modules/eslint/package.json" ], // Required for scripts/rwt.ts
   "include": [ "**/*.js", "**/*.mjs", "**/*.ts", "**/*.mts" ],
   "exclude": [
     "tests/fixtures/invalid/*.js", // Invalid JS fixtures raises some ESLint errors, and it may cause type errors too.
@@ -7,5 +8,9 @@
     // By type-checking this file, errors in dist/eslint.mjs
     // which you cannot add types by JSDoc are reported.
     "eslint.config.js",
+
+    // In the sub workspaces, the typecheck is done by their own `npm run lint` command.
+    "modules",
+    "examples"
   ]
 }

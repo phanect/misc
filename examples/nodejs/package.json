@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "lint": "eslint"
+    "lint": "tsc --noEmit && eslint && : example-nodejs"
   },
   "devDependencies": {
     "eslint": "^9.8.0",
