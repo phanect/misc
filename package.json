@@ -16,7 +16,7 @@
   "scripts": {
     "build": "npm run build --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
-    "lint": "tsc --noEmit && npm run build && eslint && npm run lint --workspaces --if-present",
+    "lint": "npm run build && tsc --noEmit && eslint && npm run lint --workspaces",
     "fix": "npm run build && eslint --fix && npm run fix --workspaces --if-present",
     "rwt": "esno ./scripts/rwt.ts",
     "clean": "git clean -dX --force",
