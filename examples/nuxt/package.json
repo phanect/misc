@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "lint": "eslint",
+    "lint": "nuxt typecheck && eslint && : example-nuxt",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {

@@ -28,6 +28,7 @@
   "scripts": {
     "build": "tsup",
     "test": "npm run build && vitest run",
+    "lint": "tsc --noEmit && eslint && : example-eslint",
     "rwt": "esno ./scripts/rwt.ts",
     "clean": "git clean -dX --force",
     "release": "npm run build && npm publish . --access public"
