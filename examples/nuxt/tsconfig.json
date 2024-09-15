@@ -4,8 +4,5 @@
     "./.nuxt/tsconfig.json",
     "@phanect/configs/tsconfig/frontend",
   ],
-  "include": [ "**/*.js", "**/*.mjs", "**/*.ts", "**/*.vue" ],
-  "exclude": [
-    "eslint.config.js",
-  ],
+  "include": [ "**/*.js", "**/*.mjs", "**/*.ts", "**/*.vue" ]
 }
