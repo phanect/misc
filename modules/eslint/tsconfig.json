@@ -7,6 +7,6 @@
       "./src/types/"
     ]
   },
-  "include": [ "**/*.js", "**/*.mjs", "**/*.ts", "**/*.mts" ],
+  "include": [ "**/*.js", "**/*.mjs", "**/*.ts" ],
   "exclude": [ "dist" ],
 }
