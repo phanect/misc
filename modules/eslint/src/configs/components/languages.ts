@@ -119,7 +119,7 @@ export const commonConfigs: Linter.Config[] = [
       //
       "@stylistic/array-bracket-spacing": [ "warn", "always", { arraysInArrays: false, objectsInArrays: false }],
       "@stylistic/arrow-parens": [ "warn", "always" ],
-      "@stylistic/brace-style": "warn",
+      "@stylistic/brace-style": [ "warn", "1tbs" ],
       curly: "warn",
       "@stylistic/member-delimiter-style": [ "warn", {
         multiline: {
@@ -150,6 +150,8 @@ export const commonConfigs: Linter.Config[] = [
       "@stylistic/spaced-comment": [ "warn", "always" ],
       "@stylistic/switch-colon-spacing": [ "warn", { before: false, after: true }],
 
+      "@stylistic/jsx-curly-spacing": [ "warn", { when: "always" }],
+
       // Require file extensions in `import`s
       // "import-x/extensions": [ "warn", "always", { ignorePackages: true }],
 
@@ -159,6 +161,8 @@ export const commonConfigs: Linter.Config[] = [
       "no-console": "off",
       "jsdoc/require-jsdoc": "off",
       "jsdoc/require-description-complete-sentence": "off",
+
+      "@stylistic/jsx-one-expression-per-line": "off",
     },
     // settings: {
     //   "import-x/ignore": [
