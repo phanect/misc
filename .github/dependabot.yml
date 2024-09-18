@@ -21,12 +21,6 @@ updates:
         update-types:
           - "minor"
           - "patch"
-      less-prioritized:
-        applies-to: "version-updates"
-        patterns:
-          - "eslint"
-          - "eslint-plugin-*"
-          - "eslint-config-*"
 
   - package-ecosystem: "github-actions"
     directory: "/"
