@@ -5,7 +5,7 @@
   "license": "CC0-1.0",
   "repository": {
     "type": "git",
-    "url": "git@github.com:phanect/eslint-config-phanective.git"
+    "url": "git@github.com:phanect/misc.git"
   },
   "private": true,
   "type": "module",
