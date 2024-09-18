@@ -1,4 +1,4 @@
-import { core, nodejs } from "eslint-config-phanective";
+import { core, nodejs } from "@phanect/configs/eslint";
 
 /** @type { import("eslint").Linter.Config[] } */
 export default [

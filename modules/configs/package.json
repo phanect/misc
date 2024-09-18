@@ -1,27 +1,27 @@
 {
-  "name": "eslint-config-phanective",
+  "name": "@phanect/configs",
   "version": "2024.8.7",
-  "description": "Personal ESLint configuration for Jumpei Ogawa (@phanect)",
+  "description": "Collection of @phanect's personal configuration files",
   "type": "module",
   "module": "./dist/eslint.js",
   "types": "./dist/eslint.d.ts",
   "exports": {
-    ".": {
+    "./eslint": {
       "import": {
-        "types": "./dist/defaults.d.ts",
-        "default": "./dist/defaults.js"
+        "types": "./dist/eslint.d.ts",
+        "default": "./dist/eslint.js"
       }
     }
   },
   "scripts": {
     "build": "tsup",
     "test": "vitest run",
-    "lint": "tsc --noEmit && : example-eslint",
+    "lint": "tsc --noEmit && : module-configs",
     "release": "npm publish . --access public"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:phanect/eslint-config-phanective.git"
+    "url": "git@github.com:phanect/configs.git"
   },
   "author": "Jumpei Ogawa (https://phanective.org)",
   "license": "CC0-1.0",

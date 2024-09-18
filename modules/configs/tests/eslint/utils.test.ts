@@ -1,5 +1,5 @@
 import { test, expect } from "vitest";
-import { toTSRules } from "../src/utils.ts";
+import { toTSRules } from "../../src/eslint/utils.ts";
 
 test("toTSRules", () => {
   expect.hasAssertions();

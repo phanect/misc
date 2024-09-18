@@ -3,7 +3,7 @@ import stylistic from "@stylistic/eslint-plugin";
 import jsdoc from "eslint-plugin-jsdoc";
 import promise from "eslint-plugin-promise";
 import ts from "typescript-eslint";
-import { toTSRules, type CodeExtensions, type JsExtensions, type TsExtensions } from "../../utils.ts";
+import { toTSRules, type CodeExtensions, type JsExtensions, type TsExtensions } from "../utils.ts";
 import type { ESLint, Linter } from "eslint";
 
 /** Rules to be prefixed with "@typescript-eslint/" when they are applied to TS */

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "@phanect/configs/tsconfig/nodejs",
-  "files": [ "modules/eslint/package.json" ], // Required for scripts/rwt.ts
+  "files": [ "modules/configs/package.json" ], // Required for scripts/rwt.ts
   "include": [ "**/*.js", "**/*.mjs", "**/*.ts" ],
   "exclude": [
     "tests/fixtures/invalid/*.js", // Invalid JS fixtures raises some ESLint errors, and it may cause type errors too.
