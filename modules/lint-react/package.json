@@ -13,9 +13,9 @@
   "module": "./dist/react.js",
   "types": "./dist/react.d.ts",
   "scripts": {
-    "build": "tsup",
+    "build": ":",
     "lint": "tsc --noEmit && : lint-react",
-    "release": "npm publish . --access public"
+    "release": ":"
   },
   "dependencies": {
     "deepmerge": "^4.3.1",
