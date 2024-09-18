@@ -1,11 +1,11 @@
-# eslint-config-phanective & `@phanect/lint-{vue, svelte, astro}`
+# `@phanect/lint[-vue|-svelte|-astro]`
 
 ESLint config for my own projects.
 
 ## Install
 
 ```shell
-npm install -D eslint eslint-config-phanective @phanect/lint-vue @phanect/lint-svelte @phanect/lint-astro
+npm install -D eslint @phanect/lint @phanect/lint-vue @phanect/lint-svelte @phanect/lint-astro
 ```
 
 `@phanect/lint-*` packages are the linter configs for the specific frameworks. Install them if you use them.
@@ -16,7 +16,7 @@ Create an eslint.config.js like following on the project root.
 NOTE: This package only supports ES modules. If you use this config in the CommonJS project, make sure to rename the config file to eslint.config.**mjs**.
 
 ```javascript
-import { core } from "eslint-config-phanective";
+import { core } from "@phanect/lint";
 import { vue, nuxt } from "@phanect/lint-vue";
 
 /** @type { import("eslint").Linter.Config[] } */
@@ -47,7 +47,7 @@ export default [
 
 Supported configs:
 
-- `eslint-config-phanective`
+- `@phanect/lint`
   - `core`
   - `nodejs`
   - `unbundled`
