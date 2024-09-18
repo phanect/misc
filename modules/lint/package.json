@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config-phanective",
+  "name": "@phanect/lint",
   "version": "2024.8.7",
   "description": "Personal ESLint configuration for Jumpei Ogawa (@phanect)",
   "type": "module",
@@ -16,7 +16,7 @@
   "scripts": {
     "build": "tsup",
     "test": "vitest run",
-    "lint": "tsc --noEmit && : example-eslint",
+    "lint": "tsc --noEmit && : lint",
     "release": "npm publish . --access public"
   },
   "repository": {
