@@ -68,7 +68,7 @@ Supported configs:
 ### 1. Generate npm package
 
 ```shell
-$ cd /path/to/eslint-config-phanective
+$ cd /path/to/misc
 $ npm pack
 ```
 
@@ -76,7 +76,7 @@ $ npm pack
 
 ```shell
 $ cd /path/to/target/project
-$ npm install ../eslint-config-phanective/eslint-config-phanective-2024.1.1.tgz
+$ npm install ../misc/eslint-config-phanective-2024.1.1.tgz
 ```
 
 ### 3. Test
