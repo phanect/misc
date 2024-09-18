@@ -1,5 +1,5 @@
 import { core } from "eslint-config-phanective";
-import { vue, nuxt } from "eslint-config-phanective/vue";
+import { vue, nuxt } from "@phanect/lint-vue";
 
 /** @type { import("eslint").Linter.Config[] } */
 const config = [
