@@ -1,8 +1,8 @@
-import { jsonConfigs } from "./components/json.ts";
-import { devConfigs } from "./components/nodejs.ts";
-import { vitestConfigs } from "./components/vitest.ts";
+import { jsonConfigs } from "./configs/json.ts";
+import { devConfigs } from "./configs/nodejs.ts";
+import { vitestConfigs } from "./configs/vitest.ts";
 import type { Linter } from "eslint";
-import { commonConfigs, jsConfigs, tsConfigs } from "./components/languages.ts";
+import { commonConfigs, jsConfigs, tsConfigs } from "./configs/languages.ts";
 
 export const core: Linter.Config[] = [
   {
@@ -32,4 +32,4 @@ export const core: Linter.Config[] = [
 export {
   nodejsConfigs as nodejs,
   unbundledConfigs as unbundled,
-} from "./components/nodejs.ts";
+} from "./configs/nodejs.ts";

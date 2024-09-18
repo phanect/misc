@@ -1,6 +1,6 @@
 import n from "eslint-plugin-n";
 import type { Linter } from "eslint";
-import type { CodeExtensions, EsmExtensions } from "../../utils.ts";
+import type { CodeExtensions, EsmExtensions } from "../utils.ts";
 
 const nodejsGlobalConfig: Linter.Config = {
   // Since Node.js library might be used for server side rendering,

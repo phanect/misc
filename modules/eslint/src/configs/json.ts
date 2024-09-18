@@ -1,6 +1,6 @@
 import jsonc from "eslint-plugin-jsonc";
 import type { Linter } from "eslint";
-import type { JsonExtensions } from "../../utils.ts";
+import type { JsonExtensions } from "../utils.ts";
 
 export const jsonConfigs: Linter.Config[] = [
   {

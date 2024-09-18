@@ -8,8 +8,8 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/defaults.d.ts",
-        "default": "./dist/defaults.js"
+        "types": "./dist/eslint.d.ts",
+        "default": "./dist/eslint.js"
       }
     }
   },
