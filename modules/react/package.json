@@ -1,0 +1,44 @@
+{
+  "name": "@phanect/configs-react",
+  "version": "2024.8.7",
+  "description": "@phanect's personal ESLint config for React & Next.js projects",
+  "author": "Jumpei Ogawa (https://phanective.org)",
+  "license": "CC0-1.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:phanect/configs.git"
+  },
+  "type": "module",
+  "module": "./dist/react.js",
+  "types": "./dist/react.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "lint": "tsc --noEmit && : module-react",
+    "release": "npm publish . --access public"
+  },
+  "dependencies": {
+    "eslint-config-next": "^14.2.12",
+    "eslint-plugin-jsx-a11y": "^6.10.0",
+    "eslint-plugin-react": "^7.36.1",
+    "eslint-plugin-react-hooks": "^4.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "eslint": "^8.57.1",
+    "tsup": "^8.2.4",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "eslint": "^8.57.1",
+    "next": "*"
+  },
+  "peerDependenciesMeta": {
+    "next": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=18.x",
+    "npm": ">=10.x"
+  }
+}

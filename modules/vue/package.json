@@ -1,0 +1,36 @@
+{
+  "name": "@phanect/configs-vue",
+  "version": "2024.8.7",
+  "description": "@phanect's personal ESLint config for Vue.js & Nuxt projects",
+  "author": "Jumpei Ogawa (https://phanective.org)",
+  "license": "CC0-1.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:phanect/configs.git"
+  },
+  "type": "module",
+  "module": "./dist/vue.js",
+  "types": "./dist/vue.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "lint": "tsc --noEmit && : module-vue",
+    "release": "npm publish . --access public"
+  },
+  "dependencies": {
+    "@nuxt/eslint-config": "^0.5.0",
+    "eslint-plugin-vue": "^9.26.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "eslint": "^9.7.0",
+    "tsup": "^8.2.4",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "eslint": "^9.7.0"
+  },
+  "engines": {
+    "node": ">=18.x",
+    "npm": ">=10.x"
+  }
+}
