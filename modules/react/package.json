@@ -12,9 +12,9 @@
   "module": "./dist/react.js",
   "types": "./dist/react.d.ts",
   "scripts": {
-    "build": "tsup",
+    "build": ":",
     "lint": "tsc --noEmit && : module-react",
-    "release": "npm publish . --access public"
+    "release": ":"
   },
   "dependencies": {
     "eslint-config-next": "^14.2.12",
