@@ -11,7 +11,13 @@
         "types": "./dist/eslint.d.ts",
         "default": "./dist/eslint.js"
       }
-    }
+    },
+    "./tsconfig/cloudflare": "./static/tsconfig/tsconfig.cloudflare.json",
+    "./tsconfig/frontend": "./static/tsconfig/tsconfig.frontend.json",
+    "./tsconfig/nodejs": "./static/tsconfig/tsconfig.nodejs.json",
+    "./tsconfig/addons/jsx": "./static/tsconfig/addons/tsconfig.jsx.json",
+    "./tsconfig/addons/npm": "./static/tsconfig/addons/tsconfig.npm.json",
+    "./tsconfig/addons/vite": "./static/tsconfig/addons/tsconfig.vite.json"
   },
   "scripts": {
     "build": "tsup",
