@@ -1,12 +1,14 @@
-# eslint-config-phanective
+# eslint-config-phanective & `@phanect/lint-{vue, svelte, astro}`
 
 ESLint config for my own projects.
 
 ## Install
 
 ```shell
-npm install -D eslint eslint-config-phanective
+npm install -D eslint eslint-config-phanective @phanect/lint-vue @phanect/lint-svelte @phanect/lint-astro
 ```
+
+`@phanect/lint-*` packages are the linter configs for the specific frameworks. Install them if you use them.
 
 ## Usage
 
@@ -15,7 +17,7 @@ NOTE: This package only supports ES modules. If you use this config in the Commo
 
 ```javascript
 import { core } from "eslint-config-phanective";
-import { vue, nuxt } from "eslint-config-phanective/vue";
+import { vue, nuxt } from "@phanect/lint-vue";
 
 /** @type { import("eslint").Linter.Config[] } */
 export default [
@@ -50,15 +52,15 @@ Supported configs:
   - `nodejs`
   - `unbundled`
     - Use this rules in addition to the above rules if the project depends on package.json's `dependencies` on production i.e. npm packages and backend Node.js app without bundling.
-- ~~`eslint-config-phanective/react`~~ (temporalily inactive)
+- ~~`@phanect/lint-react`~~ (temporalily inactive)
   - ~~react~~
   - ~~next~~
-- `eslint-config-phanective/vue`
+- `@phanect/lint-vue`
   - `vue`
   - `nuxt`
-- `eslint-config-phanective/svelte`
+- `@phanect/lint-svelte`
   - `svelte`
-- `eslint-config-phanective/astro`
+- `@phanect/lint-astro`
   - `astro`
 
 ## Test with realworld projects
