@@ -15,6 +15,7 @@
     "@phanect/lint": "2024.8.7",
     "@phanect/lint-vue": "2024.8.7",
     "@types/node": "^22.1.0",
-    "eslint": "^9.8.0"
+    "eslint": "^9.8.0",
+    "vue-tsc": "^2.1.6"
   }
 }
