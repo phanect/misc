@@ -35,8 +35,6 @@
     "build": "tsup",
     "test": "vitest run",
     "lint": "tsc --noEmit && : example-eslint",
-    "rwt": "esno ./scripts/rwt.ts",
-    "clean": "git clean -dX --force",
     "release": "npm publish . --access public"
   },
   "repository": {
