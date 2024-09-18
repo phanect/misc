@@ -1,5 +1,5 @@
 import deepmerge from "deepmerge";
-import { core } from "./defaults.ts";
+import { core } from "../../eslint/src/configs/defaults.ts";
 
 export const react = deepmerge(core, {
   extends: [
