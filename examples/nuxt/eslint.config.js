@@ -1,4 +1,4 @@
-import { core } from "eslint-config-phanective";
+import { core } from "@phanect/lint";
 import { vue, nuxt } from "@phanect/lint-vue";
 
 /** @type { import("eslint").Linter.Config[] } */
