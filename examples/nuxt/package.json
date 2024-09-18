@@ -1,5 +1,5 @@
 {
-  "name": "@phanect/eslint-fixture-nuxtts",
+  "name": "@phanect/eslint-fixture-nuxt",
   "private": true,
   "type": "module",
   "scripts": {
