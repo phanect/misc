@@ -1,5 +1,5 @@
 import { core } from "eslint-config-phanective";
-import { astro } from "eslint-config-phanective/astro";
+import { astro } from "@phanect/lint-astro";
 
 /** @type { import("eslint").Linter.Config[] } */
 export default [
