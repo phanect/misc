@@ -1,9 +1,11 @@
 // No "use strict"
 
+import { print } from "./valid-lib.ts"; // .ts extension is allowed
+
 const foo = "bar";
 const hoge = "fuga";
 
-console.log(foo, hoge);
+print(foo, hoge);
 
 // SwitchCase
 switch (foo) {
