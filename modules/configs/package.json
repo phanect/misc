@@ -33,14 +33,6 @@
     "@types/node": "*",
     "typescript": "*"
   },
-  "peerDependenciesMeta": {
-    "@types/node": {
-      "optional": true
-    },
-    "typescript": {
-      "optional": true
-    }
-  },
   "engines": {
     "node": ">=18.x",
     "npm": ">=10"
