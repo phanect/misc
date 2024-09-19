@@ -14,12 +14,12 @@
   "license": "CC0-1.0",
   "type": "module",
   "exports": {
-    "./tsconfig/cloudflare": "./configs/tsconfig/tsconfig.cloudflare.json",
-    "./tsconfig/frontend": "./configs/tsconfig/tsconfig.frontend.json",
-    "./tsconfig/nodejs": "./configs/tsconfig/tsconfig.nodejs.json",
-    "./tsconfig/addons/jsx": "./configs/tsconfig/addons/tsconfig.jsx.json",
-    "./tsconfig/addons/npm": "./configs/tsconfig/addons/tsconfig.npm.json",
-    "./tsconfig/addons/vite": "./configs/tsconfig/addons/tsconfig.vite.json"
+    "./ts/cloudflare": "./configs/ts/tsconfig.cloudflare.json",
+    "./ts/frontend": "./configs/ts/tsconfig.frontend.json",
+    "./ts/nodejs": "./configs/ts/tsconfig.nodejs.json",
+    "./ts/addons/jsx": "./configs/ts/addons/tsconfig.jsx.json",
+    "./ts/addons/npm": "./configs/ts/addons/tsconfig.npm.json",
+    "./ts/addons/vite": "./configs/ts/addons/tsconfig.vite.json"
   },
   "scripts": {
     "lint": "tsc --noEmit && : configs",
