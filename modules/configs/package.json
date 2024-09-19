@@ -1,7 +1,7 @@
 {
   "name": "@phanect/configs",
   "version": "2024.8.24",
-  "description": "Collection of [@phanect](https://github.com/phanect)'s personal configuration files",
+  "description": "Collection of @phanect's personal build configs",
   "author": "Jumpei Ogawa (https://phanective.org)",
   "homepage": "https://github.com/phanect/configs",
   "repository": {
