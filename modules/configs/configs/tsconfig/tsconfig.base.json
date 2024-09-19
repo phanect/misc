@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    // Type checking
+    "strict": true,
+    "skipLibCheck": true,
+    "allowImportingTsExtensions": true,
+    "allowJs": true,
+    "checkJs": true,
+
+    // Code generation
+    "noEmit": true,
+    "module": "esnext",
+    "target": "esnext",
+    "newLine": "lf",
+    "removeComments": true,
+
+    // Module resolution
+    "lib": ["esnext"],
+    "resolveJsonModule": true
+  }
+}
