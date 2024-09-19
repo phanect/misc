@@ -19,28 +19,21 @@
     "./tsconfig/nodejs": "./configs/tsconfig/tsconfig.nodejs.json",
     "./tsconfig/addons/jsx": "./configs/tsconfig/addons/tsconfig.jsx.json",
     "./tsconfig/addons/npm": "./configs/tsconfig/addons/tsconfig.npm.json",
-    "./tsconfig/addons/vite": "./configs/tsconfig/addons/tsconfig.vite.json",
-    "./biome": "./configs/biome.jsonc"
+    "./tsconfig/addons/vite": "./configs/tsconfig/addons/tsconfig.vite.json"
   },
   "scripts": {
-    "lint": "tsc --noEmit && biome check",
-    "fix": "biome check --write",
+    "lint": "tsc --noEmit && : configs",
     "release": "npm publish --access public --non-interactive"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.8.3",
     "@types/node": "^22.1.0",
     "typescript": "^5.4.5"
   },
   "peerDependencies": {
-    "@biomejs/biome": "*",
     "@types/node": "*",
     "typescript": "*"
   },
   "peerDependenciesMeta": {
-    "@biomejs/biome": {
-      "optional": true
-    },
     "@types/node": {
       "optional": true
     },
