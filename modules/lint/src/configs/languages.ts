@@ -150,6 +150,7 @@ export const commonConfigs: Linter.Config[] = [
       "@stylistic/space-in-parens": [ "warn", "never" ],
       "@stylistic/spaced-comment": [ "warn", "always" ],
       "@stylistic/switch-colon-spacing": [ "warn", { before: false, after: true }],
+      "@stylistic/template-curly-spacing": [ "warn", "always" ],
 
       "@stylistic/jsx-curly-spacing": [ "warn", { when: "always" }],
 
