@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": [
     "./.nuxt/tsconfig.json",
-    "@phanect/configs/tsconfig/frontend",
+    "@phanect/configs/ts/frontend",
   ],
   "include": [ "**/*.js", "**/*.mjs", "**/*.ts", "**/*.vue" ]
 }

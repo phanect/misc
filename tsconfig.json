@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "@phanect/configs/tsconfig/nodejs",
+  "extends": "@phanect/configs/ts/nodejs",
   "files": [ "modules/lint/package.json" ], // Required for scripts/rwt.ts
   "include": [ "**/*.js", "**/*.mjs", "**/*.ts" ],
   "exclude": [
