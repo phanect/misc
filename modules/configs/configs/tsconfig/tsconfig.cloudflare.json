@@ -1,7 +1,6 @@
 {
-  "extends": "./tsconfig.base.json",
+  "extends": "./tsconfig.frontend.json",
   "compilerOptions": {
-    "declaration": false,
     "types": [ "@cloudflare/workers-types" ]
   }
 }
