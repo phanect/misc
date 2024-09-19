@@ -1,6 +1,6 @@
 {
   "name": "@phanect/lint-astro",
-  "version": "2024.8.7",
+  "version": "2024.9.22",
   "description": "@phanect's personal ESLint config for Astro projects",
   "author": "Jumpei Ogawa (https://phanective.org)",
   "license": "CC0-1.0",
