@@ -20,4 +20,11 @@ export default [
       },
     },
   },
+  {
+    files: [ "**/tsconfig.*.json" ],
+
+    rules: {
+      "jsonc/no-comments": "off",
+    },
+  },
 ];
