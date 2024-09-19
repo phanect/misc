@@ -3,6 +3,7 @@
   "version": "2024.8.7",
   "description": "Personal ESLint configuration for Jumpei Ogawa (@phanect)",
   "type": "module",
+  "main": "./dist/eslint.js",
   "module": "./dist/eslint.js",
   "types": "./dist/eslint.d.ts",
   "exports": {
