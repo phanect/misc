@@ -20,6 +20,7 @@
     "fix": "npm run build && eslint --fix && npm run fix --workspaces --if-present",
     "rwt": "esno ./scripts/rwt.ts",
     "clean": "git clean -dX --force",
+    "version": "esno ./scripts/version.ts",
     "release": "npm run build && npm run release --workspaces"
   },
   "devDependencies": {
@@ -31,6 +32,7 @@
     "eslint": "^9.7.0",
     "esno": "^4.7.0",
     "tsup": "^8.3.0",
+    "type-fest": "^4.26.1",
     "typescript": "^5.3.3"
   },
   "engines": {
