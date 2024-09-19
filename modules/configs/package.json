@@ -1,0 +1,55 @@
+{
+  "name": "@phanect/configs",
+  "version": "2024.8.24",
+  "description": "Collection of [@phanect](https://github.com/phanect)'s personal configuration files",
+  "author": "Jumpei Ogawa (https://phanective.org)",
+  "homepage": "https://github.com/phanect/configs",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/phanect/configs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/phanect/configs/issues"
+  },
+  "license": "CC0-1.0",
+  "type": "module",
+  "exports": {
+    "./tsconfig/cloudflare": "./configs/tsconfig/tsconfig.cloudflare.json",
+    "./tsconfig/frontend": "./configs/tsconfig/tsconfig.frontend.json",
+    "./tsconfig/nodejs": "./configs/tsconfig/tsconfig.nodejs.json",
+    "./tsconfig/addons/jsx": "./configs/tsconfig/addons/tsconfig.jsx.json",
+    "./tsconfig/addons/npm": "./configs/tsconfig/addons/tsconfig.npm.json",
+    "./tsconfig/addons/vite": "./configs/tsconfig/addons/tsconfig.vite.json",
+    "./biome": "./configs/biome.jsonc"
+  },
+  "scripts": {
+    "lint": "tsc --noEmit && biome check",
+    "fix": "biome check --write",
+    "release": "npm publish --access public --non-interactive"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
+    "@types/node": "^22.1.0",
+    "typescript": "^5.4.5"
+  },
+  "peerDependencies": {
+    "@biomejs/biome": "*",
+    "@types/node": "*",
+    "typescript": "*"
+  },
+  "peerDependenciesMeta": {
+    "@biomejs/biome": {
+      "optional": true
+    },
+    "@types/node": {
+      "optional": true
+    },
+    "typescript": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=18.x",
+    "npm": ">=10"
+  }
+}
