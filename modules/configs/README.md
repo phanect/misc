@@ -17,20 +17,20 @@ tsconfig.json
 ```json
 {
   "extends": [
-    "@phanect/configs/tsconfig/nodejs",
-    "@phanect/configs/tsconfig/addons/npm"
+    "@phanect/configs/ts/nodejs",
+    "@phanect/configs/ts/addons/npm"
   ]
 }
 ```
 
 ### List of tsconfigs
 
-- `@phanect/configs/tsconfig/frontend`: For frontend projects
-- `@phanect/configs/tsconfig/nodejs`: For Node.js projects (Backend app & npm package)
-- `@phanect/configs/tsconfig/cloudflare`: For the apps runs on Cloudflare Workers. Use this config not only when your app only includes code for Cloudflare Workers, but also when your package includes the both code for Cloudflare Workers and frontend. (e.g. like Next.js or Nuxt-based app which includes both frontend and backend code)
-- `@phanect/configs/tsconfig/addons/jsx`: Supplemental tsconfig for JSX projects
-- `@phanect/configs/tsconfig/addons/npm`: Supplemental tsconfig for npm package (Generates .d.ts files)
-- `@phanect/configs/tsconfig/addons/vite`: Supplemental tsconfig for projects using Vite
+- `@phanect/configs/ts/frontend`: For frontend projects
+- `@phanect/configs/ts/nodejs`: For Node.js projects (Backend app & npm package)
+- `@phanect/configs/ts/cloudflare`: For the apps runs on Cloudflare Workers. Use this config not only when your app only includes code for Cloudflare Workers, but also when your package includes the both code for Cloudflare Workers and frontend. (e.g. like Next.js or Nuxt-based app which includes both frontend and backend code)
+- `@phanect/configs/ts/addons/jsx`: Supplemental tsconfig for JSX projects
+- `@phanect/configs/ts/addons/npm`: Supplemental tsconfig for npm package (Generates .d.ts files)
+- `@phanect/configs/ts/addons/vite`: Supplemental tsconfig for projects using Vite
 
 ## License
 
