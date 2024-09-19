@@ -4,6 +4,7 @@ import { core, nodejs } from "@phanect/lint";
 export default [
   {
     ignores: [
+      "**/.tsup/**",
       "**/dist/**",
       "examples/**", // Run ESLint command in each module directories
       "tests/fixtures/invalid/**",
