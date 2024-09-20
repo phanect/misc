@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "@phanect/lint-react",
   "version": "2024.8.7",
   "description": "@phanect's personal ESLint config for React & Next.js projects",
