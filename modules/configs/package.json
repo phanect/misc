@@ -26,8 +26,7 @@
     "./ts/addons/vite": "./configs/ts/addons/tsconfig.vite.json"
   },
   "scripts": {
-    "lint": "tsc --noEmit && : configs",
-    "release": "npm publish --access public --non-interactive"
+    "lint": "tsc --noEmit && : configs"
   },
   "devDependencies": {
     "@types/node": "^22.1.0",

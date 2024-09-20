@@ -21,8 +21,7 @@
   "scripts": {
     "build": "tsup",
     "test": "vitest run",
-    "lint": "tsc --noEmit && : lint",
-    "release": "npm publish . --access public"
+    "lint": "tsc --noEmit && : lint"
   },
   "repository": {
     "type": "git",
