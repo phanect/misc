@@ -21,7 +21,7 @@
     "rwt": "esno ./scripts/rwt.ts",
     "clean": "git clean -dX --force",
     "version": "esno ./scripts/version.ts",
-    "release": "npm run release:readme && npm run build && npm run release --workspaces",
+    "release": "npm run release:readme && npm run build && npm publish --access public --non-interactive --dry-run --workspace ./modules/ ",
     "release:readme": "esno ./scripts/release-readme.ts"
   },
   "devDependencies": {

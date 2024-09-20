@@ -18,8 +18,7 @@
   "types": "./dist/svelte.d.ts",
   "scripts": {
     "build": "tsup",
-    "lint": "tsc --noEmit && : lint-svelte",
-    "release": "npm publish . --access public"
+    "lint": "tsc --noEmit && : lint-svelte"
   },
   "dependencies": {
     "eslint-plugin-svelte": "^2.39.0"

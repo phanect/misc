@@ -18,8 +18,7 @@
   "types": "./dist/vue.d.ts",
   "scripts": {
     "build": "tsup",
-    "lint": "tsc --noEmit && : lint-vue",
-    "release": "npm publish . --access public"
+    "lint": "tsc --noEmit && : lint-vue"
   },
   "dependencies": {
     "@nuxt/eslint-config": "^0.5.0",

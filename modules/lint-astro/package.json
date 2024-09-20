@@ -18,8 +18,7 @@
   "types": "./dist/astro.d.ts",
   "scripts": {
     "build": "tsup",
-    "lint": "tsc --noEmit && : lint-astro",
-    "release": "npm publish . --access public"
+    "lint": "tsc --noEmit && : lint-astro"
   },
   "dependencies": {
     "eslint-plugin-astro": "^1.2.4",

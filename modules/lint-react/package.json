@@ -18,8 +18,7 @@
   "types": "./dist/react.d.ts",
   "scripts": {
     "build": ":",
-    "lint": "tsc --noEmit && : lint-react",
-    "release": ":"
+    "lint": "tsc --noEmit && : lint-react"
   },
   "dependencies": {
     "deepmerge": "^4.3.1",
