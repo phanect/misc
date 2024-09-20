@@ -1,6 +1,9 @@
 #
 # Project-specific
 #
+
+# READMEs copied from modules/lint/README.md to include in the npm package
+/modules/*/README.md
 /rwt.json
 
 #
