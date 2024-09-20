@@ -9,6 +9,10 @@
     "url": "git@github.com:phanect/misc.git"
   },
   "type": "module",
+  "files": [
+    "./dist",
+    "./README.md"
+  ],
   "main": "./dist/vue.js",
   "module": "./dist/vue.js",
   "types": "./dist/vue.d.ts",
