@@ -13,6 +13,10 @@
   },
   "license": "CC0-1.0",
   "type": "module",
+  "files": [
+    "./configs",
+    "./README.md"
+  ],
   "exports": {
     "./ts/cloudflare": "./configs/ts/tsconfig.cloudflare.json",
     "./ts/frontend": "./configs/ts/tsconfig.frontend.json",

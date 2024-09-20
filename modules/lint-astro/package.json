@@ -9,6 +9,10 @@
     "url": "git@github.com:phanect/misc.git"
   },
   "type": "module",
+  "files": [
+    "./dist",
+    "./README.md"
+  ],
   "main": "./dist/astro.js",
   "module": "./dist/astro.js",
   "types": "./dist/astro.d.ts",

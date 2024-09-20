@@ -1,5 +1,0 @@
-.tsup/
-src/
-tests/
-*.config.*
-tsconfig.json
