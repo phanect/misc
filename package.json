@@ -21,7 +21,8 @@
     "rwt": "esno ./scripts/rwt.ts",
     "clean": "git clean -dX --force",
     "version": "esno ./scripts/version.ts",
-    "release": "npm run build && npm run release --workspaces"
+    "release": "npm run release:readme && npm run build && npm run release --workspaces",
+    "release:readme": "esno ./scripts/release-readme.ts"
   },
   "devDependencies": {
     "@phanect/configs": "2024.8.24",
