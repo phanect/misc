@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.3",
-    "@phanect/configs": "latest",
+    "@phanect/configs": "2024.8.24",
     "@phanect/lint": "2024.8.7",
     "@phanect/lint-astro": "2024.8.7",
     "typescript": "^5.5.4"

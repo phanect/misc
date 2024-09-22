@@ -11,7 +11,7 @@
     "vue": "^3.4.35"
   },
   "devDependencies": {
-    "@phanect/configs": "latest",
+    "@phanect/configs": "2024.8.24",
     "@phanect/lint": "2024.8.7",
     "@phanect/lint-vue": "2024.8.7",
     "@types/node": "^22.1.0",
