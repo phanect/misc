@@ -23,7 +23,7 @@
     "release": "npm run build && npm run release --workspaces"
   },
   "devDependencies": {
-    "@phanect/configs": "latest",
+    "@phanect/configs": "2024.8.24",
     "@phanect/lint": "2024.8.7",
     "@phanect/utils": "^1.0.0",
     "@types/node": "^22.0.0",
