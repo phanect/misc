@@ -1,6 +1,6 @@
 {
   "name": "@phanect/lint",
-  "version": "2024.9.22",
+  "version": "2024.9.23",
   "description": "Personal ESLint configuration for Jumpei Ogawa (@phanect)",
   "type": "module",
   "files": [
