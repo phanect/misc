@@ -1,14 +1,14 @@
 {
   "name": "@phanect/eslint-fixture-nodejs",
-  "version": "2024.9.22",
+  "version": "2024.9.23",
   "private": true,
   "type": "module",
   "scripts": {
     "lint": "tsc --noEmit && eslint && : example-nodejs"
   },
   "devDependencies": {
-    "@phanect/configs": "2024.9.22",
-    "@phanect/lint": "2024.9.22",
+    "@phanect/configs": "2024.9.23",
+    "@phanect/lint": "2024.9.23",
     "eslint": "^9.8.0",
     "vitest": "^2.1.0"
   },
