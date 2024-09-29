@@ -1,6 +1,6 @@
 {
   "name": "@phanect/eslint-fixture-astro",
-  "version": "2024.9.23",
+  "version": "2024.10.2",
   "private": true,
   "type": "module",
   "scripts": {
@@ -11,9 +11,9 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.3",
-    "@phanect/configs": "2024.9.23",
-    "@phanect/lint": "2024.9.23",
-    "@phanect/lint-astro": "2024.9.23",
+    "@phanect/configs": "2024.10.2",
+    "@phanect/lint": "2024.10.2",
+    "@phanect/lint-astro": "2024.10.2",
     "typescript": "^5.5.4"
   },
   "engines": {
