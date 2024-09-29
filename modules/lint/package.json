@@ -1,6 +1,6 @@
 {
   "name": "@phanect/lint",
-  "version": "2024.9.23",
+  "version": "2024.10.2",
   "description": "Personal ESLint configuration for Jumpei Ogawa (@phanect)",
   "type": "module",
   "files": [
@@ -44,7 +44,7 @@
     "typescript-eslint": "^8.0.0"
   },
   "devDependencies": {
-    "@phanect/configs": "2024.9.23",
+    "@phanect/configs": "2024.10.2",
     "@types/eslint__js": "^8.42.3",
     "@types/node": "^22.0.0",
     "eslint": "^9.7.0",

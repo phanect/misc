@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@phanect/lint-react",
-  "version": "2024.8.7",
+  "version": "2024.10.2",
   "description": "@phanect's personal ESLint config for React & Next.js projects",
   "author": "Jumpei Ogawa (https://phanective.org)",
   "license": "CC0-1.0",
@@ -29,7 +29,7 @@
     "eslint-plugin-react-hooks": "^4.6.2"
   },
   "devDependencies": {
-    "@phanect/configs": "2024.9.23",
+    "@phanect/configs": "2024.10.2",
     "@types/node": "^22.0.0",
     "eslint": "^8.57.1",
     "tsup": "^8.2.4",

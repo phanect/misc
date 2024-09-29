@@ -1,6 +1,6 @@
 {
   "name": "@phanect/misc",
-  "version": "2024.9.23",
+  "version": "2024.10.2",
   "description": "Monorepo for @phanect's personal configs, templates, and other miscellaneous modules for development",
   "author": "Jumpei Ogawa (https://phanective.org)",
   "license": "CC0-1.0",
@@ -25,8 +25,8 @@
     "release:readme": "esno ./scripts/release-readme.ts"
   },
   "devDependencies": {
-    "@phanect/configs": "2024.9.23",
-    "@phanect/lint": "2024.9.23",
+    "@phanect/configs": "2024.10.2",
+    "@phanect/lint": "2024.10.2",
     "@phanect/utils": "^1.0.0",
     "@types/node": "^22.0.0",
     "deepmerge": "^4.3.1",
