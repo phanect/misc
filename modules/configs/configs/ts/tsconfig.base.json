@@ -1,11 +1,21 @@
 {
   "compilerOptions": {
-    // Type checking
+    // Type checking - generic configs
     "strict": true,
     "skipLibCheck": true,
     "allowImportingTsExtensions": true,
     "allowJs": true,
     "checkJs": true,
+
+    // Type checking - syntax lint
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "isolatedModules": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
 
     // Code generation
     "noEmit": true,
