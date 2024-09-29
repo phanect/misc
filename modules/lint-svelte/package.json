@@ -24,6 +24,7 @@
     "eslint-plugin-svelte": "^2.39.0"
   },
   "devDependencies": {
+    "@phanect/configs": "2024.9.23",
     "@types/node": "^22.0.0",
     "eslint": "^9.7.0",
     "tsup": "^8.2.4",
