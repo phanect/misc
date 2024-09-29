@@ -1,7 +1,9 @@
+import { tsupConfig } from "@phanect/configs/tsup/npm/nodejs";
 import { defineConfig } from "tsup";
-import { tsupConfig } from "../../tsup-shared.config.ts";
 
 export default defineConfig({
   ...tsupConfig,
   entry: [ "src/react.ts" ],
+  format: "esm",
+  minify: true,
 });

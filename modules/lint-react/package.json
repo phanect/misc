@@ -29,6 +29,7 @@
     "eslint-plugin-react-hooks": "^4.6.2"
   },
   "devDependencies": {
+    "@phanect/configs": "2024.9.23",
     "@types/node": "^22.0.0",
     "eslint": "^8.57.1",
     "tsup": "^8.2.4",
