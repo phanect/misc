@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
     // Type checking - generic configs
-    "strict": true,
     "skipLibCheck": true,
     "allowImportingTsExtensions": true,
     "allowJs": true,
     "checkJs": true,
 
     // Type checking - syntax lint
+    "strict": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "isolatedModules": true,
