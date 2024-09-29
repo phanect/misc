@@ -23,18 +23,42 @@
     "./ts/nodejs": "./configs/ts/tsconfig.nodejs.json",
     "./ts/addons/jsx": "./configs/ts/addons/tsconfig.jsx.json",
     "./ts/addons/npm": "./configs/ts/addons/tsconfig.npm.json",
-    "./ts/addons/vite": "./configs/ts/addons/tsconfig.vite.json"
+    "./ts/addons/vite": "./configs/ts/addons/tsconfig.vite.json",
+    "./tsup/app/nodejs": {
+      "types": "./dist/tsup/app-nodejs.d.ts",
+      "default": "./dist/tsup/app-nodejs.js"
+    },
+    "./tsup/npm/frontend": {
+      "types": "./dist/tsup/npm-frontend.d.ts",
+      "default": "./dist/tsup/npm-frontend.js"
+    },
+    "./tsup/npm/nodejs": {
+      "types": "./dist/tsup/npm-nodejs.d.ts",
+      "default": "./dist/tsup/npm-nodejs.js"
+    },
+    "./tsup/npm/universal": {
+      "types": "./dist/tsup/app-universal.d.ts",
+      "default": "./dist/tsup/app-universal.js"
+    }
   },
   "scripts": {
+    "build": "tsup",
     "lint": "tsc --noEmit && : configs"
   },
   "devDependencies": {
     "@types/node": "^22.1.0",
+    "tsup": "^8.3.0",
     "typescript": "^5.4.5"
   },
   "peerDependencies": {
     "@types/node": "*",
+    "tsup": "^8.3.0",
     "typescript": "*"
+  },
+  "peerDependenciesMeta": {
+    "tsup": {
+      "optional": true
+    }
   },
   "engines": {
     "node": ">=18.x",
