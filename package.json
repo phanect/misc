@@ -20,7 +20,7 @@
     "lint": "npm run build && tsc --noEmit && eslint && npm run lint --workspaces",
     "fix": "npm run build && eslint --fix && npm run fix --workspaces --if-present",
     "clean": "git clean -dX --force",
-    "version": "esno ./scripts/version.ts",
+    "versions": "esno ./scripts/versions.ts",
     "release": "npm run release:readme && npm run build && lerna publish from-package --yes",
     "release:readme": "esno ./scripts/release-readme.ts"
   },
