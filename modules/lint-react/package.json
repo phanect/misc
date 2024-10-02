@@ -23,8 +23,7 @@
   "dependencies": {
     "@next/eslint-plugin-next": "^14.2.12",
     "eslint-plugin-jsx-a11y": "^6.10.0",
-    "eslint-plugin-react": "^7.36.1",
-    "eslint-plugin-react-hooks": "^4.6.2"
+    "eslint-plugin-react": "^7.36.1"
   },
   "devDependencies": {
     "@phanect/configs": "2024.10.2",
