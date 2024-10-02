@@ -5,7 +5,7 @@ ESLint config for my own projects.
 ## Install
 
 ```shell
-npm install -D eslint @phanect/lint @phanect/lint-vue @phanect/lint-svelte @phanect/lint-astro
+npm install -D eslint @phanect/lint @phanect/lint-react @phanect/lint-vue @phanect/lint-svelte @phanect/lint-astro
 ```
 
 `@phanect/lint-*` packages are the linter configs for the specific frameworks. Install them if you use them.
@@ -52,9 +52,9 @@ Supported configs:
   - `nodejs`
   - `unbundled`
     - Use this rules in addition to the above rules if the project depends on package.json's `dependencies` on production i.e. npm packages and backend Node.js app without bundling.
-- ~~`@phanect/lint-react`~~ (temporalily inactive)
-  - ~~react~~
-  - ~~next~~
+- `@phanect/lint-react`
+  - react (react-hooks is not included currently because it does not support the flat config yet.)
+  - ~~next~~ (temporalily inactive)
 - `@phanect/lint-vue`
   - `vue`
   - `nuxt`
