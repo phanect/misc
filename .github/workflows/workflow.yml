@@ -32,7 +32,7 @@ jobs:
       # `npm run lint` runs `npm run build` before test and lint.
       - run: npm test
       - name: npm run lint
-        run: cp ./rwt.example.json ./rwt.json && npm run lint
+        run: npm run lint
 
   publish:
     needs: build

@@ -19,7 +19,6 @@
     "test": "npm run test --workspaces --if-present",
     "lint": "npm run build && tsc --noEmit && eslint && npm run lint --workspaces",
     "fix": "npm run build && eslint --fix && npm run fix --workspaces --if-present",
-    "rwt": "esno ./scripts/rwt.ts",
     "clean": "git clean -dX --force",
     "version": "esno ./scripts/version.ts",
     "release": "npm run release:readme && npm run build && npm publish --access public --non-interactive --workspace ./modules/ ",
