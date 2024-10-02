@@ -1,3 +1,4 @@
+import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
 import reactPlugin from "eslint-plugin-react";
 import type { Linter } from "eslint";
 
@@ -5,6 +6,7 @@ export const react: Linter.Config[] = [
   reactPlugin.configs.flat.recommended as Linter.Config,
   reactPlugin.configs.flat["jsx-runtime"] as Linter.Config,
   // TODO eslint-plugin-react-hooks
+  jsxA11yPlugin.flatConfigs.recommended as Linter.Config,
 
   {
     rules: {
