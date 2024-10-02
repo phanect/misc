@@ -17,7 +17,7 @@
   "module": "./dist/react.js",
   "types": "./dist/react.d.ts",
   "scripts": {
-    "build": ":",
+    "build": "tsup",
     "lint": "tsc --noEmit && : lint-react"
   },
   "dependencies": {
