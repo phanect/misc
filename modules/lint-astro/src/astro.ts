@@ -10,6 +10,30 @@ export const astro: Linter.Config[] = [
       // For performance
       "astro/no-unused-css-selector": "error",
 
+      //
+      // jsx-a11y
+      //
+      "astro/jsx-a11y/anchor-ambiguous-text": [ "error", {
+        words: [
+          // Defaults
+          "click here",
+          "here",
+          "link",
+          "a link",
+          "learn more",
+
+          // Japanese
+          "ここをクリック",
+          "ここをタップ",
+          "ここ",
+          "こちらをクリック",
+          "こちらをタップ",
+          "こちら",
+          "リンク",
+          "詳細",
+        ],
+      }],
+
       // Disallow `set:html`.
       // I'm not sure if I have chance to use `set:html`, so disallow it for now.
       "astro/no-set-html-directive": "warn",
