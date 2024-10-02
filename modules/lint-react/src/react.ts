@@ -1,7 +1,5 @@
-import deepmerge from "deepmerge";
-import { core } from "../../lint/src/eslint.ts";
 
-export const react = deepmerge(core, {
+export const react = {
   extends: [
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
@@ -16,8 +14,8 @@ export const react = deepmerge(core, {
     "react/jsx-filename-extension": [ "error", { extensions: [ ".jsx", ".tsx" ]}],
     "react/react-in-jsx-scope": "off",
   },
-});
+};
 
-export const next = deepmerge(react, {
+export const next = {
   extends: [ "next/core-web-vitals" ],
-});
+};
