@@ -30,7 +30,7 @@
   "author": "Jumpei Ogawa (https://phanective.org)",
   "license": "CC0-1.0",
   "engines": {
-    "node": ">=18.x",
+    "node": "18.x || 20.x || >=22.x",
     "npm": ">=10.x"
   },
   "dependencies": {
