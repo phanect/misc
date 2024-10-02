@@ -21,7 +21,7 @@
     "fix": "npm run build && eslint --fix && npm run fix --workspaces --if-present",
     "clean": "git clean -dX --force",
     "version": "esno ./scripts/version.ts",
-    "release": "npm run release:readme && npm run build && npm publish --access public --non-interactive --provenance --workspace ./modules/ ",
+    "release": "npm run release:readme && npm run build && npm publish --non-interactive --workspace ./modules/ ",
     "release:readme": "esno ./scripts/release-readme.ts"
   },
   "devDependencies": {
