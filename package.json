@@ -21,10 +21,12 @@
     "fix": "npm run build && eslint --fix && npm run fix --workspaces --if-present",
     "clean": "git clean -dX --force",
     "version": "esno ./scripts/version.ts",
-    "release": "npm run release:readme && npm run build && npm publish --non-interactive --workspaces",
+    "release": "npm run release:readme && npm run build && lerna publish from-package --yes",
     "release:readme": "esno ./scripts/release-readme.ts"
   },
   "devDependencies": {
+    "@lerna-lite/cli": "^3.9.2",
+    "@lerna-lite/publish": "^3.9.2",
     "@phanect/configs": "2024.10.2",
     "@phanect/lint": "2024.10.2",
     "@phanect/utils": "^1.0.0",
