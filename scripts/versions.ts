@@ -7,7 +7,7 @@ import { getExampleDirPaths, getModuleDirPaths } from "./libs/utils.ts";
 const packageJsonPaths = [
   // Project root
   join(import.meta.dirname, "../package.json"),
-  // modules/*/package.json
+  // workspaces/*/package.json
   ...(
     (await getModuleDirPaths())
       .map((moduleDirPath) => join(moduleDirPath, "package.json"))

@@ -2,5 +2,5 @@
 
 This monorepo includes @phanect's personal configs, templates, and other miscellaneous modules for development.
 
-- [`@phanect/configs`](./modules/configs)
-- [`@phanect/lint[-*]`](./modules/lint)
+- [`@phanect/configs`](./workspaces/configs)
+- [`@phanect/lint[-*]`](./workspaces/lint)
