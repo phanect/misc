@@ -44,7 +44,7 @@
     "typescript-eslint": "^8.0.0"
   },
   "devDependencies": {
-    "@phanect/configs": "2024.10.2",
+    "@phanect/configs": "2024.10.3",
     "@types/eslint__js": "^8.42.3",
     "@types/node": "^22.0.0",
     "eslint": "^9.7.0",
