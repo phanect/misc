@@ -1,7 +1,7 @@
 {
   "name": "@phanect/misc",
   "version": "2024.10.3",
-  "description": "Monorepo for @phanect's personal configs, templates, and other miscellaneous modules for development",
+  "description": "Monorepo for @phanect's personal configs",
   "author": "Jumpei Ogawa (https://phanective.org)",
   "license": "CC0-1.0",
   "repository": {
