@@ -1,13 +1,13 @@
 import { copyFile } from "node:fs/promises";
 import { join } from "node:path";
-import { getModuleDirNames } from "./libs/utils.ts";
+import { getWorkspaceDirNames } from "./libs/utils.ts";
 
-const modulesDirPath = join(import.meta.dirname, "../workspaces");
-const srcReadMePath = join(modulesDirPath, "lint/README.md");
+const workspacesDirPath = join(import.meta.dirname, "../workspaces");
+const srcReadMePath = join(workspacesDirPath, "lint/README.md");
 
-const generatedReadMePaths = (await getModuleDirNames())
+const generatedReadMePaths = (await getWorkspaceDirNames())
   .filter((moduleDirName) => moduleDirName.startsWith("lint-"))
-  .map((moduleDirName) => join(modulesDirPath, moduleDirName, "README.md"));
+  .map((moduleDirName) => join(workspacesDirPath, moduleDirName, "README.md"));
 
 await Promise.all(
   generatedReadMePaths.map(async (generatedReadMePath) => copyFile(
