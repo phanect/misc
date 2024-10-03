@@ -9,9 +9,6 @@
     "type": "git",
     "url": "git+ssh://git@github.com/phanect/misc.git"
   },
-  "bugs": {
-    "url": "https://github.com/phanect/configs/issues"
-  },
   "type": "module",
   "files": [
     "./configs",
