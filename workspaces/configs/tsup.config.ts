@@ -1,17 +1,10 @@
-import { join } from "node:path";
 import { defineConfig } from "tsup";
-import { tsupConfig } from "./src/tsup/npm-nodejs.ts";
+import { nodejsLib } from "./src/tsup.ts";
 
 export default defineConfig({
-  ...tsupConfig,
+  ...nodejsLib,
 
-  entry: [
-    "src/tsup/app-nodejs.ts",
-    "src/tsup/npm-frontend.ts",
-    "src/tsup/npm-nodejs.ts",
-    "src/tsup/npm-universal.ts",
-  ],
-  outDir: join(import.meta.dirname, "dist/tsup/"),
+  entry: [ "src/tsup.ts" ],
   format: "esm",
   minify: true,
 });

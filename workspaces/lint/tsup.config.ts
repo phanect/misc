@@ -1,8 +1,8 @@
-import { tsupConfig } from "@phanect/configs/tsup/npm/nodejs";
+import { nodejsLib } from "@phanect/configs/tsup";
 import { defineConfig } from "tsup";
 
 export default defineConfig({
-  ...tsupConfig,
+  ...nodejsLib,
   entry: {
     eslint: "src/eslint.ts",
   },

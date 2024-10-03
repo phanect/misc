@@ -25,21 +25,9 @@
     "./ts/addons/jsx": "./configs/ts/addons/tsconfig.jsx.json",
     "./ts/addons/npm": "./configs/ts/addons/tsconfig.npm.json",
     "./ts/addons/vite": "./configs/ts/addons/tsconfig.vite.json",
-    "./tsup/app/nodejs": {
-      "types": "./dist/tsup/app-nodejs.d.ts",
-      "default": "./dist/tsup/app-nodejs.js"
-    },
-    "./tsup/npm/frontend": {
-      "types": "./dist/tsup/npm-frontend.d.ts",
-      "default": "./dist/tsup/npm-frontend.js"
-    },
-    "./tsup/npm/nodejs": {
-      "types": "./dist/tsup/npm-nodejs.d.ts",
-      "default": "./dist/tsup/npm-nodejs.js"
-    },
-    "./tsup/npm/universal": {
-      "types": "./dist/tsup/app-universal.d.ts",
-      "default": "./dist/tsup/app-universal.js"
+    "./tsup": {
+      "types": "./dist/tsup.d.ts",
+      "default": "./dist/tsup.js"
     }
   },
   "scripts": {
