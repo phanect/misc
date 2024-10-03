@@ -4,6 +4,7 @@
   "description": "@phanect's personal ESLint config for Svelte & SvelteKit projects",
   "author": "Jumpei Ogawa (https://phanective.org)",
   "license": "CC0-1.0",
+  "homepage": "https://github.com/phanect/misc",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/phanect/misc.git"
