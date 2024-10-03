@@ -7,7 +7,7 @@
     "node_modules",
 
     // In the sub workspaces, the typecheck is done by their own `npm run lint` command.
-    "modules",
+    "workspaces",
     "examples"
   ]
 }
