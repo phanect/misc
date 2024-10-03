@@ -1,6 +1,6 @@
 {
   "name": "@phanect/misc",
-  "version": "2024.10.2",
+  "version": "2024.10.3",
   "description": "Monorepo for @phanect's personal configs, templates, and other miscellaneous modules for development",
   "author": "Jumpei Ogawa (https://phanective.org)",
   "license": "CC0-1.0",
@@ -27,7 +27,7 @@
   "devDependencies": {
     "@lerna-lite/cli": "^3.9.2",
     "@lerna-lite/publish": "^3.9.2",
-    "@phanect/configs": "2024.10.2",
+    "@phanect/configs": "2024.10.3",
     "@phanect/lint": "2024.10.2",
     "@phanect/utils": "^1.0.0",
     "@types/eslint-plugin-jsx-a11y": "^6.9.0",

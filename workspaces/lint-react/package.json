@@ -26,7 +26,7 @@
     "eslint-plugin-react": "^7.36.1"
   },
   "devDependencies": {
-    "@phanect/configs": "2024.10.2",
+    "@phanect/configs": "2024.10.3",
     "@types/node": "^22.0.0",
     "eslint": "^9.11.1",
     "tsup": "^8.2.4",

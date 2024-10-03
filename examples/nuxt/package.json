@@ -1,6 +1,6 @@
 {
   "name": "@phanect/eslint-fixture-nuxt",
-  "version": "2024.10.2",
+  "version": "2024.10.3",
   "private": true,
   "type": "module",
   "scripts": {
@@ -12,7 +12,7 @@
     "vue": "^3.4.35"
   },
   "devDependencies": {
-    "@phanect/configs": "2024.10.2",
+    "@phanect/configs": "2024.10.3",
     "@phanect/lint": "2024.10.2",
     "@phanect/lint-vue": "2024.10.2",
     "@types/node": "^22.1.0",
