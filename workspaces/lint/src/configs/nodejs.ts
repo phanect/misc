@@ -189,6 +189,12 @@ export const devConfigs: Linter.Config[] = [
     ...nodejsGlobalConfig,
     files: configFilePatterns,
   },
+  {
+    files: configFilePatterns,
+    rules: {
+      "n/no-extraneous-import": "off",
+    },
+  },
 ];
 
 export const unbundledConfigs: Linter.Config[] = [{
