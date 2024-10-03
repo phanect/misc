@@ -1,7 +1,7 @@
 import { readdir } from "node:fs/promises";
 import { join } from "node:path";
 
-const modulesDirPath = join(import.meta.dirname, "../../modules");
+const modulesDirPath = join(import.meta.dirname, "../../workspaces");
 
 export const getModuleDirNames = async (): Promise<string[]> =>
   readdir(modulesDirPath);
