@@ -1,14 +1,14 @@
 import { readdir } from "node:fs/promises";
 import { join } from "node:path";
 
-const modulesDirPath = join(import.meta.dirname, "../../workspaces");
+const workspacesDirPath = join(import.meta.dirname, "../../workspaces");
 
-export const getModuleDirNames = async (): Promise<string[]> =>
-  readdir(modulesDirPath);
+export const getWorkspaceDirNames = async (): Promise<string[]> =>
+  readdir(workspacesDirPath);
 
-export const getModuleDirPaths = async (): Promise<string[]> =>
-  (await getModuleDirNames())
-    .map((moduleDirName) => join(modulesDirPath, moduleDirName));
+export const getWorkspaceDirPaths = async (): Promise<string[]> =>
+  (await getWorkspaceDirNames())
+    .map((workspaceDirName) => join(workspacesDirPath, workspaceDirName));
 
 export const getExampleDirPaths = async (): Promise<string[]> => {
   const examplesDirPath = join(import.meta.dirname, "../../examples");
