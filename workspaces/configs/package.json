@@ -3,6 +3,7 @@
   "version": "2024.10.3",
   "description": "Collection of @phanect's personal build configs",
   "author": "Jumpei Ogawa (https://phanective.org)",
+  "license": "CC0-1.0",
   "homepage": "https://github.com/phanect/configs",
   "repository": {
     "type": "git",
@@ -11,7 +12,6 @@
   "bugs": {
     "url": "https://github.com/phanect/configs/issues"
   },
-  "license": "CC0-1.0",
   "type": "module",
   "files": [
     "./configs",
