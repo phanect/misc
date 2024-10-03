@@ -1,8 +1,8 @@
-import { tsupConfig } from "@phanect/configs/tsup/npm/nodejs";
+import { nodejsLib } from "@phanect/configs/tsup";
 import { defineConfig } from "tsup";
 
 export default defineConfig({
-  ...tsupConfig,
+  ...nodejsLib,
   entry: [ "src/vue.ts" ],
   format: "esm",
   minify: true,
