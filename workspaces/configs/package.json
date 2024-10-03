@@ -4,10 +4,10 @@
   "description": "Collection of @phanect's personal build configs",
   "author": "Jumpei Ogawa (https://phanective.org)",
   "license": "CC0-1.0",
-  "homepage": "https://github.com/phanect/configs",
+  "homepage": "https://github.com/phanect/misc",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/phanect/configs.git"
+    "url": "git+ssh://git@github.com/phanect/misc.git"
   },
   "bugs": {
     "url": "https://github.com/phanect/configs/issues"
