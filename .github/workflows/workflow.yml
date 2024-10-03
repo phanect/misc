@@ -46,6 +46,11 @@ jobs:
       - name: npm run lint
         run: npm run lint
 
+      - name: Quick test for npm scripts - npm run release:readme
+        run: npm run release:readme
+      - name: Quick test for npm scripts - npm run versions
+        run: npm run versions
+
   publish:
     needs:
       - test
