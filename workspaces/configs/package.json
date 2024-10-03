@@ -15,6 +15,7 @@
   "type": "module",
   "files": [
     "./configs",
+    "./dist",
     "./README.md"
   ],
   "exports": {
