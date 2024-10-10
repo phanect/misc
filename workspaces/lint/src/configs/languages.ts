@@ -1,5 +1,6 @@
 import js from "@eslint/js";
 import stylistic from "@stylistic/eslint-plugin";
+import imports from "eslint-plugin-import";
 import jsdoc from "eslint-plugin-jsdoc";
 import promise from "eslint-plugin-promise";
 import ts from "typescript-eslint";
@@ -23,9 +24,9 @@ const prefixRequiredRules: Linter.RulesRecord = {
  */
 export const commonConfigs: Linter.Config[] = [
   stylistic.configs["recommended-flat"],
+  imports.flatConfigs.recommended,
   promise.configs["flat/recommended"],
-  // TODO add import-x, editorconfig, and document-write plugins when it is ready to flat configs
-  // importConfigs["flat/recommended"],
+  // TODO add editorconfig and document-write plugins when it is ready to flat configs
   // editorConfigConfigs["recommended"],
   // docWriteConfigs["recommended"],
   {
@@ -76,7 +77,8 @@ export const commonConfigs: Linter.Config[] = [
       // "editorconfig/indent": [ "error", { SwitchCase: 1 }],
       // "editorconfig/linebreak-style": "error",
       // "editorconfig/no-trailing-spaces": "error",
-      // "import-x/no-unresolved": [ "error", { ignore: [ "vitest/config" ]}],
+
+      "import/no-unresolved": [ "error", { ignore: [ "vitest/config" ]}],
 
       // Temporal equivalent rules for editorconfig plugin
       "unicode-bom": [ "error", "never" ],
@@ -85,22 +87,21 @@ export const commonConfigs: Linter.Config[] = [
       "@stylistic/linebreak-style": [ "error", "unix" ],
       "@stylistic/no-trailing-spaces": "error",
 
-      // Declare again to avoid to be overwritten by `plugin:import-x/typescript`
-      // "import-x/order": [ "warn", {
-      //   alphabetize: {
-      //     order: "asc",
-      //     orderImportKind: "asc",
-      //   },
-      //   warnOnUnassignedImports: true,
-      //   groups: [
-      //     "builtin",
-      //     "external",
-      //     "internal",
-      //     [ "parent", "sibling", "index" ],
-      //     "object",
-      //     "type",
-      //   ],
-      // }],
+      "import/order": [ "warn", {
+        alphabetize: {
+          order: "asc",
+          orderImportKind: "asc",
+        },
+        warnOnUnassignedImports: true,
+        groups: [
+          "builtin",
+          "external",
+          "internal",
+          [ "parent", "sibling", "index" ],
+          "object",
+          "type",
+        ],
+      }],
 
       "promise/prefer-await-to-callbacks": "error",
       "promise/prefer-await-to-then": "error",
@@ -155,7 +156,7 @@ export const commonConfigs: Linter.Config[] = [
       "@stylistic/jsx-curly-spacing": [ "warn", { when: "always" }],
 
       // Require file extensions in `import`s
-      // "import-x/extensions": [ "warn", "always", { ignorePackages: true }],
+      "import/extensions": [ "warn", "always", { ignorePackages: true }],
 
       //
       // Off
@@ -166,12 +167,12 @@ export const commonConfigs: Linter.Config[] = [
 
       "@stylistic/jsx-one-expression-per-line": "off",
     },
-    // settings: {
-    //   "import-x/ignore": [
-    //     "node_modules",
-    //     "vitest", // not working with import-x/named
-    //   ],
-    // },
+    settings: {
+      "import/ignore": [
+        "node_modules",
+        "vitest", // not working with import/named
+      ],
+    },
   } satisfies Linter.Config,
 ].map((config) => ({
   ...config,
@@ -212,11 +213,9 @@ export const tsConfigs: Linter.Config[] = ts.config(
   js.configs.recommended,
   ...ts.configs.recommendedTypeChecked,
   ...ts.configs.stylisticTypeChecked,
+  imports.flatConfigs.typescript,
   jsdoc.configs["flat/recommended-typescript"],
   {
-    // TODO add import-x, editorconfig, and document-write plugins when it is ready to flat configs
-    // ...importConfigs["typescript"],
-
     rules: {
       ...toTSRules(prefixRequiredRules),
 
@@ -256,17 +255,17 @@ export const tsConfigs: Linter.Config[] = ts.config(
       jsdoc: {
         mode: "typescript", // TODO Check if this setting is required.
       },
-      // "import-x/resolver": {
-      //   typescript: {
-      //     extensions: [
-      //       ".js", ".mjs", ".cjs",
-      //       ".ts", ".mts", ".cts",
-      //       ".d.ts", ".json",
-      //       ".jsx", ".tsx", ".vue", ".svelte",
-      //     ],
-      //     alwaysTryTypes: true,
-      //   },
-      // },
+      "import/resolver": {
+        typescript: {
+          extensions: [
+            ".js", ".mjs", ".cjs",
+            ".ts", ".mts", ".cts",
+            ".d.ts", ".json",
+            ".jsx", ".tsx", ".vue", ".svelte",
+          ],
+          alwaysTryTypes: true,
+        },
+      },
     },
   } satisfies Linter.Config,
 ).map((config) => ({

@@ -85,7 +85,7 @@ const nodejsGlobalConfig: Linter.Config = {
     // Off
     //
 
-    // Duplicate of import-x/no-unresolved
+    // Duplicate of import/no-unresolved
     "n/no-missing-import": "off",
 
     // Only enable these rules on `phanective/with-deps` ruleset
@@ -124,7 +124,10 @@ const cjsConfigs: Linter.Config[] = [
       sourceType: "commonjs",
     },
     rules: {
-      // "import-x/no-unresolved": [ "error", { commonjs: true }],
+      "import/no-unresolved": [ "error", {
+        ignore: [ "vitest/config" ],
+        commonjs: true,
+      }],
 
       "n/no-unpublished-import": "off",
       "n/no-unpublished-require": "off",
