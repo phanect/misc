@@ -3,6 +3,6 @@
   "compilerOptions": {
     "declaration": false,
     "moduleResolution": "bundler",
-    "lib": [ "dom" ]
+    "lib": [ "esnext", "dom" ]
   }
 }
