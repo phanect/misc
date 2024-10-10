@@ -20,6 +20,7 @@
     "lint": "pnpm run build && tsc --noEmit && eslint && pnpm --recursive --stream --if-present run lint",
     "fix": "pnpm run build && eslint --fix && pnpm --recursive --stream --if-present run fix",
     "clean": "git clean -dX --force",
+    "refresh": "pnpm run clean && corepack up && pnpm install",
     "versions": "esno ./scripts/versions.ts",
     "release": "pnpm run release:readme && pnpm run build && lerna publish from-package --yes",
     "release:readme": "esno ./scripts/release-readme.ts"
