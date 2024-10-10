@@ -11,9 +11,9 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.3",
-    "@phanect/configs": "2024.10.3",
-    "@phanect/lint": "2024.10.2",
-    "@phanect/lint-astro": "2024.10.2",
+    "@phanect/configs": "workspace:*",
+    "@phanect/lint": "workspace:*",
+    "@phanect/lint-astro": "workspace:*",
     "typescript": "^5.5.4"
   },
   "engines": {

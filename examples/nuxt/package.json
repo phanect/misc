@@ -12,9 +12,9 @@
     "vue": "^3.4.35"
   },
   "devDependencies": {
-    "@phanect/configs": "2024.10.3",
-    "@phanect/lint": "2024.10.2",
-    "@phanect/lint-vue": "2024.10.2",
+    "@phanect/configs": "workspace:*",
+    "@phanect/lint": "workspace:*",
+    "@phanect/lint-vue": "workspace:*",
     "@types/node": "^22.1.0",
     "eslint": "^9.8.0",
     "vue-tsc": "^2.1.6"
