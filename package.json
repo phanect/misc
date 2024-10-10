@@ -15,20 +15,20 @@
     "examples/*"
   ],
   "scripts": {
-    "build": "npm run build --workspaces --if-present",
-    "test": "npm run test --workspaces --if-present",
-    "lint": "npm run build && tsc --noEmit && eslint && npm run lint --workspaces",
-    "fix": "npm run build && eslint --fix && npm run fix --workspaces --if-present",
+    "build": "pnpm --recursive --stream --if-present run build",
+    "test": "pnpm  --recursive --stream --if-present run test",
+    "lint": "pnpm run build && tsc --noEmit && eslint && pnpm --recursive --stream --if-present run lint",
+    "fix": "pnpm run build && eslint --fix && pnpm --recursive --stream --if-present run fix",
     "clean": "git clean -dX --force",
     "versions": "esno ./scripts/versions.ts",
-    "release": "npm run release:readme && npm run build && lerna publish from-package --yes",
+    "release": "pnpm run release:readme && pnpm run build && lerna publish from-package --yes",
     "release:readme": "esno ./scripts/release-readme.ts"
   },
   "devDependencies": {
     "@lerna-lite/cli": "^3.9.2",
     "@lerna-lite/publish": "^3.9.2",
-    "@phanect/configs": "2024.10.3",
-    "@phanect/lint": "2024.10.2",
+    "@phanect/configs": "workspace:*",
+    "@phanect/lint": "workspace:*",
     "@phanect/utils": "^1.0.0",
     "@types/eslint-plugin-jsx-a11y": "^6.9.0",
     "@types/node": "^22.0.0",
@@ -40,6 +40,7 @@
   },
   "engines": {
     "node": "18.x || 20.x || >=22.x",
-    "npm": ">=10.x"
-  }
+    "pnpm": ">=9.x"
+  },
+  "packageManager": "pnpm@9.12.1+sha512.e5a7e52a4183a02d5931057f7a0dbff9d5e9ce3161e33fa68ae392125b79282a8a8a470a51dfc8a0ed86221442eb2fb57019b0990ed24fab519bf0e1bc5ccfc4"
 }

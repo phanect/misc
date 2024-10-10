@@ -7,8 +7,8 @@
     "lint": "tsc --noEmit && eslint && : example-nodejs"
   },
   "devDependencies": {
-    "@phanect/configs": "2024.10.3",
-    "@phanect/lint": "2024.10.2",
+    "@phanect/configs": "workspace:*",
+    "@phanect/lint": "workspace:*",
     "eslint": "^9.8.0",
     "vitest": "^2.1.0"
   },

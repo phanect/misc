@@ -27,9 +27,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+      - uses: pnpm/action-setup@v4
 
-      - run: npm install
-      - run: npm test
+      - run: pnpm install
+      - run: pnpm test
 
   lint:
     runs-on: ubuntu-latest
@@ -39,17 +40,18 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+      - uses: pnpm/action-setup@v4
 
-      - run: npm install
-      # You don't have to run `npm run build` because
-      # `npm run lint` runs `npm run build` before test and lint.
-      - name: npm run lint
-        run: npm run lint
+      - run: pnpm install
+      # You don't have to run `pnpm run build` because
+      # `pnpm run lint` runs `pnpm run build` before test and lint.
+      - name: pnpm run lint
+        run: pnpm run lint
 
-      - name: Quick test for npm scripts - npm run release:readme
-        run: npm run release:readme
-      - name: Quick test for npm scripts - npm run versions
-        run: npm run versions
+      - name: Quick test for pnpm scripts - pnpm run release:readme
+        run: pnpm run release:readme
+      - name: Quick test for pnpm scripts - pnpm run versions
+        run: pnpm run versions
 
   publish:
     needs:
@@ -66,10 +68,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - uses: pnpm/action-setup@v4
 
-      - run: npm install
-      - run: npm run build
+      - run: pnpm install
+      - run: pnpm run build
 
       - name: Set npm auth token
         run: echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_AUTH_TOKEN}}" > ~/.npmrc
-      - run: npm run release
+      - run: pnpm run release
