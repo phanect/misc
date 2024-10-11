@@ -6,6 +6,14 @@ export const astro: Linter.Config[] = [
   ...astroPlugin.configs["jsx-a11y-recommended"],
   {
     files: [ "**/*.astro" ],
+    languageOptions: {
+      parserOptions: {
+        // `projectService: true` does not work properly with Astro ruleset.
+        // Using `project: true` instead.
+        projectService: false,
+        project: true,
+      },
+    },
     rules: {
       // For performance
       "astro/no-unused-css-selector": "error",

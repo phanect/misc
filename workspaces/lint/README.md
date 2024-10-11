@@ -37,7 +37,6 @@ export default [
 
     languageOptions: {
       parserOptions: {
-        projectService: true, // Use `project: true` instead if you use `astro` ruleset.
         tsconfigRootDir: import.meta.dirname,
       },
     },
