@@ -89,6 +89,7 @@ const nodejsGlobalConfig: Linter.Config = {
     "n/no-missing-import": "off",
 
     // Only enable these rules on `phanective/with-deps` ruleset
+    "n/no-extraneous-import": "off",
     "n/no-unpublished-import": "off",
     "n/no-unpublished-require": "off",
   },
@@ -98,6 +99,7 @@ const esmConfigs: Linter.Config[] = [
   n.configs["flat/recommended-module"],
   {
     rules: {
+      "n/no-extraneous-import": "off",
       "n/no-unpublished-import": "off",
       "n/no-unpublished-require": "off",
     },
@@ -129,6 +131,7 @@ const cjsConfigs: Linter.Config[] = [
         commonjs: true,
       }],
 
+      "n/no-extraneous-import": "off",
       "n/no-unpublished-import": "off",
       "n/no-unpublished-require": "off",
     },
@@ -215,6 +218,7 @@ export const unbundledConfigs: Linter.Config[] = [{
   },
 
   rules: {
+    "n/no-extraneous-import": "error",
     "n/no-unpublished-import": "error",
     "n/no-unpublished-require": "error",
   },
