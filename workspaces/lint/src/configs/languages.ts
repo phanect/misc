@@ -248,6 +248,11 @@ export const tsConfigs: Linter.Config[] = ts.config(
   imports.flatConfigs.typescript,
   jsdoc.configs["flat/recommended-typescript"],
   {
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+      },
+    },
     rules: {
       ...toTSRules(prefixRequiredRules),
 
