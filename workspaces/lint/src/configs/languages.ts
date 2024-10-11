@@ -89,8 +89,21 @@ export const commonConfigs: Linter.Config[] = [
 
       "import/order": [ "warn", {
         alphabetize: {
-          order: "asc",
+          // By enabling this, it forces to put the types from relative path
+          // (e.g. `import type { Ext } from "./utils.ts";`) before the types
+          // from the external modules (e.g. `import type { Linter } from "eslint";`)
+          // order: "asc",
+
           orderImportKind: "asc",
+          caseInsensitive: true,
+        },
+        named: {
+          enabled: true,
+          import: true,
+          export: true,
+          require: true,
+          cjsExports: true,
+          types: "types-last",
         },
         warnOnUnassignedImports: true,
         groups: [
@@ -100,6 +113,24 @@ export const commonConfigs: Linter.Config[] = [
           [ "parent", "sibling", "index" ],
           "object",
           "type",
+        ],
+        pathGroups: [
+          {
+            pattern: "~/**",
+            group: "internal",
+          },
+          {
+            pattern: "~~/**",
+            group: "internal",
+          },
+          {
+            pattern: "@/**",
+            group: "internal",
+          },
+          {
+            pattern: "@@/**",
+            group: "internal",
+          },
         ],
       }],
 
