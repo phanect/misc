@@ -1,8 +1,8 @@
-import { loadJSON } from "@phanect/utils/nodejs";
 import { writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import type { PackageJson } from "type-fest";
+import { loadJSON } from "@phanect/utils/nodejs";
 import { getExampleDirPaths, getWorkspaceDirPaths } from "./libs/utils.ts";
+import type { PackageJson } from "type-fest";
 
 const packageJsonPaths = [
   // Project root
