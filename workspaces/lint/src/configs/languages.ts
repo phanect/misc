@@ -87,6 +87,7 @@ export const commonConfigs: Linter.Config[] = [
       "@stylistic/linebreak-style": [ "error", "unix" ],
       "@stylistic/no-trailing-spaces": "error",
 
+      "import/no-deprecated": "warn",
       "import/order": [ "warn", {
         alphabetize: {
           // By enabling this, it forces to put the types from relative path
