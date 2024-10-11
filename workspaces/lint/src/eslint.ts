@@ -15,7 +15,7 @@ export const core: Linter.Config[] = [
     ],
   } satisfies Linter.Config,
   {
-    files: [ "*" ],
+    files: [ "**/*" ],
     linterOptions: {
       noInlineConfig: true,
       reportUnusedDisableDirectives: "error",
