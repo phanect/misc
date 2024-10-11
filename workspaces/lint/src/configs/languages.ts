@@ -6,7 +6,6 @@ import promise from "eslint-plugin-promise";
 import ts from "typescript-eslint";
 import { toTSRules, type CodeExtensions, type JsExtensions, type TsExtensions } from "../utils.ts";
 import type { ESLint, Linter } from "eslint";
-import "../types/plugins.d.ts";
 
 /** Rules to be prefixed with "@typescript-eslint/" when they are applied to TS */
 const prefixRequiredRules: Linter.RulesRecord = {
