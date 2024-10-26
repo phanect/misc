@@ -1,6 +1,10 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    // for eslint-plugin-jsx-a11y and eslint-plugin-react
+    "esModuleInterop": true
+  },
   "include": [ "**/*.js", "**/*.mjs", "**/*.ts" ],
   "exclude": [ "dist" ],
 }
