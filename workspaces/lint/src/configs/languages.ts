@@ -82,7 +82,10 @@ export const commonConfigs: Linter.Config[] = [
       // Temporal equivalent rules for editorconfig plugin
       "unicode-bom": [ "error", "never" ],
       "@stylistic/eol-last": [ "error", "always" ],
-      "@stylistic/indent": [ "error", 2, { SwitchCase: 1 }],
+      "@stylistic/indent": [ "error", 2, {
+        flatTernaryExpressions: true,
+        SwitchCase: 1,
+      }],
       "@stylistic/linebreak-style": [ "error", "unix" ],
       "@stylistic/no-trailing-spaces": "error",
 
