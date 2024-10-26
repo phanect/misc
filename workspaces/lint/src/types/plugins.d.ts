@@ -1,3 +1,17 @@
+declare module "eslint-plugin-editorconfig" {
+  import type { Linter } from "eslint";
+
+  const mod: {
+    configs: {
+      all: {
+        rules: Linter.Config;
+      };
+    };
+  };
+
+  export default mod;
+}
+
 declare module "eslint-plugin-promise" {
   import type { Linter } from "eslint";
 

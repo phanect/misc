@@ -1,5 +1,6 @@
 import js from "@eslint/js";
 import stylistic from "@stylistic/eslint-plugin";
+import editorconfig from "eslint-plugin-editorconfig";
 import imports from "eslint-plugin-import";
 import jsdoc from "eslint-plugin-jsdoc";
 import promise from "eslint-plugin-promise";
@@ -23,6 +24,7 @@ const prefixRequiredRules: Linter.RulesRecord = {
  */
 export const commonConfigs: Linter.Config[] = [
   stylistic.configs["recommended-flat"],
+  editorconfig.configs.all.rules,
   imports.flatConfigs.recommended,
   promise.configs["flat/recommended"],
   // TODO add editorconfig and document-write plugins when it is ready to flat configs
@@ -35,6 +37,8 @@ export const commonConfigs: Linter.Config[] = [
     },
     plugins: {
       "@stylistic": stylistic as ESLint.Plugin,
+      // TODO remove `as unknown as ESLint.Plugin` when editorconfig plugin supports TypeScript
+      editorconfig: editorconfig as unknown as ESLint.Plugin,
       jsdoc,
       promise,
     },
@@ -71,23 +75,13 @@ export const commonConfigs: Linter.Config[] = [
       "prefer-spread": "error",
 
       // "document-write/no-document-write": "error",
-      // "editorconfig/charset": "error",
-      // "editorconfig/eol-last": "error",
-      // "editorconfig/indent": [ "error", { SwitchCase: 1 }],
-      // "editorconfig/linebreak-style": "error",
-      // "editorconfig/no-trailing-spaces": "error",
 
       "import/no-unresolved": [ "error", { ignore: [ "vitest/config" ]}],
 
-      // Temporal equivalent rules for editorconfig plugin
-      "unicode-bom": [ "error", "never" ],
-      "@stylistic/eol-last": [ "error", "always" ],
-      "@stylistic/indent": [ "error", 2, {
+      "editorconfig/indent": [ "error", {
         flatTernaryExpressions: true,
         SwitchCase: 1,
       }],
-      "@stylistic/linebreak-style": [ "error", "unix" ],
-      "@stylistic/no-trailing-spaces": "error",
 
       "import/no-deprecated": "warn",
       "import/order": [ "warn", {
