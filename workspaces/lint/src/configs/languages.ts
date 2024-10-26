@@ -189,7 +189,7 @@ export const commonConfigs: Linter.Config[] = [
       "@stylistic/switch-colon-spacing": [ "warn", { before: false, after: true }],
       "@stylistic/template-curly-spacing": [ "warn", "always" ],
 
-      "@stylistic/jsx-curly-spacing": [ "warn", { when: "always" }],
+      "@stylistic/jsx-curly-spacing": [ "warn", { when: "always", children: { when: "never" }}],
 
       // Require file extensions in `import`s
       "import/extensions": [ "warn", "always", { ignorePackages: true }],
