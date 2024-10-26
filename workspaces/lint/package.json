@@ -1,6 +1,6 @@
 {
   "name": "@phanect/lint",
-  "version": "2024.10.11",
+  "version": "2024.10.26",
   "description": "Personal ESLint configuration for Jumpei Ogawa (@phanect)",
   "author": "Jumpei Ogawa (https://phanective.org)",
   "license": "CC0-1.0",
