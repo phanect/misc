@@ -167,6 +167,7 @@ export const commonConfigs: Linter.Config[] = [
           requireLast: true,
         },
       }],
+      "@stylistic/multiline-ternary": "off",
       "@stylistic/no-multi-spaces": [ "warn", { ignoreEOLComments: true, exceptions: { Property: true }}],
       "@stylistic/object-curly-spacing": [ "warn", "always", { arraysInObjects: false, objectsInObjects: false }],
       "one-var": [ "warn", "never" ],
