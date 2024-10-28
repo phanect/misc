@@ -280,6 +280,11 @@ export const tsConfigs: Linter.Config[] = ts.config(
       // Warnings - style
       //
       "@typescript-eslint/consistent-type-definitions": [ "warn", "type" ],
+      "@typescript-eslint/consistent-type-imports": [ "error", {
+        prefer: "type-imports",
+        fixStyle: "separate-type-imports",
+        disallowTypeAnnotations: true,
+      }],
 
       //
       // Off
