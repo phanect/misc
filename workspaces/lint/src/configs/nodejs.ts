@@ -18,9 +18,6 @@ const nodejsGlobalConfig: Linter.Config = {
     "**/*.svelte",
     "**/*.astro",
   ] as CodeExtensions,
-  plugins: {
-    n,
-  },
 
   rules: {
     //
