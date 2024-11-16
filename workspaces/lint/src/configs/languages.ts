@@ -9,6 +9,15 @@ import type { ESLint, Linter } from "eslint";
 
 /** Rules to be prefixed with "@typescript-eslint/" when they are applied to TS */
 const prefixRequiredRules: Linter.RulesRecord = {
+  // Workaround: Empty options are required as of @typescript-eslint v8.14.0 due to its bug
+  "dot-notation": [ "error", {}],
+  "no-empty-function": [ "error", { allow: []}],
+
+  "no-unused-expressions": [ "error", {
+    allowShortCircuit: true,
+    allowTernary: true,
+    allowTaggedTemplates: true,
+  }],
   "no-unused-vars": "error",
   "no-use-before-define": "error",
 
@@ -60,7 +69,6 @@ export const commonConfigs: Linter.Config[] = [
       "no-return-await": "error",
       "no-script-url": "error",
       "no-template-curly-in-string": "error",
-      "no-unused-expressions": [ "error", { allowShortCircuit: true, allowTernary: true, allowTaggedTemplates: true }],
       "no-unused-labels": "error",
       "no-whitespace-before-property": "error",
       "no-var": "error",
