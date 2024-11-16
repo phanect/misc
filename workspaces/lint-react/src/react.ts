@@ -41,6 +41,18 @@ export const react: Linter.Config[] = [
 ].map((config) => ({
   ...config,
   files: [ "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx}" ],
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
+  languageOptions: {
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
+    },
+  },
 }));
 
 /** TODO Not working until @next/eslint-plugin-next supports flat config & ESLint v9+ */
