@@ -17,9 +17,25 @@ tsconfig.json
 ```json
 {
   "extends": [
-    "@phanect/configs/ts/nodejs",
+    "@phanect/configs/ts",
+    // add for npm packages (both for frontend and Node.js)
     "@phanect/configs/ts/addons/npm"
-  ]
+  ],
+  "compilerOptions": {
+    // add `dom` for frontend projects
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "types": [
+      // add for Cloudflare Workers projects
+      "@cloudflare/workers-types",
+      // add for projects using Vite
+      "vite/client"
+    ],
+    // add for Hono projects
+    "jsxImportSource": "hono/jsx"
+  }
 }
 ```
 
