@@ -28,6 +28,9 @@
     // Module resolution
     "lib": [ "esnext" ],
     "moduleResolution": "bundler",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+
+    // JSX
+    "jsx": "react-jsx"
   }
 }

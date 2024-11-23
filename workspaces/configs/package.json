@@ -20,7 +20,6 @@
     "./ts/cloudflare": "./configs/ts/tsconfig.cloudflare.json",
     "./ts/frontend": "./configs/ts/tsconfig.frontend.json",
     "./ts/nodejs": "./configs/ts/tsconfig.nodejs.json",
-    "./ts/addons/jsx": "./configs/ts/addons/tsconfig.jsx.json",
     "./ts/addons/npm": "./configs/ts/addons/tsconfig.npm.json",
     "./ts/addons/vite": "./configs/ts/addons/tsconfig.vite.json",
     "./tsup": {
