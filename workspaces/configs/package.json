@@ -16,6 +16,7 @@
     "./README.md"
   ],
   "exports": {
+    "./ts": "./configs/ts/tsconfig.default.json",
     "./ts/cloudflare": "./configs/ts/tsconfig.cloudflare.json",
     "./ts/frontend": "./configs/ts/tsconfig.frontend.json",
     "./ts/nodejs": "./configs/ts/tsconfig.nodejs.json",
