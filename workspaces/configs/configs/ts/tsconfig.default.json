@@ -21,6 +21,7 @@
     "declaration": false,
     "noEmit": true,
     "module": "esnext",
+    "sourceMap": false,
     "target": "esnext",
     "newLine": "lf",
     "removeComments": true,
