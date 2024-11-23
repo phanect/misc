@@ -17,11 +17,8 @@
   ],
   "exports": {
     "./ts": "./configs/ts/tsconfig.default.json",
-    "./ts/cloudflare": "./configs/ts/tsconfig.cloudflare.json",
-    "./ts/frontend": "./configs/ts/tsconfig.frontend.json",
     "./ts/nodejs": "./configs/ts/tsconfig.nodejs.json",
     "./ts/addons/npm": "./configs/ts/addons/tsconfig.npm.json",
-    "./ts/addons/vite": "./configs/ts/addons/tsconfig.vite.json",
     "./tsup": {
       "types": "./dist/tsup.d.ts",
       "default": "./dist/tsup.js"
