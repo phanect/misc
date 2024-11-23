@@ -1,7 +1,6 @@
 {
   "extends": "./tsconfig.default.json",
   "compilerOptions": {
-    "declaration": true,
     "module": "nodenext",
     "moduleResolution": "nodenext"
   }
