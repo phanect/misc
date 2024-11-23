@@ -18,6 +18,7 @@
     "noUnusedParameters": true,
 
     // Code generation
+    "declaration": false,
     "noEmit": true,
     "module": "esnext",
     "target": "esnext",
@@ -26,6 +27,7 @@
 
     // Module resolution
     "lib": [ "esnext" ],
+    "moduleResolution": "bundler",
     "resolveJsonModule": true
   }
 }
