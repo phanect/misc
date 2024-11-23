@@ -1,8 +1,6 @@
 {
   "extends": "./tsconfig.default.json",
   "compilerOptions": {
-    "declaration": false,
-    "moduleResolution": "bundler",
     "lib": [ "esnext", "dom" ]
   }
 }
