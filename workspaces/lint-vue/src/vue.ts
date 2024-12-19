@@ -1,5 +1,6 @@
 import { createConfigForNuxt } from "@nuxt/eslint-config/flat";
 import vuePlugin from "eslint-plugin-vue";
+import { parser as tsParser } from "typescript-eslint";
 import type { Linter } from "eslint";
 
 export const vue: Linter.Config[] = [
@@ -8,6 +9,10 @@ export const vue: Linter.Config[] = [
     files: [ "**/*.vue" ],
     languageOptions: {
       sourceType: "module",
+      parserOptions: {
+        extraFileExtensions: [ ".vue" ],
+        parser: tsParser,
+      },
     },
     rules: {
       //
