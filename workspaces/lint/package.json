@@ -32,6 +32,8 @@
   },
   "dependencies": {
     "@eslint/js": "^9.7.0",
+    "@markuplint/vue-parser": "^4.6.13",
+    "@markuplint/vue-spec": "^4.5.13",
     "@stylistic/eslint-plugin": "^4.0.1",
     "eslint-import-resolver-typescript": "^4.2.2",
     "eslint-plugin-import": "^2.31.0",
@@ -40,6 +42,7 @@
     "eslint-plugin-n": "^17.7.0",
     "eslint-plugin-promise": "^7.0.0",
     "eslint-plugin-vitest": "^0.5.4",
+    "markuplint": "^4.11.3",
     "typescript-eslint": "^8.0.0"
   },
   "devDependencies": {
