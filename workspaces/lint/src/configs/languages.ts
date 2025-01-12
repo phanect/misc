@@ -18,9 +18,10 @@ const prefixRequiredRules: Linter.RulesRecord = {
     allowTernary: true,
     allowTaggedTemplates: true,
   }],
-  "no-unused-vars": "error",
-  "no-use-before-define": "error",
+  "no-unused-vars": [ "error", { ignoreRestSiblings: true }],
 
+  // Unnecessary stylistic issue
+  "no-use-before-define": "off",
   // Sometimes API requires async function as callback, and you don't use await
   // in the function. In such case, it is difficult to follow require-await.
   "require-await": "off",
@@ -52,7 +53,6 @@ export const commonConfigs: Linter.Config[] = [
       //
       // Errors
       //
-      "arrow-body-style": [ "error", "as-needed" ],
       "@stylistic/comma-dangle": [ "error", {
         arrays: "always-multiline",
         objects: "always-multiline",
@@ -212,6 +212,7 @@ export const commonConfigs: Linter.Config[] = [
       "jsdoc/require-jsdoc": "off",
       "jsdoc/require-description-complete-sentence": "off",
 
+      "arrow-body-style": "off",
       "@stylistic/jsx-one-expression-per-line": "off",
     },
     settings: {
@@ -275,7 +276,6 @@ export const tsConfigs: Linter.Config[] = ts.config(
       // Errors
       //
       "@typescript-eslint/await-thenable": "error",
-      "@typescript-eslint/explicit-function-return-type": [ "error", { allowExpressions: true }],
 
       //
       // Warnings
@@ -299,6 +299,9 @@ export const tsConfigs: Linter.Config[] = ts.config(
       // Off
       //
 
+      // Too strict. Return types are not written in the library and framework documents
+      // and I often spend too much time to investigate which return type should be added.
+      "@typescript-eslint/explicit-function-return-type": "off",
       // Sometimes I want to declare variables with types to emphasize the type.
       "@typescript-eslint/no-inferrable-types": "off",
 
