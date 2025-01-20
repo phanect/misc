@@ -10,7 +10,7 @@
     "@phanect/configs": "workspace:*",
     "@phanect/lint": "workspace:*",
     "eslint": "^9.8.0",
-    "vitest": "^2.1.0"
+    "vitest": "^3.0.2"
   },
   "engines": {
     "node": "18.x || 20.x || >=22.x",
