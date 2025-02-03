@@ -9,5 +9,5 @@ export default defineConfig({
     tsconfigs: "tmp/tsconfigs.ts",
   },
   format: "esm",
-  minify: true,
+  minify: false,
 });
