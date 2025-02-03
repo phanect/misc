@@ -19,13 +19,17 @@
     "./ts": "./configs/ts/tsconfig.default.json",
     "./ts/nodejs": "./configs/ts/tsconfig.nodejs.json",
     "./ts/addons/npm": "./configs/ts/addons/tsconfig.npm.json",
+    "./ts/importable": {
+      "types": "./dist/tsconfigs.d.ts",
+      "default": "./dist/tsconfigs.js"
+    },
     "./tsup": {
       "types": "./dist/tsup.d.ts",
       "default": "./dist/tsup.js"
     }
   },
   "scripts": {
-    "build": "tsup",
+    "build": "tsx ./scripts/build-prep.ts && tsup",
     "lint": "tsc --noEmit && : configs"
   },
   "devDependencies": {

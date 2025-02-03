@@ -6,6 +6,7 @@ export default [
     ignores: [
       "**/.tsup/**",
       "**/dist/**",
+      "**/tmp/**",
       "examples/**", // Run ESLint command in each module directories
       "tests/fixtures/invalid/**",
     ],
