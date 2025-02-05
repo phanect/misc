@@ -17,6 +17,14 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
 
+    // Module resolution
+    "lib": [ "esnext" ],
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+
+    // JSX
+    "jsx": "react-jsx",
+
     // Code generation
     "declaration": false,
     "noEmit": true,
@@ -24,14 +32,6 @@
     "sourceMap": false,
     "target": "esnext",
     "newLine": "lf",
-    "removeComments": true,
-
-    // Module resolution
-    "lib": [ "esnext" ],
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-
-    // JSX
-    "jsx": "react-jsx"
+    "removeComments": true
   }
 }
