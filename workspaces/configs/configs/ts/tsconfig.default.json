@@ -25,6 +25,10 @@
     // JSX
     "jsx": "react-jsx",
 
+    // Error message format
+    "noErrorTruncation": true,
+    "pretty": true,
+
     // Code generation
     "declaration": false,
     "noEmit": true,
