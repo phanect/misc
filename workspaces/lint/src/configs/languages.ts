@@ -210,6 +210,9 @@ export const commonConfigs: Linter.Config[] = [
       // Off
       //
       "no-console": "off",
+
+      // Only enable in TypeScript. Use no-duplicate-imports for JS.
+      "import/no-duplicates": "off",
       // Only enable in JavaScript. In TypeScript, tsc checks it
       "import/no-unresolved": "off",
 
@@ -255,6 +258,7 @@ export const jsConfigs: Linter.Config[] = [
       // so I enable this rule only for JavaScript
       strict: [ "error", "safe" ],
 
+      "no-duplicate-imports": "error",
       "import/no-unresolved": [ "error", { ignore: [ "vitest/config" ]}],
     },
   } satisfies Linter.Config,
@@ -281,6 +285,7 @@ export const tsConfigs: Linter.Config[] = ts.config(
       //
       // Errors
       //
+      "import/no-duplicates": "error",
       "@typescript-eslint/await-thenable": "error",
       "@typescript-eslint/ban-ts-comment": [ "error", {
         "ts-check": false,
