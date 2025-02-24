@@ -1,6 +1,6 @@
 {
   "name": "@phanect/lint-svelte",
-  "version": "2024.10.2",
+  "version": "2025.2.24",
   "description": "@phanect's personal ESLint config for Svelte & SvelteKit projects",
   "author": "Jumpei Ogawa (https://phanective.org)",
   "license": "CC0-1.0",
