@@ -85,8 +85,6 @@ export const commonConfigs: Linter.Config[] = [
       // "editorconfig/linebreak-style": "error",
       // "editorconfig/no-trailing-spaces": "error",
 
-      "import/no-unresolved": [ "error", { ignore: [ "vitest/config" ]}],
-
       // Temporal equivalent rules for editorconfig plugin
       "unicode-bom": [ "error", "never" ],
       "@stylistic/eol-last": [ "error", "always" ],
@@ -212,6 +210,9 @@ export const commonConfigs: Linter.Config[] = [
       // Off
       //
       "no-console": "off",
+      // Only enable in JavaScript. In TypeScript, tsc checks it
+      "import/no-unresolved": "off",
+
       "jsdoc/require-jsdoc": "off",
       "jsdoc/require-description-complete-sentence": "off",
 
@@ -253,6 +254,8 @@ export const jsConfigs: Linter.Config[] = [
       // You can still add "use strict"; in each source TypeScript code,
       // so I enable this rule only for JavaScript
       strict: [ "error", "safe" ],
+
+      "import/no-unresolved": [ "error", { ignore: [ "vitest/config" ]}],
     },
   } satisfies Linter.Config,
 ].map((config) => ({
