@@ -54,7 +54,7 @@
     "eslint": "^9.7.0",
     "next": "*",
     "svelte": "*",
-    "typescript": "*"
+    "typescript": ">=5.x"
   },
   "peerDependenciesMeta": {
     "next": {

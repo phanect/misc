@@ -38,9 +38,9 @@
     "typescript": "^5.4.5"
   },
   "peerDependencies": {
-    "@types/node": "*",
+    "@types/node": "18.x || 20.x || >=22.x",
     "tsup": "^8.3.0",
-    "typescript": "*"
+    "typescript": ">=5.x"
   },
   "peerDependenciesMeta": {
     "tsup": {
