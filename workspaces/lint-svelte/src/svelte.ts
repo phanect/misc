@@ -32,6 +32,14 @@ export const svelte: Linter.Config[] = [
       "**/*.astro",
     ] as CodeExtensions,
     rules: {
+      //
+      // The following rules does not work properly in Svelte/Kit projects as of 2025.02.
+      //
+      "@typescript-eslint/no-unsafe-call": "off",
+      // This rule warns to add extension to `$env/static/private` although you shouldn't.
+      "import/extensions": "off",
+      "import/order": "off",
+
       // enable no-duplicate-imports instead of
       // import/no-duplicates which does not work well in Svelte/Kit projects
       "import/no-duplicates": "off",
