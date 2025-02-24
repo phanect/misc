@@ -1,4 +1,5 @@
 import sveltePlugin from "eslint-plugin-svelte";
+import * as tsParser from "@typescript-eslint/parser";
 import type { Linter } from "eslint";
 import type { CodeExtensions } from "@phanect/lint";
 
@@ -6,6 +7,12 @@ export const svelte: Linter.Config[] = [
   ...sveltePlugin.configs["flat/recommended"],
   {
     files: [ "**/*.svelte" ],
+    languageOptions: {
+      parserOptions: {
+        parser: tsParser,
+        extraFileExtensions: [ ".svelte" ],
+      },
+    },
     rules: {
       "svelte/no-target-blank": [ "error", { allowReferrer: true }],
     },
