@@ -2,7 +2,10 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "typeRoots": [ "./src/types/" ]
+    "typeRoots": [
+      "./node_modules/@types/",
+      "./src/types/"
+    ]
   },
   "include": [ "**/*.js", "**/*.mjs", "**/*.ts" ],
   "exclude": [ "dist" ],
