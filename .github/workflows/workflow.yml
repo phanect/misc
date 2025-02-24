@@ -30,8 +30,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: pnpm/action-setup@v4
+          check-latest: true
 
+      # Workaround until Node.js v20.x bundles corepack v0.31.0+
+      - run: npm install --global corepack@latest
+        if: matrix.node-version == 20
+
+      - run: corepack enable pnpm
       - run: pnpm install
       - run: pnpm test
 
@@ -43,8 +48,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-      - uses: pnpm/action-setup@v4
+          check-latest: true
 
+      - run: corepack enable pnpm
       - run: pnpm install
       # You don't have to run `pnpm run build` because
       # `pnpm run lint` runs `pnpm run build` before test and lint.
@@ -71,8 +77,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - uses: pnpm/action-setup@v4
+          check-latest: true
 
+      - run: corepack enable pnpm
       - run: pnpm install
       - run: pnpm run build
 
