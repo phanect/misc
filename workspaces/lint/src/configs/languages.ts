@@ -203,7 +203,10 @@ export const commonConfigs: Linter.Config[] = [
       "@stylistic/jsx-curly-spacing": [ "warn", { when: "never" }],
 
       // Require file extensions in `import`s
-      "import/extensions": [ "warn", "always", { ignorePackages: true }],
+      "import/extensions": [ "warn", "always", {
+        checkTypeImports: true,
+        ignorePackages: true,
+      }],
 
       //
       // Off
