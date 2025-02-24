@@ -32,7 +32,7 @@ const prefixRequiredRules: Linter.RulesRecord = {
  * This config have to be declared after the recommended rulesets to avoid to be overwritten.
  */
 export const commonConfigs: Linter.Config[] = [
-  stylistic.configs["recommended-flat"],
+  stylistic.configs.recommended,
   imports.flatConfigs.recommended,
   promise.configs["flat/recommended"],
   // TODO add editorconfig and document-write plugins when it is ready to flat configs
