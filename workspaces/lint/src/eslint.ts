@@ -15,6 +15,12 @@ export const core: Linter.Config[] = [
     ],
   } satisfies Linter.Config,
   {
+    languageOptions: {
+      ecmaVersion: 2022,
+      sourceType: "module",
+    },
+  } satisfies Linter.Config,
+  {
     files: [ "**/*" ],
     linterOptions: {
       noInlineConfig: false,

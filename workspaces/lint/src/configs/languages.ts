@@ -39,10 +39,6 @@ export const commonConfigs: Linter.Config[] = [
   // editorConfigConfigs["recommended"],
   // docWriteConfigs["recommended"],
   {
-    languageOptions: {
-      ecmaVersion: 2022,
-      sourceType: "module",
-    },
     plugins: {
       "@stylistic": stylistic as ESLint.Plugin,
       jsdoc,
