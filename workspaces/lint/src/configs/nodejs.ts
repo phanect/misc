@@ -129,7 +129,7 @@ const esmConfigFilePatterns: string[] = [
 
 const cjsConfigFilePatterns: string[] = [
   ".config/*.cjs", // ./config/ directory proposal by @pi0 https://github.com/pi0/config-dir
-  "**/*.config.cjs)",
+  "**/*.config.cjs",
   // build scripts
   "**/script/**/*.cjs",
   "**/scripts/**/*.cjs",
