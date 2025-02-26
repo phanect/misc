@@ -1,0 +1,58 @@
+{
+  "name": "@phanect/configs",
+  "version": "2025.2.24",
+  "description": "Collection of @phanect's personal build configs",
+  "author": "Jumpei Ogawa (https://phanective.org)",
+  "license": "CC0-1.0",
+  "homepage": "https://github.com/phanect/misc",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/phanect/misc.git"
+  },
+  "type": "module",
+  "files": [
+    "./configs",
+    "./dist",
+    "./README.md"
+  ],
+  "exports": {
+    "./ts": "./configs/ts/tsconfig.default.json",
+    "./ts/nodejs": "./configs/ts/tsconfig.nodejs.json",
+    "./ts/addons/npm": "./configs/ts/addons/tsconfig.npm.json",
+    "./ts/importable": {
+      "types": "./dist/tsconfigs.d.ts",
+      "default": "./dist/tsconfigs.js"
+    },
+    "./tsup": {
+      "types": "./dist/tsup.d.ts",
+      "default": "./dist/tsup.js"
+    }
+  },
+  "scripts": {
+    "build": "tsx ./scripts/build-prep.ts && tsup",
+    "lint": "tsc --noEmit && : configs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.1.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.4.5"
+  },
+  "peerDependencies": {
+    "@types/node": "18.x || 20.x || >=22.x",
+    "tsup": "^8.3.0",
+    "typescript": ">=5.x"
+  },
+  "peerDependenciesMeta": {
+    "tsup": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": "18.x || 20.x || >=22.x",
+    "pnpm": ">=10.x"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

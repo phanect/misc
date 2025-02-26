@@ -1,0 +1,40 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      # Dependabot checks security updates daily regardless of this configuration
+      interval: "weekly"
+    assignees:
+      - "phanect"
+    groups:
+      security:
+        applies-to: "security-updates"
+        update-types:
+          - "minor"
+          - "patch"
+      security-breaking:
+        applies-to: "security-updates"
+        update-types:
+          - "major"
+      compatible:
+        applies-to: "version-updates"
+        update-types:
+          - "minor"
+          - "patch"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    assignees:
+      - "phanect"
+    groups:
+      security:
+        applies-to: "security-updates"
+        patterns:
+          - "*"
+      normal:
+        applies-to: "version-updates"
+        patterns:
+          - "*"
