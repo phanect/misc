@@ -1,2 +1,6 @@
 packages:
   - workspaces/*
+
+onlyBuiltDependencies:
+  - esbuild
+  - sharp
