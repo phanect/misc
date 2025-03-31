@@ -5,5 +5,5 @@ export default defineConfig({
   ...nodejsLib,
   entry: [ "src/vue.ts" ],
   format: "esm",
-  minify: true,
+  minify: false,
 });
