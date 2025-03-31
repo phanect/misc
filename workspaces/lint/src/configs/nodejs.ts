@@ -28,6 +28,10 @@ const nodejsGlobalConfig: Linter.Config = {
     // https://nodejs.org/docs/latest-v22.x/api/process.html#process_process_exit_code
     "n/no-process-exit": "error",
 
+    "n/no-unsupported-features/node-builtins": [ "error", {
+      allowExperimental: true,
+    }],
+
     // Use global one for standard JavaScript APIs.
     "n/prefer-global/console": "error",
     "n/prefer-global/text-decoder": "error",
