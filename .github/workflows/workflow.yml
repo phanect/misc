@@ -25,17 +25,13 @@ jobs:
           - 22
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           check-latest: true
 
-      # Workaround until Node.js v20.x bundles corepack v0.31.0+
-      - run: npm install --global corepack@latest
-        if: matrix.node-version == 20
-
-      - run: corepack enable pnpm
       - run: pnpm install
       - run: pnpm test
 
@@ -43,13 +39,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
       - name: Use Node.js v22
         uses: actions/setup-node@v4
         with:
           node-version: 22
           check-latest: true
 
-      - run: corepack enable pnpm
       - run: pnpm install
       # You don't have to run `pnpm run build` because
       # `pnpm run lint` runs `pnpm run build` before test and lint.
@@ -73,12 +69,12 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           check-latest: true
 
-      - run: corepack enable pnpm
       - run: pnpm install
       - run: pnpm run build
 
