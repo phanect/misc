@@ -2,6 +2,8 @@ import n from "eslint-plugin-n";
 import type { Linter } from "eslint";
 import type { CodeExtensions, EsmExtensions } from "../utils.ts";
 
+const latestNodejsLtsVersion = 22;
+
 const nodejsGlobalConfig: Linter.Config = {
   // Since Node.js library might be used for server side rendering,
   // the extensions for frontend frameworks (e.g. *.svelte) is listed here.
@@ -166,7 +168,14 @@ export const devConfigs: Linter.Config[] = [
   },
   {
     files: configFilePatterns,
+    plugins: {
+      n,
+    },
     rules: {
+      "n/no-unsupported-features/node-builtins": [ "error", {
+        version: `>=${ latestNodejsLtsVersion }`,
+        allowExperimental: true,
+      }],
       "n/no-extraneous-import": "off",
     },
   },
