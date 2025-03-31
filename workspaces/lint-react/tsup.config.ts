@@ -5,5 +5,5 @@ export default defineConfig({
   ...nodejsLib,
   entry: [ "src/react.ts" ],
   format: "esm",
-  minify: true,
+  minify: false,
 });

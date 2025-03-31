@@ -7,5 +7,5 @@ export default defineConfig({
     eslint: "src/eslint.ts",
   },
   format: "esm",
-  minify: true,
+  minify: false,
 });

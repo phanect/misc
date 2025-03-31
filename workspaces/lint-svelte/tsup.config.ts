@@ -5,5 +5,5 @@ export default defineConfig({
   ...nodejsLib,
   entry: [ "src/svelte.ts" ],
   format: "esm",
-  minify: true,
+  minify: false,
 });

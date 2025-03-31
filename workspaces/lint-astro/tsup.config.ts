@@ -5,5 +5,5 @@ export default defineConfig({
   ...nodejsLib,
   entry: [ "src/astro.ts" ],
   format: "esm",
-  minify: true,
+  minify: false,
 });
