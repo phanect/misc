@@ -40,7 +40,7 @@ export const commonConfigs: Linter.Config[] = [
   // docWriteConfigs["recommended"],
   {
     languageOptions: {
-      ecmaVersion: 2022,
+      ecmaVersion: "latest",
       sourceType: "module",
     },
     plugins: {
