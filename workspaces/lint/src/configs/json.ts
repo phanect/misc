@@ -1,50 +1,34 @@
-import jsonc from "eslint-plugin-jsonc";
+import json from "@eslint/json";
 import type { Linter } from "eslint";
-import type { JsonExtensions } from "../utils.ts";
 
 export const jsonConfigs: Linter.Config[] = [
   {
-    files: [ "**/*.json", "**/*.jsonc", "**/*.json5" ] as JsonExtensions,
-    rules: {
-      "jsonc/array-bracket-spacing": [ "error", "always", {
-        objectsInArrays: false,
-        arraysInArrays: false,
-      }],
-      "jsonc/comma-style": [ "error", "last" ],
-      "jsonc/indent": [ "error", 2 ],
-      "jsonc/key-spacing": [ "error", {
-        beforeColon: false,
-        afterColon: true,
-        mode: "minimum",
-      }],
-      "jsonc/object-curly-spacing": [ "error", "always", {
-        arraysInObjects: false,
-        objectsInObjects: false,
-      }],
+    plugins: {
+      json,
     },
-  } satisfies Linter.Config,
-  ...(
-    jsonc.configs["flat/recommended-with-json"].map((config) => ({
-      files: [ "**/*.json" ],
-      ignores: [ "**/tsconfig.json", ".vscode/**/*.json" ],
-      ...config,
-    }))
-  ),
-  ...(
-    jsonc.configs["flat/recommended-with-jsonc"].map((config) => ({
-      files: [ "**/*.jsonc", "**/tsconfig.json", ".vscode/**/*.json" ],
-      ...config,
-    }))
-  ),
-  ...jsonc.configs["flat/recommended-with-json5"],
+  },
+  {
+    files: [ "**/*.json" ],
+    ignores: [
+      "**/tsconfig.json",
+      ".vscode/**/*.json",
+      "package-lock.json",
+    ],
+    language: "json/json",
+    ...json.configs.recommended,
+  },
+  {
+    files: [
+      "**/*.jsonc",
+      "**/tsconfig.json",
+      ".vscode/**/*.json",
+    ],
+    language: "json/jsonc",
+    ...json.configs.recommended,
+  },
   {
     files: [ "**/*.json5" ],
-    rules: {
-      "jsonc/comma-dangle": [ "error", {
-        arrays: "always-multiline",
-        objects: "always-multiline",
-      }],
-      "jsonc/quote-props": [ "error", "as-needed" ],
-    },
-  } satisfies Linter.Config,
+    language: "json/json5",
+    ...json.configs.recommended,
+  },
 ];
