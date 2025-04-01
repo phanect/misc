@@ -26,7 +26,7 @@
     "release:readme": "esno ./scripts/release-readme.ts"
   },
   "devDependencies": {
-    "@lerna-lite/cli": "^3.9.2",
+    "@lerna-lite/cli": "^4.0.0",
     "@lerna-lite/publish": "^3.9.2",
     "@phanect/configs": "workspace:*",
     "@phanect/lint": "workspace:*",
