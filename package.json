@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@lerna-lite/cli": "^4.0.0",
-    "@lerna-lite/publish": "^3.9.2",
+    "@lerna-lite/publish": "^4.0.0",
     "@phanect/configs": "workspace:*",
     "@phanect/lint": "workspace:*",
     "@phanect/utils": "^1.0.0",
