@@ -4,6 +4,41 @@ import type { CodeExtensions, EsmExtensions } from "../utils.ts";
 
 const latestNodejsLtsVersion = 22;
 
+const esmConfigFilePatterns: string[] = [
+  ".config/*.@(js|mjs|ts|mts|jsx|tsx)", // ./config/ directory proposal by @pi0 https://github.com/pi0/config-dir
+  "**/*.config.@(js|mjs|ts|mts|jsx|tsx)",
+  // build scripts
+  "**/script/**/*.@(js|mjs|ts|mts|jsx|tsx)",
+  "**/scripts/**/*.@(js|mjs|ts|mts|jsx|tsx)",
+  // testcases
+  "**/test/**/*.@(js|mjs|ts|mts|jsx|tsx)",
+  "**/tests/**/*.@(js|mjs|ts|mts|jsx|tsx)",
+  "**/spec/**/*.@(js|mjs|ts|mts|jsx|tsx)",
+  "**/specs/**/*.@(js|mjs|ts|mts|jsx|tsx)",
+  "**/*.test.@(js|mjs|ts|mts|jsx|tsx)",
+  "**/*.spec.@(js|mjs|ts|mts|jsx|tsx)",
+];
+
+const cjsConfigFilePatterns: string[] = [
+  ".config/*.cjs", // ./config/ directory proposal by @pi0 https://github.com/pi0/config-dir
+  "**/*.config.cjs)",
+  // build scripts
+  "**/script/**/*.cjs",
+  "**/scripts/**/*.cjs",
+  // testcases
+  "**/test/**/*.cjs",
+  "**/tests/**/*.cjs",
+  "**/spec/**/*.cjs",
+  "**/specs/**/*.cjs",
+  "**/*.test.cjs",
+  "**/*.spec.cjs",
+];
+
+const configFilePatterns: string[] = [
+  ...esmConfigFilePatterns,
+  ...cjsConfigFilePatterns,
+];
+
 const nodejsGlobalConfig: Linter.Config = {
   // Since Node.js library might be used for server side rendering,
   // the extensions for frontend frameworks (e.g. *.svelte) is listed here.
@@ -20,6 +55,7 @@ const nodejsGlobalConfig: Linter.Config = {
     "**/*.svelte",
     "**/*.astro",
   ] as CodeExtensions,
+  ignores: configFilePatterns,
 
   rules: {
     //
@@ -88,6 +124,7 @@ const esmConfigs: Linter.Config[] = [
     "**/*.svelte",
     "**/*.astro",
   ] as EsmExtensions,
+  ignores: configFilePatterns,
 }));
 
 const cjsConfigs: Linter.Config[] = [
@@ -110,47 +147,13 @@ const cjsConfigs: Linter.Config[] = [
 ].map((config) => ({
   ...config,
   files: [ "**/*.cjs" ],
+  ignores: configFilePatterns,
 }));
 
 export const nodejsConfigs: Linter.Config[] = [
   ...esmConfigs,
   ...cjsConfigs,
   nodejsGlobalConfig,
-];
-
-const esmConfigFilePatterns: string[] = [
-  ".config/*.@(js|mjs|ts|mts|jsx|tsx)", // ./config/ directory proposal by @pi0 https://github.com/pi0/config-dir
-  "**/*.config.@(js|mjs|ts|mts|jsx|tsx)",
-  // build scripts
-  "**/script/**/*.@(js|mjs|ts|mts|jsx|tsx)",
-  "**/scripts/**/*.@(js|mjs|ts|mts|jsx|tsx)",
-  // testcases
-  "**/test/**/*.@(js|mjs|ts|mts|jsx|tsx)",
-  "**/tests/**/*.@(js|mjs|ts|mts|jsx|tsx)",
-  "**/spec/**/*.@(js|mjs|ts|mts|jsx|tsx)",
-  "**/specs/**/*.@(js|mjs|ts|mts|jsx|tsx)",
-  "**/*.test.@(js|mjs|ts|mts|jsx|tsx)",
-  "**/*.spec.@(js|mjs|ts|mts|jsx|tsx)",
-];
-
-const cjsConfigFilePatterns: string[] = [
-  ".config/*.cjs", // ./config/ directory proposal by @pi0 https://github.com/pi0/config-dir
-  "**/*.config.cjs)",
-  // build scripts
-  "**/script/**/*.cjs",
-  "**/scripts/**/*.cjs",
-  // testcases
-  "**/test/**/*.cjs",
-  "**/tests/**/*.cjs",
-  "**/spec/**/*.cjs",
-  "**/specs/**/*.cjs",
-  "**/*.test.cjs",
-  "**/*.spec.cjs",
-];
-
-const configFilePatterns: string[] = [
-  ...esmConfigFilePatterns,
-  ...cjsConfigFilePatterns,
 ];
 
 export const devConfigs: Linter.Config[] = [
