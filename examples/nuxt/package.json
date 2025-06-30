@@ -15,7 +15,7 @@
     "@phanect/configs": "workspace:*",
     "@phanect/lint": "workspace:*",
     "@phanect/lint-vue": "workspace:*",
-    "@types/node": "^22.1.0",
+    "@types/node": "^24.0.7",
     "eslint": "^9.8.0",
     "vue-tsc": "^2.1.6"
   },

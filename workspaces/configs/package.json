@@ -33,7 +33,7 @@
     "lint": "tsc --noEmit && : configs"
   },
   "devDependencies": {
-    "@types/node": "^22.1.0",
+    "@types/node": "^24.0.7",
     "tsup": "^8.3.0",
     "typescript": "^5.4.5"
   },
