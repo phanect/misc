@@ -2,5 +2,7 @@ packages:
   - workspaces/*
 
 onlyBuiltDependencies:
+  - '@parcel/watcher'
   - esbuild
   - sharp
+  - unrs-resolver
