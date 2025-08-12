@@ -4,9 +4,9 @@ import hooksPlugin from "eslint-plugin-react-hooks";
 import type { Linter } from "eslint";
 
 export const react: Linter.Config[] = [
-  reactPlugin.configs.flat?.recommended as Linter.Config,
-  reactPlugin.configs.flat?.["jsx-runtime"] as Linter.Config,
-  jsxA11yPlugin.flatConfigs.recommended as Linter.Config,
+  reactPlugin.configs.flat?.recommended,
+  reactPlugin.configs.flat?.["jsx-runtime"],
+  jsxA11yPlugin.flatConfigs.recommended,
 
   {
     plugins: {

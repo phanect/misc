@@ -1,4 +1,4 @@
-import { createConfigForNuxt } from "@nuxt/eslint-config/flat";
+import { createConfigForNuxt } from "@nuxt/eslint-config";
 import vuePlugin from "eslint-plugin-vue";
 import { parser as tsParser } from "typescript-eslint";
 import type { Linter } from "eslint";
