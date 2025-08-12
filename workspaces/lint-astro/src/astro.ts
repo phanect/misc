@@ -1,4 +1,5 @@
 import astroPlugin from "eslint-plugin-astro";
+import globals from "globals";
 import type { Linter } from "eslint";
 
 export const astro: Linter.Config[] = [
@@ -7,6 +8,7 @@ export const astro: Linter.Config[] = [
   {
     files: [ "**/*.astro" ],
     languageOptions: {
+      globals: globals.browser,
       parserOptions: {
         // `projectService: true` does not work properly with Astro ruleset.
         // Using `project: true` instead.

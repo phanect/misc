@@ -1,5 +1,6 @@
 import sveltePlugin from "eslint-plugin-svelte";
 import * as tsParser from "@typescript-eslint/parser";
+import globals from "globals";
 import type { Linter } from "eslint";
 import type { CodeExtensions } from "@phanect/lint";
 
@@ -8,6 +9,7 @@ export const svelte: Linter.Config[] = [
   {
     files: [ "**/*.svelte" ],
     languageOptions: {
+      globals: globals.browser,
       parserOptions: {
         parser: tsParser,
         extraFileExtensions: [ ".svelte" ],
