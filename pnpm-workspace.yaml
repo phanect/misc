@@ -1,5 +1,6 @@
 packages:
   - workspaces/*
+  - examples/*
 
 onlyBuiltDependencies:
   - '@parcel/watcher'
