@@ -52,7 +52,7 @@ Supported configs:
   - `unbundled`
     - Use this rules in addition to the above rules if the project depends on package.json's `dependencies` on production i.e. npm packages and backend Node.js app without bundling.
 - `@phanect/lint-react`
-  - react (react-hooks is not included currently because it does not support the flat config yet.)
+  - `react`
   - `next`
 - `@phanect/lint-vue`
   - `vue`
