@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": [
     "astro/tsconfigs/base",
-    "@phanect/configs/ts/frontend",
+    "@phanect/configs/ts"
   ],
   "compilerOptions": {
     "baseUrl": ".",
