@@ -1,6 +1,7 @@
 import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
 import reactPlugin from "eslint-plugin-react";
 import hooksPlugin from "eslint-plugin-react-hooks";
+import globals from "globals";
 import type { Linter } from "eslint";
 
 export const react: Linter.Config[] = [
@@ -47,6 +48,7 @@ export const react: Linter.Config[] = [
     },
   },
   languageOptions: {
+    globals: globals.browser,
     parserOptions: {
       ecmaFeatures: {
         jsx: true,

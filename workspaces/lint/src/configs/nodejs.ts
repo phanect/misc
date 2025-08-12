@@ -1,4 +1,5 @@
 import n from "eslint-plugin-n";
+import globals from "globals";
 import type { Linter } from "eslint";
 import type { CodeExtensions } from "../utils.ts";
 
@@ -84,6 +85,10 @@ export const nodejsConfigs: Linter.Config[] = [
     "**/*.astro",
   ] as CodeExtensions,
   ignores: devConfigPatterns,
+
+  languageOptions: {
+    globals: globals.node,
+  },
 }));
 
 export const devConfigs: Linter.Config[] = [
