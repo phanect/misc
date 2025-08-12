@@ -1,3 +1,5 @@
+import { cwd } from "node:process";
+import { FlatCompat } from "@eslint/eslintrc";
 import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
 import reactPlugin from "eslint-plugin-react";
 import hooksPlugin from "eslint-plugin-react-hooks";
@@ -57,7 +59,11 @@ export const react: Linter.Config[] = [
   },
 }));
 
-/** TODO Not working until @next/eslint-plugin-next supports flat config & ESLint v9+ */
-// export const next = {
-//   extends: [ "next/core-web-vitals" ],
-// };
+const compat = new FlatCompat({
+  baseDirectory: cwd(),
+});
+
+export const next = compat.extends(
+  "next/core-web-vitals",
+  "next/typescript"
+);
