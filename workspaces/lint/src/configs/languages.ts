@@ -45,7 +45,7 @@ export const commonConfigs: Linter.Config[] = [
     },
     plugins: {
       "@stylistic": stylistic as ESLint.Plugin,
-      jsdoc,
+      jsdoc: jsdoc as ESLint.Plugin,
       promise,
     },
 
@@ -246,7 +246,7 @@ export const commonConfigs: Linter.Config[] = [
 
 export const jsConfigs: Linter.Config[] = [
   js.configs.recommended,
-  jsdoc.configs["flat/recommended"],
+  (jsdoc as ESLint.Plugin).configs?.["flat/recommended"] as Linter.Config ?? {},
   {
     rules: {
       ...prefixRequiredRules,
@@ -270,7 +270,7 @@ export const tsConfigs: Linter.Config[] = ts.config(
   ...ts.configs.recommendedTypeChecked,
   ...ts.configs.stylisticTypeChecked,
   imports.flatConfigs.typescript,
-  jsdoc.configs["flat/recommended-typescript"],
+  (jsdoc as ESLint.Plugin).configs?.["flat/recommended-typescript"] as Linter.Config ?? {},
   {
     languageOptions: {
       parserOptions: {
