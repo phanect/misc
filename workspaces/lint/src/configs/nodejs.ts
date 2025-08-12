@@ -2,7 +2,7 @@ import n from "eslint-plugin-n";
 import type { Linter } from "eslint";
 import type { CodeExtensions } from "../utils.ts";
 
-const latestNodejsLtsVersion = 22;
+const latestNodejsLtsVersion = 24;
 
 const devConfigPatterns: string[] = [
   ".config/*.@(js|mjs|ts|mts|jsx|tsx)", // ./config/ directory proposal by @pi0 https://github.com/pi0/config-dir
