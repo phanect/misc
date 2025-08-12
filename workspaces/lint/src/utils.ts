@@ -23,21 +23,6 @@ export const projectRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
 export type CodeExtensions = [
   "**/*.js",
   "**/*.mjs",
-  "**/*.cjs",
-  "**/*.jsx",
-  "**/*.ts",
-  "**/*.mts",
-  "**/*.cts",
-  "**/*.tsx",
-  "**/*.vue",
-  "**/*.svelte",
-  "**/*.astro",
-];
-
-/** File extensions to apply ESM rules */
-export type EsmExtensions = [
-  "**/*.js",
-  "**/*.mjs",
   "**/*.jsx",
   "**/*.ts",
   "**/*.mts",
@@ -51,7 +36,6 @@ export type EsmExtensions = [
 export type JsExtensions = [
   "**/*.js",
   "**/*.mjs",
-  "**/*.cjs",
   "**/*.jsx",
 ];
 
@@ -59,7 +43,6 @@ export type JsExtensions = [
 export type TsExtensions = [
   "**/*.ts",
   "**/*.mts",
-  "**/*.cts",
   "**/*.tsx",
 
   "**/*.vue",

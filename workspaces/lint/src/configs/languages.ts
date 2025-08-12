@@ -234,11 +234,9 @@ export const commonConfigs: Linter.Config[] = [
   files: [
     "**/*.js",
     "**/*.mjs",
-    "**/*.cjs",
     "**/*.jsx",
     "**/*.ts",
     "**/*.mts",
-    "**/*.cts",
     "**/*.tsx",
     "**/*.vue",
     "**/*.svelte",
@@ -263,7 +261,7 @@ export const jsConfigs: Linter.Config[] = [
     },
   } satisfies Linter.Config,
 ].map((config) => ({
-  files: [ "**/*.js", "**/*.mjs", "**/*.cjs", "**/*.jsx" ] as JsExtensions,
+  files: [ "**/*.js", "**/*.mjs", "**/*.jsx" ] as JsExtensions,
   ...config,
 }));
 
@@ -351,7 +349,6 @@ export const tsConfigs: Linter.Config[] = ts.config(
   files: [
     "**/*.ts",
     "**/*.mts",
-    "**/*.cts",
     "**/*.tsx",
     "**/*.vue",
     "**/*.svelte",

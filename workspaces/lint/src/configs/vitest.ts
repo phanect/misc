@@ -6,7 +6,6 @@ export const vitestConfigs: Linter.Config[] = [{
     "**/*.test.js",
     "**/*.test.jsx",
     "**/*.test.mjs",
-    "**/*.test.cjs",
     "**/*.test.ts",
     "**/*.test.tsx",
   ],

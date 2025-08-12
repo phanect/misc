@@ -21,11 +21,9 @@ export const svelte: Linter.Config[] = [
     files: [
       "**/*.js",
       "**/*.mjs",
-      "**/*.cjs",
       "**/*.jsx",
       "**/*.ts",
       "**/*.mts",
-      "**/*.cts",
       "**/*.tsx",
       "**/*.vue",
       "**/*.svelte",
