@@ -39,8 +39,8 @@
     "eslint": "^9.7.0"
   },
   "engines": {
-    "node": "18.x || 20.x || >=22.x",
-    "pnpm": ">=9.x"
+    "node": "20.x || 22.x || >=24.x",
+    "pnpm": ">=10.x"
   },
   "publishConfig": {
     "access": "public",
