@@ -1,7 +1,7 @@
 import { core, nodejs } from "@phanect/lint";
+import type { Linter } from "eslint";
 
-/** @type { import("eslint").Linter.Config[] } */
-export default [
+const configs: Linter.Config[] = [
   {
     ignores: [
       "**/.tsup/**",
@@ -28,3 +28,5 @@ export default [
     },
   },
 ];
+
+export default configs;

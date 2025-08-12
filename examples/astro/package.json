@@ -14,6 +14,7 @@
     "@phanect/configs": "workspace:*",
     "@phanect/lint": "workspace:*",
     "@phanect/lint-astro": "workspace:*",
+    "jiti": "^2.5.1",
     "typescript": "^5.5.4"
   },
   "engines": {

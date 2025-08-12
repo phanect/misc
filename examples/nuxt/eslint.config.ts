@@ -1,8 +1,8 @@
 import { core } from "@phanect/lint";
 import { vue, nuxt } from "@phanect/lint-vue";
+import type { Linter } from "eslint";
 
-/** @type { import("eslint").Linter.Config[] } */
-const config = [
+const configs: Linter.Config[] = [
   {
     ignores: [
       ".nuxt/**",
@@ -22,4 +22,4 @@ const config = [
   },
 ];
 
-export default config;
+export default configs;

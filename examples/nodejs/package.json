@@ -10,6 +10,7 @@
     "@phanect/configs": "workspace:*",
     "@phanect/lint": "workspace:*",
     "eslint": "^9.8.0",
+    "jiti": "^2.5.1",
     "vitest": "^3.0.2"
   },
   "engines": {
