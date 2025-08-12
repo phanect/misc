@@ -11,6 +11,9 @@ export const core: Linter.Config[] = [
     ignores: [
       "package-lock.json",
       "npm-shrinkwrap.json",
+      ".astro/",
+      ".next/",
+      ".nuxt/",
       ".svelte-kit/",
       "dist/",
       "tmp/",
