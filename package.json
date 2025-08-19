@@ -32,7 +32,7 @@
     "@phanect/lint": "workspace:*",
     "@phanect/utils": "^1.0.0",
     "@types/eslint-plugin-jsx-a11y": "^6.9.0",
-    "@types/node": "^22.0.0",
+    "@types/node": "^24.3.0",
     "eslint": "^9.7.0",
     "esno": "^4.7.0",
     "jiti": "^2.5.1",
