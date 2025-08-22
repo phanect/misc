@@ -1,6 +1,6 @@
 {
   "name": "@phanect/lint-vue",
-  "version": "2025.8.12",
+  "version": "2025.8.22",
   "description": "@phanect's personal ESLint config for Vue.js & Nuxt projects",
   "author": "Jumpei Ogawa (https://phanective.org)",
   "license": "CC0-1.0",
