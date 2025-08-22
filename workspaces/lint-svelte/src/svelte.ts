@@ -16,6 +16,10 @@ export const svelte: Linter.Config[] = [
       },
     },
     rules: {
+      "svelte/indent": [ "error", {
+        indent: 2,
+        alignAttributesVertically: false,
+      }],
       "svelte/no-target-blank": [ "error", { allowReferrer: true }],
 
       // Maybe it does not work properly on Svelte
