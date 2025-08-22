@@ -50,6 +50,13 @@ export const svelte: Linter.Config[] = [
     },
   } satisfies Linter.Config,
   {
+    files: [ "**/app.d.ts" ],
+    rules: {
+      // You have to use `interface` in app.d.ts
+      "@typescript-eslint/consistent-type-definitions": "off",
+    },
+  } satisfies Linter.Config,
+  {
     settings: {
       svelte: {
         ignoreWarnings: [
