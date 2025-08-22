@@ -257,6 +257,14 @@ export const jsConfigs: Linter.Config[] = [
       strict: [ "error", "safe" ],
 
       "no-duplicate-imports": "error",
+
+      // Use ESLint's `no-unused-vars` rather than
+      // tsc's `noUnusedLocals` & `noUnusedParameters` to
+      // flexibly ignore the files. With `noUnusedLocals`,
+      // `tsc` checks all the files imported, even if it is
+      // gitignore'd.
+      "no-unused-vars": "error",
+
       "import/no-unresolved": [ "error", { ignore: [ "vitest/config" ]}],
     },
   } satisfies Linter.Config,
@@ -291,6 +299,12 @@ export const tsConfigs: Linter.Config[] = ts.config(
         "ts-expect-error": "allow-with-description",
         "ts-nocheck": "allow-with-description",
       }],
+      // Use @typescript-eslint's `no-unused-vars` rather than
+      // tsc's `noUnusedLocals` & `noUnusedParameters` to
+      // flexibly ignore the files. With `noUnusedLocals`,
+      // `tsc` checks all the files imported, even if it is
+      // gitignore'd.
+      "@typescript-eslint/no-unused-vars": "error",
 
       //
       // Warnings

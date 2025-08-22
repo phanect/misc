@@ -14,8 +14,14 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+
+    // Use ESLint's `no-unused-vars` rather than
+    // tsc's `noUnusedLocals` & `noUnusedParameters` to
+    // flexibly ignore the files. With `noUnusedLocals`,
+    // `tsc` checks all the files imported, even if it is
+    // gitignore'd.
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
 
     // Module resolution
     "lib": [ "esnext" ],
