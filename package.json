@@ -21,9 +21,9 @@
     "fix": "pnpm run build && eslint --fix && pnpm --recursive --stream --if-present run fix",
     "clean": "git clean -dX --force",
     "refresh": "pnpm run clean && corepack up && pnpm install",
-    "versions": "esno ./scripts/versions.ts",
+    "versions": "jiti ./scripts/versions.ts",
     "release": "pnpm run release:readme && pnpm run build && lerna publish from-package --yes",
-    "release:readme": "esno ./scripts/release-readme.ts"
+    "release:readme": "jiti ./scripts/release-readme.ts"
   },
   "devDependencies": {
     "@lerna-lite/cli": "^4.0.0",
@@ -34,7 +34,6 @@
     "@types/eslint-plugin-jsx-a11y": "^6.9.0",
     "@types/node": "^24.3.0",
     "eslint": "^9.7.0",
-    "esno": "^4.7.0",
     "jiti": "^2.5.1",
     "tsup": "^8.3.0",
     "type-fest": "^4.26.1",

@@ -29,11 +29,12 @@
     }
   },
   "scripts": {
-    "build": "tsx ./scripts/build-prep.ts && tsup",
+    "build": "jiti ./scripts/build-prep.ts && tsup",
     "lint": "tsc --noEmit && : configs"
   },
   "devDependencies": {
     "@types/node": "^24.3.0",
+    "jiti": "^2.5.1",
     "tsup": "^8.3.0",
     "typescript": "^5.4.5"
   },
