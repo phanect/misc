@@ -46,4 +46,15 @@ export const svelte: Linter.Config[] = [
       "no-duplicate-imports": "error",
     },
   } satisfies Linter.Config,
+  {
+    settings: {
+      svelte: {
+        kit: {
+          files: {
+            routes: "src/routes",
+          },
+        },
+      },
+    },
+  } satisfies Linter.Config,
 ];
