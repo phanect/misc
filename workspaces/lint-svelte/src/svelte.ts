@@ -17,6 +17,9 @@ export const svelte: Linter.Config[] = [
     },
     rules: {
       "svelte/no-target-blank": [ "error", { allowReferrer: true }],
+
+      // Maybe it does not work properly on Svelte
+      "@typescript-eslint/no-unsafe-member-access": "off",
     },
   } satisfies Linter.Config,
   {
@@ -49,6 +52,9 @@ export const svelte: Linter.Config[] = [
   {
     settings: {
       svelte: {
+        ignoreWarnings: [
+          "@typescript-eslint/no-unsafe-member-access",
+        ],
         kit: {
           files: {
             routes: "src/routes",
