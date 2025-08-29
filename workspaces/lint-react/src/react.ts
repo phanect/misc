@@ -63,7 +63,6 @@ const compat = new FlatCompat({
   baseDirectory: cwd(),
 });
 
-export const next = compat.extends(
-  "next/core-web-vitals",
-  "next/typescript"
-);
+export const nextjs: Linter.Config[] = [
+  ...compat.extends("plugin:@next/next/core-web-vitals"),
+];
