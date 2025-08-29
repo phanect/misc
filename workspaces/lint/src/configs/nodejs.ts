@@ -1,3 +1,4 @@
+import { defineConfig } from "eslint/config";
 import n from "eslint-plugin-n";
 import globals from "globals";
 import type { Linter } from "eslint";
@@ -20,7 +21,7 @@ const devConfigPatterns: string[] = [
   "**/*.spec.@(js|mjs|ts|mts|jsx|tsx)",
 ];
 
-export const nodejsConfigs: Linter.Config[] = [
+export const nodejsConfigs = defineConfig([
   n.configs["flat/recommended-module"],
 
   {
@@ -89,9 +90,9 @@ export const nodejsConfigs: Linter.Config[] = [
   languageOptions: {
     globals: globals.node,
   },
-}));
+})));
 
-export const devConfigs: Linter.Config[] = [
+export const devConfigs = defineConfig([
   ...nodejsConfigs.map((config) => ({
     ...config,
     files: devConfigPatterns,
@@ -111,9 +112,9 @@ export const devConfigs: Linter.Config[] = [
       "n/no-extraneous-import": "off",
     },
   },
-];
+]);
 
-export const unbundledConfigs: Linter.Config[] = [{
+export const unbundledConfigs = defineConfig([{
   files: [
     "**/*.js",
     "**/*.mjs",
@@ -136,4 +137,4 @@ export const unbundledConfigs: Linter.Config[] = [{
     "n/no-unpublished-import": "error",
     "n/no-unpublished-require": "error",
   },
-}];
+}]);

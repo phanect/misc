@@ -1,8 +1,8 @@
+import { defineConfig } from "eslint/config";
 import astroPlugin from "eslint-plugin-astro";
 import globals from "globals";
-import type { Linter } from "eslint";
 
-export const astro: Linter.Config[] = [
+export const astro = defineConfig([
   ...astroPlugin.configs.recommended,
   ...astroPlugin.configs["jsx-a11y-recommended"],
   {
@@ -57,11 +57,11 @@ export const astro: Linter.Config[] = [
       "@stylistic/semi": "off",
       "astro/semi": [ "error", "always" ],
     },
-  } satisfies Linter.Config,
+  },
   {
     files: [ "**/env.d.ts" ],
     rules: {
       "@typescript-eslint/triple-slash-reference": "off",
     },
   },
-];
+]);

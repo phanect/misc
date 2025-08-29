@@ -1,11 +1,13 @@
+import { defineConfig } from "eslint/config";
 import { createConfigForNuxt } from "@nuxt/eslint-config";
 import vuePlugin from "eslint-plugin-vue";
 import { parser as tsParser } from "typescript-eslint";
 import globals from "globals";
 import type { Linter } from "eslint";
 
-export const vue: Linter.Config[] = [
+export const vue = defineConfig([
   ...vuePlugin.configs["flat/recommended"],
+
   {
     files: [ "**/*.vue" ],
     languageOptions: {
@@ -33,8 +35,8 @@ export const vue: Linter.Config[] = [
       "vue/no-v-html": "off",
       "vue/singleline-html-element-content-newline": "off",
     },
-  } satisfies Linter.Config,
-];
+  },
+]);
 
 export const nuxt: Linter.Config[] = await createConfigForNuxt({
   features: {

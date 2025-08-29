@@ -1,8 +1,8 @@
+import { defineConfig } from "eslint/config";
 import jsonc from "eslint-plugin-jsonc";
-import type { Linter } from "eslint";
 import type { JsonExtensions } from "../utils.ts";
 
-export const jsonConfigs: Linter.Config[] = [
+export const jsonConfigs = defineConfig([
   {
     files: [ "**/*.json", "**/*.jsonc", "**/*.json5" ] as JsonExtensions,
     rules: {
@@ -22,7 +22,7 @@ export const jsonConfigs: Linter.Config[] = [
         objectsInObjects: false,
       }],
     },
-  } satisfies Linter.Config,
+  },
   ...(
     jsonc.configs["flat/recommended-with-json"].map((config) => ({
       files: [ "**/*.json" ],
@@ -46,5 +46,5 @@ export const jsonConfigs: Linter.Config[] = [
       }],
       "jsonc/quote-props": [ "error", "as-needed" ],
     },
-  } satisfies Linter.Config,
-];
+  },
+]);

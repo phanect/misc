@@ -1,7 +1,7 @@
+import { defineConfig } from "eslint/config";
 import vitest from "eslint-plugin-vitest";
-import type { Linter } from "eslint";
 
-export const vitestConfigs: Linter.Config[] = [{
+export const vitestConfigs = defineConfig([{
   files: [
     "**/*.test.js",
     "**/*.test.jsx",
@@ -36,4 +36,4 @@ export const vitestConfigs: Linter.Config[] = [{
     "vitest/no-conditional-expect": "off",
     "vitest/require-top-level-describe": "off",
   },
-}];
+}]);

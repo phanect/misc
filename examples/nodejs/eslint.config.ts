@@ -1,7 +1,7 @@
+import { defineConfig } from "eslint/config";
 import { core, nodejs } from "@phanect/lint";
-import type { Linter } from "eslint";
 
-const configs: Linter.Config[] = [
+const configs = defineConfig([
   ...core,
   ...nodejs,
   {
@@ -12,6 +12,6 @@ const configs: Linter.Config[] = [
       },
     },
   },
-];
+]);
 
 export default configs;

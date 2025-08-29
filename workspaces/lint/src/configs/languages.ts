@@ -1,3 +1,4 @@
+import { defineConfig } from "eslint/config";
 import js from "@eslint/js";
 import stylistic from "@stylistic/eslint-plugin";
 import imports from "eslint-plugin-import";
@@ -5,7 +6,7 @@ import jsdoc from "eslint-plugin-jsdoc";
 import promise from "eslint-plugin-promise";
 import ts from "typescript-eslint";
 import { toTSRules, type CodeExtensions, type JsExtensions, type TsExtensions } from "../utils.ts";
-import type { ESLint, Linter } from "eslint";
+import type { Linter } from "eslint";
 
 /** Rules to be prefixed with "@typescript-eslint/" when they are applied to TS */
 const prefixRequiredRules: Linter.RulesRecord = {
@@ -31,7 +32,7 @@ const prefixRequiredRules: Linter.RulesRecord = {
  * Config to be applied to both JS and TS.
  * This config have to be declared after the recommended rulesets to avoid to be overwritten.
  */
-export const commonConfigs: Linter.Config[] = [
+export const commonConfigs = defineConfig([
   stylistic.configs.recommended,
   imports.flatConfigs.recommended,
   promise.configs["flat/recommended"],
@@ -44,8 +45,8 @@ export const commonConfigs: Linter.Config[] = [
       sourceType: "module",
     },
     plugins: {
-      "@stylistic": stylistic as ESLint.Plugin,
-      jsdoc: jsdoc as ESLint.Plugin,
+      "@stylistic": stylistic,
+      jsdoc,
       promise,
     },
 
@@ -242,11 +243,11 @@ export const commonConfigs: Linter.Config[] = [
     "**/*.svelte",
     "**/*.astro",
   ] as CodeExtensions,
-}));
+})));
 
-export const jsConfigs: Linter.Config[] = [
+export const jsConfigs = defineConfig([
   js.configs.recommended,
-  (jsdoc as ESLint.Plugin).configs?.["flat/recommended"] as Linter.Config ?? {},
+  jsdoc.configs?.["flat/recommended"] ?? {},
   {
     rules: {
       ...prefixRequiredRules,
@@ -271,14 +272,14 @@ export const jsConfigs: Linter.Config[] = [
 ].map((config) => ({
   files: [ "**/*.js", "**/*.mjs", "**/*.jsx" ] as JsExtensions,
   ...config,
-}));
+})));
 
 export const tsConfigs: Linter.Config[] = ts.config(
   js.configs.recommended,
   ...ts.configs.recommendedTypeChecked,
   ...ts.configs.stylisticTypeChecked,
   imports.flatConfigs.typescript,
-  (jsdoc as ESLint.Plugin).configs?.["flat/recommended-typescript"] as Linter.Config ?? {},
+  jsdoc.configs?.["flat/recommended-typescript"] ?? {},
   {
     languageOptions: {
       parserOptions: {
@@ -357,7 +358,7 @@ export const tsConfigs: Linter.Config[] = ts.config(
         },
       },
     },
-  } satisfies Linter.Config,
+  },
 ).map((config) => ({
   ...config,
   files: [

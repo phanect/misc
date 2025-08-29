@@ -1,10 +1,11 @@
+import { defineConfig } from "eslint/config";
 import sveltePlugin from "eslint-plugin-svelte";
 import * as tsParser from "@typescript-eslint/parser";
 import globals from "globals";
 import type { Linter } from "eslint";
 import type { CodeExtensions } from "@phanect/lint";
 
-export const svelte: Linter.Config[] = [
+export const svelte = defineConfig([
   ...sveltePlugin.configs["flat/recommended"],
   {
     files: [ "**/*.svelte" ],
@@ -74,4 +75,4 @@ export const svelte: Linter.Config[] = [
       },
     },
   } satisfies Linter.Config,
-];
+]);
