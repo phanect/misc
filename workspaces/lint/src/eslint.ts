@@ -54,5 +54,7 @@ export {
   unbundledConfigs as unbundled,
 } from "./configs/nodejs.ts";
 
+export { cssConfigs as css } from "./configs/css.ts";
+
 // Used in other @phanect/lint-* packages
 export type { CodeExtensions };
