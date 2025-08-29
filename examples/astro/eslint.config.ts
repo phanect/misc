@@ -1,8 +1,8 @@
+import { defineConfig } from "eslint/config";
 import { core } from "@phanect/lint";
 import { astro } from "@phanect/lint-astro";
-import type { Linter } from "eslint";
 
-const configs: Linter.Config[] = [
+const configs = defineConfig([
   ...core,
   ...astro,
   {
@@ -15,6 +15,6 @@ const configs: Linter.Config[] = [
       },
     },
   },
-];
+]);
 
 export default configs;

@@ -1,4 +1,5 @@
 import { cwd } from "node:process";
+import { defineConfig } from "eslint/config";
 import { FlatCompat } from "@eslint/eslintrc";
 import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
 import reactPlugin from "eslint-plugin-react";
@@ -6,7 +7,7 @@ import hooksPlugin from "eslint-plugin-react-hooks";
 import globals from "globals";
 import type { Linter } from "eslint";
 
-export const react: Linter.Config[] = [
+export const react = defineConfig([
   reactPlugin.configs.flat?.recommended,
   reactPlugin.configs.flat?.["jsx-runtime"],
   jsxA11yPlugin.flatConfigs.recommended,
@@ -40,7 +41,7 @@ export const react: Linter.Config[] = [
         ],
       }],
     },
-  } satisfies Linter.Config,
+  },
 ].map((config) => ({
   ...config,
   files: [ "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx}" ],
@@ -57,13 +58,13 @@ export const react: Linter.Config[] = [
       },
     },
   },
-}));
+})));
 
 const compat = new FlatCompat({
   baseDirectory: cwd(),
 });
 
-export const nextjs: Linter.Config[] = [
+export const nextjs = defineConfig([
   ...react,
   ...compat.extends("plugin:@next/next/core-web-vitals"),
-];
+]);

@@ -1,12 +1,12 @@
+import { defineConfig } from "eslint/config";
 import globals from "globals";
 import { jsonConfigs } from "./configs/json.ts";
 import { commonConfigs, jsConfigs, tsConfigs } from "./configs/languages.ts";
 import { devConfigs } from "./configs/nodejs.ts";
 import { vitestConfigs } from "./configs/vitest.ts";
-import type { Linter } from "eslint";
 import type { CodeExtensions } from "./utils.ts";
 
-export const core: Linter.Config[] = [
+export const core = defineConfig([
   {
     ignores: [
       "package-lock.json",
@@ -21,23 +21,23 @@ export const core: Linter.Config[] = [
       "out/",
       "tmp/",
     ],
-  } satisfies Linter.Config,
+  },
   {
     files: [ "**/*" ],
     linterOptions: {
       noInlineConfig: false,
       reportUnusedDisableDirectives: "error",
     },
-  } satisfies Linter.Config,
+  },
   ...jsConfigs,
   ...tsConfigs,
   ...commonConfigs,
   ...devConfigs,
   ...vitestConfigs,
   ...jsonConfigs,
-] as const;
+]);
 
-export const vanilla: Linter.Config[] = [{
+export const vanilla = defineConfig([{
   files: [
     "**/*.js",
     "**/*.mjs",
@@ -47,7 +47,7 @@ export const vanilla: Linter.Config[] = [{
   languageOptions: {
     globals: globals.browser,
   },
-}];
+}]);
 
 export {
   nodejsConfigs as nodejs,

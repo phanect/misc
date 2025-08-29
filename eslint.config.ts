@@ -1,7 +1,7 @@
 import { core, nodejs } from "@phanect/lint";
-import type { Linter } from "eslint";
+import { defineConfig } from "eslint/config";
 
-const configs: Linter.Config[] = [
+const configs = defineConfig([
   {
     ignores: [
       "**/.tsup/**",
@@ -27,6 +27,6 @@ const configs: Linter.Config[] = [
       "jsonc/no-comments": "off",
     },
   },
-];
+]);
 
 export default configs;
