@@ -64,5 +64,6 @@ const compat = new FlatCompat({
 });
 
 export const nextjs: Linter.Config[] = [
+  ...react,
   ...compat.extends("plugin:@next/next/core-web-vitals"),
 ];
