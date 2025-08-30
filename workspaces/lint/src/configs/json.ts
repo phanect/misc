@@ -36,7 +36,10 @@ export const jsonConfigs = defineConfig([
       ...config,
     }))
   ),
-  ...jsonc.configs["flat/recommended-with-json5"],
+  ...jsonc.configs["flat/recommended-with-json5"].map((config) => ({
+    ...config,
+    files: [ "**/*.json5" ],
+  })),
   {
     files: [ "**/*.json5" ],
     rules: {
