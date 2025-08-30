@@ -31,6 +31,7 @@ export const react = defineConfig([{
   plugins: {
     react: reactPlugin,
     "react-hooks": hooksPlugin,
+    "jsx-a11y": jsxA11yPlugin,
   },
   rules: {
     ...hooksPlugin.configs.recommended.rules,
