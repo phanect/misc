@@ -31,6 +31,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           check-latest: true
+          package-manager-cache: false # Cache requires pnpm-lock.yaml
 
       - run: pnpm install
       - run: pnpm test
@@ -45,6 +46,7 @@ jobs:
         with:
           node-version: 22
           check-latest: true
+          package-manager-cache: false # Cache requires pnpm-lock.yaml
 
       - run: pnpm install
       # You don't have to run `pnpm run build` because
@@ -74,6 +76,7 @@ jobs:
         with:
           node-version: 22
           check-latest: true
+          package-manager-cache: false # Cache requires pnpm-lock.yaml
 
       - run: pnpm install
       - run: pnpm run build
