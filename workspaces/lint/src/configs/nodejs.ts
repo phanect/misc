@@ -19,6 +19,11 @@ const devConfigPatterns: string[] = [
   "**/specs/**/*.@(js|mjs|ts|mts|jsx|tsx)",
   "**/*.test.@(js|mjs|ts|mts|jsx|tsx)",
   "**/*.spec.@(js|mjs|ts|mts|jsx|tsx)",
+  "**/.config/mise/tasks/**/*.@(js|mjs|ts|mts|jsx|tsx)",
+  "**/.mise/tasks/**/*.@(js|mjs|ts|mts|jsx|tsx)",
+  "**/.mise-tasks/**/*.@(js|mjs|ts|mts|jsx|tsx)",
+  "**/mise/tasks/**/*.@(js|mjs|ts|mts|jsx|tsx)",
+  "**/mise-tasks/**/*.@(js|mjs|ts|mts|jsx|tsx)",
 ];
 
 export const nodejsConfigs: Linter.Config[] = defineConfig([
