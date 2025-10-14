@@ -1,12 +1,16 @@
+experimental_monorepo_root = true
+
 [tools]
 node = { version = "24" }
 
 [tasks]
   [tasks.build]
-  run = "pnpm --recursive --stream --if-present run build"
+  alias = "build"
+  depends = "//.../...:build"
 
   [tasks.lint]
-  depends = [ "build" ]
+  depends = [ ":build" ]
+  # TODO How can I do it in monorepo?
   run = [
     "tsc --noEmit",
     "eslint",
@@ -14,7 +18,7 @@ node = { version = "24" }
   ]
 
   [tasks.fix]
-  depends = [ "build" ]
+  depends = [ ":build" ]
   run = [
     "eslint --fix",
     "pnpm --recursive --stream --if-present run fix",
@@ -27,7 +31,7 @@ node = { version = "24" }
   run = "git clean -dX --exclude=\"!mise.local.toml\" --force"
 
   [tasks.refresh]
-  depends = [ "clean" ]
+  depends = [ ":clean" ]
   run = [
     "rm --force ./pnpm-lock.yaml",
     "corepack enable",
@@ -53,6 +57,7 @@ _.path = "./node_modules/.bin"
 
 [settings]
 jobs = 8
+task.monorepo_depth = 2
 
 # Required for hooks as of 2025.10
 # https://mise.jdx.dev/hooks.html

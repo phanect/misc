@@ -1,0 +1,10 @@
+[tasks]
+  [tasks.build]
+  depends = [ ":build:prep" ]
+  run = "tsup"
+
+  [tasks.lint]
+  run = "tsc --noEmit"
+
+[env]
+_.path = "./node_modules/.bin"

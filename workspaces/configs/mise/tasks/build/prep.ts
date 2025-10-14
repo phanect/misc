@@ -1,9 +1,11 @@
+#!/usr/bin/env -S pnpm exec jiti
+
 import { readFileSync } from "node:fs";
 import { mkdir, readdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
-const tsconfigDirPath = join(import.meta.dirname, "../configs/ts/");
-const tmpDirPath = join(import.meta.dirname, "../tmp");
+const tsconfigDirPath = join(import.meta.dirname, "../../configs/ts/");
+const tmpDirPath = join(import.meta.dirname, "../../tmp");
 
 const tsconfigs = (await readdir(tsconfigDirPath, {
   recursive: true,
