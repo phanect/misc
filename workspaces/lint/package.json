@@ -25,11 +25,6 @@
       }
     }
   },
-  "scripts": {
-    "build": "tsup",
-    "test": "vitest run",
-    "lint": "tsc --noEmit && : lint"
-  },
   "dependencies": {
     "@eslint/css": "^0.13.0",
     "@eslint/js": "^9.7.0",

@@ -17,10 +17,6 @@
   "main": "./dist/svelte.js",
   "module": "./dist/svelte.js",
   "types": "./dist/svelte.d.ts",
-  "scripts": {
-    "build": "tsup",
-    "lint": "tsc --noEmit && : lint-svelte"
-  },
   "dependencies": {
     "@typescript-eslint/parser": "^8.24.1",
     "eslint-plugin-svelte": "^3.0.2",

@@ -17,10 +17,6 @@
   "main": "./dist/react.js",
   "module": "./dist/react.js",
   "types": "./dist/react.d.ts",
-  "scripts": {
-    "build": "tsup",
-    "lint": "tsc --noEmit && : lint-react"
-  },
   "dependencies": {
     "@eslint/eslintrc": "^3.3.1",
     "@next/eslint-plugin-next": "^16.0.0",

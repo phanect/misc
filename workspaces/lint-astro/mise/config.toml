@@ -1,0 +1,9 @@
+[tasks]
+  [tasks.build]
+  run = "tsup"
+
+  [tasks.lint]
+  run = "tsc --noEmit"
+
+[env]
+_.path = "./node_modules/.bin"
