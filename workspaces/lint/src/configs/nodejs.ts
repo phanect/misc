@@ -110,6 +110,8 @@ export const devConfigs = defineConfig([
       n,
     },
     rules: {
+      // Mise file tasks needs shebangs
+      "n/hashbang": "off",
       "n/no-unsupported-features/node-builtins": [ "error", {
         version: `>=${ latestNodejsLtsVersion }`,
         allowExperimental: true,
