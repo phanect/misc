@@ -1,7 +1,9 @@
+#!/usr/bin/env -S pnpm exec jiti
+
 import { writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { loadJSON } from "@phanect/utils/nodejs";
-import { getExampleDirPaths, getWorkspaceDirPaths } from "./libs/utils.ts";
+import { getExampleDirPaths, getWorkspaceDirPaths } from "./_libs/utils.ts";
 import type { PackageJson } from "type-fest";
 
 const packageJsonPaths = [

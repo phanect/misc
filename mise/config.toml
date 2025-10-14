@@ -1,0 +1,59 @@
+[tools]
+node = { version = "24" }
+
+[tasks]
+  [tasks.build]
+  run = "pnpm --recursive --stream --if-present run build"
+
+  [tasks.lint]
+  depends = [ "build" ]
+  run = [
+    "tsc --noEmit",
+    "eslint",
+    "pnpm --recursive --stream --if-present run lint"
+  ]
+
+  [tasks.fix]
+  depends = [ "build" ]
+  run = [
+    "eslint --fix",
+    "pnpm --recursive --stream --if-present run fix",
+  ]
+
+  [tasks.test]
+  run = "pnpm  --recursive --stream --if-present run test"
+
+  [tasks.clean]
+  run = "git clean -dX --exclude=\"!mise.local.toml\" --force"
+
+  [tasks.refresh]
+  depends = [ "clean" ]
+  run = [
+    "rm --force ./pnpm-lock.yaml",
+    "corepack enable",
+    "corepack up",
+    "mise install"
+  ]
+
+  [tasks.release]
+  depends = [
+    "release:readme",
+    "build",
+  ]
+  run = "lerna publish from-package --yes"
+
+[hooks]
+postinstall = [
+  "corepack enable",
+  "pnpm install",
+]
+
+[env]
+_.path = "./node_modules/.bin"
+
+[settings]
+jobs = 8
+
+# Required for hooks as of 2025.10
+# https://mise.jdx.dev/hooks.html
+experimental = true

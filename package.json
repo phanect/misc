@@ -14,17 +14,6 @@
     "workspaces/*",
     "examples/*"
   ],
-  "scripts": {
-    "build": "pnpm --recursive --stream --if-present run build",
-    "test": "pnpm  --recursive --stream --if-present run test",
-    "lint": "pnpm run build && tsc --noEmit && eslint && pnpm --recursive --stream --if-present run lint",
-    "fix": "pnpm run build && eslint --fix && pnpm --recursive --stream --if-present run fix",
-    "clean": "git clean -dX --force",
-    "refresh": "pnpm run clean && corepack up && pnpm install",
-    "versions": "jiti ./scripts/versions.ts",
-    "release": "pnpm run release:readme && pnpm run build && lerna publish from-package --yes",
-    "release:readme": "jiti ./scripts/release-readme.ts"
-  },
   "devDependencies": {
     "@lerna-lite/cli": "^4.0.0",
     "@lerna-lite/publish": "^4.0.0",
