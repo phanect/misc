@@ -31,12 +31,12 @@
     "lint": "tsc --noEmit && : lint"
   },
   "dependencies": {
-    "@eslint/css": "^0.11.0",
+    "@eslint/css": "^0.13.0",
     "@eslint/js": "^9.7.0",
     "@stylistic/eslint-plugin": "^5.2.3",
     "eslint-import-resolver-typescript": "^4.2.2",
     "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-jsdoc": "^60.1.1",
+    "eslint-plugin-jsdoc": "^61.1.4",
     "eslint-plugin-jsonc": "^2.15.1",
     "eslint-plugin-n": "^17.7.0",
     "eslint-plugin-promise": "^7.0.0",
