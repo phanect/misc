@@ -217,6 +217,8 @@ export const commonConfigs = defineConfig([
       // Only enable in JavaScript. In TypeScript, tsc checks it
       "import/no-unresolved": "off",
 
+      // Avoid too much efforts for typing in JavaScript
+      "jsdoc/reject-function-type": "off",
       "jsdoc/require-jsdoc": "off",
       "jsdoc/require-description-complete-sentence": "off",
 
