@@ -5,7 +5,7 @@ import globals from "globals";
 import type { Linter } from "eslint";
 import type { CodeExtensions } from "@phanect/lint";
 
-export const svelte = defineConfig([
+export const svelte: Linter.Config[] = defineConfig([
   ...sveltePlugin.configs["flat/recommended"],
   {
     files: [ "**/*.svelte" ],
