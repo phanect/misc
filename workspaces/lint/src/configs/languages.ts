@@ -276,7 +276,7 @@ export const jsConfigs: Linter.Config[] = defineConfig([
   ...config,
 })));
 
-export const tsConfigs: Linter.Config[] = ts.config(
+export const tsConfigs: Linter.Config[] = defineConfig([
   js.configs.recommended,
   ...ts.configs.recommendedTypeChecked,
   ...ts.configs.stylisticTypeChecked,
@@ -361,7 +361,7 @@ export const tsConfigs: Linter.Config[] = ts.config(
       },
     },
   },
-).map((config) => ({
+]).map((config) => ({
   ...config,
   files: [
     "**/*.ts",
