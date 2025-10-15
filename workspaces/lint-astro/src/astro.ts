@@ -1,8 +1,9 @@
 import { defineConfig } from "eslint/config";
 import astroPlugin from "eslint-plugin-astro";
 import globals from "globals";
+import type { Linter } from "eslint";
 
-export const astro = defineConfig([
+export const astro: Linter.Config[] = defineConfig([
   ...astroPlugin.configs.recommended,
   ...astroPlugin.configs["jsx-a11y-recommended"],
   {

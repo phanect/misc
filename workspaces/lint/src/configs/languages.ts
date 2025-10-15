@@ -32,7 +32,7 @@ const prefixRequiredRules: Linter.RulesRecord = {
  * Config to be applied to both JS and TS.
  * This config have to be declared after the recommended rulesets to avoid to be overwritten.
  */
-export const commonConfigs = defineConfig([
+export const commonConfigs: Linter.Config[] = defineConfig([
   stylistic.configs.recommended,
   imports.flatConfigs.recommended,
   promise.configs["flat/recommended"],
@@ -247,7 +247,7 @@ export const commonConfigs = defineConfig([
   ] as CodeExtensions,
 })));
 
-export const jsConfigs = defineConfig([
+export const jsConfigs: Linter.Config[] = defineConfig([
   js.configs.recommended,
   jsdoc.configs?.["flat/recommended"] ?? {},
   {

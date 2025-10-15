@@ -1,8 +1,9 @@
 import { defineConfig } from "eslint/config";
 import jsonc from "eslint-plugin-jsonc";
 import type { JsonExtensions } from "../utils.ts";
+import type { Linter } from "eslint";
 
-export const jsonConfigs = defineConfig([
+export const jsonConfigs: Linter.Config[] = defineConfig([
   {
     files: [ "**/*.json", "**/*.jsonc", "**/*.json5" ] as JsonExtensions,
     rules: {

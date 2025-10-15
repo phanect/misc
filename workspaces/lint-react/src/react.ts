@@ -5,8 +5,9 @@ import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
 import reactPlugin from "eslint-plugin-react";
 import hooksPlugin from "eslint-plugin-react-hooks";
 import globals from "globals";
+import type { Linter } from "eslint";
 
-export const react = defineConfig([{
+export const react: Linter.Config[] = defineConfig([{
   files: [ "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx}" ],
 
   ...reactPlugin.configs.flat.recommended,
@@ -64,7 +65,7 @@ const compat = new FlatCompat({
   baseDirectory: cwd(),
 });
 
-export const nextjs = defineConfig([
+export const nextjs: Linter.Config[] = defineConfig([
   ...react,
   ...compat.extends("plugin:@next/next/core-web-vitals"),
 ]);

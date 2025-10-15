@@ -21,7 +21,7 @@ const devConfigPatterns: string[] = [
   "**/*.spec.@(js|mjs|ts|mts|jsx|tsx)",
 ];
 
-export const nodejsConfigs = defineConfig([
+export const nodejsConfigs: Linter.Config[] = defineConfig([
   n.configs["flat/recommended-module"],
 
   {
@@ -92,7 +92,7 @@ export const nodejsConfigs = defineConfig([
   },
 })));
 
-export const devConfigs = defineConfig([
+export const devConfigs: Linter.Config[] = defineConfig([
   ...nodejsConfigs.map((config) => ({
     ...config,
     files: devConfigPatterns,
@@ -114,7 +114,7 @@ export const devConfigs = defineConfig([
   },
 ]);
 
-export const unbundledConfigs = defineConfig([{
+export const unbundledConfigs: Linter.Config[] = defineConfig([{
   files: [
     "**/*.js",
     "**/*.mjs",

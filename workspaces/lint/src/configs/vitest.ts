@@ -1,7 +1,8 @@
 import { defineConfig } from "eslint/config";
 import vitest from "eslint-plugin-vitest";
+import type { Linter } from "eslint";
 
-export const vitestConfigs = defineConfig([{
+export const vitestConfigs: Linter.Config[] = defineConfig([{
   files: [
     "**/*.test.js",
     "**/*.test.jsx",

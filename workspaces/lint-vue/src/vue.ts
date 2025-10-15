@@ -5,7 +5,7 @@ import { parser as tsParser } from "typescript-eslint";
 import globals from "globals";
 import type { Linter } from "eslint";
 
-export const vue = defineConfig([
+export const vue: Linter.Config[] = defineConfig([
   ...vuePlugin.configs["flat/recommended"],
 
   {
