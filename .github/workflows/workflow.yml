@@ -25,42 +25,36 @@ jobs:
           - 20
           - 22
           - 24
+    env:
+      # Override Node.js version over mise.toml
+      MISE_NODE_VERSION: ${{ matrix.node-version }}
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+      - uses: jdx/mise-action@e3d7b8d67a7958d1207f6ed871e83b1ea780e7b0 # v3.3.1
         with:
-          node-version: ${{ matrix.node-version }}
-          check-latest: true
-          package-manager-cache: false # Cache requires pnpm-lock.yaml
+          install: true
+          cache: true
 
-      - run: pnpm install
-      - run: pnpm test
+      - run: mise test
 
   lint:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
-      - name: Use Node.js v22
-        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+      - uses: jdx/mise-action@e3d7b8d67a7958d1207f6ed871e83b1ea780e7b0 # v3.3.1
         with:
-          node-version: 24
-          check-latest: true
-          package-manager-cache: false # Cache requires pnpm-lock.yaml
+          install: true
+          cache: true
 
-      - run: pnpm install
-      # You don't have to run `pnpm run build` because
-      # `pnpm run lint` runs `pnpm run build` before test and lint.
-      - name: pnpm run lint
-        run: pnpm run lint
+      # You don't have to run `mise build` because
+      # `mise lint` runs `mise build` before test and lint.
+      - run: mise lint
 
-      - name: Quick test for pnpm scripts - pnpm run release:readme
-        run: pnpm run release:readme
-      - name: Quick test for pnpm scripts - pnpm run versions
-        run: pnpm run versions
+      - name: Quick test for mise tasks - mise release:readme
+        run: mise release:readme
+      - name: Quick test for mise tasks - mise versions
+        run: mise versions
 
   publish:
     needs:
@@ -75,16 +69,13 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
-      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+      - uses: jdx/mise-action@e3d7b8d67a7958d1207f6ed871e83b1ea780e7b0 # v3.3.1
         with:
-          node-version: 24
-          check-latest: true
-          package-manager-cache: false # Cache requires pnpm-lock.yaml
+          install: true
+          cache: true
 
-      - run: pnpm install
-      - run: pnpm run build
+      - run: mise build
 
       - name: Set npm auth token
         run: echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_AUTH_TOKEN}}" > ~/.npmrc
-      - run: pnpm run release
+      - run: mise release
