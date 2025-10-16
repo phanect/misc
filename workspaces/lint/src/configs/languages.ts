@@ -223,6 +223,7 @@ export const commonConfigs: Linter.Config[] = defineConfig([
       "jsdoc/require-description-complete-sentence": "off",
 
       "arrow-body-style": "off",
+      "@stylistic/indent-binary-ops": "off", // Conflicts to `@stylistic/indent`
       "@stylistic/jsx-one-expression-per-line": "off",
     },
     settings: {
