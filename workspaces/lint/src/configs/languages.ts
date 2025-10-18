@@ -147,6 +147,7 @@ export const commonConfigs: Linter.Config[] = defineConfig([
             position: "before",
           },
         ],
+        pathGroupsExcludedImportTypes: [ "type" ],
       }],
 
       "promise/prefer-await-to-callbacks": "error",
