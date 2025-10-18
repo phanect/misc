@@ -119,7 +119,7 @@ export const commonConfigs: Linter.Config[] = defineConfig([
         groups: [
           "builtin",
           "external",
-          "internal",
+          "internal", // use for framework-specific paths such as Next.js's "@/components/..."
           [ "parent", "sibling", "index" ],
           "object",
           "type",
@@ -128,18 +128,22 @@ export const commonConfigs: Linter.Config[] = defineConfig([
           {
             pattern: "~/**",
             group: "internal",
+            position: "before",
           },
           {
             pattern: "~~/**",
             group: "internal",
+            position: "before",
           },
           {
             pattern: "@/**",
             group: "internal",
+            position: "before",
           },
           {
             pattern: "@@/**",
             group: "internal",
+            position: "before",
           },
         ],
       }],
