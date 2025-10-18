@@ -122,6 +122,7 @@ export const commonConfigs: Linter.Config[] = defineConfig([
           "internal", // use for framework-specific paths such as Next.js's "@/components/..."
           [ "parent", "sibling", "index" ],
           "object",
+          "unknown",
           "type",
         ],
         pathGroups: [
