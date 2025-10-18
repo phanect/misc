@@ -99,11 +99,7 @@ export const commonConfigs: Linter.Config[] = defineConfig([
       "import/no-deprecated": "warn",
       "import/order": [ "warn", {
         alphabetize: {
-          // By enabling this, it forces to put the types from relative path
-          // (e.g. `import type { Ext } from "./utils.ts";`) before the types
-          // from the external modules (e.g. `import type { Linter } from "eslint";`)
-          // order: "asc",
-
+          order: "asc",
           orderImportKind: "asc",
           caseInsensitive: true,
         },
@@ -125,6 +121,7 @@ export const commonConfigs: Linter.Config[] = defineConfig([
           "unknown",
           "type",
         ],
+        sortTypesGroup: true,
         pathGroups: [
           {
             pattern: "~/**",
