@@ -15,7 +15,7 @@ export const react: Linter.Config[] = defineConfig([{
   ...jsxA11yPlugin.flatConfigs.recommended,
 
   languageOptions: {
-    ...reactPlugin.configs.flat.recommended.languageOptions,
+    ...reactPlugin.configs.flat.recommended?.languageOptions,
 
     globals: {
       ...globals.browser,
