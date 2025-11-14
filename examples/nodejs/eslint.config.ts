@@ -1,5 +1,5 @@
-import { defineConfig } from "eslint/config";
 import { core, nodejs } from "@phanect/lint";
+import { defineConfig } from "eslint/config";
 
 const configs = defineConfig([
   ...core,

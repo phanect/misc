@@ -1,5 +1,5 @@
-import { defineConfig } from "eslint/config";
 import css from "@eslint/css";
+import { defineConfig } from "eslint/config";
 import type { Linter } from "eslint";
 
 export const cssConfigs: Linter.Config[] = defineConfig([

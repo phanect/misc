@@ -1,6 +1,6 @@
-import { defineConfig } from "eslint/config";
 import js from "@eslint/js";
 import stylistic from "@stylistic/eslint-plugin";
+import { defineConfig } from "eslint/config";
 import imports from "eslint-plugin-import";
 import jsdoc from "eslint-plugin-jsdoc";
 import promise from "eslint-plugin-promise";
