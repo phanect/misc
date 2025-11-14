@@ -28,9 +28,6 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
 
-    // JSX
-    "jsx": "react-jsx",
-
     // Error message format
     "noErrorTruncation": true,
     "pretty": true,
@@ -42,6 +39,7 @@
     "sourceMap": false,
     "target": "esnext",
     "newLine": "lf",
-    "removeComments": true
+    "removeComments": true,
+    "jsx": "preserve"
   }
 }
