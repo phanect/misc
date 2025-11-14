@@ -1,8 +1,8 @@
-import { defineConfig } from "eslint/config";
 import { createConfigForNuxt } from "@nuxt/eslint-config";
+import { defineConfig } from "eslint/config";
 import vuePlugin from "eslint-plugin-vue";
-import { parser as tsParser } from "typescript-eslint";
 import globals from "globals";
+import { parser as tsParser } from "typescript-eslint";
 import type { Linter } from "eslint";
 
 export const vue: Linter.Config[] = defineConfig([

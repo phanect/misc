@@ -1,6 +1,6 @@
-import { defineConfig } from "eslint/config";
 import { core } from "@phanect/lint";
-import { vue, nuxt } from "@phanect/lint-vue";
+import { nuxt, vue } from "@phanect/lint-vue";
+import { defineConfig } from "eslint/config";
 
 const configs = defineConfig([
   {

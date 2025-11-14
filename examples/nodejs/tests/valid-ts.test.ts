@@ -1,4 +1,4 @@
-import { test, expect, afterEach, beforeEach } from "vitest";
+import { afterEach, beforeEach, expect, test } from "vitest";
 
 beforeEach(() => {
   console.log("before");

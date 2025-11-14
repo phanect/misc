@@ -1,9 +1,9 @@
+import * as tsParser from "@typescript-eslint/parser";
 import { defineConfig } from "eslint/config";
 import sveltePlugin from "eslint-plugin-svelte";
-import * as tsParser from "@typescript-eslint/parser";
 import globals from "globals";
-import type { Linter } from "eslint";
 import type { CodeExtensions } from "@phanect/lint";
+import type { Linter } from "eslint";
 
 export const svelte: Linter.Config[] = defineConfig([
   ...sveltePlugin.configs["flat/recommended"],

@@ -1,6 +1,6 @@
 import { cwd } from "node:process";
-import { defineConfig } from "eslint/config";
 import { FlatCompat } from "@eslint/eslintrc";
+import { defineConfig } from "eslint/config";
 import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
 import reactPlugin from "eslint-plugin-react";
 import hooksPlugin from "eslint-plugin-react-hooks";

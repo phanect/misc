@@ -1,6 +1,6 @@
-import { defineConfig } from "eslint/config";
 import { core } from "@phanect/lint";
 import { astro } from "@phanect/lint-astro";
+import { defineConfig } from "eslint/config";
 
 const configs = defineConfig([
   ...core,
