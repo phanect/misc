@@ -1,8 +1,4 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": [
-    "./.nuxt/tsconfig.json",
-    "@phanect/configs/ts"
-  ],
-  "include": [ "**/*.js", "**/*.mjs", "**/*.ts", "**/*.vue" ]
+  "extends": "./.nuxt/tsconfig.json"
 }
