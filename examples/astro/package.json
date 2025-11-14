@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "lint": "tsc --noEmit && astro check && eslint && : example-astro"
+    "lint": "astro check && eslint && : example-astro"
   },
   "dependencies": {
     "astro": "^5.0.4"
