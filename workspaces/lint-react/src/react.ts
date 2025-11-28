@@ -1,4 +1,3 @@
-import { cwd } from "node:process";
 import { FlatCompat } from "@eslint/eslintrc";
 import { defineConfig } from "eslint/config";
 import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
@@ -62,7 +61,7 @@ export const react: Linter.Config[] = defineConfig([{
 }]);
 
 const compat = new FlatCompat({
-  baseDirectory: cwd(),
+  baseDirectory: process.cwd(),
 });
 
 export const nextjs: Linter.Config[] = defineConfig([
