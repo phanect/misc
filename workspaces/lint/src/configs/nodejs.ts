@@ -50,9 +50,20 @@ export const nodejsConfigs: Linter.Config[] = defineConfig([
       "n/prefer-global/url": "error",
       "n/prefer-global/url-search-params": "error",
 
+      // Use global `process` because `process.env.*` is required for
+      // frontend code in some frameworks such as Next.js.
+      //
+      // e.g. In the following frontend code of Next.js, `NEXT_PUBLIC_ENV_VAR`
+      // is not accessible
+      //
+      // ```js
+      // import { env } from "node:process";
+      // console.log(env.NEXT_PUBLIC_ENV_VAR); // ERROR
+      // ```
+      "n/prefer-global/process": [ "error", "always" ],
+
       // Import or require Node.js-specific APIs.
       "n/prefer-global/buffer": [ "error", "never" ],
-      "n/prefer-global/process": [ "error", "never" ],
 
       "n/prefer-node-protocol": "error", // Prefer `import { ... } from "node:fs"` to `"fs"`
       "n/prefer-promises/dns": "error",
