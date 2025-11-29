@@ -5,7 +5,7 @@ ESLint config for my own projects.
 ## Install
 
 ```shell
-npm install -D eslint @phanect/lint @phanect/lint-react @phanect/lint-vue @phanect/lint-svelte @phanect/lint-astro
+pnpm install -D eslint @phanect/lint @phanect/lint-react @phanect/lint-vue @phanect/lint-svelte @phanect/lint-astro
 ```
 
 `@phanect/lint-*` packages are the linter configs for the specific frameworks. Install them if you use them.
@@ -75,19 +75,19 @@ Supported configs:
 
 ```shell
 $ cd /path/to/misc
-$ npm pack
+$ pnpm pack
 ```
 
 ### 2. Install new package on a realworld project
 
 ```shell
 $ cd /path/to/target/project
-$ npm install ../misc/eslint-config-phanective-2024.1.1.tgz
+$ pnpm add -D ../misc/eslint-config-phanective-2024.1.1.tgz
 ```
 
 ### 3. Test
 
 ```shell
 # $ cd /path/to/target/project
-$ npm run lint
+$ pnpm lint
 ```
