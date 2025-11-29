@@ -1,6 +1,6 @@
 {
   "name": "@phanect/eslint-fixture-nuxt",
-  "version": "2025.10.16",
+  "version": "2025.11.29",
   "private": true,
   "type": "module",
   "scripts": {
