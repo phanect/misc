@@ -1,5 +1,5 @@
-import { FlatCompat } from "@eslint/eslintrc";
-import { defineConfig } from "eslint/config";
+import nextPlugin from "@next/eslint-plugin-next";
+import { defineConfig, globalIgnores } from "eslint/config";
 import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
 import reactPlugin from "eslint-plugin-react";
 import hooksPlugin from "eslint-plugin-react-hooks";
@@ -58,11 +58,26 @@ export const react: Linter.Config[] = defineConfig([{
   },
 }]);
 
-const compat = new FlatCompat({
-  baseDirectory: process.cwd(),
-});
-
 export const nextjs: Linter.Config[] = defineConfig([
-  ...react,
-  ...compat.extends("plugin:@next/next/core-web-vitals"),
+  {
+    files: [
+      "**/*.js",
+      "**/*.mjs",
+      "**/*.jsx",
+      "**/*.ts",
+      "**/*.mts",
+      "**/*.tsx",
+    ],
+    extends: [
+      react,
+      nextPlugin.configs["core-web-vitals"],
+    ],
+  },
+
+  globalIgnores([
+    "**/.next/**",
+    "**/out/**",
+    "**/build/**",
+    "**/next-env.d.ts",
+  ]),
 ]);

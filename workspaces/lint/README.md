@@ -40,6 +40,13 @@ export default [
         tsconfigRootDir: import.meta.dirname,
       },
     },
+
+    // If the repository is monorepo and one of the workspaces is Next.js project...
+    settings: {
+      next: {
+        rootDir: "workspaces/my-project/",
+      },
+    },
   },
 ];
 ```
