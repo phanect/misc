@@ -1,9 +1,12 @@
-import { defineConfig } from "eslint/config";
+import { defineConfig, globalIgnores } from "eslint/config";
 import astroPlugin from "eslint-plugin-astro";
 import globals from "globals";
 import type { Linter } from "eslint";
 
 export const astro: Linter.Config[] = defineConfig([
+  globalIgnores([
+    "**/.astro/**",
+  ]),
   {
     files: [ "**/*.astro" ],
     extends: [
