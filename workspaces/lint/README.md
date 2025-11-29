@@ -60,7 +60,7 @@ Supported configs:
     - Use this rules in addition to the above rules if the project depends on package.json's `dependencies` on production i.e. npm packages and backend Node.js app without bundling.
 - `@phanect/lint-react`
   - `react`
-  - `next`
+  - `nextjs`
 - `@phanect/lint-vue`
   - `vue`
   - `nuxt`
