@@ -12,16 +12,14 @@ npm install -D eslint @phanect/lint @phanect/lint-react @phanect/lint-vue @phane
 
 ## Usage
 
-Create an eslint.config.js like following on the project root.
-NOTE: This package only supports ES modules. If you use this config in the CommonJS project, make sure to rename the config file to eslint.config.**mjs**.
+Create an eslint.config.ts like following on the project root.
 
-```javascript
+```typescript
 import { core } from "@phanect/lint";
 import { vue, nuxt } from "@phanect/lint-vue";
-import { globalIgnores } from "eslint/config";
+import { defineConfig, globalIgnores } from "eslint/config";
 
-/** @type { import("eslint").Linter.Config[] } */
-export default [
+const configs = defineConfig([
   globalIgnores([
     "path/to/ignore/**",
   ]),
@@ -48,7 +46,9 @@ export default [
       },
     },
   },
-];
+]);
+
+export default configs;
 ```
 
 Supported configs:
