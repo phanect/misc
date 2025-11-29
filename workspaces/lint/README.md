@@ -32,7 +32,6 @@ export default [
 
     extends: [
       core,
-      vue,
       nuxt,
     ],
 

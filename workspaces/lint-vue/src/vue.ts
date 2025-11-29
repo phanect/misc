@@ -41,9 +41,16 @@ export const vue: Linter.Config[] = defineConfig([
   },
 ]);
 
-export const nuxt: Linter.Config[] = await createConfigForNuxt({
-  features: {
-    standalone: true,
-    import: false, // not compatible with eslint-plugin-import
+export const nuxt = defineConfig([
+  {
+    extends: [ vue ],
   },
-});
+  ...(
+    await createConfigForNuxt({
+      features: {
+        standalone: true,
+        import: false, // not compatible with eslint-plugin-import
+      },
+    })
+  ),
+]);
