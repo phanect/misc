@@ -66,6 +66,7 @@ bun.lockb
 # Frameworks
 .next/
 out/
+next-env.d.ts
 .nuxt/
 .output/
 .svelte-kit/
