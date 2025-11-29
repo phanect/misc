@@ -1,4 +1,4 @@
-import { defineConfig } from "eslint/config";
+import { defineConfig, globalIgnores } from "eslint/config";
 import globals from "globals";
 import { jsonConfigs } from "./configs/json.ts";
 import { commonConfigs, jsConfigs, tsConfigs } from "./configs/languages.ts";
@@ -8,21 +8,19 @@ import type { Linter } from "eslint";
 import type { CodeExtensions } from "./utils.ts";
 
 export const core: Linter.Config[] = defineConfig([
-  {
-    ignores: [
-      "package-lock.json",
-      "npm-shrinkwrap.json",
-      ".astro/",
-      ".next/",
-      "next-env.d.ts",
-      ".nuxt/",
-      ".svelte-kit/",
-      "build/",
-      "dist/",
-      "out/",
-      "tmp/",
-    ],
-  },
+  globalIgnores([
+    "package-lock.json",
+    "npm-shrinkwrap.json",
+    ".astro/",
+    ".next/",
+    "next-env.d.ts",
+    ".nuxt/",
+    ".svelte-kit/",
+    "build/",
+    "dist/",
+    "out/",
+    "tmp/",
+  ]),
   {
     files: [ "**/*" ],
     linterOptions: {

@@ -1,16 +1,14 @@
 import { core, nodejs } from "@phanect/lint";
-import { defineConfig } from "eslint/config";
+import { defineConfig, globalIgnores } from "eslint/config";
 
 const configs = defineConfig([
-  {
-    ignores: [
-      "**/.tsup/**",
-      "**/dist/**",
-      "**/tmp/**",
-      "examples/**", // Run ESLint command in each module directories
-      "tests/fixtures/invalid/**",
-    ],
-  },
+  globalIgnores([
+    "**/.tsup/**",
+    "**/dist/**",
+    "**/tmp/**",
+    "examples/**", // Run ESLint command in each module directories
+    "tests/fixtures/invalid/**",
+  ]),
   ...core,
   ...nodejs,
   {
