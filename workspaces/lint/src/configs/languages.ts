@@ -36,9 +36,6 @@ export const commonConfigs: Linter.Config[] = defineConfig([
   stylistic.configs.recommended,
   imports.flatConfigs.recommended,
   promise.configs["flat/recommended"],
-  // TODO add editorconfig and document-write plugins when it is ready to flat configs
-  // editorConfigConfigs["recommended"],
-  // docWriteConfigs["recommended"],
   {
     languageOptions: {
       ecmaVersion: "latest",
@@ -78,13 +75,6 @@ export const commonConfigs: Linter.Config[] = defineConfig([
         ignoreReadBeforeAssign: true,
       }],
       "prefer-spread": "error",
-
-      // "document-write/no-document-write": "error",
-      // "editorconfig/charset": "error",
-      // "editorconfig/eol-last": "error",
-      // "editorconfig/indent": [ "error", { SwitchCase: 1 }],
-      // "editorconfig/linebreak-style": "error",
-      // "editorconfig/no-trailing-spaces": "error",
 
       // Temporal equivalent rules for editorconfig plugin
       "unicode-bom": [ "error", "never" ],
