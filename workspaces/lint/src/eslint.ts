@@ -11,14 +11,9 @@ export const core: Linter.Config[] = defineConfig([
   globalIgnores([
     "package-lock.json",
     "npm-shrinkwrap.json",
-    ".astro/",
-    ".next/",
-    "next-env.d.ts",
-    ".nuxt/",
     ".svelte-kit/",
     "build/",
     "dist/",
-    "out/",
     "tmp/",
   ]),
   {

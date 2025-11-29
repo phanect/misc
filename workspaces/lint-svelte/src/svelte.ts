@@ -1,11 +1,14 @@
 import * as tsParser from "@typescript-eslint/parser";
-import { defineConfig } from "eslint/config";
+import { defineConfig, globalIgnores } from "eslint/config";
 import sveltePlugin from "eslint-plugin-svelte";
 import globals from "globals";
 import type { CodeExtensions } from "@phanect/lint";
 import type { Linter } from "eslint";
 
 export const svelte: Linter.Config[] = defineConfig([
+  globalIgnores([
+    "**/.svelte-kit/**",
+  ]),
   {
     files: [ "**/*.svelte" ],
     extends: [

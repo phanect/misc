@@ -1,5 +1,5 @@
 import { createConfigForNuxt } from "@nuxt/eslint-config";
-import { defineConfig } from "eslint/config";
+import { defineConfig, globalIgnores } from "eslint/config";
 import vuePlugin from "eslint-plugin-vue";
 import globals from "globals";
 import { parser as tsParser } from "typescript-eslint";
@@ -42,6 +42,9 @@ export const vue: Linter.Config[] = defineConfig([
 ]);
 
 export const nuxt = defineConfig([
+  globalIgnores([
+    ".nuxt/",
+  ]),
   {
     extends: [ vue ],
   },
