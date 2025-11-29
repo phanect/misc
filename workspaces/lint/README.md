@@ -18,14 +18,13 @@ NOTE: This package only supports ES modules. If you use this config in the Commo
 ```javascript
 import { core } from "@phanect/lint";
 import { vue, nuxt } from "@phanect/lint-vue";
+import { globalIgnores } from "eslint/config";
 
 /** @type { import("eslint").Linter.Config[] } */
 export default [
-  {
-    ignores: [
-      "path/to/ignore/**",
-    ],
-  },
+  globalIgnores([
+    "path/to/ignore/**",
+  ]),
 
   ...core,
   ...vue,

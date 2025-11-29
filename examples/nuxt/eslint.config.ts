@@ -1,14 +1,12 @@
 import { core } from "@phanect/lint";
 import { nuxt, vue } from "@phanect/lint-vue";
-import { defineConfig } from "eslint/config";
+import { defineConfig, globalIgnores } from "eslint/config";
 
 const configs = defineConfig([
-  {
-    ignores: [
-      ".nuxt/**",
-      ".output/**",
-    ],
-  },
+  globalIgnores([
+    ".nuxt/**",
+    ".output/**",
+  ]),
   ...core,
   ...vue,
   ...nuxt,
