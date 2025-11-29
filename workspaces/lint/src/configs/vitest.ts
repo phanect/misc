@@ -10,12 +10,13 @@ export const vitestConfigs: Linter.Config[] = defineConfig([{
     "**/*.test.ts",
     "**/*.test.tsx",
   ],
+  extends: [
+    vitest.configs.recommended,
+  ],
   plugins: {
     vitest,
   },
   rules: {
-    ...vitest.configs.recommended.rules,
-
     //
     // Errors
     //

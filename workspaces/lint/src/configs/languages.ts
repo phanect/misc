@@ -33,10 +33,23 @@ const prefixRequiredRules: Linter.RulesRecord = {
  * This config have to be declared after the recommended rulesets to avoid to be overwritten.
  */
 export const commonConfigs: Linter.Config[] = defineConfig([
-  stylistic.configs.recommended,
-  imports.flatConfigs.recommended,
-  promise.configs["flat/recommended"],
   {
+    files: [
+      "**/*.js",
+      "**/*.mjs",
+      "**/*.jsx",
+      "**/*.ts",
+      "**/*.mts",
+      "**/*.tsx",
+      "**/*.vue",
+      "**/*.svelte",
+      "**/*.astro",
+    ] as CodeExtensions,
+    extends: [
+      stylistic.configs.recommended,
+      imports.flatConfigs.recommended,
+      promise.configs["flat/recommended"],
+    ],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
@@ -225,26 +238,16 @@ export const commonConfigs: Linter.Config[] = defineConfig([
         "vitest", // not working with import/named
       ],
     },
-  } satisfies Linter.Config,
-].map((config) => ({
-  ...config,
-  files: [
-    "**/*.js",
-    "**/*.mjs",
-    "**/*.jsx",
-    "**/*.ts",
-    "**/*.mts",
-    "**/*.tsx",
-    "**/*.vue",
-    "**/*.svelte",
-    "**/*.astro",
-  ] as CodeExtensions,
-})));
+  },
+]);
 
 export const jsConfigs: Linter.Config[] = defineConfig([
-  js.configs.recommended,
-  jsdoc.configs?.["flat/recommended"] ?? {},
   {
+    files: [ "**/*.js", "**/*.mjs", "**/*.jsx" ] as JsExtensions,
+    extends: [
+      js.configs.recommended,
+      jsdoc.configs?.["flat/recommended"],
+    ],
     rules: {
       ...prefixRequiredRules,
 
@@ -264,19 +267,26 @@ export const jsConfigs: Linter.Config[] = defineConfig([
 
       "import/no-unresolved": [ "error", { ignore: [ "vitest/config" ]}],
     },
-  } satisfies Linter.Config,
-].map((config) => ({
-  files: [ "**/*.js", "**/*.mjs", "**/*.jsx" ] as JsExtensions,
-  ...config,
-})));
+  },
+]);
 
 export const tsConfigs: Linter.Config[] = defineConfig([
-  js.configs.recommended,
-  ...ts.configs.recommendedTypeChecked,
-  ...ts.configs.stylisticTypeChecked,
-  imports.flatConfigs.typescript,
-  jsdoc.configs?.["flat/recommended-typescript"] ?? {},
   {
+    extends: [
+      js.configs.recommended,
+      ts.configs.recommendedTypeChecked,
+      ts.configs.stylisticTypeChecked,
+      imports.flatConfigs.typescript,
+      jsdoc.configs?.["flat/recommended-typescript"],
+    ],
+    files: [
+      "**/*.ts",
+      "**/*.mts",
+      "**/*.tsx",
+      "**/*.vue",
+      "**/*.svelte",
+      "**/*.astro",
+    ] as TsExtensions,
     languageOptions: {
       parserOptions: {
         projectService: true,
@@ -355,14 +365,4 @@ export const tsConfigs: Linter.Config[] = defineConfig([
       },
     },
   },
-]).map((config) => ({
-  ...config,
-  files: [
-    "**/*.ts",
-    "**/*.mts",
-    "**/*.tsx",
-    "**/*.vue",
-    "**/*.svelte",
-    "**/*.astro",
-  ] as TsExtensions,
-})) as Linter.Config[];
+]);

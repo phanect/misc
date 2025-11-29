@@ -26,10 +26,16 @@ const devConfigPatterns: string[] = [
   "**/mise-tasks/**/*.@(js|mjs|ts|mts|jsx|tsx)",
 ];
 
-export const nodejsConfigs: Linter.Config[] = defineConfig([
-  n.configs["flat/recommended-module"],
-
+const nodejsBaseConfigs: Linter.Config[] = defineConfig([
   {
+    extends: [
+      n.configs["flat/recommended-module"],
+    ],
+
+    languageOptions: {
+      globals: globals.node,
+    },
+
     rules: {
       //
       // Errors
@@ -84,39 +90,38 @@ export const nodejsConfigs: Linter.Config[] = defineConfig([
       "n/no-unpublished-import": "off",
       "n/no-unpublished-require": "off",
     },
-  } satisfies Linter.Config,
-].map((config) => ({
-  ...config,
-
-  // Since Node.js library might be used for server side rendering,
-  // the extensions for frontend frameworks (e.g. *.svelte) is listed here.
-  files: [
-    "**/*.js",
-    "**/*.mjs",
-    "**/*.jsx",
-    "**/*.ts",
-    "**/*.mts",
-    "**/*.tsx",
-    "**/*.vue",
-    "**/*.svelte",
-    "**/*.astro",
-  ] as CodeExtensions,
-  ignores: devConfigPatterns,
-
-  languageOptions: {
-    globals: globals.node,
   },
-})));
+]);
+
+export const nodejsConfigs = defineConfig([
+  {
+    // Since Node.js library might be used for server side rendering,
+    // the extensions for frontend frameworks (e.g. *.svelte) is listed here.
+    files: [
+      "**/*.js",
+      "**/*.mjs",
+      "**/*.jsx",
+      "**/*.ts",
+      "**/*.mts",
+      "**/*.tsx",
+      "**/*.vue",
+      "**/*.svelte",
+      "**/*.astro",
+    ] as CodeExtensions,
+    ignores: devConfigPatterns,
+
+    extends: [
+      nodejsBaseConfigs,
+    ],
+  },
+]);
 
 export const devConfigs: Linter.Config[] = defineConfig([
-  ...nodejsConfigs.map((config) => ({
-    ...config,
-    files: devConfigPatterns,
-    ignores: [],
-  })),
-
   {
     files: devConfigPatterns,
+    extends: [
+      nodejsBaseConfigs,
+    ],
     plugins: {
       n,
     },

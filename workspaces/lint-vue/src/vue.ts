@@ -6,8 +6,11 @@ import { parser as tsParser } from "typescript-eslint";
 import type { Linter } from "eslint";
 
 export const vue: Linter.Config[] = defineConfig([
-  ...vuePlugin.configs["flat/recommended"],
-
+  {
+    extends: [
+      vuePlugin.configs["flat/recommended"],
+    ],
+  },
   {
     files: [ "**/*.vue" ],
     languageOptions: {

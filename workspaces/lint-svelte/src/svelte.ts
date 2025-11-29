@@ -6,9 +6,11 @@ import type { CodeExtensions } from "@phanect/lint";
 import type { Linter } from "eslint";
 
 export const svelte: Linter.Config[] = defineConfig([
-  ...sveltePlugin.configs["flat/recommended"],
   {
     files: [ "**/*.svelte" ],
+    extends: [
+      sveltePlugin.configs["flat/recommended"],
+    ],
     languageOptions: {
       globals: globals.browser,
       parserOptions: {
@@ -26,7 +28,7 @@ export const svelte: Linter.Config[] = defineConfig([
       // Maybe it does not work properly on Svelte
       "@typescript-eslint/no-unsafe-member-access": "off",
     },
-  } satisfies Linter.Config,
+  },
   {
     files: [
       "**/*.js",

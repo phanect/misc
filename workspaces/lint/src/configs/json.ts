@@ -24,25 +24,24 @@ export const jsonConfigs: Linter.Config[] = defineConfig([
       }],
     },
   },
-  ...(
-    jsonc.configs["flat/recommended-with-json"].map((config) => ({
-      files: [ "**/*.json" ],
-      ignores: [ "**/tsconfig.json", ".vscode/**/*.json" ],
-      ...config,
-    }))
-  ),
-  ...(
-    jsonc.configs["flat/recommended-with-jsonc"].map((config) => ({
-      files: [ "**/*.jsonc", "**/tsconfig.json", ".vscode/**/*.json" ],
-      ...config,
-    }))
-  ),
-  ...jsonc.configs["flat/recommended-with-json5"].map((config) => ({
-    ...config,
-    files: [ "**/*.json5" ],
-  })),
+  {
+    files: [ "**/*.json" ],
+    ignores: [ "**/tsconfig.json", ".vscode/**/*.json" ],
+    extends: [
+      jsonc.configs["flat/recommended-with-json"],
+    ],
+  },
+  {
+    files: [ "**/*.jsonc", "**/tsconfig.json", ".vscode/**/*.json" ],
+    extends: [
+      jsonc.configs["flat/recommended-with-jsonc"],
+    ],
+  },
   {
     files: [ "**/*.json5" ],
+    extends: [
+      jsonc.configs["flat/recommended-with-json5"],
+    ],
     rules: {
       "jsonc/comma-dangle": [ "error", {
         arrays: "always-multiline",

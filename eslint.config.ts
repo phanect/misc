@@ -9,9 +9,12 @@ const configs = defineConfig([
     "examples/**", // Run ESLint command in each module directories
     "tests/fixtures/invalid/**",
   ]),
-  ...core,
-  ...nodejs,
+
   {
+    extends: [
+      core,
+      nodejs,
+    ],
     languageOptions: {
       parserOptions: {
         tsconfigRootDir: import.meta.dirname,

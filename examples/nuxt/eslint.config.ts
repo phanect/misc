@@ -7,10 +7,13 @@ const configs = defineConfig([
     ".nuxt/**",
     ".output/**",
   ]),
-  ...core,
-  ...vue,
-  ...nuxt,
+
   {
+    extends: [
+      core,
+      vue,
+      nuxt,
+    ],
     languageOptions: {
       parserOptions: {
         projectService: true,

@@ -9,13 +9,14 @@ import type { Linter } from "eslint";
 export const react: Linter.Config[] = defineConfig([{
   files: [ "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx}" ],
 
-  ...reactPlugin.configs.flat.recommended,
-  ...reactPlugin.configs.flat["jsx-runtime"],
-  ...jsxA11yPlugin.flatConfigs.recommended,
+  extends: [
+    reactPlugin.configs.flat.recommended ?? {},
+    reactPlugin.configs.flat["jsx-runtime"] ?? {},
+    hooksPlugin.configs.flat.recommended,
+    jsxA11yPlugin.flatConfigs.recommended,
+  ],
 
   languageOptions: {
-    ...reactPlugin.configs.flat.recommended?.languageOptions,
-
     globals: {
       ...globals.browser,
       ...globals.serviceworker,
@@ -30,11 +31,8 @@ export const react: Linter.Config[] = defineConfig([{
 
   plugins: {
     react: reactPlugin,
-    "react-hooks": hooksPlugin,
-    "jsx-a11y": jsxA11yPlugin,
   },
   rules: {
-    ...hooksPlugin.configs.recommended.rules,
     "react/jsx-filename-extension": [ "error", { extensions: [ ".jsx", ".tsx" ]}],
     "react/react-in-jsx-scope": "off",
     "jsx-a11y/anchor-ambiguous-text": [ "error", {

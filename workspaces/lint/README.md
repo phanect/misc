@@ -26,13 +26,15 @@ export default [
     "path/to/ignore/**",
   ]),
 
-  ...core,
-  ...vue,
-  ...nuxt,
-
   // If the project includes TypeScript files...
   {
     // Do not add `files: [ "*" ],` here.
+
+    extends: [
+      core,
+      vue,
+      nuxt,
+    ],
 
     languageOptions: {
       parserOptions: {

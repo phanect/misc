@@ -3,9 +3,11 @@ import { astro } from "@phanect/lint-astro";
 import { defineConfig } from "eslint/config";
 
 const configs = defineConfig([
-  ...core,
-  ...astro,
   {
+    extends: [
+      core,
+      astro,
+    ],
     languageOptions: {
       parserOptions: {
         // Do not use `projectService` because it causes error.
