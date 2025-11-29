@@ -28,12 +28,16 @@ export const core: Linter.Config[] = defineConfig([
       reportUnusedDisableDirectives: "error",
     },
   },
-  ...jsConfigs,
-  ...tsConfigs,
-  ...commonConfigs,
-  ...devConfigs,
-  ...vitestConfigs,
-  ...jsonConfigs,
+  {
+    extends: [
+      jsConfigs,
+      tsConfigs,
+      commonConfigs,
+      devConfigs,
+      vitestConfigs,
+      jsonConfigs,
+    ],
+  },
 ]);
 
 export const vanilla: Linter.Config[] = defineConfig([{

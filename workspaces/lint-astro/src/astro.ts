@@ -4,10 +4,12 @@ import globals from "globals";
 import type { Linter } from "eslint";
 
 export const astro: Linter.Config[] = defineConfig([
-  ...astroPlugin.configs.recommended,
-  ...astroPlugin.configs["jsx-a11y-recommended"],
   {
     files: [ "**/*.astro" ],
+    extends: [
+      astroPlugin.configs.recommended,
+      astroPlugin.configs["jsx-a11y-recommended"],
+    ],
     languageOptions: {
       globals: globals.browser,
       parserOptions: {
