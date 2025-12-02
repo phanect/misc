@@ -73,5 +73,4 @@ jobs:
           install: true
           cache: true
 
-      - run: mise build
       - run: mise release
