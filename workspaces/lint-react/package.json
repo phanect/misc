@@ -31,12 +31,12 @@
   "devDependencies": {
     "@phanect/configs": "workspace:*",
     "@types/node": "^24.3.0",
-    "eslint": "^9.11.1",
+    "eslint": "^10.0.2",
     "tsdown": "0.21.10",
     "typescript": "^6.0.2"
   },
   "peerDependencies": {
-    "eslint": "^9.11.1",
+    "eslint": "^10.0.2",
     "next": "*"
   },
   "peerDependenciesMeta": {
