@@ -7,7 +7,7 @@
     "lint": "astro check && eslint && : example-astro"
   },
   "dependencies": {
-    "astro": "^5.0.4"
+    "astro": "^6.0.4"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.3",
