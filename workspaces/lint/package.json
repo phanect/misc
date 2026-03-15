@@ -47,13 +47,13 @@
   "devDependencies": {
     "@phanect/configs": "workspace:*",
     "@types/node": "^24.3.0",
-    "eslint": "^9.7.0",
+    "eslint": "^10.0.3",
     "tsup": "^8.2.4",
     "typescript": "^5.3.3",
     "vitest": "^4.0.4"
   },
   "peerDependencies": {
-    "eslint": "^9.7.0",
+    "eslint": "^10.0.3",
     "next": "*",
     "svelte": "*",
     "typescript": ">=5.x"
