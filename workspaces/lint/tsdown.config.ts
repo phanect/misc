@@ -1,4 +1,4 @@
-import { lib } from "@phanect/configs/tsup";
+import { lib } from "@phanect/configs/tsdown";
 import { defineConfig } from "tsdown";
 
 export default defineConfig({
