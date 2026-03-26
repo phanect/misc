@@ -14,11 +14,11 @@
     "./dist",
     "./README.md"
   ],
-  "main": "./dist/react.js",
-  "module": "./dist/react.js",
-  "types": "./dist/react.d.ts",
+  "main": "./dist/react.mjs",
+  "module": "./dist/react.mjs",
+  "types": "./dist/react.d.mts",
   "scripts": {
-    "build": "tsup",
+    "build": "tsdown",
     "lint": "tsc --noEmit && : lint-react"
   },
   "dependencies": {
@@ -32,7 +32,7 @@
     "@phanect/configs": "workspace:*",
     "@types/node": "^24.3.0",
     "eslint": "^9.11.1",
-    "tsup": "^8.2.4",
+    "tsdown": "0.21.5",
     "typescript": "^6.0.2"
   },
   "peerDependencies": {

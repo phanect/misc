@@ -3,7 +3,6 @@ import { defineConfig, globalIgnores } from "eslint/config";
 
 const configs = defineConfig([
   globalIgnores([
-    "**/.tsup/**",
     "**/dist/**",
     "**/tmp/**",
     "examples/**", // Run ESLint command in each module directories

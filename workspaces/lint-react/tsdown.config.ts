@@ -1,5 +1,5 @@
 import { nodejsLib } from "@phanect/configs/tsup";
-import { defineConfig } from "tsup";
+import { defineConfig } from "tsdown";
 
 export default defineConfig({
   ...nodejsLib,

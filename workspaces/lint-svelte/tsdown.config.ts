@@ -1,11 +1,9 @@
 import { nodejsLib } from "@phanect/configs/tsup";
-import { defineConfig } from "tsup";
+import { defineConfig } from "tsdown";
 
 export default defineConfig({
   ...nodejsLib,
-  entry: {
-    eslint: "src/eslint.ts",
-  },
+  entry: [ "src/svelte.ts" ],
   format: "esm",
   minify: false,
 });

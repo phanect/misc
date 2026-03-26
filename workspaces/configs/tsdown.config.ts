@@ -1,4 +1,4 @@
-import { defineConfig } from "tsup";
+import { defineConfig } from "tsdown";
 import { nodejsLib } from "./src/tsup.ts";
 
 export default defineConfig({
