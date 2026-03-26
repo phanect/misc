@@ -31,7 +31,7 @@
     "lint": "tsc --noEmit && : lint"
   },
   "dependencies": {
-    "@eslint/css": "0.14.1",
+    "@eslint/css": "^1.0.0",
     "@eslint/js": "^10.0.1",
     "@stylistic/eslint-plugin": "^5.2.3",
     "@vitest/eslint-plugin": "^1.6.16",
