@@ -14,11 +14,11 @@
     "./dist",
     "./README.md"
   ],
-  "main": "./dist/vue.js",
-  "module": "./dist/vue.js",
-  "types": "./dist/vue.d.ts",
+  "main": "./dist/vue.mjs",
+  "module": "./dist/vue.mjs",
+  "types": "./dist/vue.d.mts",
   "scripts": {
-    "build": "tsup",
+    "build": "tsdown",
     "lint": "tsc --noEmit && : lint-vue"
   },
   "dependencies": {
@@ -32,7 +32,7 @@
     "@phanect/configs": "workspace:*",
     "@types/node": "^24.3.0",
     "eslint": "^9.7.0",
-    "tsup": "^8.2.4",
+    "tsdown": "0.21.5",
     "typescript": "^6.0.2"
   },
   "peerDependencies": {

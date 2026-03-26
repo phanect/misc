@@ -1,4 +1,4 @@
-import type { Options } from "tsup";
+import type { UserConfig } from "tsdown";
 
 const browsers = [
   "chrome128",
@@ -20,7 +20,7 @@ const nodejsLatestLts = [
 
 const baseConfig = {
   clean: true,
-} as const satisfies Options;
+} as const satisfies UserConfig;
 
 const baseLibConfig = {
   dts: true,
@@ -28,8 +28,7 @@ const baseLibConfig = {
 
   treeshake: true,
   minify: false,
-  splitting: false,
-} as const satisfies Options;
+} as const satisfies UserConfig;
 
 export const nodejsApp = {
   ...baseConfig,
@@ -44,8 +43,7 @@ export const nodejsApp = {
 
   treeshake: true,
   minify: true,
-  splitting: true,
-} as const satisfies Options;
+} as const satisfies UserConfig;
 
 export const universalLib = {
   ...baseConfig,
@@ -56,7 +54,7 @@ export const universalLib = {
     ...nodejs,
   ],
   format: [ "esm", "cjs" ],
-} as const satisfies Options;
+} as const satisfies UserConfig;
 
 export const nodejsLib = {
   ...baseConfig,
@@ -66,7 +64,7 @@ export const nodejsLib = {
     ...nodejs,
   ],
   format: [ "esm", "cjs" ],
-} as const satisfies Options;
+} as const satisfies UserConfig;
 
 export const frontendLib = {
   ...baseConfig,
@@ -76,4 +74,4 @@ export const frontendLib = {
     ...browsers,
   ],
   format: "esm",
-} as const satisfies Options;
+} as const satisfies UserConfig;

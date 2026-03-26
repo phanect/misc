@@ -14,19 +14,19 @@
     "./dist",
     "./README.md"
   ],
-  "main": "./dist/eslint.js",
-  "module": "./dist/eslint.js",
-  "types": "./dist/eslint.d.ts",
+  "main": "./dist/eslint.mjs",
+  "module": "./dist/eslint.mjs",
+  "types": "./dist/eslint.d.mts",
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/eslint.d.ts",
-        "default": "./dist/eslint.js"
+        "types": "./dist/eslint.d.mts",
+        "default": "./dist/eslint.mjs"
       }
     }
   },
   "scripts": {
-    "build": "tsup",
+    "build": "tsdown",
     "test": "vitest run",
     "lint": "tsc --noEmit && : lint"
   },
@@ -48,7 +48,7 @@
     "@phanect/configs": "workspace:*",
     "@types/node": "^24.3.0",
     "eslint": "^9.7.0",
-    "tsup": "^8.2.4",
+    "tsdown": "0.21.5",
     "typescript": "^6.0.2",
     "vitest": "^4.0.4"
   },
