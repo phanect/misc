@@ -2,8 +2,8 @@
 # Project-specific
 #
 
-# READMEs copied from workspaces/lint/README.md to include in the npm package
-/workspaces/*/README.md
+# READMEs copied from projects/lint/README.md to include in the npm package
+/projects/*/README.md
 
 #
 # System

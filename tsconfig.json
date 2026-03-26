@@ -12,8 +12,8 @@
     "tests/fixtures/invalid/*.js", // Invalid JS fixtures raises some ESLint errors, and it may cause type errors too.
     "node_modules",
 
-    // In the sub workspaces, the typecheck is done by their own `npm run lint` command.
-    "workspaces",
+    // In the sub projects, the typecheck is done by their own `mise lint` task.
+    "projects",
     "examples"
   ]
 }
