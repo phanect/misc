@@ -1,11 +1,11 @@
 import { defineConfig } from "tsdown";
-import { lib } from "./src/tsup.ts";
+import { lib } from "./src/tsdown.ts";
 
 export default defineConfig({
   ...lib,
 
   entry: {
-    tsup: "src/tsup.ts",
+    tsdown: "src/tsdown.ts",
     tsconfigs: "tmp/tsconfigs.ts",
   },
   format: "esm",

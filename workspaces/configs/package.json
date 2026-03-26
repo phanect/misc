@@ -23,9 +23,9 @@
       "types": "./dist/tsconfigs.d.mts",
       "default": "./dist/tsconfigs.mjs"
     },
-    "./tsup": {
-      "types": "./dist/tsup.d.mts",
-      "default": "./dist/tsup.mjs"
+    "./tsdown": {
+      "types": "./dist/tsdown.d.mts",
+      "default": "./dist/tsdown.mjs"
     }
   },
   "scripts": {
