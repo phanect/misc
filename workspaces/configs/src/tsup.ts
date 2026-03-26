@@ -4,7 +4,10 @@ const baseConfig = {
   clean: true,
 } as const satisfies UserConfig;
 
-const baseLibConfig = {
+export const lib = {
+  ...baseConfig,
+
+  format: [ "esm", "cjs" ],
   dts: true,
   sourcemap: true,
 
@@ -24,23 +27,3 @@ export const nodejsApp = {
   minify: true,
 } as const satisfies UserConfig;
 
-export const universalLib = {
-  ...baseConfig,
-  ...baseLibConfig,
-
-  format: [ "esm", "cjs" ],
-} as const satisfies UserConfig;
-
-export const nodejsLib = {
-  ...baseConfig,
-  ...baseLibConfig,
-
-  format: [ "esm", "cjs" ],
-} as const satisfies UserConfig;
-
-export const frontendLib = {
-  ...baseConfig,
-  ...baseLibConfig,
-
-  format: "esm",
-} as const satisfies UserConfig;

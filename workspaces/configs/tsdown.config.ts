@@ -1,8 +1,8 @@
 import { defineConfig } from "tsdown";
-import { nodejsLib } from "./src/tsup.ts";
+import { lib } from "./src/tsup.ts";
 
 export default defineConfig({
-  ...nodejsLib,
+  ...lib,
 
   entry: {
     tsup: "src/tsup.ts",
