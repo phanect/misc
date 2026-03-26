@@ -14,7 +14,7 @@ export const lib = {
   minify: false,
 } as const satisfies UserConfig;
 
-export const nodejsApp = {
+export const app = {
   ...baseConfig,
 
   format: "esm",
@@ -23,3 +23,4 @@ export const nodejsApp = {
   minify: true,
 } as const satisfies UserConfig;
 
+export { app as cli };
