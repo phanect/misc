@@ -39,10 +39,10 @@ const configs = defineConfig([
       },
     },
 
-    // If the repository is monorepo and one of the workspaces is Next.js project...
+    // If the repository is monorepo and one of the projects is Next.js project...
     settings: {
       next: {
-        rootDir: "workspaces/my-project/",
+        rootDir: "projects/my-project/",
       },
     },
   },

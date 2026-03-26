@@ -1,5 +1,5 @@
 packages:
-  - workspaces/*
+  - projects/*
   - examples/*
 
 onlyBuiltDependencies:

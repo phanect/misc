@@ -3,16 +3,16 @@
 import { writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { loadJSON } from "@phanect/utils/nodejs";
-import { getExampleDirPaths, getWorkspaceDirPaths } from "./_libs/utils.ts";
+import { getExampleDirPaths, getProjectDirPaths } from "./_libs/utils.ts";
 import type { PackageJson } from "type-fest";
 
 const packageJsonPaths = [
   // Project root
   join(import.meta.dirname, "../../package.json"),
-  // workspaces/*/package.json
+  // projects/*/package.json
   ...(
-    (await getWorkspaceDirPaths())
-      .map((workspaceDirPath) => join(workspaceDirPath, "package.json"))
+    (await getProjectDirPaths())
+      .map((projectDirPath) => join(projectDirPath, "package.json"))
   ),
   // examples/*/package.json
   ...(

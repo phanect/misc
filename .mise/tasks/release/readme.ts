@@ -2,14 +2,14 @@
 
 import { copyFile } from "node:fs/promises";
 import { join } from "node:path";
-import { getWorkspaceDirNames } from "../_libs/utils.ts";
+import { getProjectDirNames } from "../_libs/utils.ts";
 
-const workspacesDirPath = join(import.meta.dirname, "../../../workspaces");
-const srcReadMePath = join(workspacesDirPath, "lint/README.md");
+const monorepoRootPath = join(import.meta.dirname, "../../../projects");
+const srcReadMePath = join(monorepoRootPath, "lint/README.md");
 
-const generatedReadMePaths = (await getWorkspaceDirNames())
+const generatedReadMePaths = (await getProjectDirNames())
   .filter((moduleDirName) => moduleDirName.startsWith("lint-"))
-  .map((moduleDirName) => join(workspacesDirPath, moduleDirName, "README.md"));
+  .map((moduleDirName) => join(monorepoRootPath, moduleDirName, "README.md"));
 
 await Promise.all(
   generatedReadMePaths.map(async (generatedReadMePath) => copyFile(

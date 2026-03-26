@@ -11,7 +11,7 @@
   "private": true,
   "type": "module",
   "workspaces": [
-    "workspaces/*",
+    "projects/*",
     "examples/*"
   ],
   "devDependencies": {
