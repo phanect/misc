@@ -1,8 +1,8 @@
-import { nodejsLib } from "@phanect/configs/tsup";
+import { lib } from "@phanect/configs/tsup";
 import { defineConfig } from "tsdown";
 
 export default defineConfig({
-  ...nodejsLib,
+  ...lib,
   entry: [ "src/react.ts" ],
   format: "esm",
   minify: false,
