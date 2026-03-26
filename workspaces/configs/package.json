@@ -36,7 +36,7 @@
     "@types/node": "^24.3.0",
     "jiti": "^2.5.1",
     "tsup": "^8.3.0",
-    "typescript": "^5.4.5"
+    "typescript": "^6.0.2"
   },
   "peerDependencies": {
     "@types/node": "20.x || 22.x || >=24.x",
