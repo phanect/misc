@@ -3,7 +3,12 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     // for eslint-plugin-jsx-a11y and eslint-plugin-react
-    "esModuleInterop": true
+    "esModuleInterop": true,
+
+    "types": [
+      "node",
+      "eslint-plugin-jsx-a11y"
+    ]
   },
   "include": [ "**/*.js", "**/*.mjs", "**/*.ts" ],
   "exclude": [ "dist" ],

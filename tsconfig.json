@@ -1,6 +1,12 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "@phanect/configs/ts/nodejs",
+  "compilerOptions": {
+    "types": [
+      "node",
+      "eslint-plugin-jsx-a11y"
+    ]
+  },
   "include": [ "**/*.js", "**/*.mjs", "**/*.ts" ],
   "exclude": [
     "tests/fixtures/invalid/*.js", // Invalid JS fixtures raises some ESLint errors, and it may cause type errors too.

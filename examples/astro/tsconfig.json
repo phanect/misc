@@ -5,7 +5,6 @@
     "@phanect/configs/ts"
   ],
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
       "~/*": [ "src/*" ]
     }
