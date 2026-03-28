@@ -29,13 +29,13 @@
   "devDependencies": {
     "@phanect/configs": "workspace:*",
     "@types/node": "^24.3.0",
-    "eslint": "^9.7.0",
+    "eslint": "^10.1.0",
     "tsdown": "0.21.7",
     "typescript": "^6.0.2"
   },
   "peerDependencies": {
     "@phanect/lint": "workspace:*",
-    "eslint": "^9.7.0",
+    "eslint": "^10.1.0",
     "svelte": "*"
   },
   "peerDependenciesMeta": {
