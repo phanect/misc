@@ -15,7 +15,7 @@
     "examples/*"
   ],
   "devDependencies": {
-    "@lerna-lite/cli": "^4.0.0",
+    "@lerna-lite/cli": "^5.0.0",
     "@lerna-lite/publish": "^4.0.0",
     "@phanect/configs": "workspace:*",
     "@phanect/lint": "workspace:*",
