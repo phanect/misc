@@ -1,41 +1,53 @@
+import vitest from "@vitest/eslint-plugin";
 import { defineConfig } from "eslint/config";
-import vitest from "eslint-plugin-vitest";
 import type { Linter } from "eslint";
 
-export const vitestConfigs: Linter.Config[] = defineConfig([{
-  files: [
-    "**/*.test.js",
-    "**/*.test.jsx",
-    "**/*.test.mjs",
-    "**/*.test.ts",
-    "**/*.test.tsx",
-  ],
-  extends: [
-    vitest.configs.recommended,
-  ],
-  plugins: {
-    vitest,
-  },
-  rules: {
-    //
-    // Errors
-    //
-    "vitest/no-disabled-tests": "error",
-    "vitest/no-focused-tests": "error",
-    "vitest/expect-expect": [ "error", {
-      assertFunctionNames: [ "expect", "ok" ],
-    }],
+export const vitestConfigs: Linter.Config[] = defineConfig([
+  {
+    files: [
+      "**/*.test.js",
+      "**/*.test.jsx",
+      "**/*.test.mjs",
+      "**/*.test.ts",
+      "**/*.test.tsx",
+    ],
+    plugins: {
+      vitest,
+    },
+    rules: {
+      ...vitest.configs.recommended.rules,
 
-    //
-    // Warnings - styles
-    //
-    "vitest/prefer-lowercase-title": [ "warn", { ignore: [ "describe", "test" ]}],
-    "vitest/prefer-to-have-length": "warn",
+      //
+      // Errors
+      //
+      "vitest/no-disabled-tests": "error",
+      "vitest/no-focused-tests": "error",
+      "vitest/expect-expect": [ "error", {
+        assertFunctionNames: [ "expect", "ok" ],
+      }],
 
-    //
-    // Off
-    //
-    "vitest/no-conditional-expect": "off",
-    "vitest/require-top-level-describe": "off",
+      //
+      // Warnings - styles
+      //
+      "vitest/prefer-lowercase-title": [ "warn", { ignore: [ "describe", "test" ]}],
+      "vitest/prefer-to-have-length": "warn",
+
+      //
+      // Off
+      //
+      "vitest/no-conditional-expect": "off",
+      "vitest/require-top-level-describe": "off",
+    },
   },
-}]);
+  {
+    files: [
+      "**/*.test.ts",
+      "**/*.test.tsx",
+    ],
+    settings: {
+      vitest: {
+        typecheck: true,
+      },
+    },
+  },
+]);
