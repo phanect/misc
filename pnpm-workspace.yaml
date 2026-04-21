@@ -7,6 +7,3 @@ onlyBuiltDependencies:
   - esbuild
   - sharp
   - unrs-resolver
-
-overrides:
-  "@types/eslint-plugin-jsx-a11y>@types/eslint": "npm:eslint@^9"
