@@ -16,7 +16,7 @@ Create an eslint.config.ts like following on the project root.
 
 ```typescript
 import { core } from "@phanect/lint";
-import { vue, nuxt } from "@phanect/lint-vue";
+import { react, nextjs } from "@phanect/lint-react";
 import { defineConfig, globalIgnores } from "eslint/config";
 
 const configs = defineConfig([
@@ -30,7 +30,7 @@ const configs = defineConfig([
 
     extends: [
       core,
-      nuxt,
+      nextjs,
     ],
 
     languageOptions: {
@@ -61,9 +61,6 @@ Supported configs:
 - `@phanect/lint-react`
   - `react`
   - `nextjs`
-- `@phanect/lint-vue`
-  - `vue`
-  - `nuxt`
 - `@phanect/lint-svelte`
   - `svelte`
 - `@phanect/lint-astro`
