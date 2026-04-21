@@ -33,7 +33,8 @@ export const react: Linter.Config[] = defineConfig([{
     react: reactPlugin,
   },
   rules: {
-    "react/jsx-filename-extension": [ "error", { extensions: [ ".jsx", ".tsx" ]}],
+    // TODO This rule does not work with ESLint v10 as of 2026/04/21
+    // "react/jsx-filename-extension": [ "error", { extensions: [ ".jsx", ".tsx" ]}],
     "react/react-in-jsx-scope": "off",
     "jsx-a11y/anchor-ambiguous-text": [ "error", {
       words: [
@@ -58,7 +59,7 @@ export const react: Linter.Config[] = defineConfig([{
   },
   settings: {
     react: {
-      version: "detect",
+      version: "19", // TODO "detect" does not work with ESLint v10 as of 2026/04/21: https://github.com/jsx-eslint/eslint-plugin-react/issues/3970
     },
   },
 }]);
