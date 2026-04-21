@@ -56,6 +56,11 @@ export const react: Linter.Config[] = defineConfig([{
       ],
     }],
   },
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
 }]);
 
 export const nextjs: Linter.Config[] = defineConfig([
