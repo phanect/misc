@@ -1,0 +1,5 @@
+{
+  "extends": [
+    "https://configs.phanective.org/renovate.jsonc"
+  ]
+}
