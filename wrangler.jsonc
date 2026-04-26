@@ -1,0 +1,28 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+
+  "name": "configs",
+  "compatibility_date": "2026-04-27",
+
+  "placement": {
+    "mode": "smart"
+  },
+
+  "assets": {
+    "directory": "./public"
+  },
+
+  "env": {
+    "production": {
+      "vars": {
+        "NODE_ENV": "production",
+        "SERVER_ENV": "production"
+      },
+    },
+    "staging": {
+      "vars": {
+        "SERVER_ENV": "staging"
+      }
+    }
+  }
+}

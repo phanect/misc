@@ -26,7 +26,8 @@
     "jiti": "^2.5.1",
     "tsdown": "0.21.10",
     "type-fest": "^5.0.0",
-    "typescript": "^6.0.2"
+    "typescript": "^6.0.2",
+    "wrangler": "^4.85.0"
   },
   "engines": {
     "node": "20.x || 22.x || >=24.x",
