@@ -1,6 +1,6 @@
 {
   "name": "@phanect/eslint-fixture-astro",
-  "version": "2025.11.29",
+  "version": "2026.4.27",
   "private": true,
   "type": "module",
   "scripts": {
