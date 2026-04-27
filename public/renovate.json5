@@ -1,98 +1,98 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
 
-  "extends": [
-    "config:recommended"
+  extends: [
+    "config:recommended",
   ],
-  "skipArtifactsUpdate": false,
-  "ignoreScripts": true,
-  "lockFileMaintenance": {
-    "enabled": true,
-    "schedule": [ "before 11pm on thursday" ]
+  skipArtifactsUpdate: false,
+  ignoreScripts: true,
+  lockFileMaintenance: {
+    enabled: true,
+    schedule: [ "before 11pm on thursday" ],
   },
-  "labels": [ "deps" ],
-  "assignees": [ "phanect" ],
-  "ignoreDeps": [ "pnpm" ],
-  "vulnerabilityAlerts": {
-    "groupName": "security",
-    "labels": [ "security" ],
-    "schedule": [
-      "* 4-12 * * *"
+  labels: [ "deps" ],
+  assignees: [ "phanect" ],
+  ignoreDeps: [ "pnpm" ],
+  vulnerabilityAlerts: {
+    groupName: "security",
+    labels: [ "security" ],
+    schedule: [
+      "* 4-12 * * *",
     ],
-    "commitMessageSuffix": "[SECURITY]",
-    "vulnerabilityFixStrategy": "lowest"
+    commitMessageSuffix: "[SECURITY]",
+    vulnerabilityFixStrategy: "lowest",
   },
 
-  "packageRules": [
+  packageRules: [
     // surpress major update
     {
-      "matchDatasources": [ "npm" ],
-      "matchPackageNames": [ "@types/node" ],
-      "allowedVersions": "<{{add major 1}}",
-      "schedule": [
-        "* 4-12 * * 5"
-      ]
+      matchDatasources: [ "npm" ],
+      matchPackageNames: [ "@types/node" ],
+      allowedVersions: "<{{add major 1}}",
+      schedule: [
+        "* 4-12 * * 5",
+      ],
     },
     {
-      "matchDatasources": [ "docker" ],
-      "matchPackageNames": [ "postgres" ],
-      "allowedVersions": "<{{add major 1}}",
-      "schedule": [
-        "* 4-12 * * 5"
-      ]
+      matchDatasources: [ "docker" ],
+      matchPackageNames: [ "postgres" ],
+      allowedVersions: "<{{add major 1}}",
+      schedule: [
+        "* 4-12 * * 5",
+      ],
     },
     // Grouping
     {
-      "groupName": "npm-minor",
-      "matchDatasources": [ "npm" ],
-      "matchUpdateTypes": [ "minor", "patch", "lockFileMaintenance" ],
-      "matchDepNames": [ "!/^pnpm$/" ],
-      "matchPackageNames": [
+      groupName: "npm-minor",
+      matchDatasources: [ "npm" ],
+      matchUpdateTypes: [ "minor", "patch", "lockFileMaintenance" ],
+      matchDepNames: [ "!/^pnpm$/" ],
+      matchPackageNames: [
         "!@better-auth/cli",
         "!better-auth",
         "!eslint",
         "!eslint-*",
-        "!typescript-eslint"
+        "!typescript-eslint",
       ],
-      "schedule": [
-        "* 4-12 * * 5"
-      ]
+      schedule: [
+        "* 4-12 * * 5",
+      ],
     },
     {
-      "groupName": "better-auths",
-      "matchDatasources": [ "npm" ],
-      "matchPackageNames": [
+      groupName: "better-auths",
+      matchDatasources: [ "npm" ],
+      matchPackageNames: [
         "@better-auth/cli",
-        "better-auth"
+        "better-auth",
       ],
-      "schedule": [
-        "* 4-12 * * *"
-      ]
+      schedule: [
+        "* 4-12 * * *",
+      ],
     },
     {
-      "groupName": "linters",
-      "matchDatasources": [ "npm" ],
-      "matchPackageNames": [
+      groupName: "linters",
+      matchDatasources: [ "npm" ],
+      matchPackageNames: [
         "@phanect/lint",
         "@phanect/lint-*",
         "eslint",
         "eslint-*",
-        "typescript-eslint"
+        "typescript-eslint",
       ],
-      "schedule": [
-        "* 4-12 * * 5"
+      schedule: [
+        "* 4-12 * * 5",
       ],
-      "prPriority": -1
+      prPriority: -1,
     },
     {
-      "groupName": "github-actions",
-      "matchDatasources": [
+      groupName: "github-actions",
+      matchDatasources: [
         "github-tags",
-        "github-runners"
+        "github-runners",
       ],
-      "schedule": [
-        "* 4-12 * * 5"
-      ]
-    }
-  ]
+      schedule: [
+        "* 4-12 * * 5",
+      ],
+    },
+  ],
 }
