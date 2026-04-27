@@ -40,7 +40,7 @@ node = "24"
     "release:readme",
     "build",
   ]
-  run = "lerna publish from-package --yes"
+  run = "pnpm --recursive publish --provenance --access=public"
 
 [hooks]
 postinstall = [
