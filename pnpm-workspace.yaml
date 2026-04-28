@@ -8,3 +8,6 @@ onlyBuiltDependencies:
   - sharp
   - unrs-resolver
   - workerd
+
+# Required to publish from tag on GitHub Actions
+gitChecks: false
