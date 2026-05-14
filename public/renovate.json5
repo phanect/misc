@@ -4,11 +4,16 @@
   extends: [
     "config:recommended",
   ],
+
+  timezone: "Asia/Tokyo",
+
   skipArtifactsUpdate: false,
   ignoreScripts: true,
   lockFileMaintenance: {
     enabled: true,
-    schedule: [ "before 11pm on thursday" ],
+    schedule: [
+      "17 9 1 * *",
+    ],
   },
   labels: [ "deps" ],
   assignees: [ "phanect" ],
@@ -17,7 +22,7 @@
     groupName: "security",
     labels: [ "security" ],
     schedule: [
-      "* 4-12 * * *",
+      "12 9 * * *",
     ],
     commitMessageSuffix: "[SECURITY]",
     vulnerabilityFixStrategy: "lowest",
@@ -30,7 +35,7 @@
       matchPackageNames: [ "@types/node" ],
       allowedVersions: "<{{add major 1}}",
       schedule: [
-        "* 4-12 * * 5",
+        "17 9 1 * *",
       ],
     },
     {
@@ -38,7 +43,7 @@
       matchPackageNames: [ "postgres" ],
       allowedVersions: "<{{add major 1}}",
       schedule: [
-        "* 4-12 * * 5",
+        "17 9 1 * *",
       ],
     },
     // Grouping
@@ -55,7 +60,7 @@
         "!typescript-eslint",
       ],
       schedule: [
-        "* 4-12 * * 5",
+        "17 9 1 * *",
       ],
     },
     {
@@ -66,7 +71,7 @@
         "better-auth",
       ],
       schedule: [
-        "* 4-12 * * *",
+        "17 9 * * 5",
       ],
     },
     {
@@ -80,7 +85,7 @@
         "typescript-eslint",
       ],
       schedule: [
-        "* 4-12 * * 5",
+        "17 9 1 * *",
       ],
       prPriority: -1,
     },
@@ -91,7 +96,7 @@
         "github-runners",
       ],
       schedule: [
-        "* 4-12 * * 5",
+        "17 9 * * 5",
       ],
     },
   ],
