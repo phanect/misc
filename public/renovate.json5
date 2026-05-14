@@ -21,9 +21,6 @@
   vulnerabilityAlerts: {
     groupName: "security",
     labels: [ "security" ],
-    schedule: [
-      "12 9 * * *",
-    ],
     commitMessageSuffix: "[SECURITY]",
     vulnerabilityFixStrategy: "lowest",
   },
