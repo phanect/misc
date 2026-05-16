@@ -12,7 +12,7 @@
   lockFileMaintenance: {
     enabled: true,
     schedule: [
-      "17 9 1 * *",
+      "* 9 1 * *",
     ],
   },
   labels: [ "deps" ],
@@ -32,7 +32,7 @@
       matchPackageNames: [ "@types/node" ],
       allowedVersions: "<{{add major 1}}",
       schedule: [
-        "17 9 1 * *",
+        "* 9 1 * *",
       ],
     },
     {
@@ -40,7 +40,7 @@
       matchPackageNames: [ "postgres" ],
       allowedVersions: "<{{add major 1}}",
       schedule: [
-        "17 9 1 * *",
+        "* 9 1 * *",
       ],
     },
     // Grouping
@@ -57,7 +57,7 @@
         "!typescript-eslint",
       ],
       schedule: [
-        "17 9 1 * *",
+        "* 9 1 * *",
       ],
     },
     {
@@ -68,7 +68,7 @@
         "better-auth",
       ],
       schedule: [
-        "17 9 * * 5",
+        "* 9 * * 5",
       ],
     },
     {
@@ -82,7 +82,7 @@
         "typescript-eslint",
       ],
       schedule: [
-        "17 9 1 * *",
+        "* 9 1 * *",
       ],
       prPriority: -1,
     },
@@ -93,7 +93,7 @@
         "github-runners",
       ],
       schedule: [
-        "17 9 * * 5",
+        "* 9 * * 5",
       ],
     },
   ],
