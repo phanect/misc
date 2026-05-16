@@ -48,7 +48,7 @@
     "@phanect/configs": "workspace:*",
     "@types/node": "^24.3.0",
     "eslint": "^10.0.2",
-    "tsdown": "0.21.10",
+    "tsdown": "0.22.0",
     "typescript": "^6.0.2",
     "vitest": "^4.0.4"
   },
