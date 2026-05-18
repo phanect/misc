@@ -1,5 +1,5 @@
 [tools]
-node = "24"
+node = { version = "{{ env['NODE_VERSION'] | default(value='lts') }}" }
 
 [tasks]
   [tasks.build]
