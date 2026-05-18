@@ -28,10 +28,6 @@
       "default": "./dist/tsdown.mjs"
     }
   },
-  "scripts": {
-    "build": "jiti ./scripts/build-prep.ts && tsdown",
-    "lint": "tsc --noEmit && : configs"
-  },
   "devDependencies": {
     "@types/node": "^24.3.0",
     "jiti": "^2.5.1",

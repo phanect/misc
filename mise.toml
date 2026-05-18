@@ -3,25 +3,25 @@ node = { version = "{{ env['NODE_VERSION'] | default(value='lts') }}" }
 
 [tasks]
   [tasks.build]
-  run = "pnpm --recursive --stream --if-present run build"
+  run = [{ task = "//projects/...:build" }]
 
   [tasks.lint]
   depends = [ "build" ]
   run = [
     "tsc --noEmit",
     "eslint",
-    "pnpm --recursive --stream --if-present run lint"
+    { task = "//projects/...:lint" },
   ]
 
   [tasks.fix]
   depends = [ "build" ]
   run = [
     "eslint --fix",
-    "pnpm --recursive --stream --if-present run fix",
+    { task = "//projects/...:fix" },
   ]
 
   [tasks.test]
-  run = "pnpm  --recursive --stream --if-present run test"
+  run = [{ task = "//projects/...:test" }]
 
   [tasks.clean]
   run = "git clean -dX --exclude=\"!mise.local.toml\" --force"

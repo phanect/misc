@@ -1,0 +1,14 @@
+[tasks]
+  [tasks.build]
+  wait_for = "//projects/configs:build"
+  run = "tsdown"
+
+  [tasks.lint]
+  wait_for = "//projects/configs:build"
+  run = "tsc --noEmit"
+
+  [tasks.test]
+  run = "vitest run"
+
+[env]
+_.path = "./node_modules/.bin"

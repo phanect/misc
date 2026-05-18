@@ -17,10 +17,6 @@
   "main": "./dist/svelte.mjs",
   "module": "./dist/svelte.mjs",
   "types": "./dist/svelte.d.mts",
-  "scripts": {
-    "build": "tsdown",
-    "lint": "tsc --noEmit && : lint-svelte"
-  },
   "dependencies": {
     "@typescript-eslint/parser": "^8.24.1",
     "eslint-plugin-svelte": "^3.0.2",
