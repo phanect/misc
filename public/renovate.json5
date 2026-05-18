@@ -23,6 +23,9 @@
     labels: [ "security" ],
     commitMessageSuffix: "[SECURITY]",
     vulnerabilityFixStrategy: "lowest",
+    schedule: [
+      "* 4 * * *",
+    ],
   },
 
   packageRules: [
