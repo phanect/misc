@@ -1,3 +1,8 @@
+experimental_monorepo_root = true
+
+[monorepo]
+config_roots = [ "projects/*" ]
+
 [tools]
 node = { version = "{{ env['NODE_VERSION'] | default(value='lts') }}" }
 
