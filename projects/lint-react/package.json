@@ -17,10 +17,6 @@
   "main": "./dist/react.mjs",
   "module": "./dist/react.mjs",
   "types": "./dist/react.d.mts",
-  "scripts": {
-    "build": "tsdown",
-    "lint": "tsc --noEmit && : lint-react"
-  },
   "dependencies": {
     "@next/eslint-plugin-next": "^16.0.0",
     "eslint-plugin-jsx-a11y": "^6.10.0",

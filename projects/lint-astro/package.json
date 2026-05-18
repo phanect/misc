@@ -17,10 +17,6 @@
   "main": "./dist/astro.mjs",
   "module": "./dist/astro.mjs",
   "types": "./dist/astro.d.mts",
-  "scripts": {
-    "build": "tsdown",
-    "lint": "tsc --noEmit && : lint-astro"
-  },
   "dependencies": {
     "eslint-plugin-astro": "^1.2.4",
     "eslint-plugin-jsx-a11y": "^6.10.0",
