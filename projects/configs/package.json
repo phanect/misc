@@ -41,7 +41,7 @@
   "peerDependencies": {
     "@types/node": "20.x || 22.x || >=24.x",
     "tsdown": "0.22.0",
-    "typescript": ">=5.x"
+    "typescript": "^6.0.2"
   },
   "peerDependenciesMeta": {
     "tsdown": {
