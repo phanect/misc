@@ -1,0 +1,95 @@
+{
+  "line_ending": "enforce_lf",
+
+  "languages": {
+    "JavaScript": {
+      "formatter": "none",
+      "format_on_save": "on",
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "TypeScript": {
+      "formatter": "none",
+      "format_on_save": "on",
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "TSX": {
+      "formatter": "none",
+      "format_on_save": "on",
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      },
+      "prettier": {
+        "allowed": false
+      }
+    },
+    "JSON": {
+      "language_servers": [
+        "json-language-server",
+        "eslint"
+      ],
+      "formatter": "none",
+      "format_on_save": "on",
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "JSONC": {
+      "language_servers": [
+        "json-language-server",
+        "eslint"
+      ],
+      "formatter": "none",
+      "format_on_save": "on",
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "JSON5": {
+      "language_servers": [
+        "json-language-server",
+        "eslint"
+      ],
+      "formatter": "none",
+      "format_on_save": "on",
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "TOML": {
+      "formatter": "none",
+      "format_on_save": "off"
+    }
+  },
+  "lsp": {
+    "eslint": {
+      "settings": {
+        "codeActionOnSave": {
+          "rules": [
+            "import/order",
+            "jsonc/array-bracket-spacing",
+            "jsonc/comma-dangle",
+            "jsonc/indent",
+            "@stylistic/array-bracket-spacing",
+            "@stylistic/arrow-parens",
+            "@stylistic/arrow-spacing",
+            "@stylistic/comma-dangle",
+            "@stylistic/indent",
+            "@stylistic/quotes",
+            "@stylistic/semi",
+            "@stylistic/space-before-blocks",
+            "@stylistic/space-before-function-paren",
+            "@stylistic/space-in-parens",
+            "@stylistic/template-curly-spacing"
+          ]
+        }
+      }
+    }
+  },
+  "prettier": {
+    "allowed": false
+  }
+}
