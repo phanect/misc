@@ -22,9 +22,9 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - 20
           - 22
           - 24
+          - 26
     env:
       # Override Node.js version over mise.toml
       MISE_NODE_VERSION: ${{ matrix.node-version }}
