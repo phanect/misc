@@ -28,10 +28,6 @@
     "lib": [ "esnext" ],
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
-    "types": [
-      // added in tsconfig.default.json for *.config.ts files and mise tasks
-      "node"
-    ],
 
     // Error message format
     "noErrorTruncation": true,

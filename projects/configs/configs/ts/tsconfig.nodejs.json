@@ -2,6 +2,11 @@
   "extends": "./tsconfig.default.json",
   "compilerOptions": {
     "module": "nodenext",
-    "moduleResolution": "nodenext"
+    "moduleResolution": "nodenext",
+    // Only apply `@types/node` in `@phanect/configs/ts/nodejs` because
+    // `process.env.*` should be raised as an error in Cloudflare Workers project for instance.
+    "types": [
+      "node"
+    ]
   }
 }
