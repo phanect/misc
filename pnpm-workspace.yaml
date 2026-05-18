@@ -2,12 +2,11 @@ packages:
   - projects/*
   - examples/*
 
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - esbuild
-  - sharp
-  - unrs-resolver
-  - workerd
-
 # Required to publish from tag on GitHub Actions
 gitChecks: false
+
+allowBuilds:
+  esbuild: true
+  sharp: true
+  unrs-resolver: true
+  workerd: true
