@@ -55,7 +55,7 @@
         "better-auth",
       ],
       schedule: [
-        "* 9 * * 5",
+        "* 9 * * *", // Everyday at 9:00
       ],
     },
     {
