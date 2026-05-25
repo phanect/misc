@@ -48,22 +48,6 @@
     },
     // Grouping
     {
-      groupName: "npm-minor",
-      matchDatasources: [ "npm" ],
-      matchUpdateTypes: [ "minor", "patch", "lockFileMaintenance" ],
-      matchDepNames: [ "!/^pnpm$/" ],
-      matchPackageNames: [
-        "!@better-auth/cli",
-        "!better-auth",
-        "!eslint",
-        "!eslint-*",
-        "!typescript-eslint",
-      ],
-      schedule: [
-        "* 9 1 * *",
-      ],
-    },
-    {
       groupName: "better-auths",
       matchDatasources: [ "npm" ],
       matchPackageNames: [
