@@ -24,7 +24,7 @@
     commitMessageSuffix: "[SECURITY]",
     vulnerabilityFixStrategy: "lowest",
     schedule: [
-      "* 4 * * *",
+      "* 9 * * *", // Everyday at 9:00
     ],
   },
 
