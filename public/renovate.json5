@@ -9,16 +9,10 @@
 
   skipArtifactsUpdate: false,
   ignoreScripts: true,
-  lockFileMaintenance: {
-    enabled: true,
-    schedule: [
-      "* 9 * * MON", // At 9:00 on every Monday
-    ],
-    prPriority: 50,
-  },
   labels: [ "deps" ],
   assignees: [ "phanect" ],
   ignoreDeps: [ "pnpm" ],
+
   vulnerabilityAlerts: {
     groupName: "security",
     labels: [ "security" ],
@@ -29,8 +23,27 @@
     ],
     prPriority: 100,
   },
+  lockFileMaintenance: {
+    enabled: true,
+    schedule: [
+      "* 9 * * MON", // At 9:00 on every Monday
+    ],
+    prPriority: 50,
+  },
 
   packageRules: [
+    {
+      groupName: "better-auths",
+      matchDatasources: [ "npm" ],
+      matchPackageNames: [
+        "@better-auth/cli",
+        "better-auth",
+      ],
+      schedule: [
+        "* 9 * * *", // Everyday at 9:00
+      ],
+      prPriority: 90,
+    },
     // surpress major update
     {
       matchDatasources: [ "npm" ],
@@ -52,16 +65,15 @@
     },
     // Grouping
     {
-      groupName: "better-auths",
-      matchDatasources: [ "npm" ],
-      matchPackageNames: [
-        "@better-auth/cli",
-        "better-auth",
+      groupName: "github-actions",
+      matchDatasources: [
+        "github-tags",
+        "github-runners",
       ],
       schedule: [
-        "* 9 * * *", // Everyday at 9:00
+        "* 9 * * MON", // At 9:00 on every Monday
       ],
-      prPriority: 90,
+      prPriority: 50,
     },
     {
       groupName: "linters",
@@ -77,17 +89,6 @@
         "* 9 * * MON", // At 9:00 on every Monday
       ],
       prPriority: -1,
-    },
-    {
-      groupName: "github-actions",
-      matchDatasources: [
-        "github-tags",
-        "github-runners",
-      ],
-      schedule: [
-        "* 9 * * MON", // At 9:00 on every Monday
-      ],
-      prPriority: 50,
     },
   ],
 }
