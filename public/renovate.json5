@@ -13,13 +13,8 @@
   ignoreDeps: [ "pnpm" ],
 
   vulnerabilityAlerts: {
-    groupName: "security",
     labels: [ "security" ],
-    commitMessageSuffix: "[SECURITY]",
     vulnerabilityFixStrategy: "lowest",
-    schedule: [
-      "* 9 * * *", // Everyday at 9:00
-    ],
     prPriority: 100,
   },
 
