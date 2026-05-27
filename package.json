@@ -17,7 +17,7 @@
   "devDependencies": {
     "@phanect/configs": "workspace:*",
     "@phanect/lint": "workspace:*",
-    "@phanect/utils": "^3.0.0",
+    "@phanect/utils": "^4.0.0",
     "@types/eslint-plugin-jsx-a11y": "^6.9.0",
     "@types/node": "^24.3.0",
     "eslint": "^10.0.2",
