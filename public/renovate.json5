@@ -10,7 +10,6 @@
   skipArtifactsUpdate: false,
   ignoreScripts: true,
   labels: [ "deps" ],
-  assignees: [ "phanect" ],
   ignoreDeps: [ "pnpm" ],
 
   vulnerabilityAlerts: {
