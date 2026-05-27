@@ -33,7 +33,7 @@
 
   packageRules: [
     {
-      groupName: "better-auths",
+      groupName: "BetterAuth",
       matchDatasources: [ "npm" ],
       matchPackageNames: [
         "@better-auth/cli",
@@ -65,7 +65,7 @@
     },
     // Grouping
     {
-      groupName: "github-actions",
+      groupName: "Github Actions",
       matchDatasources: [
         "github-tags",
         "github-runners",
