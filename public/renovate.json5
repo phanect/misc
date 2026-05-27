@@ -22,13 +22,6 @@
     ],
     prPriority: 100,
   },
-  lockFileMaintenance: {
-    enabled: true,
-    schedule: [
-      "* 9 * * MON", // At 9:00 on every Monday
-    ],
-    prPriority: 50,
-  },
 
   packageRules: [
     {
@@ -63,6 +56,24 @@
       prPriority: 50,
     },
     // Grouping
+    {
+      groupName: "npm minor updates",
+      matchDatasources: [ "npm" ],
+      matchUpdateTypes: [ "minor", "patch", "lockFileMaintenance" ],
+      matchDepNames: [ "!/^pnpm$/" ],
+      matchPackageNames: [
+        "!@better-auth/cli",
+        "!better-auth",
+        "!eslint",
+        "!eslint-*",
+        "!typescript-eslint",
+      ],
+
+      schedule: [
+        "* 9 * * MON", // At 9:00 on every Monday
+      ],
+      prPriority: 50,
+    },
     {
       groupName: "Github Actions",
       matchDatasources: [
