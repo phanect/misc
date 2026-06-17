@@ -11,6 +11,7 @@
   ignoreScripts: true,
   labels: [ "deps" ],
   ignoreDeps: [ "pnpm" ],
+  minimumReleaseAge: "3 days",
 
   vulnerabilityAlerts: {
     labels: [ "security" ],
