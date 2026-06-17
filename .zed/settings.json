@@ -67,25 +67,7 @@
   "lsp": {
     "eslint": {
       "settings": {
-        "codeActionOnSave": {
-          "rules": [
-            "import/order",
-            "jsonc/array-bracket-spacing",
-            "jsonc/comma-dangle",
-            "jsonc/indent",
-            "@stylistic/array-bracket-spacing",
-            "@stylistic/arrow-parens",
-            "@stylistic/arrow-spacing",
-            "@stylistic/comma-dangle",
-            "@stylistic/indent",
-            "@stylistic/quotes",
-            "@stylistic/semi",
-            "@stylistic/space-before-blocks",
-            "@stylistic/space-before-function-paren",
-            "@stylistic/space-in-parens",
-            "@stylistic/template-curly-spacing"
-          ]
-        }
+        "codeActionOnSave": true
       }
     }
   },
