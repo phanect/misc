@@ -207,7 +207,10 @@ export const commonConfigs: Linter.Config[] = defineConfig([
       }],
       "@stylistic/space-in-parens": [ "warn", "never" ],
       "@stylistic/spaced-comment": [ "warn", "always", {
-        markers: [ "/" ], // docblock-style comments (Comments starting with triple slashes`///`)
+        markers: [
+          "/", // docblock-style comments (Comments starting with triple slashes`///`)
+          "MISE", // parameters in mise tasks
+        ],
       }],
       "@stylistic/switch-colon-spacing": [ "warn", { before: false, after: true }],
       "@stylistic/template-curly-spacing": [ "warn", "always" ],
