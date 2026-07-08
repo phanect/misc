@@ -7,6 +7,9 @@
       "format_on_save": "on",
       "code_actions_on_format": {
         "source.fixAll.eslint": true
+      },
+      "prettier": {
+        "allowed": false
       }
     },
     "TypeScript": {
@@ -14,13 +17,17 @@
       "format_on_save": "on",
       "code_actions_on_format": {
         "source.fixAll.eslint": true
+      },
+      "prettier": {
+        "allowed": false
       }
     },
     "TSX": {
       "formatter": "none",
       "format_on_save": "on",
       "code_actions_on_format": {
-        "source.fixAll.eslint": true
+        "source.fixAll.eslint": true,
+        "source.organizeImports": false
       },
       "prettier": {
         "allowed": false
@@ -35,6 +42,9 @@
       "format_on_save": "on",
       "code_actions_on_format": {
         "source.fixAll.eslint": true
+      },
+      "prettier": {
+        "allowed": false
       }
     },
     "JSONC": {
@@ -46,6 +56,9 @@
       "format_on_save": "on",
       "code_actions_on_format": {
         "source.fixAll.eslint": true
+      },
+      "prettier": {
+        "allowed": false
       }
     },
     "JSON5": {
@@ -57,11 +70,17 @@
       "format_on_save": "on",
       "code_actions_on_format": {
         "source.fixAll.eslint": true
+      },
+      "prettier": {
+        "allowed": false
       }
     },
     "TOML": {
       "formatter": "none",
-      "format_on_save": "off"
+      "format_on_save": "off",
+      "prettier": {
+        "allowed": false
+      }
     }
   },
   "lsp": {
