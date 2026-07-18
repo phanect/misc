@@ -101,7 +101,7 @@
       schedule: [
         "* 9 * * MON", // At 9:00 on every Monday
       ],
-      prPriority: -1,
+      prPriority: 40,
     },
   ],
 }
