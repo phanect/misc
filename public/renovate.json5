@@ -64,13 +64,6 @@
         "rollback",
         "bump",
       ],
-      matchPackageNames: [
-        "!@better-auth/cli",
-        "!better-auth",
-        "!eslint",
-        "!eslint-*",
-        "!typescript-eslint",
-      ],
 
       schedule: [
         "* 9 * * MON", // At 9:00 on every Monday
