@@ -21,7 +21,6 @@
 
   packageRules: [
     {
-      groupName: "BetterAuth",
       matchDatasources: [ "npm" ],
       matchPackageNames: [
         "@better-auth/cli",
