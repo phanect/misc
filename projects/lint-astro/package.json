@@ -18,7 +18,7 @@
   "module": "./dist/astro.mjs",
   "types": "./dist/astro.d.mts",
   "dependencies": {
-    "eslint-plugin-astro": "^1.2.4",
+    "eslint-plugin-astro": "^3.0.0",
     "eslint-plugin-jsx-a11y": "^6.10.0",
     "globals": "^17.0.0"
   },
