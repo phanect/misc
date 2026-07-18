@@ -54,7 +54,16 @@
     {
       groupName: "npm minor updates",
       matchDatasources: [ "npm" ],
-      matchUpdateTypes: [ "minor", "patch", "lockFileMaintenance" ],
+      matchUpdateTypes: [
+        "minor",
+        "patch",
+        "pin",
+        "pinDigest",
+        "digest",
+        "lockFileMaintenance",
+        "rollback",
+        "bump",
+      ],
       matchDepNames: [ "!/^pnpm$/" ],
       matchPackageNames: [
         "!@better-auth/cli",
