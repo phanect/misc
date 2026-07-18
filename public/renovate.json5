@@ -64,7 +64,6 @@
         "rollback",
         "bump",
       ],
-      matchDepNames: [ "!/^pnpm$/" ],
       matchPackageNames: [
         "!@better-auth/cli",
         "!better-auth",
