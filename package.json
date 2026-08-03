@@ -22,7 +22,7 @@
     "@types/node": "^24.3.0",
     "eslint": "^10.0.2",
     "jiti": "^2.5.1",
-    "tsdown": "0.22.7",
+    "tsdown": "0.22.14",
     "type-fest": "^5.0.0",
     "typescript": "^6.0.2",
     "wrangler": "^4.85.0"
