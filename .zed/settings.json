@@ -7,9 +7,6 @@
       "format_on_save": "on",
       "code_actions_on_format": {
         "source.fixAll.eslint": true
-      },
-      "prettier": {
-        "allowed": false
       }
     },
     "TypeScript": {
@@ -17,20 +14,24 @@
       "format_on_save": "on",
       "code_actions_on_format": {
         "source.fixAll.eslint": true
-      },
-      "prettier": {
-        "allowed": false
       }
     },
     "TSX": {
       "formatter": "none",
       "format_on_save": "on",
       "code_actions_on_format": {
-        "source.fixAll.eslint": true,
-        "source.organizeImports": false
-      },
-      "prettier": {
-        "allowed": false
+        "source.fixAll.eslint": true
+      }
+    },
+    "Astro": {
+      "language_servers": [
+        "astro-language-server",
+        "eslint"
+      ],
+      "formatter": "none",
+      "format_on_save": "on",
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
       }
     },
     "JSON": {
@@ -42,9 +43,6 @@
       "format_on_save": "on",
       "code_actions_on_format": {
         "source.fixAll.eslint": true
-      },
-      "prettier": {
-        "allowed": false
       }
     },
     "JSONC": {
@@ -56,9 +54,6 @@
       "format_on_save": "on",
       "code_actions_on_format": {
         "source.fixAll.eslint": true
-      },
-      "prettier": {
-        "allowed": false
       }
     },
     "JSON5": {
@@ -70,23 +65,32 @@
       "format_on_save": "on",
       "code_actions_on_format": {
         "source.fixAll.eslint": true
-      },
-      "prettier": {
-        "allowed": false
       }
     },
     "TOML": {
       "formatter": "none",
-      "format_on_save": "off",
-      "prettier": {
-        "allowed": false
-      }
+      "format_on_save": "off"
     }
   },
   "lsp": {
     "eslint": {
       "settings": {
         "codeActionOnSave": true
+      }
+    },
+    "tailwindcss-language-server": {
+      "settings": {
+        "includeLanguages": {
+          "astro": "html"
+        },
+        "experimental": {
+          "classRegex": [
+            "class=\"([^\"]*)\"",
+            "class='([^']*)'",
+            "class:list=\"{([^}]*)}\"",
+            "class:list='{([^}]*)}'"
+          ]
+        }
       }
     }
   },
