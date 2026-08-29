@@ -1,6 +1,6 @@
 {
   "name": "eslint-fixture-nextjs",
-  "version": "2026.7.9",
+  "version": "2026.8.29",
   "private": true,
   "scripts": {
     "lint": "eslint"
