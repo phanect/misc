@@ -1,6 +1,6 @@
 #:schema https://mise.jdx.dev/schema/mise.json
 
-experimental_monorepo_root = true
+monorepo_root = true
 
 [monorepo]
 config_roots = [ "projects/*" ]
