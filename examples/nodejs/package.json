@@ -1,6 +1,6 @@
 {
   "name": "@phanect/eslint-fixture-nodejs",
-  "version": "2026.7.9",
+  "version": "2026.8.29",
   "private": true,
   "type": "module",
   "scripts": {
