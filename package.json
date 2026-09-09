@@ -24,7 +24,7 @@
     "jiti": "^2.5.1",
     "tsdown": "0.23.0",
     "type-fest": "^5.0.0",
-    "typescript": "^6.0.2",
+    "typescript": "^7.0.0",
     "wrangler": "^4.85.0"
   },
   "engines": {

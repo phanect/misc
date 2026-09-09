@@ -32,7 +32,7 @@
     "@types/node": "^24.3.0",
     "jiti": "^2.5.1",
     "tsdown": "0.23.0",
-    "typescript": "^6.0.2"
+    "typescript": "^7.0.0"
   },
   "peerDependencies": {
     "@types/node": "22.x || 24.x || >=26.x",
